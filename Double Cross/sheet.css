@@ -1,0 +1,110 @@
+/*
+.stat:before {
+    content: '[';
+}
+.stat:after {
+    content: ']';
+}
+.skill:before {
+    content: '<';
+}
+.skill:after {
+    content: '>';
+}
+.power:before {
+    content: '«';
+}
+.power:after {
+    content: '»';
+}
+.calc:before {
+    content: '(';
+}
+.calc:after {
+    content: ')';
+}
+*/
+
+body .charactersheet .grid label {
+    font-weight: bold;
+    font-size: 15px;
+	display: inline-block;
+	width: 100%;
+    height: 25px;
+    line-height: 25px;
+    box-shadow: 0 0 0 1px black;
+    padding: 0 5px;
+    margin: 0;
+    box-sizing: border-box;
+    background: white;
+    color: black;
+    text-align: left;
+    vertical-align: middle;
+}
+body .charactersheet .grid input,
+body .charactersheet .grid select {
+    font-size: 15px;
+	display: inline-block;
+	width: 100%;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 0;
+    box-shadow: 0 0 0 1px black;
+    padding: 0 5px;
+    margin: 0;
+    box-sizing: border-box;
+    background: white;
+    color: black;
+    line-height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    outline: none;
+    overflow: hidden;
+}
+
+/* grid stuff */
+.charactersheet .grid,
+.charactersheet .grid ~ .repcontainer .repitem,
+.charactersheet .hgrid {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 10px;
+}
+.charactersheet .nogap,
+.charactersheet .nogap .repcontainer .repitem {
+    gap: 1px;
+    grid-template-rows: 25px auto;
+}
+.charactersheet .nogap .repcontainer {
+    gap: 0;
+    grid-template-rows: 25px auto;
+}
+.charactersheet .nogap.borderless,
+.charactersheet .nogap.borderless .repcontainer .repitem {
+    gap: 0;
+}
+.col2,
+.col2 ~ .repcontainer .repitem {
+    grid-template-columns: repeat(2, 1fr);
+}
+.stats > .col2,
+.stats .col2 ~ .repcontainer .repitem {
+    grid-template-columns: 5fr 1fr;
+}
+.col3-info {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.col4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+.span2,
+.span2 ~ .repcontainer {
+    grid-column: span 2;
+}
+.hgrid {
+    grid-auto-flow: column;
+    row-gap: 0;
+    grid-template-rows: repeat(2, 1fr);
+}
