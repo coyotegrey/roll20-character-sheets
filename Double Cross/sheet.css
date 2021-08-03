@@ -36,7 +36,7 @@
     width: 100%;
     height: 50px;
     padding: 0;
-    margin: 0 0 0 10px;
+    margin: 0;
     text-indent: -9999px;
 }
 
@@ -95,6 +95,8 @@ body .charactersheet .grid .input {
 }
 body .charactersheet .grid input[type=number] {
     width: 100%;
+    padding: 0 0 0 5px;
+    text-align: right;
 }
 body .charactersheet .grid input[type=checkbox],
 body .charactersheet .grid input[type=radio] {
@@ -126,7 +128,7 @@ body .charactersheet .grid .input > * {
 }
 .stats > .col2,
 .stats .col2 ~ .repcontainer .repitem {
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 4fr 1fr;
 }
 .repeating_lois ~ .repcontainer .repitem .col2 {
     grid-template-columns: 1fr 5fr;
@@ -149,7 +151,8 @@ body .charactersheet .grid .input > * {
     grid-template-columns: repeat(6, 3fr 1fr);
 }
 .span2,
-.span2 ~ .repcontainer {
+.span2 ~ .repcontainer,
+.stats .col2 ~ .repcontainer ~ .repcontrol {
     grid-column: span 2;
 }
 .hgrid {

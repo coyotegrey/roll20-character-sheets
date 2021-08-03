@@ -4,6 +4,8 @@
             <h1>Double Cross</h1>
         </div>
 
+        <button type="action" name="act_test">Click me</button>
+
         <div class="grid col3-info borderless">
             <div class="hgrid nogap">
                 <label>Name</label>
@@ -143,7 +145,7 @@
 
         <h2>Stats</h2>
 
-        <div class="grid col4 nogap stats">
+        <div class="grid col4 stats">
             <div class="grid col2 nogap">
                 <label class="stat">Body</label>
                 <input class="stat" type="number" name="attr_body" value="" />
@@ -154,11 +156,9 @@
                 <label>Dodge</label>
                 <input type="number" name="attr_dodge" value="" />
 
+                <label class="span2">Ride</label>
                 <fieldset class="repeating_ride grid span2 col2 nogap">
-                    <div class="grid col2 nogap">
-                        <label>Ride</label>
-                        <input type="text" name="attr_ridename" value="" />
-                    </div>
+                    <input type="text" name="attr_ridename" value="" />
                     <input type="number" name="attr_ridevalue" value="" />
                 </fieldset>
             </div>
@@ -268,3 +268,47 @@
         </div>
     </div>
 </div>
+
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+        <h1>{{name}}</h1>
+        <div class="sheet-results">
+            <h4>Result = {{roll1}}</h4>
+            <h4>Custom Result = {{computed::roll1}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
+<script type="text/worker">
+    on('clicked:test', (info) => {
+        startRoll('&{template:test} {{name=Test}} {{cv=?{Critical value|10}}} '
+            +'{{roll1=[[10d10!>[[?{Critical value}]]]]}}', (results) => {
+            const dice = results.results.roll1.dice;
+            const expression = results.results.roll1.expression;
+            const cv = expression.slice(
+                expression.indexOf('<'),
+                expression.length);
+            let high = 0;
+            let crit = 0;
+            for (const die of dice) {
+                tempdie = die;
+                if (tempdie >= cv) {
+                    crit += 10;
+                } else {
+                    if (crit > 0) {
+                        tempdie += crit;
+                        crit = 0;
+                    }
+                    high = tempdie > high ? tempdie : high;
+                }
+            }
+
+            finishRoll(
+                results.rollId,
+                {
+                    roll1: high,
+                }
+            );
+        });
+    });
+</script>
