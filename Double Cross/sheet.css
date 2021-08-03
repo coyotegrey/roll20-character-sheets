@@ -25,21 +25,37 @@
 }
 */
 
+.logo {
+    background: black;
+    box-shadow: 0 0 0 1px black;
+}
+.charactersheet .logo h1 {
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/logo.png')
+        left top / contain no-repeat content-box;
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0 0 0 10px;
+    text-indent: -9999px;
+}
+
 body .charactersheet .grid label {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
 	display: inline-block;
 	width: 100%;
     height: 25px;
     line-height: 25px;
-    box-shadow: 0 0 0 1px black;
     padding: 0 5px;
     margin: 0;
     box-sizing: border-box;
+    box-shadow: 0 0 0 1px black;
     background: white;
     color: black;
     text-align: left;
     vertical-align: middle;
+    overflow: hidden;
 }
 body .charactersheet .grid input,
 body .charactersheet .grid select {
@@ -49,10 +65,10 @@ body .charactersheet .grid select {
     height: 25px;
     border: 1px solid white;
     border-radius: 0;
-    box-shadow: 0 0 0 1px black;
-    padding: 0 5px;
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    box-shadow: 0 0 0 1px black;
     background: white;
     color: black;
     line-height: 25px;
@@ -60,6 +76,33 @@ body .charactersheet .grid select {
     vertical-align: middle;
     outline: none;
     overflow: hidden;
+}
+body .charactersheet .grid input {
+    padding: 0 5px;
+}
+body .charactersheet .grid .input {
+    font-size: 15px;
+	width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px black;
+    background: white;
+    color: black;
+    line-height: 25px;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+}
+body .charactersheet .grid input[type=number] {
+    width: 100%;
+}
+body .charactersheet .grid input[type=checkbox],
+body .charactersheet .grid input[type=radio] {
+    margin-top: 5px;
+    height: 15px;
+}
+body .charactersheet .grid .input > * {
+    box-shadow: none;
 }
 
 /* grid stuff */
@@ -73,16 +116,8 @@ body .charactersheet .grid select {
     gap: 10px;
 }
 .charactersheet .nogap,
+.charactersheet .nogap .repcontainer,
 .charactersheet .nogap .repcontainer .repitem {
-    gap: 1px;
-    grid-template-rows: 25px auto;
-}
-.charactersheet .nogap .repcontainer {
-    gap: 0;
-    grid-template-rows: 25px auto;
-}
-.charactersheet .nogap.borderless,
-.charactersheet .nogap.borderless .repcontainer .repitem {
     gap: 0;
 }
 .col2,
@@ -93,11 +128,25 @@ body .charactersheet .grid select {
 .stats .col2 ~ .repcontainer .repitem {
     grid-template-columns: 5fr 1fr;
 }
+.repeating_lois ~ .repcontainer .repitem .col2 {
+    grid-template-columns: 1fr 5fr;
+}
 .col3-info {
     grid-template-columns: 1fr 2fr 1fr;
 }
 .col4 {
     grid-template-columns: repeat(4, 1fr);
+}
+.col5,
+.col5 ~ .repcontainer .repitem {
+    grid-template-columns: repeat(5, 1fr);
+}
+.lois > .col5,
+.lois .col5 ~ .repcontainer .repitem {
+    grid-template-columns: 3fr 3fr 3fr 3fr 1fr;
+}
+.col12.derived {
+    grid-template-columns: repeat(6, 3fr 1fr);
 }
 .span2,
 .span2 ~ .repcontainer {

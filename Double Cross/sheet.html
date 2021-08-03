@@ -1,6 +1,10 @@
 <div class="interface">
-    <div class="grid col1 character">
-        <div class="grid col3-info">
+    <div class="grid col1 character borderless">
+        <div class="logo">
+            <h1>Double Cross</h1>
+        </div>
+
+        <div class="grid col3-info borderless">
             <div class="hgrid nogap">
                 <label>Name</label>
                 <input type="text" name="attr_character_name" value="" />
@@ -139,82 +143,128 @@
 
         <h2>Stats</h2>
 
-        <div class="grid col4 nogap borderless stats">
+        <div class="grid col4 nogap stats">
             <div class="grid col2 nogap">
                 <label class="stat">Body</label>
-                <input class="stat" type="text" name="attr_body" value="" />
+                <input class="stat" type="number" name="attr_body" value="" />
 
                 <label>Melee</label>
-                <input type="text" name="attr_melee" value="" />
+                <input type="number" name="attr_melee" value="" />
 
                 <label>Dodge</label>
-                <input type="text" name="attr_dodge" value="" />
+                <input type="number" name="attr_dodge" value="" />
 
                 <fieldset class="repeating_ride grid span2 col2 nogap">
                     <div class="grid col2 nogap">
                         <label>Ride</label>
                         <input type="text" name="attr_ridename" value="" />
                     </div>
-                    <input type="text" name="attr_ridevalue" value="" />
+                    <input type="number" name="attr_ridevalue" value="" />
                 </fieldset>
             </div>
 
             <div class="grid col2 nogap">
                 <label class="stat">Sense</label>
-                <input class="stat" type="text" name="attr_sense" value="" />
+                <input class="stat" type="number" name="attr_sense" value="" />
 
                 <label>Ranged</label>
-                <input type="text" name="attr_ranged" value="" />
+                <input type="number" name="attr_ranged" value="" />
 
                 <label>Perception</label>
-                <input type="text" name="attr_perception" value="" />
+                <input type="number" name="attr_perception" value="" />
 
                 <fieldset class="repeating_art grid span2 col2 nogap">
                     <div class="grid col2 nogap">
                         <label>Art</label>
                         <input type="text" name="attr_artname" value="" />
                     </div>
-                    <input type="text" name="attr_artvalue" value="" />
+                    <input type="number" name="attr_artvalue" value="" />
                 </fieldset>
             </div>
 
             <div class="grid col2 nogap">
                 <label class="stat">Mind</label>
-                <input class="stat" type="text" name="attr_mind" value="" />
+                <input class="stat" type="number" name="attr_mind" value="" />
 
-                <label>RC</label>
-                <input type="text" name="attr_rc" value="" />
+                <label>Renegade Control</label>
+                <input type="number" name="attr_rc" value="" />
 
                 <label>Will</label>
-                <input type="text" name="attr_will" value="" />
+                <input type="number" name="attr_will" value="" />
 
                 <fieldset class="repeating_knowledge grid span2 col2 nogap">
                     <div class="grid col2 nogap">
                         <label>Knowledge</label>
                         <input type="text" name="attr_knowledgename" value="" />
                     </div>
-                    <input type="text" name="attr_knowledgevalue" value="" />
+                    <input type="number" name="attr_knowledgevalue" value="" />
                 </fieldset>
             </div>
 
             <div class="grid col2 nogap">
                 <label class="stat">Social</label>
-                <input class="stat" type="text" name="attr_social" value="" />
+                <input class="stat" type="number" name="attr_social" value="" />
 
                 <label>Negotiation</label>
-                <input type="text" name="attr_negotiation" value="" />
+                <input type="number" name="attr_negotiation" value="" />
 
                 <label>Procure</label>
-                <input type="text" name="attr_procure" value="" />
+                <input type="number" name="attr_procure" value="" />
 
                 <fieldset class="repeating_info grid span2 col2 nogap">
                     <div class="grid col2 nogap">
                         <label>Info</label>
                         <input type="text" name="attr_infoname" value="" />
                     </div>
-                    <input type="text" name="attr_infovalue" value="" />
+                    <input type="number" name="attr_infovalue" value="" />
                 </fieldset>
             </div>
+        </div>
+
+        <div class="grid col12 nogap derived">
+            <label>Max Hit Points</label>
+            <input type="number" name="attr_hp_max" value="" />
+
+            <label>Stock Points</label>
+            <input type="number" name="attr_stock" value="" />
+
+            <label>Savings</label>
+            <input type="number" name="attr_savings" value="" />
+
+            <label>Initiative</label>
+            <input type="number" name="attr_initiative" value="" />
+
+            <label>Move</label>
+            <input type="number" name="attr_move" value="" />
+
+            <label>Dash</label>
+            <input type="number" name="attr_dash" value="" />
+        </div>
+
+        <h2>Lois</h2>
+        <div class="grid col1 nogap lois">
+            <div class="grid col5 nogap">
+                <label class="header">Relationship</label>
+                <label class="header">Name</label>
+                <label class="header">Positive Emotion</label>
+                <label class="header">Negative Emotion</label>
+                <label class="header">Titus</label>
+            </div>
+            <fieldset class="repeating_lois grid col5 nogap">
+                <input type="text" name="attr_loisrelationship" value="" />
+                <input type="text" name="attr_loisname" value="" />
+                <div class="grid col2 nogap input">
+                    <input type="radio" name="attr_loismain" value="positive" />
+                    <input type="text" name="attr_loispositive" value="" />
+                </div>
+                <div class="grid col2 nogap input">
+                    <input type="radio" name="attr_loismain" value="negative" />
+                    <input type="text" name="attr_loisnegative" value="" />
+                </div>
+                <div class="grid col1 nogap input">
+                    <input type="checkbox" name="attr_loistitus" value="1" />
+                </div>
+            </fieldset>
         </div>
     </div>
 </div>
