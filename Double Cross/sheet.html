@@ -1,15 +1,75 @@
-<div class="interface">
-    <div class="grid col1 character borderless">
-        <div class="logo">
-            <h1>Double Cross</h1>
+<input type="hidden" class="tabstoggle" name="attr_tab" value="csheet"  />
+
+<div class="interface grid col1">
+    <div class="logo">
+        <h1>Double Cross</h1>
+        <div class="tabs">
+            <button type="action" class="tab-csheet" name="act_csheet">Character</button>
+            <button type="action" class="tab-powers" name="act_powers">Powers</button>
+            <button type="action" class="tab-items" name="act_items">Items</button>
+            <button type="action" class="tab-config" name="act_settings">Settings</button>
         </div>
+    </div>
 
-        <button type="action" name="act_test">Click me</button>
+    <!-- <button type="action" name="act_test">Click me</button> -->
 
-        <div class="grid col3-info borderless">
+    <!-- character -->
+    <div class="grid col1 csheet tab-panel">
+        <div class="grid col2-codename">
             <div class="hgrid nogap">
                 <label>Name</label>
                 <input type="text" name="attr_character_name" value="" />
+            </div>
+
+            <div class="hgrid col6 nogap">
+                <label>Age</label>
+                <input type="text" name="attr_age" value="" />
+
+                <label>Gender</label>
+                <input type="text" name="attr_gender" value="" />
+
+                <label>Zodiac</label>
+                <select name="attr_zodiac">
+                    <option value="">Choose</option>
+                    <option value="aries">Aries</option>
+                    <option value="taurus">Taurus</option>
+                    <option value="gemini">Gemini</option>
+                    <option value="cancer">Cancer</option>
+                    <option value="leo">Leo</option>
+                    <option value="virgo">Virgo</option>
+                    <option value="libra">Libra</option>
+                    <option value="scorpio">Scorpio</option>
+                    <option value="sagittarius">Sagittarius</option>
+                    <option value="capricorn">Capricorn</option>
+                    <option value="aquarius">Aquarius</option>
+                    <option value="pisces">Pisces</option>
+                </select>
+
+                <label>Height</label>
+                <input type="text" name="attr_height" value="" />
+
+                <label>Weight</label>
+                <input type="text" name="attr_weight" value="" />
+
+                <label>Blood Type</label>
+                <select name="attr_btype">
+                    <option value="">Choose</option>
+                    <option value="a+">A+</option>
+                    <option value="a-">A-</option>
+                    <option value="b+">B+</option>
+                    <option value="b-">B-</option>
+                    <option value="ab+">AB+</option>
+                    <option value="ab-">AB-</option>
+                    <option value="o+">O+</option>
+                    <option value="o-">O-</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid col2-codename">
+            <div class="hgrid nogap">
+                <label>Codename</label>
+                <input type="text" name="attr_codename" value="" />
             </div>
 
             <div class="hgrid col4 nogap">
@@ -21,62 +81,64 @@
                     <option value="tri">Tri</option>
                 </select>
 
-                <label>Syndrome</label>
+                <label>Syndromes</label>
                 <select name="attr_character_syndrome1">
                     <option value="">Choose</option>
-                    <option value="pure">Angel Halo</option>
-                    <option value="cross">Balor</option>
-                    <option value="tri">Black Dog</option>
-                    <option value="tri">Bram Stoker</option>
-                    <option value="tri">Chimera</option>
-                    <option value="tri">Exile</option>
-                    <option value="tri">Hanuman</option>
-                    <option value="tri">Morpheus</option>
-                    <option value="tri">Neumann</option>
-                    <option value="tri">Orcus</option>
-                    <option value="tri">Ouroboros</option>
-                    <option value="tri">Salamandra</option>
-                    <option value="tri">Solaris</option>
+                    <option value="angel_halo">Angel Halo</option>
+                    <option value="balor">Balor</option>
+                    <option value="black_dog">Black Dog</option>
+                    <option value="bram_Stoker">Bram Stoker</option>
+                    <option value="chimera">Chimera</option>
+                    <option value="exile">Exile</option>
+                    <option value="hanuman">Hanuman</option>
+                    <option value="morpheus">Morpheus</option>
+                    <option value="neumann">Neumann</option>
+                    <option value="orcus">Orcus</option>
+                    <option value="ouroboros">Ouroboros</option>
+                    <option value="salamandra">Salamandra</option>
+                    <option value="solaris">Solaris</option>
                 </select>
 
-                <label>Second Syndrome</label>
+                <label></label>
                 <select name="attr_character_syndrome2">
                     <option value="">Choose</option>
-                    <option value="pure">Angel Halo</option>
-                    <option value="cross">Balor</option>
-                    <option value="tri">Black Dog</option>
-                    <option value="tri">Bram Stoker</option>
-                    <option value="tri">Chimera</option>
-                    <option value="tri">Exile</option>
-                    <option value="tri">Hanuman</option>
-                    <option value="tri">Morpheus</option>
-                    <option value="tri">Neumann</option>
-                    <option value="tri">Orcus</option>
-                    <option value="tri">Ouroboros</option>
-                    <option value="tri">Salamandra</option>
-                    <option value="tri">Solaris</option>
+                    <option value="angel_halo">Angel Halo</option>
+                    <option value="balor">Balor</option>
+                    <option value="black_dog">Black Dog</option>
+                    <option value="bram_Stoker">Bram Stoker</option>
+                    <option value="chimera">Chimera</option>
+                    <option value="exile">Exile</option>
+                    <option value="hanuman">Hanuman</option>
+                    <option value="morpheus">Morpheus</option>
+                    <option value="neumann">Neumann</option>
+                    <option value="orcus">Orcus</option>
+                    <option value="ouroboros">Ouroboros</option>
+                    <option value="salamandra">Salamandra</option>
+                    <option value="solaris">Solaris</option>
                 </select>
 
                 <label>Sub-Syndrome</label>
                 <select name="attr_character_syndrome3">
                     <option value="">Choose</option>
-                    <option value="pure">Angel Halo</option>
-                    <option value="cross">Balor</option>
-                    <option value="tri">Black Dog</option>
-                    <option value="tri">Bram Stoker</option>
-                    <option value="tri">Chimera</option>
-                    <option value="tri">Exile</option>
-                    <option value="tri">Hanuman</option>
-                    <option value="tri">Morpheus</option>
-                    <option value="tri">Neumann</option>
-                    <option value="tri">Orcus</option>
-                    <option value="tri">Ouroboros</option>
-                    <option value="tri">Salamandra</option>
-                    <option value="tri">Solaris</option>
+                    <option value="angel_halo">Angel Halo</option>
+                    <option value="balor">Balor</option>
+                    <option value="black_dog">Black Dog</option>
+                    <option value="bram_Stoker">Bram Stoker</option>
+                    <option value="chimera">Chimera</option>
+                    <option value="exile">Exile</option>
+                    <option value="hanuman">Hanuman</option>
+                    <option value="morpheus">Morpheus</option>
+                    <option value="neumann">Neumann</option>
+                    <option value="orcus">Orcus</option>
+                    <option value="ouroboros">Ouroboros</option>
+                    <option value="salamandra">Salamandra</option>
+                    <option value="solaris">Solaris</option>
                 </select>
             </div>
+        </div>
 
-            <div class="grid col2 nogap">
+        <div class="grid col2-cover">
+            <div class="hgrid col2 nogap">
                 <label>Cover</label>
                 <input type="text" name="attr_character_cover" value="" />
 
@@ -141,6 +203,14 @@
                     <option value="yakuza">Yakuza</option>
                 </select>
             </div>
+
+            <div class="grid col2 nogap">
+                <label>Earned XP</label>
+                <input type="number" name="attr_earned_xp" value="" />
+
+                <label>Spent XP</label>
+                <input type="number" name="attr_spent_xp" value="" />
+            </div>
         </div>
 
         <h2>Stats</h2>
@@ -173,11 +243,9 @@
                 <label>Perception</label>
                 <input type="number" name="attr_perception" value="" />
 
+                <label class="span2">Art</label>
                 <fieldset class="repeating_art grid span2 col2 nogap">
-                    <div class="grid col2 nogap">
-                        <label>Art</label>
-                        <input type="text" name="attr_artname" value="" />
-                    </div>
+                    <input type="text" name="attr_artname" value="" />
                     <input type="number" name="attr_artvalue" value="" />
                 </fieldset>
             </div>
@@ -192,11 +260,9 @@
                 <label>Will</label>
                 <input type="number" name="attr_will" value="" />
 
+                <label class="span2">Knowledge</label>
                 <fieldset class="repeating_knowledge grid span2 col2 nogap">
-                    <div class="grid col2 nogap">
-                        <label>Knowledge</label>
-                        <input type="text" name="attr_knowledgename" value="" />
-                    </div>
+                    <input type="text" name="attr_knowledgename" value="" />
                     <input type="number" name="attr_knowledgevalue" value="" />
                 </fieldset>
             </div>
@@ -211,34 +277,225 @@
                 <label>Procure</label>
                 <input type="number" name="attr_procure" value="" />
 
+                <label class="span2">Info</label>
                 <fieldset class="repeating_info grid span2 col2 nogap">
-                    <div class="grid col2 nogap">
-                        <label>Info</label>
-                        <input type="text" name="attr_infoname" value="" />
-                    </div>
+                    <input type="text" name="attr_infoname" value="" />
                     <input type="number" name="attr_infovalue" value="" />
                 </fieldset>
             </div>
         </div>
 
-        <div class="grid col12 nogap derived">
-            <label>Max Hit Points</label>
-            <input type="number" name="attr_hp_max" value="" />
+        <div class="grid col4 derived">
+            <div class="hgrid col2 nogap">
+                <label>Max Hit Points</label>
+                <input type="number" name="attr_hp_max" value="" />
 
-            <label>Stock Points</label>
-            <input type="number" name="attr_stock" value="" />
+                <label>Hit Points</label>
+                <input type="number" name="attr_hp" value="" />
+            </div>
 
-            <label>Savings</label>
-            <input type="number" name="attr_savings" value="" />
+            <div class="hgrid col2 nogap">
+                <label>Stock Points</label>
+                <input type="number" name="attr_stock" value="" />
 
-            <label>Initiative</label>
-            <input type="number" name="attr_initiative" value="" />
+                <label>Savings</label>
+                <input type="number" name="attr_savings" value="" />
+            </div>
 
-            <label>Move</label>
-            <input type="number" name="attr_move" value="" />
+            <div class="hgrid col2 nogap">
+                <label>Initiative Item</label>
+                <input type="number" name="attr_initiative_item" value="" />
 
-            <label>Dash</label>
-            <input type="number" name="attr_dash" value="" />
+                <label>Initiative</label>
+                <input type="number" name="attr_initiative" value="" />
+            </div>
+
+            <div class="hgrid col2 nogap">
+                <label>Move</label>
+                <input type="number" name="attr_move" value="" />
+
+                <label>Dash</label>
+                <input type="number" name="attr_dash" value="" />
+            </div>
+        </div>
+
+        <h2>Life History</h2>
+
+        <div class="hgrid col4 nogap history">
+            <label>Origin</label>
+            <select name="attr_history_origin">
+                <option value="">Choose</option>
+                <option value="absent_parent">Absent Parent</option>
+                <option value="alone">Alone</option>
+                <option value="anticipated_child">Anticipated Child</option>
+                <option value="brother">Brother</option>
+                <option value="celebrity">Celebrity</option>
+                <option value="criminal_parent">Criminal Parent</option>
+                <option value="estranged_relatives">Estranged Relatives</option>
+                <option value="foster_parents">Foster Parents</option>
+                <option value="hated_child">Hated Child</option>
+                <option value="investor">Investor</option>
+                <option value="noble_family">Noble Family</option>
+                <option value="political_power">Political Power</option>
+                <option value="poor">Poor</option>
+                <option value="powerful_bloodline">Powerful Bloodline</option>
+                <option value="secret_society">Secret Society</option>
+                <option value="siblings">Siblings</option>
+                <option value="sister">Sister</option>
+                <option value="stable_household">Stable Household</option>
+                <option value="twin">Twin</option>
+                <option value="understanding_parents">Understanding Parents</option>
+            </select>
+
+            <label>Encounter</label>
+            <input type="text" name="attr_history_encounter" value="" />
+
+            <label>Awakening</label>
+            <select name="attr_history_awakening">
+                <option value="">Choose</option>
+                <option value="anger">Anger</option>
+                <option value="birth">Birth</option>
+                <option value="death">Death</option>
+                <option value="experimentation">Experimentation</option>
+                <option value="forgotten">Forgotten</option>
+                <option value="infection">Infection</option>
+                <option value="orders">Orders</option>
+                <option value="repentance">Repentance</option>
+                <option value="sacrifice">Sacrifice</option>
+                <option value="self_improvement">Self Improvement</option>
+                <option value="unknown">Unknown</option>
+                <option value="yearning">Yearning</option>
+            </select>
+
+            <label>Base Rate</label>
+            <input type="number" name="attr_history_awakening_rate" value="" />
+        </div>
+
+        <div class="hgrid col3 nogap history">
+            <label>Experience</label>
+            <div class="grid col2">
+                <input type="hidden" name="attr_history_experience_cat"
+                    class="history-experience" />
+                <select name="attr_history_experience_cat">
+                    <option value="">Choose</option>
+                    <option value="student">Student</option>
+                    <option value="adult">Adult</option>
+                    <option value="criminal">Criminal</option>
+                    <option value="ugn">UGN</option>
+                </select>
+                <select name="attr_history_experience" class="history-student">
+                    <option value="">Choose</option>
+                    <option value="accident">Accident</option>
+                    <option value="amnesia">Amnesia</option>
+                    <option value="bloodshed">Bloodshed</option>
+                    <option value="common">Common</option>
+                    <option value="drastic_change">Drastic Change</option>
+                    <option value="escape">Escape</option>
+                    <option value="eternal_farewell">Eternal Farewell</option>
+                    <option value="first_love">First Love</option>
+                    <option value="friendship">Friendship</option>
+                    <option value="life_and_death">Life and Death</option>
+                    <option value="long_hospitalization">Long Hospitalization</option>
+                    <option value="loss">Loss</option>
+                    <option value="major_failure">Major Failure</option>
+                    <option value="major_success">Major Success</option>
+                    <option value="news">News</option>
+                    <option value="overseas_life">Overseas Life</option>
+                    <option value="promise">Promise</option>
+                    <option value="small_honor">Small Honor</option>
+                    <option value="transfer_student">Transfer Student</option>
+                    <option value="trauma">Trauma</option>
+                </select>
+                <select name="attr_history_experience" class="history-adult">
+                    <option value="">Choose</option>
+                    <option value="ally">Ally</option>
+                    <option value="amnesia">Amnesia</option>
+                    <option value="blank_time">Blank Time</option>
+                    <option value="busy_life">Busy Life</option>
+                    <option value="career_success">Career Success</option>
+                    <option value="common">Common</option>
+                    <option value="eternal_farewell">Eternal Farewell</option>
+                    <option value="first_love">First Love</option>
+                    <option value="forbidden_love">Forbidden Love</option>
+                    <option value="insulted">Insulted</option>
+                    <option value="life_and_death">Life and Death</option>
+                    <option value="long_hospitalization">Long Hospitalization</option>
+                    <option value="loss">Loss</option>
+                    <option value="major_fallout">Major Fallout</option>
+                    <option value="major_success">Major Success</option>
+                    <option value="marriage">Marriage</option>
+                    <option value="news">News</option>
+                    <option value="overseas_life">Overseas Life</option>
+                    <option value="parenthood">Parenthood</option>
+                    <option value="victim">Victim</option>
+                </select>
+                <select name="attr_history_experience" class="history-criminal">
+                    <option value="">Choose</option>
+                    <option value="amnesia">Amnesia</option>
+                    <option value="betrayal">Betrayal</option>
+                    <option value="breakdown">Breakdown</option>
+                    <option value="crime">Crime</option>
+                    <option value="dangerous_work">Dangerous Work</option>
+                    <option value="defeat">Defeat</option>
+                    <option value="dumb_luck">Dumb Luck</option>
+                    <option value="endless_fighting">Endless Fighting</option>
+                    <option value="eternal_farewell">Eternal Farewell</option>
+                    <option value="everlasting_pain">Everlasting Pain</option>
+                    <option value="headline_news">Headline News</option>
+                    <option value="legend">Legend</option>
+                    <option value="life_and_death">Life and Death</option>
+                    <option value="lone_wolf">Lone Wolf</option>
+                    <option value="long_hospitalization">Long Hospitalization</option>
+                    <option value="loss">Loss</option>
+                    <option value="love">Love</option>
+                    <option value="major_accident">Major Accident</option>
+                    <option value="spiraling_life">Spiraling Life</option>
+                    <option value="useless">Useless</option>
+                </select>
+                <select name="attr_history_experience" class="history-ugn">
+                    <option value="">Choose</option>
+                    <option value="ally_s_death">Ally’s Death</option>
+                    <option value="amnesia">Amnesia</option>
+                    <option value="back_stabbing">Back-stabbing</option>
+                    <option value="betrayal">Betrayal</option>
+                    <option value="desertion">Desertion</option>
+                    <option value="desire_for_normality">Desire for Normality</option>
+                    <option value="emotional_barriers">Emotional Barriers</option>
+                    <option value="enemy_organization">Enemy Organization</option>
+                    <option value="fear">Fear</option>
+                    <option value="lab_rat">Lab Rat</option>
+                    <option value="loyalty">Loyalty</option>
+                    <option value="major_mistake">Major Mistake</option>
+                    <option value="major_victory">Major Victory</option>
+                    <option value="personal_secrets">Personal Secrets</option>
+                    <option value="rampage">Rampage</option>
+                    <option value="rejecting_the_norm">Rejecting the Norm</option>
+                    <option value="support">Support</option>
+                    <option value="test_tube_child">Test Tube Child</option>
+                    <option value="veteran">Veteran</option>
+                    <option value="wet_works">Wet Works</option>
+                </select>
+            </div>
+
+            <label>Impulse</label>
+            <select name="attr_history_impulse">
+                <option value="">Choose</option>
+                <option value="battle_lust">Battle Lust</option>
+                <option value="bloodsucking">Bloodsucking</option>
+                <option value="delusions">Delusions</option>
+                <option value="destruction">Destruction</option>
+                <option value="distaste">Distaste</option>
+                <option value="fear">Fear</option>
+                <option value="hatred">Hatred</option>
+                <option value="hunger">Hunger</option>
+                <option value="release">Release</option>
+                <option value="self-mutilation">Self-Mutilation</option>
+                <option value="slaughter">Slaughter</option>
+                <option value="torture">Torture</option>
+            </select>
+
+            <label>Base Rate</label>
+            <input type="number" name="attr_history_impulse_rate" value="" />
         </div>
 
         <h2>Lois</h2>
@@ -267,19 +524,147 @@
             </fieldset>
         </div>
     </div>
-</div>
 
-<rolltemplate class="sheet-rolltemplate-test">
-    <div class="sheet-template-container">
-        <h1>{{name}}</h1>
-        <div class="sheet-results">
-            <h4>Result = {{roll1}}</h4>
-            <h4>Custom Result = {{computed::roll1}}</h4>
+    <!-- items -->
+    <div class="grid col1 items tab-panel">
+        <h2>Items</h2>
+    </div>
+
+    <!-- powers -->
+    <div class="grid col1 powers tab-panel">
+        <h2>Powers</h2>
+
+        <div class="powerlist">
+            <fieldset class="repeating_powers grid col1">
+                <div class="hgrid col10 nogap">
+                    <label>No</label>
+                    <input type="hidden" name="attr_powernum" value="" />
+                    <span name="attr_powernum"></span>
+
+                    <label>Name</label>
+                    <input type="text" name="attr_powername" value="" />
+
+                    <label>Level</label>
+                    <input type="number" name="attr_powerlevel" value="" />
+
+                    <label>Timing</label>
+                    <select name="attr_powertiming">
+                        <option value="">Choose</option>
+                        <option value="reaction">Reaction</option>
+                        <option value="minor">Minor</option>
+                        <option value="major">Major</option>
+                        <option value="auto">Auto</option>
+                        <option value="process">Process</option>
+                        <option value="constant">Constant</option>
+                    </select>
+
+                    <label>Skill</label>
+                    <input type="text" name="attr_powerskill" value="" />
+
+                    <label>Difficulty</label>
+                    <select name="attr_powerdiff">
+                        <option value="">Choose</option>
+                        <option value="auto">Auto</option>
+                        <option value="none">-</option>
+                        <option value="opposed">Opposed</option>
+                    </select>
+
+                    <label>Target</label>
+                    <select name="attr_powertarget">
+                        <option value="">Choose</option>
+                        <option value="none">-</option>
+                        <option value="self">Self</option>
+                        <option value="single">Single</option>
+                        <option value="n">Level+1</option>
+                        <option value="area">Area</option>
+                        <option value="area+">Area(select)</option>
+                        <option value="scene">Scene</option>
+                        <option value="scene+">Scene(select)</option>
+                    </select>
+
+                    <label>Range</label>
+                    <select name="attr_powerrng">
+                        <option value="">Choose</option>
+                        <option value="close">Close</option>
+                        <option value="weapon">Weapon</option>
+                        <option value="view">View</option>
+                    </select>
+
+                    <label>Encroach</label>
+                    <input type="text" name="attr_powerencroach" value="" />
+
+                    <label>Restrict</label>
+                    <input type="text" name="attr_powerrestrict" value="" />
+                </div>
+
+                <div class="hgrid col3 nogap">
+                    <label class="slot2">Notes</label>
+                    <input class="slot2" type="text" name="attr_powernotes" value="" />
+
+                    <label class="slot3">Page</label>
+                    <input class="slot3" type="text" name="attr_powerpage" value="" />
+                </div>
+            </fieldset>
         </div>
     </div>
-</rolltemplate>
+
+    <!-- settings -->
+    <div class="grid col1 settings tab-panel">
+        <h2>Settings</h2>
+    </div>
+</div>
 
 <script type="text/worker">
+    // data
+    const tablist = ["csheet","items","powers","settings"];
+    const historyDictionary = {
+        "anger": {"name": "Anger","rate": 17},
+        "birth": {"name": "Birth","rate": 17},
+        "death": {"name": "Death","rate": 18},
+        "experimentation": {"name": "Experimentation","rate": 16},
+        "forgotten": {"name": "Forgotten","rate": 17},
+        "infection": {"name": "Infection","rate": 14},
+        "orders": {"name": "Orders","rate": 15},
+        "repentance": {"name": "Repentance","rate": 18},
+        "sacrifice": {"name": "Sacrifice","rate": 16},
+        "self_improvement": {"name": "Self Improvement","rate": 14},
+        "unknown": {"name": "Unknown","rate": 15},
+        "yearning": {"name": "Yearning","rate": 17},
+        "battle_lust": {"name": "Battle Lust","rate": 16},
+        "bloodsucking": {"name": "Bloodsucking","rate": 17},
+        "delusions": {"name": "Delusions","rate": 14},
+        "destruction": {"name": "Destruction","rate": 16},
+        "distaste": {"name": "Distaste","rate": 15},
+        "fear": {"name": "Fear","rate": 17},
+        "hatred": {"name": "Hatred","rate": 18},
+        "hunger": {"name": "Hunger","rate": 14},
+        "release": {"name": "Release","rate": 18},
+        "self-mutilation": {"name": "Self-Mutilation","rate": 16},
+        "slaughter": {"name": "Slaughter","rate": 18},
+        "torture": {"name": "Torture","rate": 15},
+    };
+
+    tablist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({"tab": button});
+        });
+    });
+
+    const historyList = ["AWAKENING","IMPULSE"];
+    historyList.forEach(history => {
+        let historyLower = history.toLowerCase();
+        on(`change:history_${historyLower}`, function(eventInfo) {
+            getAttrs([`HISTORY_${history}`], function(values) {
+                let update = {};
+                let choice = values[`HISTORY_${history}`];
+                let rate = historyDictionary[choice]["rate"];
+                update[`history_${historyLower}_rate`] = rate;
+                setAttrs(update);
+            });
+        });
+    });
+
+    // sample
     on('clicked:test', (info) => {
         startRoll('&{template:test} {{name=Test}} {{cv=?{Critical value|10}}} '
             +'{{roll1=[[10d10!>[[?{Critical value}]]]]}}', (results) => {
@@ -312,3 +697,14 @@
         });
     });
 </script>
+
+<!-- sample roll template -->
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+        <h1>{{name}}</h1>
+        <div class="sheet-results">
+            <h4>Result = {{roll1}}</h4>
+            <h4>Custom Result = {{computed::roll1}}</h4>
+        </div>
+    </div>
+</rolltemplate>
