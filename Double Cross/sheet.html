@@ -213,6 +213,26 @@
             </div>
         </div>
 
+        <h2>Encroachment</h2>
+        <div class="hgrid col5">
+            <input type="hidden" name="attr_encroachment_dice"
+                class="encroachment-rate" />
+            <label>Base</label>
+            <span name="attr_encroachment_rate_max" class="input" />
+
+            <label>Rate</label>
+            <input type="number" name="attr_encroachment_rate" value="" />
+
+            <span class="graph"></span>
+
+            <label>+Dice</label>
+            <span name="attr_encroachment_dice" class="input" />
+
+            <label>Power Level</label>
+            <input type="hidden" name="attr_encroachment_power" />
+            <span name="attr_encroachment_power" class="input" />
+        </div>
+
         <h2>Stats</h2>
 
         <div class="grid col4 stats">
@@ -285,37 +305,55 @@
             </div>
         </div>
 
-        <div class="grid col4 derived">
+        <div class="hgrid col4 derived">
+            <h3>Hit Points</h3>
             <div class="hgrid col2 nogap">
-                <label>Max Hit Points</label>
-                <input type="number" name="attr_hp_max" value="" />
-
-                <label>Hit Points</label>
+                <label>Current</label>
                 <input type="number" name="attr_hp" value="" />
+
+                <label>Max</label>
+                <span name="attr_hp_max" class="input" />
             </div>
 
+            <h3>Stock</h3>
             <div class="hgrid col2 nogap">
                 <label>Stock Points</label>
-                <input type="number" name="attr_stock" value="" />
+                <input type="hidden" name="attr_stock" />
+                <span name="attr_stock" class="input" />
 
                 <label>Savings</label>
                 <input type="number" name="attr_savings" value="" />
             </div>
 
-            <div class="hgrid col2 nogap">
-                <label>Initiative Item</label>
-                <input type="number" name="attr_initiative_item" value="" />
+            <h3>Initiative</h3>
+            <div class="hgrid col5 nogap">
+                <label>Base</label>
+                <input type="hidden" name="attr_base_initiative" />
+                <span name="attr_base_initiative" class="input" />
 
-                <label>Initiative</label>
-                <input type="number" name="attr_initiative" value="" />
+                <span />
+                <span class="input">+</span>
+
+                <label>Item</label>
+                <span name="attr_total_initiative" class="input" />
+
+                <span />
+                <span class="input">=</span>
+
+                <label>Total</label>
+                <input type="hidden" name="attr_initiative" />
+                <span name="attr_initiative" class="input" />
             </div>
 
+            <h3>Movement</h3>
             <div class="hgrid col2 nogap">
                 <label>Move</label>
-                <input type="number" name="attr_move" value="" />
+                <input type="hidden" name="attr_move" />
+                <span name="attr_move" class="input" />
 
                 <label>Dash</label>
-                <input type="number" name="attr_dash" value="" />
+                <input type="hidden" name="attr_dash" />
+                <span name="attr_dash" class="input" />
             </div>
         </div>
 
@@ -499,15 +537,17 @@
         </div>
 
         <h2>Lois</h2>
-        <div class="grid col1 nogap lois">
-            <div class="grid col5 nogap">
+        <div class="grid compact col1 nogap lois">
+            <div class="grid col7 nogap">
                 <label class="header">Relationship</label>
                 <label class="header">Name</label>
                 <label class="header">Positive Emotion</label>
                 <label class="header">Negative Emotion</label>
+                <label class="header">S-Lois</label>
                 <label class="header">Titus</label>
+                <label class="header">Discard</label>
             </div>
-            <fieldset class="repeating_lois grid col5 nogap">
+            <fieldset class="repeating_lois grid col7 nogap">
                 <input type="text" name="attr_loisrelationship" value="" />
                 <input type="text" name="attr_loisname" value="" />
                 <div class="grid col2 nogap input">
@@ -518,16 +558,201 @@
                     <input type="radio" name="attr_loismain" value="negative" />
                     <input type="text" name="attr_loisnegative" value="" />
                 </div>
-                <div class="grid col1 nogap input">
-                    <input type="checkbox" name="attr_loistitus" value="1" />
-                </div>
+                <input type="checkbox" name="attr_loiss" value="1" />
+                <input type="checkbox" name="attr_loistitus" value="1" />
+                <input type="checkbox" name="attr_loisdiscard" value="1" />
             </fieldset>
         </div>
     </div>
 
     <!-- items -->
     <div class="grid col1 items tab-panel">
-        <h2>Items</h2>
+        <div class="hgrid col8 nogap">
+            <label>Accuracy</label>
+            <input type="hidden" name="attr_item_accuracy" />
+            <span name="attr_item_accuracy" class="input" />
+
+            <label>Attack Power</label>
+            <input type="hidden" name="attr_item_power" />
+            <span name="attr_item_power" class="input" />
+
+            <label>Guard</label>
+            <input type="hidden" name="attr_item_guard" />
+            <span name="attr_item_guard" class="input" />
+
+            <label>Dodge</label>
+            <input type="hidden" name="attr_item_dodge" />
+            <span name="attr_item_dodge" class="input" />
+
+            <label>Initiative</label>
+            <input type="hidden" name="attr_armor_initiative" />
+            <input type="hidden" name="attr_vehicle_initiative" />
+            <input type="hidden" name="attr_total_initiative" />
+            <span name="attr_total_initiative" class="input" />
+
+            <label>Armor</label>
+            <input type="hidden" name="attr_armor_armor" />
+            <input type="hidden" name="attr_vehicle_armor" />
+            <input type="hidden" name="attr_total_armor" />
+            <span name="attr_total_armor" class="input" />
+
+            <label>Stock</label>
+            <input type="hidden" name="attr_weapon_stock" />
+            <input type="hidden" name="attr_armor_stock" />
+            <input type="hidden" name="attr_item_stock" />
+            <input type="hidden" name="attr_total_stock" />
+            <span name="attr_total_stock" class="input" />
+
+            <label>XP</label>
+            <input type="hidden" name="attr_weapon_xp" />
+            <input type="hidden" name="attr_armor_xp" />
+            <input type="hidden" name="attr_item_xp" />
+            <input type="hidden" name="attr_total_xp" />
+            <span name="attr_total_xp" class="input" />
+        </div>
+
+        <h2>Weapons</h2>
+
+        <div class="grid compact col10 nogap weapons">
+            <label>Item</label>
+            <label>Skill</label>
+            <label>Accuracy</label>
+            <label>Attack Power</label>
+            <label>Guard</label>
+            <label>Range</label>
+            <label>Stock</label>
+            <label>XP</label>
+            <label>Notes</label>
+            <label>Equip</label>
+        </div>
+        <fieldset class="repeating_weapons grid col1">
+            <div class="grid compact col1">
+                <div class="grid col10 nogap weapons">
+                    <input type="text" name="attr_itemname" value="" />
+                    <input type="text" name="attr_itemskill" value="" />
+                    <input type="number" name="attr_itemaccuracy" value="" />
+                    <input type="hidden" name="attr_itemaccuracyequip" />
+                    <input type="number" name="attr_itempower" value="" />
+                    <input type="hidden" name="attr_itempowerequip" />
+                    <input type="number" name="attr_itemguard" value="" />
+                    <input type="hidden" name="attr_itemguardequip" />
+                    <select name="attr_itemrng">
+                        <option value="">Choose</option>
+                        <option value="close">Close</option>
+                        <option value="weapon">Weapon</option>
+                        <option value="view">View</option>
+                    </select>
+                    <input type="number" name="attr_itemstock" value="" />
+                    <input type="number" name="attr_itemxp" value="" />
+                    <input type="text" name="attr_itemnotes" value="" />
+                    <input type="checkbox" name="attr_itemequip" value="1" />
+                </div>
+            </div>
+        </fieldset>
+
+        <h2>Armor</h2>
+
+        <div class="grid compact col9 nogap armor">
+            <label>Item</label>
+            <label>Type</label>
+            <label>Dodge</label>
+            <label>Initiative</label>
+            <label>Armor</label>
+            <label>Stock</label>
+            <label>XP</label>
+            <label>Notes</label>
+            <label>Equip</label>
+        </div>
+        <fieldset class="repeating_armor grid col1">
+            <div class="grid compact col1">
+                <div class="grid col9 nogap armor">
+                    <input type="text" name="attr_itemname" value="" />
+                    <select name="attr_itemtype">
+                        <option value="">Choose</option>
+                        <option value="armor">Armor</option>
+                        <option value="armor*">Armor*</option>
+                    </select>
+                    <input type="number" name="attr_itemdodge" value="" />
+                    <input type="hidden" name="attr_itemdodgeequip" />
+                    <input type="number" name="attr_iteminitiative" value="" />
+                    <input type="hidden" name="attr_iteminitiativeequip" />
+                    <input type="number" name="attr_itemarmor" value="" />
+                    <input type="hidden" name="attr_itemarmorequip" />
+                    <input type="number" name="attr_itemstock" value="" />
+                    <input type="number" name="attr_itemxp" value="" />
+                    <input type="text" name="attr_itemnotes" value="" />
+                    <input type="checkbox" name="attr_itemequip" value="1" />
+                </div>
+            </div>
+        </fieldset>
+
+        <h2>Vehicles</h2>
+
+        <div class="grid compact col10 nogap vehicles">
+            <label>Item</label>
+            <label>Skill</label>
+            <label>Attack Power</label>
+            <label>Initiative</label>
+            <label>Armor</label>
+            <label>Dash</label>
+            <label>Stock</label>
+            <label>XP</label>
+            <label>Notes</label>
+            <label>Ride</label>
+        </div>
+        <fieldset class="repeating_vehicles grid col1">
+            <div class="grid compact col1">
+                <div class="grid col10 nogap vehicles">
+                    <input type="text" name="attr_itemname" value="" />
+                    <select name="attr_itemskill">
+                        <option value="">Choose</option>
+                        <option value="aircraft">Ride: Aircraft</option>
+                        <option value="boat">Ride: Boat</option>
+                        <option value="4wheel">Ride: Four-Wheel</option>
+                        <option value="horseback">Ride: Horseback</option>
+                        <option value="2wheel">Ride: Two-Wheel</option>
+                    </select>
+                    <input type="number" name="attr_itempower" value="" />
+                    <input type="number" name="attr_iteminitiative" value="" />
+                    <input type="hidden" name="attr_iteminitiativeequip" />
+                    <input type="number" name="attr_itemarmor" value="" />
+                    <input type="hidden" name="attr_itemarmorequip" />
+                    <input type="number" name="attr_itemdash" value="" />
+                    <input type="number" name="attr_itemstock" value="" />
+                    <input type="number" name="attr_itemxp" value="" />
+                    <input type="text" name="attr_itemnotes" value="" />
+                    <input type="checkbox" name="attr_itemequip" value="1" />
+                </div>
+            </div>
+        </fieldset>
+
+        <h2>Miscellaneous</h2>
+
+        <div class="grid compact col6 nogap misc">
+            <label>Item</label>
+            <label>Type</label>
+            <label>Skill</label>
+            <label>Stock</label>
+            <label>XP</label>
+            <label>Notes</label>
+        </div>
+        <fieldset class="repeating_items grid col1">
+            <div class="grid compact col1">
+                <div class="grid col6 nogap misc">
+                    <input type="text" name="attr_itemname" value="" />
+                    <select name="attr_itemtype">
+                        <option value="">Choose</option>
+                        <option value="connection">Connection</option>
+                        <option value="consumable">Consumable</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" name="attr_itemskill" value="" />
+                    <input type="number" name="attr_itemstock" value="" />
+                    <input type="number" name="attr_itemxp" value="" />
+                    <input type="text" name="attr_itemnotes" value="" />
+                </div>
+            </div>
+        </fieldset>
     </div>
 
     <!-- powers -->
@@ -536,76 +761,159 @@
 
         <div class="powerlist">
             <fieldset class="repeating_powers grid col1">
-                <div class="hgrid col10 nogap">
-                    <label>No</label>
-                    <input type="hidden" name="attr_powernum" value="" />
-                    <span name="attr_powernum"></span>
+                <div class="grid compact col1">
+                    <div class="hgrid col10 nogap">
+                        <label>No</label>
+                        <input type="hidden" name="attr_powernum" value="" />
+                        <span name="attr_powernum" class="input highlight"></span>
 
-                    <label>Name</label>
-                    <input type="text" name="attr_powername" value="" />
+                        <label>Name</label>
+                        <input type="text" name="attr_powername" value="" />
 
-                    <label>Level</label>
-                    <input type="number" name="attr_powerlevel" value="" />
+                        <label>Level</label>
+                        <input type="number" name="attr_powerlevel" value="" />
 
-                    <label>Timing</label>
-                    <select name="attr_powertiming">
-                        <option value="">Choose</option>
-                        <option value="reaction">Reaction</option>
-                        <option value="minor">Minor</option>
-                        <option value="major">Major</option>
-                        <option value="auto">Auto</option>
-                        <option value="process">Process</option>
-                        <option value="constant">Constant</option>
-                    </select>
+                        <label>Timing</label>
+                        <select name="attr_powertiming">
+                            <option value="">Choose</option>
+                            <option value="reaction">Reaction</option>
+                            <option value="minor">Minor</option>
+                            <option value="major">Major</option>
+                            <option value="auto">Auto</option>
+                            <option value="process">Process</option>
+                            <option value="constant">Constant</option>
+                        </select>
 
-                    <label>Skill</label>
-                    <input type="text" name="attr_powerskill" value="" />
+                        <label>Skill</label>
+                        <input type="text" name="attr_powerskill" value="" />
 
-                    <label>Difficulty</label>
-                    <select name="attr_powerdiff">
-                        <option value="">Choose</option>
-                        <option value="auto">Auto</option>
-                        <option value="none">-</option>
-                        <option value="opposed">Opposed</option>
-                    </select>
+                        <label>Difficulty</label>
+                        <select name="attr_powerdiff">
+                            <option value="">Choose</option>
+                            <option value="auto">Auto</option>
+                            <option value="none">-</option>
+                            <option value="opposed">Opposed</option>
+                        </select>
 
-                    <label>Target</label>
-                    <select name="attr_powertarget">
-                        <option value="">Choose</option>
-                        <option value="none">-</option>
-                        <option value="self">Self</option>
-                        <option value="single">Single</option>
-                        <option value="n">Level+1</option>
-                        <option value="area">Area</option>
-                        <option value="area+">Area(select)</option>
-                        <option value="scene">Scene</option>
-                        <option value="scene+">Scene(select)</option>
-                    </select>
+                        <label>Target</label>
+                        <select name="attr_powertarget">
+                            <option value="">Choose</option>
+                            <option value="none">-</option>
+                            <option value="self">Self</option>
+                            <option value="single">Single</option>
+                            <option value="n">Level+1</option>
+                            <option value="area">Area</option>
+                            <option value="area+">Area(select)</option>
+                            <option value="scene">Scene</option>
+                            <option value="scene+">Scene(select)</option>
+                        </select>
 
-                    <label>Range</label>
-                    <select name="attr_powerrng">
-                        <option value="">Choose</option>
-                        <option value="close">Close</option>
-                        <option value="weapon">Weapon</option>
-                        <option value="view">View</option>
-                    </select>
+                        <label>Range</label>
+                        <select name="attr_powerrng">
+                            <option value="">Choose</option>
+                            <option value="none">-</option>
+                            <option value="close">Close</option>
+                            <option value="weapon">Weapon</option>
+                            <option value="view">View</option>
+                        </select>
 
-                    <label>Encroach</label>
-                    <input type="text" name="attr_powerencroach" value="" />
+                        <label>Encroach</label>
+                        <input type="text" name="attr_powerencroach" value="" />
 
-                    <label>Restrict</label>
-                    <input type="text" name="attr_powerrestrict" value="" />
-                </div>
+                        <label>Restrict</label>
+                        <input type="text" name="attr_powerrestrict" value="" />
+                    </div>
 
-                <div class="hgrid col3 nogap">
-                    <label class="slot2">Notes</label>
-                    <input class="slot2" type="text" name="attr_powernotes" value="" />
+                    <div class="hgrid col3 nogap">
+                        <label class="slot2">Notes</label>
+                        <input class="slot2" type="text" name="attr_powernotes" value="" />
 
-                    <label class="slot3">Page</label>
-                    <input class="slot3" type="text" name="attr_powerpage" value="" />
+                        <label class="slot3">Page</label>
+                        <input class="slot3" type="text" name="attr_powerpage" value="" />
+                    </div>
                 </div>
             </fieldset>
         </div>
+
+        <h2>Combos</h2>
+
+        <div class="combos">
+            <fieldset class="repeating_combos grid col1">
+                <div class="grid compact col1">
+                    <div class="hgrid col9 nogap">
+                        <label>Name</label>
+                        <input type="text" name="attr_comboname" value="" />
+
+                        <label>Condition</label>
+                        <input type="text" name="attr_combocondition" value="" />
+
+                        <label>Combination</label>
+                        <input type="text" name="attr_combo" value="" />
+
+                        <label>Timing</label>
+                        <select name="attr_combotiming">
+                            <option value="">Choose</option>
+                            <option value="reaction">Reaction</option>
+                            <option value="minor">Minor</option>
+                            <option value="major">Major</option>
+                            <option value="auto">Auto</option>
+                            <option value="process">Process</option>
+                            <option value="constant">Constant</option>
+                        </select>
+
+                        <label>Skill</label>
+                        <input type="text" name="attr_comboskill" value="" />
+
+                        <label>Difficulty</label>
+                        <select name="attr_combodiff">
+                            <option value="">Choose</option>
+                            <option value="auto">Auto</option>
+                            <option value="none">-</option>
+                            <option value="opposed">Opposed</option>
+                        </select>
+
+                        <label>Target</label>
+                        <select name="attr_combotarget">
+                            <option value="">Choose</option>
+                            <option value="none">-</option>
+                            <option value="self">Self</option>
+                            <option value="single">Single</option>
+                            <option value="n">Level+1</option>
+                            <option value="area">Area</option>
+                            <option value="area+">Area(select)</option>
+                            <option value="scene">Scene</option>
+                            <option value="scene+">Scene(select)</option>
+                        </select>
+
+                        <label>Range</label>
+                        <select name="attr_comborng">
+                            <option value="">Choose</option>
+                            <option value="close">Close</option>
+                            <option value="weapon">Weapon</option>
+                            <option value="view">View</option>
+                        </select>
+
+                        <label>Encroach</label>
+                        <input type="text" name="attr_comboencroach" value="" />
+                    </div>
+
+                    <div class="hgrid col5 nogap">
+                        <label class="slot2">Dice</label>
+                        <input class="slot2" type="text" name="attr_combodice" value="" />
+
+                        <label class="slot3">Critical</label>
+                        <input class="slot3" type="text" name="attr_combocrit" value="" />
+
+                        <label class="slot4">Attack Power</label>
+                        <input class="slot4" type="text" name="attr_comboattack" value="" />
+
+                        <label class="slot5">Notes</label>
+                        <input class="slot5" type="text" name="attr_combonotes" value="" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
     </div>
 
     <!-- settings -->
@@ -616,53 +924,300 @@
 
 <script type="text/worker">
     // data
-    const tablist = ["csheet","items","powers","settings"];
+    const tablist = ['csheet','items','powers','settings'];
     const historyDictionary = {
-        "anger": {"name": "Anger","rate": 17},
-        "birth": {"name": "Birth","rate": 17},
-        "death": {"name": "Death","rate": 18},
-        "experimentation": {"name": "Experimentation","rate": 16},
-        "forgotten": {"name": "Forgotten","rate": 17},
-        "infection": {"name": "Infection","rate": 14},
-        "orders": {"name": "Orders","rate": 15},
-        "repentance": {"name": "Repentance","rate": 18},
-        "sacrifice": {"name": "Sacrifice","rate": 16},
-        "self_improvement": {"name": "Self Improvement","rate": 14},
-        "unknown": {"name": "Unknown","rate": 15},
-        "yearning": {"name": "Yearning","rate": 17},
-        "battle_lust": {"name": "Battle Lust","rate": 16},
-        "bloodsucking": {"name": "Bloodsucking","rate": 17},
-        "delusions": {"name": "Delusions","rate": 14},
-        "destruction": {"name": "Destruction","rate": 16},
-        "distaste": {"name": "Distaste","rate": 15},
-        "fear": {"name": "Fear","rate": 17},
-        "hatred": {"name": "Hatred","rate": 18},
-        "hunger": {"name": "Hunger","rate": 14},
-        "release": {"name": "Release","rate": 18},
-        "self-mutilation": {"name": "Self-Mutilation","rate": 16},
-        "slaughter": {"name": "Slaughter","rate": 18},
-        "torture": {"name": "Torture","rate": 15},
+        'anger': {'name': 'Anger','rate': 17},
+        'birth': {'name': 'Birth','rate': 17},
+        'death': {'name': 'Death','rate': 18},
+        'experimentation': {'name': 'Experimentation','rate': 16},
+        'forgotten': {'name': 'Forgotten','rate': 17},
+        'infection': {'name': 'Infection','rate': 14},
+        'orders': {'name': 'Orders','rate': 15},
+        'repentance': {'name': 'Repentance','rate': 18},
+        'sacrifice': {'name': 'Sacrifice','rate': 16},
+        'self_improvement': {'name': 'Self Improvement','rate': 14},
+        'unknown': {'name': 'Unknown','rate': 15},
+        'yearning': {'name': 'Yearning','rate': 17},
+        'battle_lust': {'name': 'Battle Lust','rate': 16},
+        'bloodsucking': {'name': 'Bloodsucking','rate': 17},
+        'delusions': {'name': 'Delusions','rate': 14},
+        'destruction': {'name': 'Destruction','rate': 16},
+        'distaste': {'name': 'Distaste','rate': 15},
+        'fear': {'name': 'Fear','rate': 17},
+        'hatred': {'name': 'Hatred','rate': 18},
+        'hunger': {'name': 'Hunger','rate': 14},
+        'release': {'name': 'Release','rate': 18},
+        'self-mutilation': {'name': 'Self-Mutilation','rate': 16},
+        'slaughter': {'name': 'Slaughter','rate': 18},
+        'torture': {'name': 'Torture','rate': 15},
     };
 
     tablist.forEach(button => {
         on(`clicked:${button}`, function() {
-            setAttrs({"tab": button});
+            setAttrs({'tab': button});
         });
     });
 
-    const historyList = ["AWAKENING","IMPULSE"];
-    historyList.forEach(history => {
-        let historyLower = history.toLowerCase();
-        on(`change:history_${historyLower}`, function(eventInfo) {
-            getAttrs([`HISTORY_${history}`], function(values) {
+    const statList = ['BODY','SENSE','MIND','SOCIAL','TOTAL_INITIATIVE',
+        'PROCURE'];
+    statList.forEach(stat => {
+        let statLower = stat.toLowerCase();
+        on(`change:${statLower}`, function(eventInfo) {
+            getAttrs(statList, function(values) {
                 let update = {};
-                let choice = values[`HISTORY_${history}`];
-                let rate = historyDictionary[choice]["rate"];
-                update[`history_${historyLower}_rate`] = rate;
+                let body = parseInt(values.BODY)||0;
+                let sense = parseInt(values.SENSE)||0;
+                let mind = parseInt(values.MIND)||0;
+                let social = parseInt(values.SOCIAL)||0;
+                let procure = parseInt(values.PROCURE)||0;
+                let item_initiative = parseInt(values.TOTAL_INITIATIVE)||0;
+                let hp = body * 2 + mind + 20;
+                let stock = social * 2 + procure * 2;
+                let base_initiative = sense * 2 + mind;
+                let initiative = base_initiative + item_initiative;
+                let move = initiative + 5 + 'm';
+                let dash = (initiative + 5) * 2 + 'm';
+                update['hp'] = hp;
+                update['hp_max'] = hp;
+                update['stock'] = stock;
+                update['base_initiative'] = base_initiative;
+                update['initiative'] = initiative;
+                update['move'] = move;
+                update['dash'] = dash;
                 setAttrs(update);
             });
         });
     });
+
+    on('change:history_awakening change:history_impulse', function(eventInfo) {
+        getAttrs(['HISTORY_AWAKENING','HISTORY_IMPULSE'], function(values) {
+            let update = {};
+            let awakening = values.HISTORY_AWAKENING;
+            let awakening_rate = historyDictionary[awakening] ?
+                parseInt(historyDictionary[awakening]['rate'])||0 :
+                0;
+            let impulse = values.HISTORY_IMPULSE;
+            let impulse_rate = historyDictionary[impulse] ?
+                parseInt(historyDictionary[impulse]['rate'])||0 :
+                0;
+            let encroachment_rate = awakening_rate + impulse_rate;
+            update['history_awakening_rate'] = awakening_rate;
+            update['history_impulse_rate'] = impulse_rate;
+            update['encroachment_rate'] = encroachment_rate;
+            update['encroachment_rate_max'] = encroachment_rate;
+            setAttrs(update);
+        });
+    });
+
+
+
+    on('change:encroachment_rate', function(eventInfo) {
+        getAttrs(['ENCROACHMENT_RATE'], function(values) {
+            let update = {};
+            let rate = values.ENCROACHMENT_RATE;
+            let dice = getEncroachmentDice(rate);
+            let power = getEncroachmentPower(rate);
+            update['encroachment_dice'] = dice;
+            update['encroachment_power'] = power;
+            setAttrs(update);
+        });
+    });
+
+    on('change:_reporder:powers change:repeating_powers', function(eventInfo) {
+        getSectionIDsOrdered('repeating_powers', function (idArray) {
+            for (var i = 0; i < idArray.length; i++) {
+                let id = idArray[i];;
+                let update = {};
+                update[`repeating_powers_${id}_powernum`] = i+1;
+                setAttrs(update);
+            }
+        });
+    });
+
+    on('change:repeating_weapons', function(eventInfo) {
+        getAttrs(['repeating_weapons_itemaccuracy','repeating_weapons_itempower',
+            'repeating_weapons_itemguard','repeating_weapons_itemequip'], function(values) {
+            let update = {};
+            let accuracy = parseInt(values['repeating_weapons_itemaccuracy'])||0;
+            let power = parseInt(values['repeating_weapons_itempower'])||0;
+            let guard = parseInt(values['repeating_weapons_itemguard'])||0;
+            let equip = parseInt(values['repeating_weapons_itemequip'])||0;
+            if (equip == 0) accuracy = power = guard = 0;
+            update['repeating_weapons_itemaccuracyequip'] = accuracy;
+            update['repeating_weapons_itempowerequip'] = power;
+            update['repeating_weapons_itemguardequip'] = guard;
+            setAttrs(update);
+
+            repeatingSum(
+                ['item_accuracy', 'item_power', 'item_guard', 'weapon_stock', 'weapon_xp'],
+                'weapons',
+                ['itemaccuracyequip', 'itempowerequip', 'itemguardequip', 'itemstock', 'itemxp']
+            );
+        });
+    });
+
+    on('change:repeating_armor', function() {
+        getAttrs(['repeating_armor_itemdodge','repeating_armor_iteminitiative',
+            'repeating_armor_itemarmor','repeating_armor_itemequip'], function(values) {
+            let update = {};
+            let dodge = parseInt(values['repeating_armor_itemdodge'])||0;
+            let initiative = parseInt(values['repeating_armor_iteminitiative'])||0;
+            let armor = parseInt(values['repeating_armor_itemarmor'])||0;
+            let equip = parseInt(values['repeating_armor_itemequip'])||0;
+            if (equip == 0) dodge = initiative = armor = 0;
+            update['repeating_armor_itemdodgeequip'] = dodge;
+            update['repeating_armor_iteminitiativeequip'] = initiative;
+            update['repeating_armor_itemarmorequip'] = armor;
+            setAttrs(update);
+
+            repeatingSum(
+                ['item_dodge', 'armor_initiative', 'armor_armor', 'armor_stock', 'armor_xp'],
+                'armor',
+                ['itemdodgeequip', 'iteminitiativeequip', 'itemarmorequip', 'itemstock', 'itemxp']
+            );
+        });
+    });
+
+    on('change:repeating_vehicles', function() {
+        getAttrs(['repeating_vehicles_iteminitiative','repeating_vehicles_itemarmor',
+            'repeating_vehicles_itemequip'], function(values) {
+            let update = {};
+            let initiative = parseInt(values['repeating_vehicles_iteminitiative'])||0;
+            let armor = parseInt(values['repeating_vehicles_itemarmor'])||0;
+            let equip = parseInt(values['repeating_vehicles_itemequip'])||0;
+            if (equip == 0) initiative = armor = 0;
+            update['repeating_vehicles_iteminitiativeequip'] = initiative;
+            update['repeating_vehicles_itemarmorequip'] = armor;
+            setAttrs(update);
+
+            repeatingSum(
+                ['vehicle_initiative', 'vehicle_armor', 'vehicle_stock', 'vehicle_xp'],
+                'vehicles',
+                ['iteminitiativeequip', 'itemarmorequip', 'itemstock', 'itemxp']
+            );
+        });
+    });
+
+    on('change:repeating_items', function() {
+        repeatingSum(
+            ['item_stock', 'item_xp'],
+            'items',
+            ['itemstock', 'itemxp']
+        );
+    });
+
+    on('change:armor_initiative change:armor_armor change:vehicle_initiative '
+        +'change:vehicle_armor', function(eventInfo) {
+        getAttrs(['ARMOR_INITIATIVE','ARMOR_ARMOR','VEHICLE_INITIATIVE',
+            'VEHICLE_ARMOR'], function(values) {
+            let armor_initiative = parseInt(values.ARMOR_INITIATIVE)||0;
+            let armor_armor = parseInt(values.ARMOR_ARMOR)||0;
+            let vehicle_initiative = parseInt(values.VEHICLE_INITIATIVE)||0;
+            let vehicle_armor = parseInt(values.VEHICLE_ARMOR)||0;
+            let total_initiative = armor_initiative + vehicle_initiative;
+            let total_armor = armor_armor + vehicle_armor;
+            setAttrs({
+              'total_initiative': total_initiative,
+              'total_armor': total_armor
+            });
+        });
+    });
+
+    on('change:weapon_stock change:weapon_xp change:armor_stock '
+        +'change:armor_xp change:vehicle_stock change:vehicle_xp '
+        +'change:item_stock change:item_xp', function(eventInfo) {
+        getAttrs(['WEAPON_STOCK','WEAPON_XP','ARMOR_STOCK','ARMOR_XP',
+            'VEHICLE_STOCK','VEHICLE_XP','ITEM_STOCK','ITEM_XP'], function(values) {
+            let weapon_stock = parseInt(values.WEAPON_STOCK)||0;
+            let armor_stock = parseInt(values.ARMOR_STOCK)||0;
+            let vehicle_stock = parseInt(values.VEHICLE_STOCK)||0;
+            let item_stock = parseInt(values.ITEM_STOCK)||0;
+            let total_stock = weapon_stock + armor_stock + vehicle_stock + item_stock;
+            let weapon_xp = parseInt(values.WEAPON_XP)||0;
+            let armor_xp = parseInt(values.ARMOR_XP)||0;
+            let vehicle_xp = parseInt(values.VEHICLE_XP)||0;
+            let item_xp = parseInt(values.ITEM_XP)||0;
+            let total_xp = weapon_xp + armor_xp + vehicle_xp + item_xp;
+            setAttrs({
+              'total_stock': total_stock,
+              'total_xp': total_xp
+            });
+        });
+    });
+
+    // encroachment helpers
+    var getEncroachmentDice = function (rate) {
+        let power = 0;
+        if (rate < 60) {
+            power = 0;
+        } else if (rate < 80) {
+            power = 1;
+        } else if (rate < 100) {
+            power = 2;
+        } else if (rate < 130) {
+            power = 3;
+        } else if (rate < 160) {
+            power = 4;
+        } else if (rate < 200) {
+            power = 5;
+        } else if (rate < 240) {
+            power = 6;
+        } else if (rate < 300) {
+            power = 7;
+        } else {
+            power = 8;
+        }
+        return power;
+    }
+    var getEncroachmentPower = function (rate) {
+        let level = 0;
+        if (rate < 100) {
+            level = 0;
+        } else if (rate < 160) {
+            level = 1;
+        } else {
+            level = 2;
+        }
+        return level;
+    }
+
+    // getSectionIDsOrdered helper
+    var getSectionIDsOrdered = function (sectionName, callback) {
+      'use strict';
+      getAttrs([`_reporder_${sectionName}`], function (v) {
+        getSectionIDs(sectionName, function (idArray) {
+          let reporderArray = v[`_reporder_${sectionName}`] ? v[`_reporder_${sectionName}`].toLowerCase().split(',') : [],
+            ids = [...new Set(reporderArray.filter(x => idArray.includes(x)).concat(idArray))];
+          callback(ids);
+        });
+      });
+    };
+
+    /* ===== PARAMETERS ==========
+    destinations = the name of the attribute that stores the total quantity
+            can be a single attribute, or an array: ['total_cost', 'total_weight']
+            If more than one, the matching fields must be in the same order.
+        section = name of repeating fieldset, without the repeating_
+        fields = the name of the attribute field to be summed
+              destination and fields both can be a single attribute: 'weight'
+              or an array of attributes: ['weight','number','equipped']
+    */
+    const repeatingSum = (destinations, section, fields) => {
+        if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+        if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+            getAttrs([...attrArray], v => {
+                const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+                const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+                const output = {};
+                destinations.forEach((destination, index) => {
+                    output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+                });
+                setAttrs(output);
+            });
+        });
+    };
 
     // sample
     on('clicked:test', (info) => {

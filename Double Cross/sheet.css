@@ -105,6 +105,14 @@ h2 {
     text-transform: uppercase;
 }
 
+h3 {
+    padding: 10px 5px 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+
 body .charactersheet .grid label {
     background: white;
     font-weight: bold;
@@ -122,7 +130,8 @@ body .charactersheet .grid label {
     overflow: hidden;
 }
 body .charactersheet .grid label.stat {
-    font-size: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 body .charactersheet .grid input,
 body .charactersheet .grid select {
@@ -148,12 +157,12 @@ body .charactersheet .grid select {
 body .charactersheet .grid input.stat {
     background: silver;
     font-weight: bold;
-    xborder: solid 1px silver;
 }
 .stats .col2 ~ .repcontainer .repitem input[type=text] {
     font-size: 10px;
 }
-body .charactersheet .grid input {
+body .charactersheet .grid input,
+body .charactersheet .grid .input {
     padding: 0 5px;
 }
 body .charactersheet .grid .input {
@@ -181,16 +190,58 @@ body .charactersheet .grid input[type=radio] {
     height: 15px;
     z-index: 99;
 }
-body .charactersheet .grid .powerlist input,
-body .charactersheet .grid .powerlist select {
+body .charactersheet .grid .tab-panel .compact input,
+body .charactersheet .grid .tab-panel .compact .input,
+body .charactersheet .grid .tab-panel .compact select,
+body .charactersheet .grid .tab-panel .compact label {
     font-size: 10px;
+    line-height: 20px;
+    height: 20px;
 }
-body .charactersheet .grid .powerlist label {
+body .charactersheet .grid .tab-panel .compact input[type=checkbox],
+body .charactersheet .grid .tab-panel .compact input[type=radio] {
+    height: 10px;
+}
+body .charactersheet .grid .tab-panel .compact label {
     font-size: 8px;
+}
+body .charactersheet .grid .tab-panel .highlight {
+    background: silver;
+    font-weight: bold;
+}
+
+.graph {
+    background: linear-gradient(-10deg, paleturquoise 20%, white 20%);
+    grid-row: span 2;
+}
+.encroachment-rate[value="1"] ~ .graph {
+    background: linear-gradient(-20deg, paleturquoise 0%, lime 30%, white 30%);
+}
+.encroachment-rate[value="2"] ~ .graph {
+    background: linear-gradient(-30deg, lime 0%, yellow 40%, white 40%);
+}
+.encroachment-rate[value="3"] ~ .graph {
+    background: linear-gradient(-40deg, yellow 0%, gold 50%, white 50%);
+}
+.encroachment-rate[value="4"] ~ .graph {
+    background: linear-gradient(-50deg, gold 0%, orange 60%, white 60%);
+}
+.encroachment-rate[value="5"] ~ .graph {
+    background: linear-gradient(-60deg, orange 0%, orangered 70%, white 70%);
+}
+.encroachment-rate[value="6"] ~ .graph {
+    background: linear-gradient(-70deg, orangered 0%, red 80%, white 80%);
+}
+.encroachment-rate[value="7"] ~ .graph {
+    background: linear-gradient(-80deg, red 0%, crimson 90%, white 90%);
+}
+.encroachment-rate[value="8"] ~ .graph {
+    background: linear-gradient(-90deg, crimson 0%, darkred 100%);
 }
 
 /* grid stuff */
 .charactersheet .grid,
+.charactersheet .grid ~ .repcontainer,
 .charactersheet .grid ~ .repcontainer .repitem,
 .charactersheet .hgrid {
     display: grid;
@@ -202,7 +253,8 @@ body .charactersheet .grid .powerlist label {
 .charactersheet .nogap,
 .charactersheet .nogap ~ .repcontainer,
 .charactersheet .nogap ~ .repcontainer .repitem {
-    gap: 3px;
+    column-gap: 3px;
+    row-gap: 0;
 }
 .col2,
 .col2 ~ .repcontainer .repitem {
@@ -240,12 +292,33 @@ body .charactersheet .grid .powerlist label {
 .col5 ~ .repcontainer .repitem {
     grid-template-columns: repeat(5, 1fr);
 }
-.lois > .col5,
-.lois .col5 ~ .repcontainer .repitem {
-    grid-template-columns: 3fr 3fr 3fr 3fr 1fr;
+.lois > .col7,
+.lois .col7 ~ .repcontainer .repitem {
+    grid-template-columns: 3fr 3fr 3fr 3fr 1fr 1fr 1fr;
+}
+.combos .col5 {
+    grid-template-columns: 4fr 1fr 1fr 1fr 10fr;
 }
 .col2-codename .col6 {
     grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr;
+}
+.col6.misc {
+    grid-template-columns: 4fr 3fr 2fr 1fr 1fr 6fr;
+}
+.col8 {
+    grid-template-columns: repeat(8, 1fr);
+}
+.col9.armor {
+    grid-template-columns: 4fr 2fr 1fr 1fr 1fr 1fr 1fr 6fr 1fr;
+}
+.combos .col9 {
+    grid-template-columns: 3fr 1fr 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+}
+.col10.weapons {
+    grid-template-columns: 4fr 3fr 1fr 1fr 1fr 2fr 1fr 1fr 5fr 1fr;
+}
+.col10.vehicles {
+    grid-template-columns: 4fr 3fr 1fr 1fr 1fr 1fr 1fr 1fr 6fr 1fr;
 }
 .powerlist .col10 {
     grid-template-columns: 1fr 3fr 1fr 2fr 2fr 2fr 2fr 2fr 1fr 2fr;
@@ -266,6 +339,9 @@ body .charactersheet .grid .powerlist label {
 .slot4 {
     grid-column-start: 4;
 }
+.slot5 {
+    grid-column-start: 5;
+}
 
 .span2,
 .span2 ~ .repcontainer,
@@ -275,7 +351,18 @@ body .charactersheet .grid .powerlist label {
 .hgrid {
     grid-auto-flow: column;
     row-gap: 0;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+}
+
+.charactersheet .powers .repcontainer > .repitem {
+    padding: 5px 0;
+}
+
+.powers .repcontainer > .repitem:nth-child(even),
+.powers .repcontainer > .repitem:nth-child(even) label,
+.powers .repcontainer > .repitem:nth-child(even) input,
+.powers .repcontainer > .repitem:nth-child(even) select {
+    background: #eee;
 }
 
 body .charactersheet .grid .history-experience ~ select.history-student,
