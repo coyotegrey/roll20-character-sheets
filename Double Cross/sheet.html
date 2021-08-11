@@ -4,6 +4,7 @@
     <div class="logo">
         <h1>Double Cross</h1>
         <div class="tabs">
+            <button type="action" class="tab-create" name="act_create">Create</button>
             <button type="action" class="tab-csheet" name="act_csheet">Character</button>
             <button type="action" class="tab-powers" name="act_powers">Powers</button>
             <button type="action" class="tab-items" name="act_items">Items</button>
@@ -12,6 +13,354 @@
     </div>
 
     <!-- <button type="action" name="act_test">Click me</button> -->
+
+    <!-- charactermancer -->
+    <charmancer class="sheet-charmancer-syndrome">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="submit" value="work">Next</button>
+                    <button type="cancel" value="syndrome">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Step 1: Select a Syndrome</h2>
+
+            <div class="hgrid col4">
+                <label>Breed</label>
+                <select class="breed" name="comp_breed" required>
+                    <option />
+                    <option value="Pure">Pure</option>
+                    <option value="Cross">Cross</option>
+                    <option value="Tri">Tri</option>
+                </select>
+
+                <label>First Syndrome</label>
+                <select class="syndrome1" name="comp_syndrome1" required></select>
+
+                <label>Second Syndrome</label>
+                <select class="syndrome2" name="comp_syndrome2"></select>
+
+                <label>Sub-Syndrome</label>
+                <select class="syndrome3" name="comp_syndrome3"></select>
+            </div>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-work">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="syndrome">Back</button>
+                    <button type="submit" value="stats">Next</button>
+                    <button type="cancel" value="work">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Step 2: Select Work and Cover</h2>
+
+            <div class="hgrid col2">
+                <label>Work</label>
+                <select class="work" name="comp_work" required></select>
+
+                <label>Cover</label>
+                <input class="cover" type="text" list="cover" name="comp_cover"
+                    value="" required />
+                <datalist id="cover">
+                    <option value="Actor">Actor</option>
+                    <option value="Announcer">Announcer</option>
+                    <option value="Artist">Artist</option>
+                    <option value="Assassin">Assassin</option>
+                    <option value="Athlete">Athlete</option>
+                    <option value="Bodyguard">Bodyguard</option>
+                    <option value="Businessman">Businessman</option>
+                    <option value="College Student">College Student</option>
+                    <option value="Defense Attorney">Defense Attorney</option>
+                    <option value="Delinquent">Delinquent</option>
+                    <option value="Detective">Detective</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Forensics Officer">Forensics Officer</option>
+                    <option value="Fortune Teller">Fortune Teller</option>
+                    <option value="Grade School Student">Grade School Student</option>
+                    <option value="Hacker">Hacker</option>
+                    <option value="High School Student">High School Student</option>
+                    <option value="House Husband/Wife">House Husband/Wife</option>
+                    <option value="Informant">Informant</option>
+                    <option value="Jack of all Trades">Jack of all Trades</option>
+                    <option value="Journalist">Journalist</option>
+                    <option value="Junior High Student">Junior High Student</option>
+                    <option value="Mafia">Mafia</option>
+                    <option value="Martial Artist">Martial Artist</option>
+                    <option value="Mercenary">Mercenary</option>
+                    <option value="National Guardsman">National Guardsman</option>
+                    <option value="Negotiator">Negotiator</option>
+                    <option value="Night Entertainment">Night Entertainment</option>
+                    <option value="Nurse">Nurse</option>
+                    <option value="Part-Timer">Part-Timer</option>
+                    <option value="Politician">Politician</option>
+                    <option value="Private Investigator">Private Investigator</option>
+                    <option value="Professor">Professor</option>
+                    <option value="Programer">Programer</option>
+                    <option value="Religious Person">Religious Person</option>
+                    <option value="Researcher">Researcher</option>
+                    <option value="Shop Owner">Shop Owner</option>
+                    <option value="Singer">Singer</option>
+                    <option value="Spy">Spy</option>
+                    <option value="Stage Magician">Stage Magician</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Thief">Thief</option>
+                    <option value="UGN Agent A">UGN Agent A</option>
+                    <option value="UGN Agent B">UGN Agent B</option>
+                    <option value="UGN Agent C">UGN Agent C</option>
+                    <option value="UGN Agent D">UGN Agent D</option>
+                    <option value="UGN Branch Chief A">UGN Branch Chief A</option>
+                    <option value="UGN Branch Chief B">UGN Branch Chief B</option>
+                    <option value="UGN Branch Chief C">UGN Branch Chief C</option>
+                    <option value="UGN Branch Chief D">UGN Branch Chief D</option>
+                    <option value="UGN Child A">UGN Child A</option>
+                    <option value="UGN Child B">UGN Child B</option>
+                    <option value="UGN Child C">UGN Child C</option>
+                    <option value="Yakuza">Yakuza</option>
+                </datalist>
+            </div>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-stats">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="work">Back</button>
+                    <button type="submit" value="powers">Next</button>
+                    <button type="cancel" value="stats">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Step 3: Calculate Stats</h2>
+
+            <div class="hgrid col4 nogap">
+                <label>Body</label>
+                <span class="body input" />
+
+                <label>Sense</label>
+                <span class="sense input" />
+
+                <label>Mind</label>
+                <span class="mind input" />
+
+                <label>Social</label>
+                <span class="social input" />
+            </div>
+
+            <div class="hgrid col3">
+                <label>Free Stat</label>
+                <select class="stat1" name="comp_stat1" required></select>
+
+                <label>Free Stat</label>
+                <select class="stat2" name="comp_stat2" required></select>
+
+                <label>Free Stat</label>
+                <select class="stat3" name="comp_stat3" required></select>
+            </div>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-powers">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="stats">Back</button>
+                    <button type="submit" value="personal">Next</button>
+                    <button type="cancel" value="powers">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Step 4: Select Powers</h2>
+
+            <div class="grid col4 powerlist">
+                <label>Warding</label>
+                <span class="warding_value input">1</span>
+
+                <label>Resurrect</label>
+                <span class="resurrect_value input">1</span>
+
+                <div class="grid col2 nogap">
+                    <label>Concentrate: </label>
+                    <select class="concentrate" name="comp_concentrate" required></select>
+                </div>
+                <span class="concentrate_value input">2</span>
+
+                <div class="grid col2 nogap">
+                    <label>Power 1</label>
+                    <input type="text" name="comp_power1" value="" required />
+                </div>
+                <span class="power1_value input">1</span>
+
+                <div class="grid col2 nogap">
+                    <label>Power 2</label>
+                    <input type="text" name="comp_power2" value="" required />
+                </div>
+                <span class="power2_value input">1</span>
+
+                <div class="grid col2 nogap">
+                    <label>Power 3</label>
+                    <input type="text" name="comp_power3" value="" required />
+                </div>
+                <span class="power3_value input">1</span>
+
+                <div class="grid col2 nogap">
+                    <label>Power 4</label>
+                    <input type="text" name="comp_power4" value="" required />
+                </div>
+                <span class="power4_value input">1</span>
+            </div>
+
+            <div class="hgrid col2">
+                <label>Free Power</label>
+                <select class="freepower1" name="comp_freepower1" required></select>
+
+                <label>Free Power</label>
+                <select class="freepower2" name="comp_freepower2" required></select>
+            </div>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-skills">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="powers">Back</button>
+                    <button type="submit" value="personal">Next</button>
+                    <button type="cancel" value="skills">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Step 5: Select Skills</h2>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-personal">
+        <div class="grid col1">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="powers">Back</button>
+                    <button type="submit" value="apply">Next</button>
+                    <button type="cancel" value="personal">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Personal Data</h2>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-apply">
+        <div class="grid col1 fit">
+            <div class="logo">
+                <h1>Double Cross</h1>
+                <div class="tabs">
+                    <button type="back" value="personal">Back</button>
+                    <button type="finish" value="apply">Apply Changes</button>
+                    <button type="cancel" value="apply">Cancel</button>
+                </div>
+            </div>
+
+            <h2>Final Review</h2>
+
+            <h3>Syndrome</h3>
+
+            <div class="hgrid col4 nogap">
+                <label>Breed</label>
+                <span class="breed input" />
+
+                <label>First Syndrome</label>
+                <span class="syndrome1 input" />
+
+                <label>Second Syndrome</label>
+                <span class="syndrome2 input" />
+
+                <label>Sub-Syndrome</label>
+                <span class="syndrome3 input" />
+            </div>
+
+            <h3>Work</h3>
+
+            <div class="hgrid col2 nogap">
+                <label>Work</label>
+                <span class="work input" />
+
+                <label>Cover</label>
+                <span class="cover input" />
+            </div>
+
+            <h3>Stats</h3>
+
+            <div class="hgrid col4 nogap">
+                <label>Body</label>
+                <span class="body input" />
+
+                <label>Sense</label>
+                <span class="sense input" />
+
+                <label>Mind</label>
+                <span class="mind input" />
+
+                <label>Social</label>
+                <span class="social input" />
+            </div>
+
+            <div class="hgrid col3 nogap">
+                <label>Stat 1</label>
+                <span class="stat1 input" />
+
+                <label>Stat 2</label>
+                <span class="stat2 input" />
+
+                <label>Stat 3</label>
+                <span class="stat3 input" />
+            </div>
+
+            <h3>Powers</h3>
+
+            <div class="grid col4 nogap powerlist">
+                <label>Warding</label>
+                <span class="warding_value input" />
+
+                <label>Resurrect</label>
+                <span class="resurrect_value input" />
+
+                <label>Concentrate: <span class="concentrate" /></label>
+                <span class="concentrate_value input" />
+
+                <label><span class="power1" /></label>
+                <span class="power1_value input" />
+
+                <label><span class="power2" /></label>
+                <span class="power2_value input" />
+
+                <label><span class="power3" /></label>
+                <span class="power3_value input" />
+
+                <label><span class="power4" /></label>
+                <span class="power4_value input" />
+            </div>
+
+            <div class="hgrid col2 nogap">
+                <label>Free Power</label>
+                <span class="freepower1 input" />
+
+                <label>Free Power</label>
+                <span class="freepower2 input" />
+            </div>
+        </div>
+    </charmancer>
+    <charmancer class="sheet-charmancer-final">
+        <div>
+            <h2>Hold on a Moment</h2>
+            <p>Setting up your character sheet...</p>
+        </div>
+    </charmancer>
 
     <!-- character -->
     <div class="grid col1 csheet tab-panel">
@@ -74,134 +423,26 @@
 
             <div class="hgrid col4 nogap">
                 <label>Breed</label>
-                <select name="attr_character_breed">
-                    <option value="">Choose</option>
-                    <option value="pure">Pure</option>
-                    <option value="cross">Cross</option>
-                    <option value="tri">Tri</option>
-                </select>
+                <input type="text" name="attr_breed" value="" />
 
                 <label>Syndromes</label>
-                <select name="attr_character_syndrome1">
-                    <option value="">Choose</option>
-                    <option value="angel_halo">Angel Halo</option>
-                    <option value="balor">Balor</option>
-                    <option value="black_dog">Black Dog</option>
-                    <option value="bram_Stoker">Bram Stoker</option>
-                    <option value="chimera">Chimera</option>
-                    <option value="exile">Exile</option>
-                    <option value="hanuman">Hanuman</option>
-                    <option value="morpheus">Morpheus</option>
-                    <option value="neumann">Neumann</option>
-                    <option value="orcus">Orcus</option>
-                    <option value="ouroboros">Ouroboros</option>
-                    <option value="salamandra">Salamandra</option>
-                    <option value="solaris">Solaris</option>
-                </select>
+                <input type="text" name="attr_syndrome1" value="" />
 
                 <label></label>
-                <select name="attr_character_syndrome2">
-                    <option value="">Choose</option>
-                    <option value="angel_halo">Angel Halo</option>
-                    <option value="balor">Balor</option>
-                    <option value="black_dog">Black Dog</option>
-                    <option value="bram_Stoker">Bram Stoker</option>
-                    <option value="chimera">Chimera</option>
-                    <option value="exile">Exile</option>
-                    <option value="hanuman">Hanuman</option>
-                    <option value="morpheus">Morpheus</option>
-                    <option value="neumann">Neumann</option>
-                    <option value="orcus">Orcus</option>
-                    <option value="ouroboros">Ouroboros</option>
-                    <option value="salamandra">Salamandra</option>
-                    <option value="solaris">Solaris</option>
-                </select>
+                <input type="text" name="attr_syndrome2" value="" />
 
                 <label>Sub-Syndrome</label>
-                <select name="attr_character_syndrome3">
-                    <option value="">Choose</option>
-                    <option value="angel_halo">Angel Halo</option>
-                    <option value="balor">Balor</option>
-                    <option value="black_dog">Black Dog</option>
-                    <option value="bram_Stoker">Bram Stoker</option>
-                    <option value="chimera">Chimera</option>
-                    <option value="exile">Exile</option>
-                    <option value="hanuman">Hanuman</option>
-                    <option value="morpheus">Morpheus</option>
-                    <option value="neumann">Neumann</option>
-                    <option value="orcus">Orcus</option>
-                    <option value="ouroboros">Ouroboros</option>
-                    <option value="salamandra">Salamandra</option>
-                    <option value="solaris">Solaris</option>
-                </select>
+                <input type="text" name="attr_syndrome3" value="" />
             </div>
         </div>
 
         <div class="grid col2-cover">
             <div class="hgrid col2 nogap">
                 <label>Cover</label>
-                <input type="text" name="attr_character_cover" value="" />
+                <input type="text" name="attr_cover" value="" />
 
                 <label>Work</label>
-                <select name="attr_character_work">
-                    <option value="">Choose</option>
-                    <option value="actor">Actor</option>
-                    <option value="announcer">Announcer</option>
-                    <option value="artist">Artist</option>
-                    <option value="assassin">Assassin</option>
-                    <option value="athlete">Athlete</option>
-                    <option value="bodyguard">Bodyguard</option>
-                    <option value="businessman">Businessman</option>
-                    <option value="college_student">College Student</option>
-                    <option value="defense_attorney">Defense Attorney</option>
-                    <option value="delinquent">Delinquent</option>
-                    <option value="detective">Detective</option>
-                    <option value="doctor">Doctor</option>
-                    <option value="driver">Driver</option>
-                    <option value="executive">Executive</option>
-                    <option value="forensics_officer">Forensics Officer</option>
-                    <option value="fortune_teller">Fortune Teller</option>
-                    <option value="grade_school_student">Grade School Student</option>
-                    <option value="hacker">Hacker</option>
-                    <option value="high_school_student">High School Student</option>
-                    <option value="house_husband_wife">House Husband/Wife</option>
-                    <option value="informant">Informant</option>
-                    <option value="jack_of_all_trades">Jack of all Trades</option>
-                    <option value="journalist">Journalist</option>
-                    <option value="junior_high_student">Junior High Student</option>
-                    <option value="mafia">Mafia</option>
-                    <option value="martial_artist">Martial Artist</option>
-                    <option value="mercenary">Mercenary</option>
-                    <option value="national_guardsman">National Guardsman</option>
-                    <option value="negotiator">Negotiator</option>
-                    <option value="night_entertainment">Night Entertainment</option>
-                    <option value="nurse">Nurse</option>
-                    <option value="part-timer">Part-Timer</option>
-                    <option value="politician">Politician</option>
-                    <option value="private_investigator">Private Investigator</option>
-                    <option value="professor">Professor</option>
-                    <option value="programer">Programer</option>
-                    <option value="religious_person">Religious Person</option>
-                    <option value="researcher">Researcher</option>
-                    <option value="shop_owner">Shop Owner</option>
-                    <option value="singer">Singer</option>
-                    <option value="spy">Spy</option>
-                    <option value="stage_magician">Stage Magician</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="thief">Thief</option>
-                    <option value="ugn_agent_a">UGN Agent A</option>
-                    <option value="ugn_agent_b">UGN Agent B</option>
-                    <option value="ugn_agent_c">UGN Agent C</option>
-                    <option value="ugn_agent_d">UGN Agent D</option>
-                    <option value="ugn_branch_chief_a">UGN Branch Chief A</option>
-                    <option value="ugn_branch_chief_b">UGN Branch Chief B</option>
-                    <option value="ugn_branch_chief_c">UGN Branch Chief C</option>
-                    <option value="ugn_branch_chief_d">UGN Branch Chief D</option>
-                    <option value="ugn_child_a">UGN Child A</option>
-                    <option value="ugn_child_b">UGN Child B</option>
-                    <option value="ugn_child_c">UGN Child C</option>
-                    <option value="yakuza">Yakuza</option>
-                </select>
+                <input type="text" name="attr_work" value="" />
             </div>
 
             <div class="grid col2 nogap">
@@ -223,7 +464,7 @@
             <label>Rate</label>
             <input type="number" name="attr_encroachment_rate" value="" />
 
-            <span class="graph"></span>
+            <div class="graph"></div>
 
             <label>+Dice</label>
             <span name="attr_encroachment_dice" class="input" />
@@ -924,46 +1165,120 @@
 
 <script type="text/worker">
     // data
-    const tablist = ['csheet','items','powers','settings'];
-    const historyDictionary = {
-        'anger': {'name': 'Anger','rate': 17},
-        'birth': {'name': 'Birth','rate': 17},
-        'death': {'name': 'Death','rate': 18},
-        'experimentation': {'name': 'Experimentation','rate': 16},
-        'forgotten': {'name': 'Forgotten','rate': 17},
-        'infection': {'name': 'Infection','rate': 14},
-        'orders': {'name': 'Orders','rate': 15},
-        'repentance': {'name': 'Repentance','rate': 18},
-        'sacrifice': {'name': 'Sacrifice','rate': 16},
-        'self_improvement': {'name': 'Self Improvement','rate': 14},
-        'unknown': {'name': 'Unknown','rate': 15},
-        'yearning': {'name': 'Yearning','rate': 17},
-        'battle_lust': {'name': 'Battle Lust','rate': 16},
-        'bloodsucking': {'name': 'Bloodsucking','rate': 17},
-        'delusions': {'name': 'Delusions','rate': 14},
-        'destruction': {'name': 'Destruction','rate': 16},
-        'distaste': {'name': 'Distaste','rate': 15},
-        'fear': {'name': 'Fear','rate': 17},
-        'hatred': {'name': 'Hatred','rate': 18},
-        'hunger': {'name': 'Hunger','rate': 14},
-        'release': {'name': 'Release','rate': 18},
-        'self-mutilation': {'name': 'Self-Mutilation','rate': 16},
-        'slaughter': {'name': 'Slaughter','rate': 18},
-        'torture': {'name': 'Torture','rate': 15},
+    const tab_list = ["csheet","items","powers","settings"];
+    const char_dict = {
+        "syndromes": {
+            "Angel Halo": {"body": 0, "sense": 3, "mind": 1, "social": 0},
+            "Balor": {"body": 0, "sense": 1, "mind": 2, "social": 1},
+            "Black Dog": {"body": 2, "sense": 1, "mind": 1, "social": 0},
+            "Bram Stoker": {"body": 1, "sense": 2, "mind": 1, "social": 0},
+            "Chimaera": {"body": 3, "sense": 0, "mind": 0, "social": 1},
+            "Exile": {"body": 2, "sense": 1, "mind": 0, "social": 1},
+            "Hanuman": {"body": 1, "sense": 1, "mind": 1, "social": 1},
+            "Morpheus": {"body": 1, "sense": 2, "mind": 0, "social": 1},
+            "Neumann": {"body": 0, "sense": 0, "mind": 3, "social": 1},
+            "Orcus": {"body": 0, "sense": 1, "mind": 1, "social": 2},
+            "Salamandra": {"body": 2, "sense": 0, "mind": 1, "social": 1},
+            "Solaris": {"body": 0, "sense": 0, "mind": 1, "social": 3},
+        },
+        "work": {
+            "Actor": {"stat": "social", "skill1": "art:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:internet", "skill5val": 1},
+            "Announcer": {"stat": "social", "skill1": "art:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "negotiation", "skill3val": 2, "skill4": "info:internet", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Artist": {"stat": "mind", "skill1": "perception", "skill1val": 1, "skill2": "art:__", "skill2val": 2, "skill3": "will", "skill3val": 2, "skill4": "info:internet", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Assassin": {"stat": "sense", "skill1": "melee", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "range", "skill3val": 1, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:underworld", "skill5val": 1},
+            "Athlete": {"stat": "body", "skill1": "dodge", "skill1val": 2, "skill2": "perception", "skill2val": 1, "skill3": "will", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Bodyguard": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "dodge", "skill2val": 1, "skill3": "ride:__", "skill3val": 2, "skill4": "perception", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+            "Businessman": {"stat": "mind", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "negotiation", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:internet", "skill5val": 1},
+            "College Student": {"stat": "mind", "skill1": "dodge", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "will", "skill3val": 1, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:academics", "skill5val": 1},
+            "Defense Attorney": {"stat": "social", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+            "Delinquent": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "perception", "skill3val": 1, "skill4": "will", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+            "Detective": {"stat": "sense", "skill1": "ride:__", "skill1val": 2, "skill2": "range", "skill2val": 1, "skill3": "perception", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+            "Doctor": {"stat": "social", "skill1": "rc", "skill1val": 1, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 4, "skill4": "info:academics", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Driver": {"stat": "body", "skill1": "ride:__", "skill1val": 4, "skill2": "will", "skill2val": 1, "skill3": "negotiation", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Executive": {"stat": "social", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "procure", "skill3val": 2, "skill4": "info:internet", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Forensics Officer": {"stat": "mind", "skill1": "ride:__", "skill1val": 2, "skill2": "perception", "skill2val": 1, "skill3": "procure", "skill3val": 1, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:underworld", "skill5val": 1},
+            "Fortune Teller": {"stat": "mind", "skill1": "perception", "skill1val": 1, "skill2": "art:__", "skill2val": 2, "skill3": "will", "skill3val": 1, "skill4": "negotiation", "skill4val": 1, "skill5": "info:rumor", "skill5val": 1},
+            "Grade School Student": {"stat": "sense", "skill1": "perception", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "rc", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Hacker": {"stat": "mind", "skill1": "knowledge:__", "skill1val": 2, "skill2": "negotiation", "skill2val": 1, "skill3": "procure", "skill3val": 1, "skill4": "info:internet", "skill4val": 2, "skill5": "info:underworld", "skill5val": 1},
+            "High School Student": {"stat": "body", "skill1": "dodge", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "rc", "skill3val": 2, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "House Husband/Wife": {"stat": "social", "skill1": "art:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "negotiation", "skill3val": 2, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Informant": {"stat": "social", "skill1": "dodge", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 5, "skill4": "", "skill4val": 0, "skill5": "", "skill5val": 0},
+            "Jack of all Trades": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "dodge", "skill2val": 1, "skill3": "erception", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:rumor", "skill5val": 1},
+            "Journalist": {"stat": "mind", "skill1": "ride:__", "skill1val": 2, "skill2": "perception", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:internet", "skill5val": 1},
+            "Junior High Student": {"stat": "sense", "skill1": "perception", "skill1val": 1, "skill2": "will", "skill2val": 1, "skill3": "rc", "skill3val": 2, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Mafia": {"stat": "sense", "skill1": "ride:__", "skill1val": 2, "skill2": "range", "skill2val": 1, "skill3": "procure", "skill3val": 1, "skill4": "negotiation", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+            "Martial Artist": {"stat": "body", "skill1": "melee", "skill1val": 2, "skill2": "dodge", "skill2val": 1, "skill3": "perception", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Mercenary": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "range", "skill3val": 1, "skill4": "perception", "skill4val": 1, "skill5": "info:military", "skill5val": 1},
+            "National Guardsman": {"stat": "sense", "skill1": "melee", "skill1val": 1, "skill2": "dodge", "skill2val": 1, "skill3": "ride:__", "skill3val": 2, "skill4": "range", "skill4val": 1, "skill5": "info:military", "skill5val": 1},
+            "Negotiator": {"stat": "social", "skill1": "will", "skill1val": 1, "skill2": "negotiation", "skill2val": 1, "skill3": "procure", "skill3val": 1, "skill4": "info:__", "skill4val": 3, "skill5": "", "skill5val": 0},
+            "Night Entertainment": {"stat": "mind", "skill1": "will", "skill1val": 2, "skill2": "perception", "skill2val": 1, "skill3": "negotiation", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Nurse": {"stat": "body", "skill1": "perception", "skill1val": 1, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:academics", "skill5val": 1},
+            "Part-Timer": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "will", "skill3val": 1, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:internet", "skill5val": 1},
+            "Politician": {"stat": "social", "skill1": "will", "skill1val": 1, "skill2": "negotiation", "skill2val": 2, "skill3": "procure", "skill3val": 1, "skill4": "info:underworld", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Private Investigator": {"stat": "mind", "skill1": "ride:__", "skill1val": 2, "skill2": "perception", "skill2val": 1, "skill3": "will", "skill3val": 1, "skill4": "info:__", "skill4val": 3, "skill5": "", "skill5val": 0},
+            "Professor": {"stat": "social", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:academics", "skill5val": 1},
+            "Programer": {"stat": "social", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 2, "skill3": "knowledge:__", "skill3val": 2, "skill4": "info:internet", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Religious Person": {"stat": "social", "skill1": "will", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "negotiation", "skill3val": 2, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Researcher": {"stat": "mind", "skill1": "perception", "skill1val": 1, "skill2": "knowledge:__", "skill2val": 4, "skill3": "procure", "skill3val": 1, "skill4": "info:academics", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Shop Owner": {"stat": "social", "skill1": "ride:__", "skill1val": 2, "skill2": "will", "skill2val": 2, "skill3": "procure", "skill3val": 1, "skill4": "info:rumor", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Singer": {"stat": "sense", "skill1": "art:__", "skill1val": 2, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "negotiation", "skill4val": 1, "skill5": "info:internet", "skill5val": 1},
+            "Spy": {"stat": "sense", "skill1": "dodge", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "negotiation", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:military", "skill5val": 1},
+            "Stage Magician": {"stat": "sense", "skill1": "dodge", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "art:__", "skill3val": 2, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:rumor", "skill5val": 1},
+            "Teacher": {"stat": "mind", "skill1": "ride:__", "skill1val": 2, "skill2": "knowledge:__", "skill2val": 2, "skill3": "negotiation", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:academics", "skill5val": 1},
+            "Thief": {"stat": "sense", "skill1": "dodge", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "perception", "skill3val": 1, "skill4": "knowledge:__", "skill4val": 2, "skill5": "info:underworld", "skill5val": 1},
+            "UGN Agent A": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "dodge", "skill2val": 1, "skill3": "rc", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Agent B": {"stat": "sense", "skill1": "range", "skill1val": 1, "skill2": "perception", "skill2val": 1, "skill3": "rc", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Agent C": {"stat": "mind", "skill1": "will", "skill1val": 1, "skill2": "rc", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Agent D": {"stat": "social", "skill1": "perception", "skill1val": 1, "skill2": "negotiation", "skill2val": 1, "skill3": "rc", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Branch Chief A": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "dodge", "skill2val": 1, "skill3": "ride:__", "skill3val": 2, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Branch Chief B": {"stat": "sense", "skill1": "dodge", "skill1val": 1, "skill2": "range", "skill2val": 1, "skill3": "perception", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Branch Chief C": {"stat": "mind", "skill1": "rc", "skill1val": 1, "skill2": "will", "skill2val": 1, "skill3": "knowledge:__", "skill3val": 2, "skill4": "procure", "skill4val": 1, "skill5": "info:ugn", "skill5val": 1},
+            "UGN Branch Chief D": {"stat": "social", "skill1": "will", "skill1val": 1, "skill2": "negotiation", "skill2val": 1, "skill3": "procure", "skill3val": 2, "skill4": "info:ugn", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "UGN Child A": {"stat": "body", "skill1": "melee", "skill1val": 2, "skill2": "dodge", "skill2val": 1, "skill3": "rc", "skill3val": 1, "skill4": "info:ugn", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "UGN Child B": {"stat": "sense", "skill1": "dodge", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "rc", "skill3val": 1, "skill4": "info:ugn", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "UGN Child C": {"stat": "mind", "skill1": "dodge", "skill1val": 1, "skill2": "will", "skill2val": 1, "skill3": "rc", "skill3val": 2, "skill4": "info:ugn", "skill4val": 1, "skill5": "", "skill5val": 0},
+            "Yakuza": {"stat": "body", "skill1": "melee", "skill1val": 1, "skill2": "ride:__", "skill2val": 2, "skill3": "will", "skill3val": 1, "skill4": "procure", "skill4val": 1, "skill5": "info:underworld", "skill5val": 1},
+        },
+    };
+    const history_dict = {
+        "anger": {"name": "Anger","rate": 17},
+        "birth": {"name": "Birth","rate": 17},
+        "death": {"name": "Death","rate": 18},
+        "experimentation": {"name": "Experimentation","rate": 16},
+        "forgotten": {"name": "Forgotten","rate": 17},
+        "infection": {"name": "Infection","rate": 14},
+        "orders": {"name": "Orders","rate": 15},
+        "repentance": {"name": "Repentance","rate": 18},
+        "sacrifice": {"name": "Sacrifice","rate": 16},
+        "self_improvement": {"name": "Self Improvement","rate": 14},
+        "unknown": {"name": "Unknown","rate": 15},
+        "yearning": {"name": "Yearning","rate": 17},
+        "battle_lust": {"name": "Battle Lust","rate": 16},
+        "bloodsucking": {"name": "Bloodsucking","rate": 17},
+        "delusions": {"name": "Delusions","rate": 14},
+        "destruction": {"name": "Destruction","rate": 16},
+        "distaste": {"name": "Distaste","rate": 15},
+        "fear": {"name": "Fear","rate": 17},
+        "hatred": {"name": "Hatred","rate": 18},
+        "hunger": {"name": "Hunger","rate": 14},
+        "release": {"name": "Release","rate": 18},
+        "self-mutilation": {"name": "Self-Mutilation","rate": 16},
+        "slaughter": {"name": "Slaughter","rate": 18},
+        "torture": {"name": "Torture","rate": 15},
     };
 
-    tablist.forEach(button => {
+    tab_list.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({'tab': button});
         });
     });
 
-    const statList = ['BODY','SENSE','MIND','SOCIAL','TOTAL_INITIATIVE',
-        'PROCURE'];
-    statList.forEach(stat => {
-        let statLower = stat.toLowerCase();
-        on(`change:${statLower}`, function(eventInfo) {
-            getAttrs(statList, function(values) {
+    const stat_list = ['BODY','SENSE','MIND','SOCIAL'];
+    const attr_list = ['TOTAL_INITIATIVE','PROCURE'].concat(stat_list);
+    attr_list.forEach(attr => {
+        let attrLower = attr.toLowerCase();
+        on(`change:${attrLower}`, function(eventInfo) {
+            getAttrs(attr_list, function(values) {
                 let update = {};
                 let body = parseInt(values.BODY)||0;
                 let sense = parseInt(values.SENSE)||0;
@@ -993,12 +1308,12 @@
         getAttrs(['HISTORY_AWAKENING','HISTORY_IMPULSE'], function(values) {
             let update = {};
             let awakening = values.HISTORY_AWAKENING;
-            let awakening_rate = historyDictionary[awakening] ?
-                parseInt(historyDictionary[awakening]['rate'])||0 :
+            let awakening_rate = history_dict[awakening] ?
+                parseInt(history_dict[awakening]['rate'])||0 :
                 0;
             let impulse = values.HISTORY_IMPULSE;
-            let impulse_rate = historyDictionary[impulse] ?
-                parseInt(historyDictionary[impulse]['rate'])||0 :
+            let impulse_rate = history_dict[impulse] ?
+                parseInt(history_dict[impulse]['rate'])||0 :
                 0;
             let encroachment_rate = awakening_rate + impulse_rate;
             update['history_awakening_rate'] = awakening_rate;
@@ -1008,8 +1323,6 @@
             setAttrs(update);
         });
     });
-
-
 
     on('change:encroachment_rate', function(eventInfo) {
         getAttrs(['ENCROACHMENT_RATE'], function(values) {
@@ -1024,9 +1337,9 @@
     });
 
     on('change:_reporder:powers change:repeating_powers', function(eventInfo) {
-        getSectionIDsOrdered('repeating_powers', function (idArray) {
-            for (var i = 0; i < idArray.length; i++) {
-                let id = idArray[i];;
+        getSectionIDsOrdered('repeating_powers', function (idarray) {
+            for (var i = 0; i < idarray.length; i++) {
+                let id = idarray[i];;
                 let update = {};
                 update[`repeating_powers_${id}_powernum`] = i+1;
                 setAttrs(update);
@@ -1145,8 +1458,241 @@
         });
     });
 
+    // charmancer
+    const basepowers = ['Warding','Resurrect','Concentrate'];
+    const extrapowers = ['Power1','Power2','Power3','Power4'];
+    const allpowers = basepowers.concat(extrapowers);
+
+    on('clicked:create', function() {
+        startCharactermancer('syndrome');
+    });
+
+    on('mancerfinish:apply', function() {
+        const mancer_data = getCharmancerData();
+
+        let update = {};
+        let breed = mancer_data.syndrome.values.breed;
+        let syndrome1 = mancer_data.syndrome.values.syndrome1;
+        let syndrome2 = mancer_data.syndrome.values.syndrome2;
+        let syndrome3 = mancer_data.syndrome.values.syndrome3;
+        let work = mancer_data.work.values.work;
+        let stats = getMancerStats(mancer_data);
+        let powers = getMancerPowers(mancer_data);
+
+        if (breed == 'Tri' && syndrome3) {
+            update['syndrome3'] = syndrome3;
+        } else {
+            update['syndrome3'] = '';
+        }
+        if ((breed == 'Tri' || breed == 'Cross') && syndrome2) {
+            update['syndrome2'] = syndrome2;
+        } else if (breed == 'Pure') {
+            update['syndrome2'] = '';
+        }
+        update['breed'] = breed;
+        update['syndrome1'] = syndrome1;
+
+        update['work'] = work;
+        update['cover'] = mancer_data.work.values.cover;
+
+        stat_list.forEach(stat => {
+            let statLower = stat.toLowerCase();
+            update[statLower] = stats[statLower];
+        });
+
+        // clear out existing powers
+        getSectionIDs('repeating_powers', function(idarray) {
+            for(var i=0; i < idarray.length; i++) {
+                removeRepeatingRow(`repeating_powers_${idarray[i]}`);
+            }
+        });
+        // add new powers
+        allpowers.forEach(power => {
+            let newid = generateRowID();
+            let newrow = {};
+            let powername = power;
+            if (extrapowers.includes(power)) {
+                powername =
+                    mancer_data.powers.values[power.toLowerCase().replace(' ', '')];
+            } else if (power == 'Concentrate') {
+                powername += ":" + mancer_data.powers.values.concentrate;
+            }
+            newrow[`repeating_powers_${newid}_powername`] = powername;
+            newrow[`repeating_powers_${newid}_powerlevel`] =
+                powers[getPowerValueLabel(power)];
+            setAttrs(newrow);
+        });
+
+        setAttrs(update, function() {
+            deleteCharmancerData(['syndrome','work','stats','powers',
+                'personal']);
+            finishCharactermancer();
+        });
+    });
+
+    on('page:syndrome', function(eventinfo) {
+        let syndomes = [''].concat(Object.keys(char_dict['syndromes']));
+        setCharmancerOptions('syndrome1', syndomes);
+        setCharmancerOptions('syndrome2', syndomes);
+        setCharmancerOptions('syndrome3', syndomes);
+    });
+
+    on('page:work', function(eventinfo) {
+        let work = [''].concat(Object.keys(char_dict['work']));
+        setCharmancerOptions('work', work);
+    });
+
+    on('page:stats', function(eventinfo) {
+        let stats = [''].concat(stat_list.map(i => i.toTitleCase()));
+        setCharmancerOptions('stat1', stats);
+        setCharmancerOptions('stat2', stats);
+        setCharmancerOptions('stat3', stats);
+
+        updateStatHelpers();
+    });
+
+    on('page:powers', function(eventinfo) {
+        const mancer_data = getCharmancerData();
+        let syndromes = [''];
+        let powers = [''].concat(allpowers);
+
+        if (mancer_data.syndrome.values.breed) {
+            syndromes.push(mancer_data.syndrome.values.syndrome1);
+        }
+        if ((mancer_data.syndrome.values.breed == 'Cross'
+            || mancer_data.syndrome.values.breed == 'Tri')
+            && mancer_data.syndrome.values.syndrome2) {
+            syndromes.push(mancer_data.syndrome.values.syndrome2);
+        }
+        if (mancer_data.syndrome.values.breed == 'Tri'
+            && mancer_data.syndrome.values.syndrome3) {
+            syndromes.push(mancer_data.syndrome.values.syndrome3);
+        }
+        setCharmancerOptions('concentrate', syndromes);
+        setCharmancerOptions('freepower1', powers);
+        setCharmancerOptions('freepower2', powers);
+    });
+
+    on('page:apply', function(eventinfo) {
+        const mancer_data = getCharmancerData();
+        setCharmancerText({
+            'breed': mancer_data.syndrome.values.breed,
+            'syndrome1': mancer_data.syndrome.values.syndrome1,
+            'syndrome2': mancer_data.syndrome.values.syndrome2,
+            'syndrome3': mancer_data.syndrome.values.syndrome3,
+            'work': mancer_data.work.values.work,
+            'cover': mancer_data.work.values.cover,
+            'stat1': mancer_data.stats.values.stat1,
+            'stat2': mancer_data.stats.values.stat2,
+            'stat3': mancer_data.stats.values.stat3,
+            'concentrate': mancer_data.powers.values.concentrate,
+            'power1': mancer_data.powers.values.power1,
+            'power2': mancer_data.powers.values.power2,
+            'power3': mancer_data.powers.values.power3,
+            'power4': mancer_data.powers.values.power4,
+            'freepower1': getPowerName(mancer_data.powers.values.freepower1, mancer_data),
+            'freepower2': getPowerName(mancer_data.powers.values.freepower2, mancer_data),
+        });
+
+        updateStatHelpers();
+        updatePowerHelpers();
+    });
+
+    var getPowerName = function(freepower, mancer_data) {
+        let name = freepower;
+        if (extrapowers.includes(freepower)) {
+            name =
+                mancer_data.powers.values[freepower.toLowerCase().replace(' ','')];
+            name = name ? name : freepower;
+        }
+        return name;
+    }
+
+    var updateStatHelpers = function() {
+        const mancer_data = getCharmancerData();
+        let stats = getMancerStats(mancer_data);
+        setCharmancerText(stats);
+    }
+
+    on('mancerchange:stat1 mancerchange:stat2 mancerchange:stat3', updateStatHelpers);
+
+    var updatePowerHelpers = function() {
+        const mancer_data = getCharmancerData();
+        let powers = getMancerPowers(mancer_data);
+        setCharmancerText(powers);
+    }
+
+    on('mancerchange:freepower1 mancerchange:freepower2', updatePowerHelpers);
+
+    // charmancer helpers
+    var getSyndromeStat = function(syndrome, stat) {
+        return parseInt(char_dict['syndromes'][syndrome][stat])||0;
+    }
+
+    var getMancerStats = function(mancer_data) {
+        let stats = {};
+        let breed = mancer_data.syndrome.values.breed;
+        let syndrome1 = mancer_data.syndrome.values.syndrome1;
+        let syndrome2 = mancer_data.syndrome.values.syndrome2;
+        let syndrome3 = mancer_data.syndrome.values.syndrome3;
+        let work = mancer_data.work.values.work;
+        let stat_updates = [
+            char_dict['work'][work]['stat']
+        ];
+        if (mancer_data.stats) stat_updates = stat_updates.concat([
+            mancer_data.stats.values.stat1,
+            mancer_data.stats.values.stat2,
+            mancer_data.stats.values.stat3
+        ]);
+
+        if ((breed == 'Tri' || breed == 'Cross') && syndrome2) {
+            stat_list.forEach(stat => {
+                let statLower = stat.toLowerCase();
+                stats[statLower] = getSyndromeStat(syndrome1, statLower) +
+                    getSyndromeStat(syndrome2, statLower);
+            });
+        } else if (breed == 'Pure') {
+            stat_list.forEach(stat => {
+                let statLower = stat.toLowerCase();
+                stats[statLower] = getSyndromeStat(syndrome1, statLower) * 2;
+            });
+        }
+
+        stat_updates.forEach(stat => {
+            if (stat) {
+                let statLower = stat.toLowerCase();
+                stats[statLower] = stats[statLower] + 1;
+            }
+        });
+
+        return stats;
+    }
+
+    var getMancerPowers = function(mancer_data) {
+        let powers = {'warding_value': 1,'resurrect_value': 1,
+            'concentrate_value': 2,'power1_value': 1,'power2_value': 1,
+            'power3_value': 1,'power4_value': 1};
+        [mancer_data.powers.values.freepower1,
+            mancer_data.powers.values.freepower2].forEach(freepower => {
+            if (freepower) {
+                let name = getPowerValueLabel(freepower);
+                powers[name] = powers[name] + 1;
+            }
+        });
+
+        return powers;
+    }
+
+    var getPowerValueLabel = function(power) {
+        return power.toLowerCase().replace(' ', '') + '_value';
+    }
+
+    String.prototype.toTitleCase = function () {
+        return this.replace(/\w*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    };
+
     // encroachment helpers
-    var getEncroachmentDice = function (rate) {
+    var getEncroachmentDice = function(rate) {
         let power = 0;
         if (rate < 60) {
             power = 0;
@@ -1169,7 +1715,7 @@
         }
         return power;
     }
-    var getEncroachmentPower = function (rate) {
+    var getEncroachmentPower = function(rate) {
         let level = 0;
         if (rate < 100) {
             level = 0;
@@ -1182,12 +1728,12 @@
     }
 
     // getSectionIDsOrdered helper
-    var getSectionIDsOrdered = function (sectionName, callback) {
+    var getSectionIDsOrdered = function(sectionName, callback) {
       'use strict';
       getAttrs([`_reporder_${sectionName}`], function (v) {
-        getSectionIDs(sectionName, function (idArray) {
+        getSectionIDs(sectionName, function (idarray) {
           let reporderArray = v[`_reporder_${sectionName}`] ? v[`_reporder_${sectionName}`].toLowerCase().split(',') : [],
-            ids = [...new Set(reporderArray.filter(x => idArray.includes(x)).concat(idArray))];
+            ids = [...new Set(reporderArray.filter(x => idarray.includes(x)).concat(idarray))];
           callback(ids);
         });
       });
@@ -1205,14 +1751,14 @@
     const repeatingSum = (destinations, section, fields) => {
         if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
         if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
-        getSectionIDs(`repeating_${section}`, idArray => {
-            const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+        getSectionIDs(`repeating_${section}`, idarray => {
+            const attrArray = idarray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
             getAttrs([...attrArray], v => {
                 const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
                 const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
                 const output = {};
                 destinations.forEach((destination, index) => {
-                    output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+                    output[destination] = idarray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
                 });
                 setAttrs(output);
             });

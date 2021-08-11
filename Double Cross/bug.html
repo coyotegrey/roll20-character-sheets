@@ -1,0 +1,65 @@
+<div>
+    <button type="action" name="act_create">Create</button>
+</div>
+
+<charmancer class="sheet-charmancer-intro">
+    <div>
+        <label>Choice</label>
+        <select class="choice testselect" name="comp_testselect" required>
+            <option />
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <div class="sheet-choice choice testchoice1">
+            <label>Choice 1</label>
+            <input type="text" name="comp_choice1" />
+        </div>
+
+        <div class="sheet-choice choice testchoice2">
+            <label>Choice 2</label>
+            <input type="text" name="comp_choice2" />
+        </div>
+
+        <div class="sheet-choice choice testchoice3">
+            <label>Choice 3</label>
+            <input type="text" name="comp_choice3" />
+        </div>
+
+        <button type="finish" value="apply">Apply Changes</button>
+    </div>
+</charmancer>
+<charmancer class="sheet-charmancer-final">
+    <div>
+        <h2>Please wait...<h2>
+    </div>
+</charmancer>
+
+<script type="text/worker">
+    on('clicked:create', function() {
+        startCharactermancer('intro');
+    });
+
+    on('mancerchange:testselect', function(eventinfo) {
+        hideChoices();
+        if (eventinfo.newValue) {
+            let choice = parseInt(eventinfo.newValue)||0;
+            switch (choice) {
+                case 1:
+                    showChoices(['testchoice1']);
+                    break;
+                case 2:
+                    showChoices(['testchoice2']);
+                    break;
+                case 3:
+                    showChoices(['testchoice3']);
+                    break;
+            }
+        }
+    });
+
+    on('mancerfinish:apply', function() {
+        finishCharactermancer();
+    });
+</script>

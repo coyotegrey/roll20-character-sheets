@@ -27,14 +27,14 @@
 }
 */
 
-body .ui-dialog .charactersheet {
+body .ui-dialog .charsheet {
     background: white;
     border: 10px solid transparent;
     border-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/border_page.png')
         60 round;
 }
 
-body .charactersheet * {
+body .charsheet * {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
@@ -43,7 +43,7 @@ body .charactersheet * {
     background: black;
     margin: 0 -17px;
 }
-.charactersheet .logo h1 {
+.charsheet .logo h1 {
     background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/logo.png')
         left top / contain no-repeat content-box;
     display: block;
@@ -72,26 +72,26 @@ body .charactersheet * {
     color: black;
 }
 
-.charactersheet .grid.tab-panel {
+.charsheet .grid.tab-panel {
     display: none;
 }
-.charactersheet .tabstoggle[value="csheet"] ~ .interface .grid.tab-panel.csheet,
-.charactersheet .tabstoggle[value="items"] ~ .interface .grid.tab-panel.items,
-.charactersheet .tabstoggle[value="powers"] ~ .interface .grid.tab-panel.powers,
-.charactersheet .tabstoggle[value="settings"] ~ .interface .grid.tab-panel.settings {
+.charsheet .tabstoggle[value="csheet"] ~ .interface .grid.tab-panel.csheet,
+.charsheet .tabstoggle[value="items"] ~ .interface .grid.tab-panel.items,
+.charsheet .tabstoggle[value="powers"] ~ .interface .grid.tab-panel.powers,
+.charsheet .tabstoggle[value="settings"] ~ .interface .grid.tab-panel.settings {
     display: grid;
 }
-.charactersheet .tabstoggle[value="csheet"] ~ .interface .tab-csheet,
-.charactersheet .tabstoggle[value="items"] ~ .interface .tab-items,
-.charactersheet .tabstoggle[value="powers"] ~ .interface .tab-powers,
-.charactersheet .tabstoggle[value="settings"] ~ .interface .tab-settings {
+.charsheet .tabstoggle[value="csheet"] ~ .interface .tab-csheet,
+.charsheet .tabstoggle[value="items"] ~ .interface .tab-items,
+.charsheet .tabstoggle[value="powers"] ~ .interface .tab-powers,
+.charsheet .tabstoggle[value="settings"] ~ .interface .tab-settings {
     font-weight: bold;
     color: red;
 }
-.charactersheet .tabstoggle[value="csheet"] ~ .interface .tab-csheet:hover,
-.charactersheet .tabstoggle[value="items"] ~ .interface .tab-items:hover,
-.charactersheet .tabstoggle[value="powers"] ~ .interface .tab-powers:hover,
-.charactersheet .tabstoggle[value="settings"] ~ .interface .tab-settings:hover {
+.charsheet .tabstoggle[value="csheet"] ~ .interface .tab-csheet:hover,
+.charsheet .tabstoggle[value="items"] ~ .interface .tab-items:hover,
+.charsheet .tabstoggle[value="powers"] ~ .interface .tab-powers:hover,
+.charsheet .tabstoggle[value="settings"] ~ .interface .tab-settings:hover {
     color: black;
 }
 
@@ -113,7 +113,7 @@ h3 {
     text-transform: uppercase;
 }
 
-body .charactersheet .grid label {
+body .charsheet .grid label {
     background: white;
     font-weight: bold;
     font-size: 10px;
@@ -129,12 +129,12 @@ body .charactersheet .grid label {
     vertical-align: middle;
     overflow: hidden;
 }
-body .charactersheet .grid label.stat {
+body .charsheet .grid label.stat {
     font-size: 14px;
     text-transform: uppercase;
 }
-body .charactersheet .grid input,
-body .charactersheet .grid select {
+body .charsheet .grid input,
+body .charsheet .grid select {
     background: white;
     font-size: 15px;
 	display: inline-block;
@@ -154,18 +154,18 @@ body .charactersheet .grid select {
     overflow: hidden;
     z-index: 99;
 }
-body .charactersheet .grid input.stat {
+body .charsheet .grid input.stat {
     background: silver;
     font-weight: bold;
 }
 .stats .col2 ~ .repcontainer .repitem input[type=text] {
     font-size: 10px;
 }
-body .charactersheet .grid input,
-body .charactersheet .grid .input {
+body .charsheet .grid input,
+body .charsheet .grid .input {
     padding: 0 5px;
 }
-body .charactersheet .grid .input {
+body .charsheet .grid .input {
     background: white;
     font-size: 15px;
 	width: 100%;
@@ -178,81 +178,101 @@ body .charactersheet .grid .input {
     overflow: hidden;
     z-index: 99;
 }
-body .charactersheet .grid input[type=number] {
+body .charsheet .grid input[type=number] {
     width: 100%;
     padding: 0 0 0 5px;
     text-align: right;
     z-index: 99;
 }
-body .charactersheet .grid input[type=checkbox],
-body .charactersheet .grid input[type=radio] {
+body .charsheet .grid input[type=checkbox],
+body .charsheet .grid input[type=radio] {
     margin-top: 5px;
     height: 15px;
     z-index: 99;
 }
-body .charactersheet .grid .tab-panel .compact input,
-body .charactersheet .grid .tab-panel .compact .input,
-body .charactersheet .grid .tab-panel .compact select,
-body .charactersheet .grid .tab-panel .compact label {
+body .charsheet .grid .tab-panel .compact input,
+body .charsheet .grid .tab-panel .compact .input,
+body .charsheet .grid .tab-panel .compact select,
+body .charsheet .grid .tab-panel .compact label {
     font-size: 10px;
     line-height: 20px;
     height: 20px;
 }
-body .charactersheet .grid .tab-panel .compact input[type=checkbox],
-body .charactersheet .grid .tab-panel .compact input[type=radio] {
+body .charsheet .grid .tab-panel .compact input[type=checkbox],
+body .charsheet .grid .tab-panel .compact input[type=radio] {
     height: 10px;
 }
-body .charactersheet .grid .tab-panel .compact label {
+body .charsheet .grid .tab-panel .compact label {
     font-size: 8px;
 }
-body .charactersheet .grid .tab-panel .highlight {
+body .charsheet .grid .tab-panel .highlight {
     background: silver;
     font-weight: bold;
 }
 
 .graph {
-    background: linear-gradient(-10deg, paleturquoise 20%, white 20%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate0.png')
+        center / contain no-repeat content-box;
     grid-row: span 2;
+    text-align: center;
+}
+.graph span {
+    display: block;
+    margin-top: 40px;
 }
 .encroachment-rate[value="1"] ~ .graph {
-    background: linear-gradient(-20deg, paleturquoise 0%, lime 30%, white 30%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate1.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="2"] ~ .graph {
-    background: linear-gradient(-30deg, lime 0%, yellow 40%, white 40%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate2.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="3"] ~ .graph {
-    background: linear-gradient(-40deg, yellow 0%, gold 50%, white 50%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate3.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="4"] ~ .graph {
-    background: linear-gradient(-50deg, gold 0%, orange 60%, white 60%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate4.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="5"] ~ .graph {
-    background: linear-gradient(-60deg, orange 0%, orangered 70%, white 70%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate5.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="6"] ~ .graph {
-    background: linear-gradient(-70deg, orangered 0%, red 80%, white 80%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate6.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="7"] ~ .graph {
-    background: linear-gradient(-80deg, red 0%, crimson 90%, white 90%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate7.png')
+        center / contain no-repeat content-box;
 }
 .encroachment-rate[value="8"] ~ .graph {
-    background: linear-gradient(-90deg, crimson 0%, darkred 100%);
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/double-cross-dev/Double%20Cross/images/rate8.png')
+        center / contain no-repeat content-box;
 }
 
 /* grid stuff */
-.charactersheet .grid,
-.charactersheet .grid ~ .repcontainer,
-.charactersheet .grid ~ .repcontainer .repitem,
-.charactersheet .hgrid {
+.charsheet .grid,
+.charsheet .grid ~ .repcontainer,
+.charsheet .grid ~ .repcontainer .repitem,
+.charsheet .hgrid {
     display: grid;
     margin: 0;
     padding: 0;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 10px;
 }
-.charactersheet .nogap,
-.charactersheet .nogap ~ .repcontainer,
-.charactersheet .nogap ~ .repcontainer .repitem {
+.charsheet .fit .grid,
+.charsheet .fit .grid ~ .repcontainer,
+.charsheet .fit .grid ~ .repcontainer .repitem,
+.charsheet .fit .hgrid {
+    width: fit-content;
+}
+.charsheet .nogap,
+.charsheet .nogap ~ .repcontainer,
+.charsheet .nogap ~ .repcontainer .repitem {
     column-gap: 3px;
     row-gap: 0;
 }
@@ -287,6 +307,9 @@ body .charactersheet .grid .tab-panel .highlight {
 }
 .col4.history {
     grid-template-columns: 3fr 3fr 3fr 1fr;
+}
+.col4.powerlist {
+    grid-template-columns: 6fr 1fr 6fr 1fr;
 }
 .col5,
 .col5 ~ .repcontainer .repitem {
@@ -354,7 +377,7 @@ body .charactersheet .grid .tab-panel .highlight {
     grid-template-rows: repeat(2, auto);
 }
 
-.charactersheet .powers .repcontainer > .repitem {
+.charsheet .powers .repcontainer > .repitem {
     padding: 5px 0;
 }
 
@@ -365,16 +388,16 @@ body .charactersheet .grid .tab-panel .highlight {
     background: #eee;
 }
 
-body .charactersheet .grid .history-experience ~ select.history-student,
-body .charactersheet .grid .history-experience ~ select.history-adult,
-body .charactersheet .grid .history-experience ~ select.history-criminal,
-body .charactersheet .grid .history-experience ~ select.history-ugn {
+body .charsheet .grid .history-experience ~ select.history-student,
+body .charsheet .grid .history-experience ~ select.history-adult,
+body .charsheet .grid .history-experience ~ select.history-criminal,
+body .charsheet .grid .history-experience ~ select.history-ugn {
     display: none;
 }
-body .charactersheet .grid .history-experience[value="student"] ~ select.history-student,
-body .charactersheet .grid .history-experience[value="adult"] ~ select.history-adult,
-body .charactersheet .grid .history-experience[value="criminal"] ~ select.history-criminal,
-body .charactersheet .grid .history-experience[value="ugn"] ~ select.history-ugn {
+body .charsheet .grid .history-experience[value="student"] ~ select.history-student,
+body .charsheet .grid .history-experience[value="adult"] ~ select.history-adult,
+body .charsheet .grid .history-experience[value="criminal"] ~ select.history-criminal,
+body .charsheet .grid .history-experience[value="ugn"] ~ select.history-ugn {
     display: inline-block;
 }
 
