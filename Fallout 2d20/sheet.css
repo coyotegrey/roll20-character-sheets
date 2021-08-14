@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;900&display=swap');
 
-body .charactersheet * {
+/* begin charmancer fix */
+
+body .charsheet .choice {
+    display: none;
+}
+
+/* end charmancer fix */
+
+body .charsheet * {
     font-family: 'Roboto', sans-serif;
     font-size: 10px;
 }
@@ -48,88 +56,86 @@ body .charactersheet * {
 }
 
 /* PIP-BOY R20 */
-.charactersheet .style-pip-boy[value="1"] ~ .interface {
+.charsheet .style-pip-boy[value="1"] ~ .interface {
     background: black;
 }
-.charactersheet .style-pip-boy[value="1"] ~ .interface * {
+.charsheet .style-pip-boy[value="1"] ~ .interface * {
     color: #1AF87F;
 }
-.charactersheet .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultboy_pb.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .style-vault-girl[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-vault-girl[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultgirl.png')
     bottom / 45% no-repeat;
 }
-.charactersheet .style-vault-girl[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-vault-girl[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultgirl_pb.png')
     bottom / 45% no-repeat;
 }
 
-.charactersheet .style-outline[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-outline[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultboy_outline.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .style-vault-girl[value="1"] ~ .style-outline[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-vault-girl[value="1"] ~ .style-outline[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultgirl_outline.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .style-outline[value="1"] ~ .interface .origin-choice[value="robot"] ~ .locations {
+.charsheet .style-outline[value="1"] ~ .interface .origin-choice[value="robot"] ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/robot_outline.png')
         bottom / 45% no-repeat;
 }
 
-.charactersheet .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultboy_outline_pb.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .style-vault-girl[value="1"] ~ .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
+.charsheet .style-vault-girl[value="1"] ~ .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice:not([value="robot"]) ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultgirl_outline_pb.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice[value="robot"] ~ .locations {
+.charsheet .style-outline[value="1"] ~ .style-pip-boy[value="1"] ~ .interface .origin-choice[value="robot"] ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/robot_outline_pb.png')
         bottom / 45% no-repeat;
 }
 
 
-.charactersheet h1, h2, h3, h4, p {
+.charsheet h1, h2, h3, h4, p {
     clear: both;
     min-height: 20px;
     line-height: 18px;
     margin: 0;
     padding: 0;
 }
-.charactersheet h1,
-.charactersheet h1 * {
+.charsheet h1 {
     font: bold 20px 'Roboto', sans-serif;
 	width: 50%;
     padding: 5px 5px 5px 35px;
     margin: 0 0 5px -30px;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #e0b829 90%, white 90%);
+    background: linear-gradient(135deg, #e0b829 200px, transparent 200px);
     color: white;
     text-transform: uppercase;
 }
-.charactersheet h2,
-.charactersheet h2 * {
+.charsheet h2 {
     font: bold 10px 'Roboto', sans-serif;
-	width: 200px;
+	width: 100%;
     padding: 5px;
     margin: 0 0 5px 0;
     box-sizing: border-box;
-    background: linear-gradient(45deg, #e0b829 85%, white 85%);
+    background: linear-gradient(45deg, #e0b829 150px, transparent 150px);
     color: white;
     text-transform: uppercase;
 }
 .combat h2
-.charactersheet h2 * {
+.charsheet h2 * {
     background: linear-gradient(45deg, #DC8D3B 85%, white 85%);
 }
-.charactersheet .creation h2,
-.charactersheet .creation h2 *,
-.charactersheet .npc h2 {
+.charsheet .creation h2,
+.charsheet .creation h2 *,
+.charsheet .npc h2 {
     position: relative;
     font: bold 20px 'Roboto', sans-serif;
     width: 100%;
@@ -138,8 +144,9 @@ body .charactersheet * {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-.charactersheet h2 .prev,
-.charactersheet h2 .next {
+.charsheet h2 .cancel,
+.charsheet h2 .prev,
+.charsheet h2 .next {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -150,22 +157,28 @@ body .charactersheet * {
     border-radius: 2px;
     box-shadow: none;
 }
-.charactersheet h2 .prev:hover,
-.charactersheet h2 .next:hover {
+.charsheet h2 .cancel:hover,
+.charsheet h2 .prev:hover,
+.charsheet h2 .next:hover {
     background-color: #e0b829;
 }
-.charactersheet h2 .prev {
-    background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/larrow.png')
-        center / contain no-repeat content-box;
-    right: 25px;
-}
-.charactersheet h2 .next {
-    background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/rarrow.png')
+.charsheet h2 .cancel {
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/fallout-2d20-dev/Fallout%202d20/images/close.png')
         center / contain no-repeat content-box;
     right: 0;
 }
-.charactersheet h3,
-.charactersheet h3 * {
+.charsheet h2 .prev {
+    background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/larrow.png')
+        center / contain no-repeat content-box;
+    right: 50px;
+}
+.charsheet h2 .next {
+    background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/rarrow.png')
+        center / contain no-repeat content-box;
+    right: 25px;
+}
+.charsheet h3,
+.charsheet h3 * {
     font: bold 10px 'Roboto', sans-serif;
     padding: 5px 0;
     margin: 0;
@@ -173,11 +186,11 @@ body .charactersheet * {
     color: #e0b829;
     text-transform: uppercase;
 }
-.charactersheet p + p {
+.charsheet p + p {
     padding-top: 10px;
 }
 
-.charactersheet p.vb-tip {
+.charsheet p.vb-tip {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultboy_head.png')
         left / contain no-repeat;
     font-size: 16px;
@@ -210,7 +223,8 @@ strong {
     padding: 5px;
 }
 .tabs button,
-.subtabs button {
+.subtabs button,
+.subtabs span {
     font: 10px 'Roboto', sans-serif;
     background: white;
     padding: 0 5px;
@@ -221,90 +235,68 @@ strong {
     font-weight: bold;
     color: black;
 }
-.subtabs button {
+.subtabs button,
+.subtabs span {
     font-weight: normal;
     color: #e0b829;
+}
+.subtabs span {
+    font-weight: bold;
+    color: black;
 }
 .tabs button:hover,
 .subtabs button:hover {
     color: #e0b829;
 }
-.tabs .tabstoggle[value="creation"] ~ div.tab-creation,
-.tabs .tabstoggle[value="character"] ~ div.tab-character,
-.tabs .tabstoggle[value="perks"] ~ div.tab-perks,
-.tabs .tabstoggle[value="items"] ~ div.tab-items,
-.tabs .tabstoggle[value="npc"] ~ div.tab-npc,
-.tabs .tabstoggle[value="settings"] ~ div.tab-settings {
+.tabstoggle[value="creation"] ~ .interface div.tab-creation,
+.tabstoggle[value="character"] ~ .interface div.tab-character,
+.tabstoggle[value="perks"] ~ .interface div.tab-perks,
+.tabstoggle[value="items"] ~ .interface div.tab-items,
+.tabstoggle[value="npc"] ~ .interface div.tab-npc,
+.tabstoggle[value="settings"] ~ .interface div.tab-settings {
     background: white;
     border-top: solid 2px black;
     border-left: solid 2px black;
     border-right: solid 2px black;
 }
-.subtabs .subtabstoggle[value="origin"] ~ div.tab-origin button,
-.subtabs .subtabstoggle[value="attributes"] ~ div.tab-attributes button,
-.subtabs .subtabstoggle[value="skills"] ~ div.tab-skills button,
-.subtabs .subtabstoggle[value="perk"] ~ div.tab-perk button,
-.subtabs .subtabstoggle[value="derived"] ~ div.tab-derived button,
-.subtabs .subtabstoggle[value="equipment"] ~ div.tab-equipment button,
-.subtabs .subtabstoggle[value="finalize"] ~ div.tab-finalize button {
-    font-weight: bold;
-    color: black;
-}
 
-.charactersheet .setting-npc[value="1"] ~ .interface div.tab-creation,
-.charactersheet .setting-npc[value="1"] ~ .interface div.tab-character,
-.charactersheet .setting-npc[value="1"] ~ .interface div.tab-perks,
-.charactersheet .setting-npc[value="1"] ~ .interface div.tab-items,
-.charactersheet .setting-npc:not([value="1"]) ~ .interface div.tab-npc {
+.charsheet .setting-npc[value="1"] ~ .interface div.tab-creation,
+.charsheet .setting-npc[value="1"] ~ .interface div.tab-character,
+.charsheet .setting-npc[value="1"] ~ .interface div.tab-perks,
+.charsheet .setting-npc[value="1"] ~ .interface div.tab-items,
+.charsheet .setting-npc:not([value="1"]) ~ .interface div.tab-npc {
     display: none;
 }
 
-body .charactersheet .creation,
-body .charactersheet .character,
-body .charactersheet .perks,
-body .charactersheet .npc,
-body .charactersheet .items,
-body .charactersheet .settings,
-body .charactersheet .origin,
-body .charactersheet .attributes,
-body .charactersheet .skills,
-body .charactersheet .perk,
-body .charactersheet .derived,
-body .charactersheet .equipment,
-body .charactersheet .finalize {
+body .charsheet .character,
+body .charsheet .perks,
+body .charsheet .npc,
+body .charsheet .items,
+body .charsheet .settings {
     display: none;
 }
 
-.charactersheet .setting-npc:not([value="1"]) ~ .interface .tabstoggle[value="creation"] ~ div.creation,
-.charactersheet .setting-npc:not([value="1"]) ~ .interface .tabstoggle[value="character"] ~ div.character,
-.charactersheet .setting-npc:not([value="1"]) ~ .interface .tabstoggle[value="perks"] ~ div.perks,
-.charactersheet .setting-npc:not([value="1"]) ~ .interface .tabstoggle[value="items"] ~ div.items,
-.charactersheet .setting-npc[value="1"] ~ .interface .tabstoggle[value="npc"] ~ div.npc,
-.tabstoggle[value="settings"] ~ div.settings {
+.charsheet .setting-npc:not([value="1"]) ~ .tabstoggle[value="creation"] ~ .interface div.creation,
+.charsheet .setting-npc:not([value="1"]) ~ .tabstoggle[value="character"] ~ .interface div.character,
+.charsheet .setting-npc:not([value="1"]) ~ .tabstoggle[value="perks"] ~ .interface div.perks,
+.charsheet .setting-npc:not([value="1"]) ~ .tabstoggle[value="items"] ~ .interface div.items,
+.charsheet .setting-npc[value="1"] ~ .tabstoggle[value="npc"] ~ .interface div.npc,
+.tabstoggle[value="settings"] ~ .interface div.settings {
     display: grid;
     row-gap: 10px;
 }
-.charactersheet .setting-npc[value="0"] ~ .interface button.character,
-.charactersheet .setting-npc[value="1"] ~ .npc-category[value="character"] ~ .interface button.character {
+.charsheet .setting-npc[value="0"] ~ .interface button.character,
+.charsheet .setting-npc[value="1"] ~ .npc-category[value="character"] ~ .interface button.character {
     display: inline-block;
 }
-.charactersheet .setting-npc[value="1"] ~ .npc-category:not([value="character"]) ~ .interface button.npc {
+.charsheet .setting-npc[value="1"] ~ .npc-category:not([value="character"]) ~ .interface button.npc {
     display: inline-block;
 }
-.charactersheet .setting-npc[value="0"] ~ .interface .npc .grid.character,
-.charactersheet .setting-npc[value="1"] ~ .npc-category[value="character"] ~ .interface .npc .character {
+.charsheet .setting-npc[value="0"] ~ .interface .npc .grid.character,
+.charsheet .setting-npc[value="1"] ~ .npc-category[value="character"] ~ .interface .npc .character {
     display: grid;
 }
-.charactersheet .setting-npc[value="1"] ~ .npc-category:not([value="character"]) ~ .interface .npc .npc {
-    display: grid;
-}
-.subtabstoggle[value="origin"] ~ div.origin,
-.subtabstoggle[value="attributes"] ~ div.attributes,
-.subtabstoggle[value="skills"] ~ div.skills,
-.subtabstoggle[value="perk"] ~ div.perk,
-.subtabstoggle[value="derived"] ~ div.derived,
-.subtabstoggle[value="equipment"] ~ div.equipment,
-.subtabstoggle[value="finalize"] ~ div.finalize {
+.charsheet .setting-npc[value="1"] ~ .npc-category:not([value="character"]) ~ .interface .npc .npc {
     display: grid;
 }
 
@@ -362,18 +354,18 @@ body .charactersheet .finalize {
     color: black;
 }
 
-body .charactersheet .luckpts {
+body .charsheet .luckpts {
     background: linear-gradient(45deg, #fff0 20%, #BDBBD1 20%);
     grid-template-columns: 14fr 8fr;
     grid-column: 5;
     margin-top: -20px;
 }
-body .charactersheet div .col5 .luckpts label {
+body .charsheet div .col5 .luckpts label {
     background: none;
     box-shadow: none;
     text-align: right;
 }
-body .charactersheet div .col5 .luckpts input[type=number] {
+body .charsheet div .col5 .luckpts input[type=number] {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/gear.png') center no-repeat;
     background-size: contain;
     height: auto;
@@ -383,7 +375,7 @@ body .charactersheet div .col5 .luckpts input[type=number] {
     text-align: center;
 }
 
-body .charactersheet div .col7 label,
+body .charsheet div .col7 label,
 .col7 .input {
     background: #e0b829;
     color: white;
@@ -396,57 +388,57 @@ body .charactersheet div .col7 label,
     height: auto;
 }
 
-.charactersheet .attributes .strength button,
-.charactersheet .attributes .strength .input,
-body .charactersheet div .col7 .strength label,
+.charsheet .attributes .strength button,
+.charsheet .attributes .strength .input,
+body .charsheet div .col7 .strength label,
 .col7 .strength .input {
     background: #EFBC91;
     box-shadow: 0 0 0 1px #EFBC91;
 }
 
-.charactersheet .attributes .perception button,
-.charactersheet .attributes .perception .input,
-body .charactersheet div .col7 .perception label,
+.charsheet .attributes .perception button,
+.charsheet .attributes .perception .input,
+body .charsheet div .col7 .perception label,
 .col7 .perception .input {
     background: #C0D5AE;
     box-shadow: 0 0 0 1px #C0D5AE;
 }
 
-.charactersheet .attributes .endurance button,
-.charactersheet .attributes .endurance .input,
-body .charactersheet div .col7 .endurance label,
+.charsheet .attributes .endurance button,
+.charsheet .attributes .endurance .input,
+body .charsheet div .col7 .endurance label,
 .col7 .endurance .input {
     background: #ADC7D8;
     box-shadow: 0 0 0 1px #ADC7D8;
 }
 
-.charactersheet .attributes .charisma button,
-.charactersheet .attributes .charisma .input,
-body .charactersheet div .col7 .charisma label,
+.charsheet .attributes .charisma button,
+.charsheet .attributes .charisma .input,
+body .charsheet div .col7 .charisma label,
 .col7 .charisma .input {
     background: #A2C1A2;
     box-shadow: 0 0 0 1px #A2C1A2;
 }
 
-.charactersheet .attributes .intelligence button,
-.charactersheet .attributes .intelligence .input,
-body .charactersheet div .col7 .intelligence label,
+.charsheet .attributes .intelligence button,
+.charsheet .attributes .intelligence .input,
+body .charsheet div .col7 .intelligence label,
 .col7 .intelligence .input {
     background: #CAC5A8;
     box-shadow: 0 0 0 1px #CAC5A8;
 }
 
-.charactersheet .attributes .agility button,
-.charactersheet .attributes .agility .input,
-body .charactersheet div .col7 .agility label,
+.charsheet .attributes .agility button,
+.charsheet .attributes .agility .input,
+body .charsheet div .col7 .agility label,
 .col7 .agility .input {
     background: #F3BAAF;
     box-shadow: 0 0 0 1px #F3BAAF;
 }
 
-.charactersheet .attributes .luck button,
-.charactersheet .attributes .luck .input,
-body .charactersheet div .col7 .luck label,
+.charsheet .attributes .luck button,
+.charsheet .attributes .luck .input,
+body .charsheet div .col7 .luck label,
 .col7 .luck .input {
     background: #BDBBD1;
     box-shadow: 0 0 0 1px #BDBBD1;
@@ -507,7 +499,7 @@ body .charactersheet div .col7 .luck label,
     background-size: 100% 100%;
     grid-template-rows: 80px;
 }
-.charactersheet .special .grid {
+.charsheet .special .grid {
     grid-template-rows: auto;
     align-self: center;
 }
@@ -563,7 +555,7 @@ body .charactersheet div .col7 .luck label,
 }
 
 
-body .charactersheet .die {
+body .charsheet .die {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/die_vaultboy.png') center no-repeat;
     background-size: contain;
     display: inline-block;
@@ -583,14 +575,14 @@ body .charactersheet .die {
 .melee-damage[value="0"] ~ .die0 {
     display: inline-block;
 }
-body .charactersheet div .col2 .melee-damage[value="1"] ~ .die1,
-body .charactersheet div .col2 .melee-damage[value="2"] ~ .die2,
-body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
+body .charsheet div .col2 .melee-damage[value="1"] ~ .die1,
+body .charsheet div .col2 .melee-damage[value="2"] ~ .die2,
+body .charsheet div .col2 .melee-damage[value="3"] ~ .die3 {
     display: inline-block;
 }
 
-.charactersheet .character .col2-csheet,
-.charactersheet .character .weapons {
+.charsheet .character .col2-csheet,
+.charsheet .character .weapons {
     margin-top: -10px;
 }
 
@@ -598,7 +590,7 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     grid-template-rows: auto 20px;
 }
 
-.charactersheet .logo h1 {
+.charsheet .logo h1 {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/logo.png') left top no-repeat;
     background-size: contain;
     display: block;
@@ -608,7 +600,7 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     text-indent: -9999px;
 }
 
-.charactersheet .logo .doc-subtitle {
+.charsheet .logo .doc-subtitle {
     font: bold 10px 'Roboto', sans-serif;
     padding: 5px;
     margin: 0;
@@ -617,17 +609,17 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     text-transform: uppercase;
 }
 
-.charactersheet .grid {
+.charsheet .grid {
     display: grid;
     margin: 0;
     padding: 0;
     grid-auto-rows: minmax(min-content, max-content);
     row-gap: 10px;
 }
-.charactersheet .gap {
+.charsheet .gap {
     column-gap: 10px;
 }
-.charactersheet .nogap {
+.charsheet .nogap {
     gap: 1px;
     grid-template-rows: 20px auto;
 }
@@ -677,7 +669,7 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     text-align: center;
     box-shadow: none;
 }
-.charactersheet .col7 {
+.charsheet .col7 {
     grid-template-columns: repeat(7, 1fr);
 }
 .col7-meleedmg,
@@ -724,7 +716,7 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     grid-column: span 4;
 }
 
-.charactersheet label,
+.charsheet label,
 .label {
     font: bold 10px 'Roboto', sans-serif;
 	display: inline-block;
@@ -742,13 +734,13 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
     text-transform: uppercase;
 }
 
-.charactersheet .creation label {
+.charsheet .creation label {
     background: #F4E1AE;
     color: black;
     box-shadow: 0 0 0 1px #F4E1AE;
 }
 
-.charactersheet label button {
+.charsheet label button {
     background: none;
     border: none;
     height: 20px
@@ -757,13 +749,13 @@ body .charactersheet div .col2 .melee-damage[value="3"] ~ .die3 {
 .col7 div label,
 .col7 div input,
 .col7 div .input,
-.charactersheet label.level,
-.charactersheet input.level {
+.charsheet label.level,
+.charsheet input.level {
     text-align: center;
 }
 
-body .charactersheet div .grid input,
-.charactersheet select,
+body .charsheet div .grid input,
+.charsheet select,
 .input  {
     font: 10px 'Roboto', sans-serif;
 	display: inline-block;
@@ -783,30 +775,30 @@ body .charactersheet div .grid input,
     outline: none;
     overflow: hidden;
 }
-.charactersheet .creation input,
-.charactersheet .creation select {
+.charsheet .creation input,
+.charsheet .creation select {
     box-shadow: 0 0 0 1px #F4E1AE;
 }
 .input {
     box-shadow: 0 0 0 1px white;
 }
-.charactersheet select {
+.charsheet select {
     font-size: 8px;
 }
 
-body .charactersheet div .grid input[type=checkbox]  {
+body .charsheet div .grid input[type=checkbox]  {
     height: auto;
     width: auto;
     align-self: center;
 }
 
-body .charactersheet div .col2 input[type=checkbox]  {
+body .charsheet div .col2 input[type=checkbox]  {
     background: none;
     box-shadow: none;
     margin: 0 5px;
 }
 
-body .charactersheet div .switch {
+body .charsheet div .switch {
     background: none;
     border: none;
     box-shadow: none;
@@ -856,19 +848,36 @@ input:checked + .slider:before {
     transform: translateX(16px);
 }
 
-.charactersheet input[type=radio]  {
+body .charsheet div.character h2 {
+    position: relative;
+}
+body .charsheet div.character .switch {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    height: 18px;
+}
+.character .slider {
+    border-radius: 18px;
+}
+.character .slider:before {
+    height: 14px;
+    width: 14px;
+}
+
+.charsheet input[type=radio]  {
     height: auto;
     width: auto;
     margin: 0 5px 5px 0;
 }
 
-body .charactersheet div .grid input[type=number]  {
+body .charsheet div .grid input[type=number]  {
     width: 100%;
     height: 20px;
 }
 
-body .charactersheet div .grid input.character-name,
-body .charactersheet div .grid input.level {
+body .charsheet div .grid input.character-name,
+body .charsheet div .grid input.level {
     height: auto;
     font-size: 20px;
 }
@@ -892,8 +901,8 @@ body .charactersheet div .grid input.level {
     line-height: 20px;
     box-sizing: border-box;
     overflow: hidden;
-    padding: 0 0 0 5px;
     background: #faeade;
+    box-shadow: 0 0 0 1px #faeade;
     color: #de9458;
     text-align: center;
     align-self: center;
@@ -903,9 +912,14 @@ body .charactersheet div .grid input.level {
     font: bold 10px 'Roboto', sans-serif;
     padding: 5px;
     background: black;
+    box-shadow: 0 0 0 1px black;
     color: white;
     text-transform: uppercase;
     text-align: center;
+}
+.skills-grid > div:nth-child(4n + 5),
+.skills-grid-mini > div:nth-child(3n + 4) {
+    padding-left: 5px;
 }
 .skills-grid > div:nth-child(8n + 5),
 .skills-grid > div:nth-child(8n + 6),
@@ -915,6 +929,11 @@ body .charactersheet div .grid input.level {
 .skills-grid-mini > div:nth-child(6n + 5),
 .skills-grid-mini > div:nth-child(6n + 6) {
     background: #f4d6bc;
+    box-shadow: 0 0 0 1px #f4d6bc;
+}
+.edit-skills[value="1"] ~ .skills-grid-mini > div:nth-child(3n + 3) {
+    background: black;
+    box-shadow: 0 0 0 1px black;
 }
 .skills-grid div:nth-child(4n + 1),
 .skills-grid-mini div:nth-child(3n + 1) {
@@ -929,9 +948,9 @@ body .charactersheet div .grid input.level {
 .skills-grid-mini div span {
     color: black;
 }
-.charactersheet .skills-grid div label,
-.charactersheet .skills-grid-mini div label,
-.charactersheet .skills-grid-mini div button[type=roll]  {
+.charsheet .skills-grid div label:not(.switch),
+.charsheet .skills-grid-mini div label:not(.switch),
+.charsheet .skills-grid-mini div button[type=roll]  {
     font: normal 10px 'Roboto', sans-serif;
     display: inline-block;
     width: auto;
@@ -946,10 +965,14 @@ body .charactersheet div .grid input.level {
     outline: none;
     text-shadow: none;
 }
-.charactersheet .skills-grid-mini div button[type=roll]::before {
+.charsheet .skills-grid-mini div button[type=roll]::before {
     content: '';
 }
-body .charactersheet .skills-grid div input[type=number] {
+body .charsheet .skills-grid-mini div input[type=number] {
+    padding: 0;
+    text-align: right;
+}
+body .charsheet .skills-grid div input[type=number] {
     font: 10px 'Roboto', sans-serif;
     display: inline-block;
     width: 100%;
@@ -978,11 +1001,17 @@ body .charactersheet .skills-grid div input[type=number] {
     text-indent: -9999px;
 }
 .skills-grid .tag-skill[value="1"] ~ span.tag,
-.skills-grid-mini .tag-skill[value="1"] ~ span.tag,
+.skills-grid-mini .tag-skill:checked ~ span.tag,
 .skills .tag-skill[value="1"] ~ span.tag,
 .repitem .tag {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/tag.png')
         center / contain no-repeat content-box;
+}
+
+.character .edit-skills:not([value="1"]) ~ .skills-grid-mini .edit,
+.character .edit-skills[value="0"] ~ .skills-grid-mini .edit,
+.character .edit-skills[value="1"] ~ .skills-grid-mini .static {
+    display: none;
 }
 
 .origin-tag-name[value=""] + label,
@@ -991,41 +1020,41 @@ body .charactersheet .skills-grid div input[type=number] {
     display: none;
 }
 
-body .charactersheet .col7-meleedmg,
-body .charactersheet .col7-defense,
-body .charactersheet .col7-initiative,
-body .charactersheet .col2-initiative {
+body .charsheet .col7-meleedmg,
+body .charsheet .col7-defense,
+body .charsheet .col7-initiative,
+body .charsheet .col2-initiative {
     background: black;
 }
-body .charactersheet div .col3 .col7-meleedmg label,
-body .charactersheet div .col3 .col7-defense label,
-body .charactersheet div .col3 .col7-initiative label {}
+body .charsheet div .col3 .col7-meleedmg label,
+body .charsheet div .col3 .col7-defense label,
+body .charsheet div .col3 .col7-initiative label {}
 
-body .charactersheet div .col3 .col7-meleedmg span,
-body .charactersheet div .col3 .col7-defense span,
-body .charactersheet div .col3 .col7-initiative span {
+body .charsheet div .col3 .col7-meleedmg span,
+body .charsheet div .col3 .col7-defense span,
+body .charsheet div .col3 .col7-initiative span {
     color: white;
     padding: 0 5px;
     text-align: right;
     line-height: 20px;
     box-shadow: 0 0 0 1px black;
 }
-body .charactersheet div .col2 .col5-derived span {
+body .charsheet div .col2 .col5-derived span {
     padding: 0 5px;
     text-align: center;
     line-height: 20px;
 }
-body .charactersheet div .col2 .col5-derived span:first-of-type {
+body .charsheet div .col2 .col5-derived span:first-of-type {
     text-align: left;
 }
-body .charactersheet div .col3 .col7-meleedmg input,
-body .charactersheet div .col3 .col7-defense input,
-body .charactersheet div .col3 .col7-initiative input,
-body .charactersheet div .col3 .col6-dr input {
+body .charsheet div .col3 .col7-meleedmg input,
+body .charsheet div .col3 .col7-defense input,
+body .charsheet div .col3 .col7-initiative input,
+body .charsheet div .col3 .col6-dr input {
     padding: 0 0 0 2px;
 }
 
-body .charactersheet div .col1 .weapons-grid button.skill-btn[type=roll] {
+body .charsheet div .col1 .weapons-grid button.skill-btn[type=roll] {
     background: white;
     width: 20px;
     height: 20px;
@@ -1036,9 +1065,9 @@ body .charactersheet div .col1 .weapons-grid button.skill-btn[type=roll] {
     padding: 0;
     outline: none;
 }
-body .charactersheet .roll-dice button.cd,
-body .charactersheet div .col3 .col7-meleedmg button,
-body .charactersheet div .col1 .weapons-grid .melee-damage ~ button[type=roll] {
+body .charsheet .roll-dice button.cd,
+body .charsheet div .col3 .col7-meleedmg button,
+body .charsheet div .col1 .weapons-grid .melee-damage ~ button[type=roll] {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/die_vaultboy.png') center no-repeat;
     background-size: contain;
     width: 20px;
@@ -1050,20 +1079,20 @@ body .charactersheet div .col1 .weapons-grid .melee-damage ~ button[type=roll] {
     padding: 0;
     outline: none;
 }
-body .charactersheet .roll-dice button.cd {
+body .charsheet .roll-dice button.cd {
     width: 20px;
     height: 20px;
     box-shadow: none;
 }
-body .charactersheet .roll-dice button.cd[type=roll]::before,
-body .charactersheet div .col3 .col7-meleedmg button[type=roll]::before,
-body .charactersheet div .col1 .weapons-grid .melee-damage ~ button[type=roll]::before {
+body .charsheet .roll-dice button.cd[type=roll]::before,
+body .charsheet div .col3 .col7-meleedmg button[type=roll]::before,
+body .charsheet div .col1 .weapons-grid .melee-damage ~ button[type=roll]::before {
     content: '';
 }
-body .charactersheet .roll-dice button.skill,
-body .charactersheet div .col3 .col7-defense button,
-body .charactersheet div .col3 .col7-initiative button,
-body .charactersheet div .col3 .col2-initiative button {
+body .charsheet .roll-dice button.skill,
+body .charsheet div .col3 .col7-defense button,
+body .charsheet div .col3 .col7-initiative button,
+body .charsheet div .col3 .col2-initiative button {
     background: none;
     color: white;
     border: none;
@@ -1073,21 +1102,21 @@ body .charactersheet div .col3 .col2-initiative button {
     padding: 0;
     outline: none;
 }
-body .charactersheet .roll-dice button.skill {
+body .charsheet .roll-dice button.skill {
     color: black;
 }
-body .charactersheet .roll-dice button.skill {
+body .charsheet .roll-dice button.skill {
     box-shadow: none;
 }
-body .charactersheet .roll-dice button.skill:hover,
-body .charactersheet div .col3 .col7-defense button:hover,
-body .charactersheet div .col3 .col7-initiative button:hover,
-body .charactersheet div .col3 .col2-initiative button:hover,
-body .charactersheet div .col1 .weapons-grid button.skill-btn[type=roll]:hover {
+body .charsheet .roll-dice button.skill:hover,
+body .charsheet div .col3 .col7-defense button:hover,
+body .charsheet div .col3 .col7-initiative button:hover,
+body .charsheet div .col3 .col2-initiative button:hover,
+body .charsheet div .col1 .weapons-grid button.skill-btn[type=roll]:hover {
     color: #DC8D3B;
 }
 
-.charactersheet .locations {
+.charsheet .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/vaultboy.png')
         bottom / 45% no-repeat;
     grid-template-rows: auto;
@@ -1096,28 +1125,28 @@ body .charactersheet div .col1 .weapons-grid button.skill-btn[type=roll]:hover {
     row-gap: 20px;
     column-gap: 20px;
 }
-.charactersheet .origin-choice[value="robot"] ~ .locations {
+.charsheet .origin-choice[value="robot"] ~ .locations {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/robot.png')
         bottom / 45% no-repeat;
 }
-.charactersheet .origin-choice:not([value="robot"]) ~ .locations .location .robot {
+.charsheet .origin-choice:not([value="robot"]) ~ .locations .location .robot {
     display: none;
 }
-.charactersheet .origin-choice[value="robot"] ~ .locations .location .header:not(.robot) {
+.charsheet .origin-choice[value="robot"] ~ .locations .location .header:not(.robot) {
     display: none;
 }
-.charactersheet .locations .location {
+.charsheet .locations .location {
     background: #fff9;
     align-self: end;
 }
-.charactersheet .locations label:not(.header),
-.charactersheet .locations .label {
+.charsheet .locations label:not(.header),
+.charsheet .locations .label {
     color: black;
     background: none;
     box-shadow: none;
     text-align: right;
 }
-.charactersheet .locations .header {
+.charsheet .locations .header {
     border-bottom: 1px solid black;
     color: black;
     background: none;
@@ -1125,42 +1154,42 @@ body .charactersheet div .col1 .weapons-grid button.skill-btn[type=roll]:hover {
     text-transform: uppercase;
     font-weight: bold;
 }
-body .charactersheet .locations .location input,
-.charactersheet .locations .location select,
+body .charsheet .locations .location input,
+.charsheet .locations .location select,
 .inner .input  {
     font-size: 8px;
 }
-.charactersheet .locations .slot1 {
+.charsheet .locations .slot1 {
     margin-left: 20px;
     margin-right: -20px;
 }
-.charactersheet .locations .slot3 {
+.charsheet .locations .slot3 {
     margin-left: -20px;
     margin-right: 20px;
 }
-body .charactersheet .grid label.physical-dr,
-body .charactersheet .grid label.energy-dr,
-body .charactersheet .grid label.rad-dr,
-body .charactersheet .grid label.poison-dr,
-body .charactersheet .grid button.power-armor {
+body .charsheet .grid label.physical-dr,
+body .charsheet .grid label.energy-dr,
+body .charsheet .grid label.rad-dr,
+body .charsheet .grid label.poison-dr,
+body .charsheet .grid button.power-armor {
     text-align: left;
     text-indent: -9999px;
 }
-body .charactersheet .npc label.physical-dr,
-body .charactersheet .npc label.energy-dr,
-body .charactersheet .npc label.rad-dr,
-body .charactersheet .npc label.poison-dr {
+body .charsheet .npc label.physical-dr,
+body .charsheet .npc label.energy-dr,
+body .charsheet .npc label.rad-dr,
+body .charsheet .npc label.poison-dr {
     box-shadow: 0 0 0 1px white;
 }
-body .charactersheet .grid label.header.physical-dr,
-body .charactersheet .grid label.header.energy-dr,
-body .charactersheet .grid label.header.rad-dr,
-body .charactersheet .grid label.header.poison-dr {
+body .charsheet .grid label.header.physical-dr,
+body .charsheet .grid label.header.energy-dr,
+body .charsheet .grid label.header.rad-dr,
+body .charsheet .grid label.header.poison-dr {
     background-color: white;
     filter: invert(1);
     padding: 0;
 }
-body .charactersheet .grid button.power-armor {
+body .charsheet .grid button.power-armor {
     display: inline-block;
     width: auto;
     height: auto;
@@ -1170,44 +1199,44 @@ body .charactersheet .grid button.power-armor {
     background: none;
     outline: none;
 }
-body .charactersheet .grid label.physical-dr {
+body .charsheet .grid label.physical-dr {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/physical.png')
         center / contain no-repeat border-box;
 }
-body .charactersheet .grid label.energy-dr {
+body .charsheet .grid label.energy-dr {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/energy.png')
         center / contain no-repeat border-box;
 }
-body .charactersheet .grid label.rad-dr {
+body .charsheet .grid label.rad-dr {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/radiation.png')
         center / contain no-repeat border-box;
 }
-body .charactersheet .grid label.poison-dr {
+body .charsheet .grid label.poison-dr {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/poison.png')
         center / contain no-repeat border-box;
 }
-body .charactersheet .grid button.power-armor {
+body .charsheet .grid button.power-armor {
     background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/fallout-2d20-dev/Fallout%202d20/images/armor.png')
         center / contain no-repeat border-box;
     filter: drop-shadow(0 0 1px white) invert(1);
 }
-body .charactersheet .power-armor[value="1"] ~ .interface button.power-armor {
+body .charsheet .power-armor[value="1"] ~ .interface button.power-armor {
     filter: none;
 }
-body .charactersheet .power-armor[value="2"] ~ .interface button.power-armor {
+body .charsheet .power-armor[value="2"] ~ .interface button.power-armor {
     filter: drop-shadow(0 0 1px #DC8D3B);
 }
-body .charactersheet .locations .col8 > *:nth-child(2) {
+body .charsheet .locations .col8 > *:nth-child(2) {
     border-left: 1px solid black;
 }
-body .charactersheet .base-dr[value="immune"] + span + span,
-body .charactersheet .base-dr[value="immune"] + span + span + input,
-body .charactersheet .base-dr[value="immune"] + span + span + input + span,
-body .charactersheet .base-dr[value="immune"] + span + span + input + span + input,
-body .charactersheet .base-dr[value="immune"] + span + span + input + span + input + span {
+body .charsheet .base-dr[value="immune"] + span + span,
+body .charsheet .base-dr[value="immune"] + span + span + input,
+body .charsheet .base-dr[value="immune"] + span + span + input + span,
+body .charsheet .base-dr[value="immune"] + span + span + input + span + input,
+body .charsheet .base-dr[value="immune"] + span + span + input + span + input + span {
     display: none;
 }
-body .charactersheet .base-dr[value="immune"] + span {
+body .charsheet .base-dr[value="immune"] + span {
     grid-column: span 5;
 }
 
@@ -1271,7 +1300,7 @@ body .charactersheet .base-dr[value="immune"] + span {
     box-shadow: none;
     color: black;
 }
-body .charactersheet div .col1 .health input[type=number] {
+body .charsheet div .col1 .health input[type=number] {
     background: none;
     height: auto;
     box-shadow: none;
@@ -1316,7 +1345,7 @@ body .charactersheet div .col1 .health input[type=number] {
     background: black;
 }
 .rep-grid ~ .repcontainer .repitem details div {
-    margin: 0px 20px 10px 0;
+    margin: 0 20px 10px 0;
 }
 .rep-grid-header div {
     font: bold 10px 'Roboto', sans-serif;
@@ -1449,17 +1478,17 @@ body .charactersheet div .col1 .health input[type=number] {
     background: #f4d6bc;
 }
 
-body .charactersheet .caps {
+body .charsheet .caps {
     background: linear-gradient(45deg, #e0b829 85%, white 85%);
     width: 100%;
     grid-template-columns: 3fr 1fr;
     margin: 0 0 10px 0;
 }
-body .charactersheet div .col1 .caps label {
+body .charsheet div .col1 .caps label {
     background: none;
     box-shadow: none;
 }
-body .charactersheet div .col1 .caps input[type=number] {
+body .charsheet div .col1 .caps input[type=number] {
     background: url('https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Fallout%202d20/images/cap.png')
         center / contain no-repeat content-box;
     height: auto;
@@ -1469,74 +1498,22 @@ body .charactersheet div .col1 .caps input[type=number] {
     text-align: right;
 }
 
-.charactersheet .origin-brotherhood,
-.charactersheet .origin-ghoul,
-.charactersheet .origin-mutant,
-.charactersheet .origin-robot,
-.charactersheet .origin-survivor,
-.charactersheet .origin-vault {
-    display: none;
-}
-
-.origin-choice[value="brotherhood"] ~ .origin-brotherhood,
-.origin-choice[value="ghoul"] ~ .origin-ghoul,
-.origin-choice[value="mutant"] ~ .origin-mutant,
-.origin-choice[value="robot"] ~ .origin-robot,
-.origin-choice[value="survivor"] ~ .origin-survivor,
-.origin-choice[value="vault"] ~ .origin-vault {
-    display: grid;
-}
-
-.charactersheet .survivor-trait1,
-.charactersheet .survivor-trait2,
-.charactersheet .survivor-perk {
-    display: none;
-}
-
-.survivor-choice[value="trait"] ~ .survivor-trait1,
-.survivor-choice[value="trait"] ~ .survivor-trait2,
-.survivor-choice[value="perk"] ~ .survivor-trait1,
-.survivor-choice[value="perk"] ~ .survivor-perk {
-    display: grid;
-}
-
-.charactersheet .survivor-educated,
-.charactersheet .survivor-fastshot,
-.charactersheet .survivor-gifted,
-.charactersheet .survivor-heavy,
-.charactersheet .survivor-small {
-    display: none;
-}
-
-.survivor-trait1[value="educated"] ~ .survivor-educated,
-.survivor-trait1[value="fast_shot"] ~ .survivor-fastshot,
-.survivor-trait1[value="gifted"] ~ .survivor-gifted,
-.survivor-trait1[value="heavy_handed"] ~ .survivor-heavy,
-.survivor-trait1[value="small_frame"] ~ .survivor-small,
-.survivor-choice[value="trait"] ~ .survivor-trait2[value="educated"] ~ .survivor-educated,
-.survivor-choice[value="trait"] ~ .survivor-trait2[value="fast_shot"] ~ .survivor-fastshot,
-.survivor-choice[value="trait"] ~ .survivor-trait2[value="gifted"] ~ .survivor-gifted,
-.survivor-choice[value="trait"] ~ .survivor-trait2[value="heavy_handed"] ~ .survivor-heavy,
-.survivor-choice[value="trait"] ~ .survivor-trait2[value="small_frame"] ~ .survivor-small {
-    display: inline-block;
-}
-
 /* NPC
 44AC7D
 BED9C6
 E2F0E7
 */
 
-.charactersheet .npc h1,
-.charactersheet .npc h1 * {
+.charsheet .npc h1,
+.charsheet .npc h1 * {
     background: linear-gradient(135deg, #44AC7D 90%, white 90%);
 }
 
-.charactersheet .npc h2 {
+.charsheet .npc h2 {
     margin: 0 -5px;
 }
 
-body .charactersheet div .grid .npc-bio h2 input {
+body .charsheet div .grid .npc-bio h2 input {
     font: bold 20px 'Roboto', sans-serif;
     text-transform: uppercase;
 }
@@ -1546,14 +1523,14 @@ body .charactersheet div .grid .npc-bio h2 input {
     column-gap: 10px;
 }
 
-.charactersheet .npc-grid > div {
+.charsheet .npc-grid > div {
     break-inside: avoid;
     margin-bottom: 10px;
 }
 
-.charactersheet .npc-bio label,
-body .charactersheet div .grid .npc-bio input,
-.charactersheet .npc-bio select {
+.charsheet .npc-bio label,
+body .charsheet div .grid .npc-bio input,
+.charsheet .npc-bio select {
     font: italic bold 12px 'Roboto', sans-serif;
     line-height: 20px;
     box-shadow: none;
@@ -1563,7 +1540,7 @@ body .charactersheet div .grid .npc-bio input,
     color: black;
     text-transform: none;
 }
-.charactersheet .npc-bio {
+.charsheet .npc-bio {
     padding: 0 5px;
 }
 .npc textarea {
@@ -1621,8 +1598,8 @@ body .charactersheet div .grid .npc-bio input,
     text-align: center;
     grid-column: auto;
 }
-body .charactersheet .npc-stats .grid input,
-.charactersheet .npc-stats select,
+body .charsheet .npc-stats .grid input,
+.charsheet .npc-stats select,
 .npc-stats .input  {
     background: #BED9C6;
     box-shadow: 0 0 0 1px #BED9C6;
@@ -1631,8 +1608,8 @@ body .charactersheet .npc-stats .grid input,
     text-align: center;
     line-height: 20px;
 }
-body .charactersheet .npc-stats .checker *:nth-child(4n),
-body .charactersheet .npc-stats .checker *:nth-child(4n) input {
+body .charsheet .npc-stats .checker *:nth-child(4n),
+body .charsheet .npc-stats .checker *:nth-child(4n) input {
     background: #E2F0E7;
     box-shadow: 0 0 0 1px #E2F0E7;
 }
@@ -1683,7 +1660,7 @@ body .charactersheet .npc-stats .checker *:nth-child(4n) input {
 .npc-stats .npc-edit-skills[value="1"] ~ .skills .static {
     display: none;
 }
-body .charactersheet .npc-stats .grid input.edit {
+body .charsheet .npc-stats .grid input.edit {
     background: none;
     box-shadow: none;
 }
@@ -1725,10 +1702,10 @@ body .charactersheet .npc-stats .grid input.edit {
 }
 
 
-body .charactersheet div.npc div.header {
+body .charsheet div.npc div.header {
     position: relative;
 }
-body .charactersheet div.npc .switch {
+body .charsheet div.npc .switch {
     position: absolute;
     top: 1px;
     right: 1px;
@@ -1911,7 +1888,7 @@ body .charactersheet div.npc .switch {
     text-align: center;
     width: 35px;
     height: 35px;
-    margin: 2px 0px;
+    margin: 2px 0;
 }
 .sheet-rolltemplate-focd .sheet-result {
     border: none;
