@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bangers&family=Lato:wght@900&display=swap');
 
-body * {
+body .charsheet * {
     font-family: 'Architects Daughter', cursive;
 }
 
-h1, h2, label {
+.charsheet h1,
+.charsheet h2,
+.charsheet label {
     background: black;
     margin: 0;
-    padding: 5px 0 5px 10px;
+    padding: 0;
 }
-h1 input {
+.charsheet h1 input {
     font-family: 'Bangers', cursive;
     font-size: 36px;
     line-height: 36px;
@@ -17,7 +19,7 @@ h1 input {
     text-align: left;
     color: white;
 }
-h2 {
+.charsheet h2 {
     height: 16px;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
@@ -25,19 +27,19 @@ h2 {
     text-transform: uppercase;
     color: white;
 }
-label {
+.charsheet label {
     font-family: 'Lato', sans-serif;
     font-size: 12px;
     line-height: 12px;
     text-transform: uppercase;
     color: white;
 }
-input,
-span.input {
+.charsheet input,
+.charsheet span.input {
     font-family: 'Lato', sans-serif;
     text-align: center;
 }
-input {
+.charsheet input {
 	display: inline-block;
     background: none;
 	width: 100%;
@@ -59,7 +61,6 @@ body .charsheet .grid input[type=number] {
 /* borders */
 .charname {
   border: 10px solid transparent;
-  padding: 15px;
   border-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/border.png') 10 round;
 }
 
@@ -87,7 +88,7 @@ body .charsheet .grid input[type=number] {
 /* stats */
 .statbox {
     background: white;
-    margin-top: -10px;
+    margin-top: -20px;
     border: solid 1px black;
 }
 .statbox input,
