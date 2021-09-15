@@ -56,6 +56,13 @@ body .charsheet .grid input[type=number] {
     width: 100%;
 }
 
+/* borders */
+.charname {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/border.png') 10 round;
+}
+
 /* grid */
 .grid {
     display: grid;
