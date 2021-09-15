@@ -10,7 +10,7 @@ body .charsheet * {
 }
 
 body .charsheet {
-    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_villain.png')
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_hero.png')
         left repeat-y;
 }
 
