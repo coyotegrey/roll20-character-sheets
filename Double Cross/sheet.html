@@ -173,7 +173,7 @@
                 <h1>Double Cross</h1>
                 <div class="tabs">
                     <button type="back" value="stats">Back</button>
-                    <button type="submit" value="personal">Next</button>
+                    <button type="submit" value="skills">Next</button>
                     <button type="cancel" value="powers">Cancel</button>
                 </div>
             </div>
@@ -1463,11 +1463,15 @@
     const extrapowers = ['Power1','Power2','Power3','Power4'];
     const allpowers = basepowers.concat(extrapowers);
 
-    on('clicked:create', function() {
+    on('clicked:create', function(eventInfo) {
         startCharactermancer('syndrome');
     });
 
-    on('mancerfinish:apply', function() {
+    on('mancer:cancel', function(eventInfo) {
+        deleteCharmancerData();
+    });
+
+    on('mancerfinish:apply', function(eventInfo) {
         const mancer_data = getCharmancerData();
 
         let update = {};
@@ -1524,25 +1528,24 @@
         });
 
         setAttrs(update, function() {
-            deleteCharmancerData(['syndrome','work','stats','powers',
-                'personal']);
+            deleteCharmancerData();
             finishCharactermancer();
         });
     });
 
-    on('page:syndrome', function(eventinfo) {
+    on('page:syndrome', function(eventInfo) {
         let syndomes = [''].concat(Object.keys(char_dict['syndromes']));
         setCharmancerOptions('syndrome1', syndomes);
         setCharmancerOptions('syndrome2', syndomes);
         setCharmancerOptions('syndrome3', syndomes);
     });
 
-    on('page:work', function(eventinfo) {
+    on('page:work', function(eventInfo) {
         let work = [''].concat(Object.keys(char_dict['work']));
         setCharmancerOptions('work', work);
     });
 
-    on('page:stats', function(eventinfo) {
+    on('page:stats', function(eventInfo) {
         let stats = [''].concat(stat_list.map(i => i.toTitleCase()));
         setCharmancerOptions('stat1', stats);
         setCharmancerOptions('stat2', stats);
@@ -1551,7 +1554,7 @@
         updateStatHelpers();
     });
 
-    on('page:powers', function(eventinfo) {
+    on('page:powers', function(eventInfo) {
         const mancer_data = getCharmancerData();
         let syndromes = [''];
         let powers = [''].concat(allpowers);
@@ -1573,7 +1576,7 @@
         setCharmancerOptions('freepower2', powers);
     });
 
-    on('page:apply', function(eventinfo) {
+    on('page:apply', function(eventInfo) {
         const mancer_data = getCharmancerData();
         setCharmancerText({
             'breed': mancer_data.syndrome.values.breed,
