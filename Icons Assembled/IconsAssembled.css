@@ -1,123 +1,89 @@
-/* ===== FONT ===== */
-@font-face {
-  font-family: 'Bangers';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Bangers'), local('Bangers-Regular'), url(http://fonts.gstatic.com/s/bangers/v7/TgZv8lHkUbWVEqUOt_7mAALUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bangers&family=Lato:wght@900&display=swap');
+
+body * {
+    font-family: 'Architects Daughter', cursive;
 }
 
-@font-face {
-  font-family: 'Orbitron';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Orbitron-Light'), local('Orbitron-Regular'), url(http://fonts.gstatic.com/s/orbitron/v6/HmnHiRzvcnQr8CjBje6GQnYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+h1, h2, label {
+    background: black;
+    margin: 0;
+    padding: 5px 0 5px 10px;
 }
-
-@font-face {
-  font-family: 'Architects Daughter';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Architects Daughter'), local('ArchitectsDaughter'), url(http://fonts.gstatic.com/s/architectsdaughter/v6/RXTgOOQ9AAtaVOHxx0IUBBoTIN0je7AiOLXaVBr1ByU.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-
-/* ===== LAYOUT ===== */
-.sheet-col-left-top {
-    float: left;
-    width: 18%;
-}    
-
-.sheet-col-mid-top {
-    float: center;
-    width:40%
-}    
-    
-.sheet-col-right-top {
-    float: right;
-    width: 40%;
-}    
-
-.sheet-col-left-abilities {
-    float: left;
-    width: 25%;
-}
-
-.sheet-col-right-powers {
-    float: right;
-	width: 73%;
-}
-
-/* ===== TEXT STYLE ===== */
-.sheet-section-header {
-    margin-top: 5px;
-    font-family: 'Bangers', 'Impact', sans-serif;
-    letter-spacing: 2px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: black;
+h1 input {
+    font-family: 'Bangers', cursive;
+    font-size: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
+    text-align: left;
     color: white;
-    padding: 2px;
 }
-    
-.sheet-section-abilities {
-    margin-top: 5px;
-    font-family: 'Orbitron', 'Arial', sans-serif;
+h2 {
+    height: 16px;
+    font-family: 'Lato', sans-serif;
     font-size: 16px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    padding: 1px;
-}    
-
-.sheet-section-powers {
-    margin-top: 5px;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    padding: 1px;
-}    
-
-.sheet-section-top {
-    margin-top: 5px;
-    font-family: 'Bangers', 'Impact', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    padding: 1px;
-} 
-
-.sheet-section-rowheader {
-    margin-top: 5px;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
-    padding: 1px;
-} 
-
-.sheet-section-rowheader-sm {
-    margin-top: 5px;
-    font-family: 'Orbitron', 'Arial', sans-serif;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: white;
+}
+label {
+    font-family: 'Lato', sans-serif;
     font-size: 12px;
-    font-weight: bold;
-    background-color: white;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: white;
+}
+input,
+span.input {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+input {
+	display: inline-block;
+    background: none;
+	width: 100%;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
     color: black;
-    padding: 1px;
-} 
-
-input, select, textarea {
-    font-family: 'Architects Daughter', 'Gill Sans', sans-serif;
-    font-size: 16px;
+    line-height: 20px;
+    outline: none;
+    overflow: hidden;
+}
+body .charsheet .grid input[type=number] {
+    width: 100%;
 }
 
-input[type=number] {
-    text-align: center;
+/* grid */
+.grid {
+    display: grid;
+    width: 100%;
+    gap: 0;
+    box-sizing: border-box;
+}
+.grid.gap {
+    gap: 10px;
+}
+.grid.col2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.grid.col3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid.charname {
+    background: black;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+/* stats */
+.statbox {
+    background: white;
+    margin-top: -10px;
+    border: solid 1px black;
+}
+.statbox input,
+.statbox span {
+    font-size: 36px;
 }
