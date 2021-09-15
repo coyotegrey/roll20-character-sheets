@@ -9,6 +9,11 @@ body .charsheet * {
     color: #166fb1;
 }
 
+body .charsheet {
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_hero.png')
+        left repeat-y;
+}
+
 .charsheet h1,
 .charsheet h2,
 .charsheet label {
