@@ -10,7 +10,7 @@ body .charsheet * {
 }
 
 body .charsheet {
-    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_hero.png')
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_villain.png')
         left repeat-y;
 }
 
@@ -109,6 +109,7 @@ body .charsheet .abilities button[type=roll] label {
 
 /* borders */
 .box {
+    background: white;
     border: solid 1px #166fb1;
     border-radius: 12px 0;
 }
@@ -189,7 +190,7 @@ body .charsheet .abilities button[type=roll] label {
 }
 .repeating_powers ~ .repcontainer .grid.col3 *:nth-child(6n),
 .repeating_powers ~ .repcontainer .grid.col3 *:nth-child(7n) {
-    background: silver;
+    background: #ecf0f8;
 }
 .repeating_powers ~ .repcontainer .grid.col3 *:nth-child(5n) {
     text-align: right;
