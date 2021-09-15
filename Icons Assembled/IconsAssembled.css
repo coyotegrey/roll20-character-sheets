@@ -1,97 +1,233 @@
+/* ICONS CSS
+#166fb1
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bangers&family=Lato:wght@900&display=swap');
 
 body .charsheet * {
     font-family: 'Architects Daughter', cursive;
+    color: #166fb1;
 }
 
 .charsheet h1,
 .charsheet h2,
 .charsheet label {
-    background: black;
     margin: 0;
     padding: 0;
 }
-.charsheet h1 input {
+.charsheet h1 {
+    height: 40px;
+}
+.charsheet .grid h1 input[type=text] {
     font-family: 'Bangers', cursive;
     font-size: 36px;
     line-height: 36px;
-    text-transform: uppercase;
     text-align: left;
     color: white;
 }
 .charsheet h2 {
+    background: #166fb1;
     height: 16px;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 16px;
     text-transform: uppercase;
     color: white;
+    padding: 5px;
 }
-.charsheet label {
+.charsheet label,
+.charsheet .label {
+    display: inline-block;
+    background: #166fb1;
+    padding: 2px 5px;
+    border-radius: 0;
+    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     font-size: 12px;
-    line-height: 12px;
+    line-height: 20px;
     text-transform: uppercase;
+    text-align: left;
     color: white;
 }
 .charsheet input,
-.charsheet span.input {
+.charsheet span.input,
+.charsheet select {
+    margin: 0;
+    padding: 2px 5px;
+    box-sizing: border-box;
     font-family: 'Lato', sans-serif;
-    text-align: center;
+    text-transform: uppercase;
 }
-.charsheet input {
+.charsheet input,
+.charsheet select {
 	display: inline-block;
     background: none;
 	width: 100%;
     border: none;
+    border-radius: 0;
     box-shadow: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-    color: black;
+    color: #166fb1;
     line-height: 20px;
     outline: none;
     overflow: hidden;
 }
+.charsheet input[type=text]:not(.label),
+.charsheet select {
+    font-family: 'Architects Daughter', cursive;
+}
 body .charsheet .grid input[type=number] {
     width: 100%;
 }
+body .charsheet .grid button[type=roll]  {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    outline: none;
+    text-shadow: none;
+}
+body .charsheet .grid button[type=roll]::before {
+    font-family: 'dicefontd6';
+    content: 'l';
+}
+body .charsheet .abilities button[type=roll]::before {
+    content: '';
+}
+body .charsheet .abilities button[type=roll] label {
+    cursor: pointer;
+}
 
 /* borders */
-.charname {
-  border: 10px solid transparent;
-  border-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/border.png') 10 round;
+.box {
+    border: solid 1px #166fb1;
+    border-radius: 12px 0;
+}
+.box h2 {
+    border: solid 1px #166fb1;
+    border-radius: 10px 0;
 }
 
 /* grid */
-.grid {
+.grid,
+.grid ~ .repcontainer {
     display: grid;
     width: 100%;
     gap: 0;
     box-sizing: border-box;
 }
-.grid.gap {
+.grid.gap,
+.grid.gap ~ .repcontainer {
     gap: 10px;
 }
-.grid.col2 {
+.grid.smallgap,
+.grid.smallgap ~ .repcontainer {
+    gap: 5px;
+    padding: 10px;
+}
+.grid.col2,
+.grid.col2 ~ .repcontainer {
     grid-template-columns: repeat(2, 1fr);
 }
-.grid.col3 {
+.grid.col3,
+.grid.col3 ~ .repcontainer {
     grid-template-columns: repeat(3, 1fr);
 }
+.grid.col4,
+.grid.col4 ~ .repcontainer {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .grid.charname {
-    background: black;
+    background: #166fb1;
+    height: 40px;
+}
+
+.grid.stat.box .col3 {
+    grid-template-columns: 4fr 1fr 4fr;
+}
+.grid.stat.box * {
+    text-align: center;
+}
+.grid.stat.box input,
+.grid.stat.box .input {
+    font-size: 16px;
+}
+
+.grid.origin {
     grid-template-columns: 3fr 1fr 1fr;
 }
 
-/* stats */
-.statbox {
-    background: white;
-    margin-top: -20px;
-    border: solid 1px black;
+.stats .grid.col1 {
+    height: fit-content;
 }
-.statbox input,
-.statbox span {
-    font-size: 36px;
+
+.grid.abilities {
+    grid-template-columns: 3fr 2fr 1fr;
+}
+.grid.abilities *:nth-child(4n) {
+    text-align: right;
+}
+
+.repeating_powers ~ .repcontainer .grid.col3 {
+    grid-template-columns: 1fr 4fr 1fr;
+}
+.repeating_powers ~ .repcontainer .grid.col3 button {
+    background: #166fb1;
+    color: white;
+    text-align: right;
+    padding-right: 10px;
+}
+.repeating_powers ~ .repcontainer .grid.col3 *:nth-child(6n),
+.repeating_powers ~ .repcontainer .grid.col3 *:nth-child(7n) {
+    background: silver;
+}
+.repeating_powers ~ .repcontainer .grid.col3 *:nth-child(5n) {
+    text-align: right;
+}
+.repeating_powers ~ .repcontainer .grid.col3 .label {
+    grid-column: span 2;
+}
+.repeating_powers ~ .repcontainer .grid.col3 .input {
+    grid-column: 2;
+}
+.repeating_powers ~ .repcontainer .grid.col3 input[type=text]:not(.label) {
+    grid-column: 2 / span 2;
+}
+
+.repeating_specialties ~ .repcontainer .grid.col3 {
+    grid-template-columns: 4fr 4fr 1fr;
+}
+.repeating_specialties ~ .repcontainer .grid.col3 button {
+    text-align: right;
+}
+
+/* templates */
+
+.sheet-rolltemplate-test .sheet-container {
+    background: white;
+    border: solid 1px #166fb1;
+    border-radius: 10px;
+    padding: 10px;
+}
+.sheet-rolltemplate-test h1 {
+    font: bold italic 18px/27px 'Architects Daughter', cursive;
+    text-align: center;
+    text-transform: uppercase;
+}
+.sheet-rolltemplate-test p {
+    font: 27px/27px 'Architects Daughter', cursive;
+    color: #166fb1;
+    text-align: center;
+    text-transform: uppercase;
+}
+.sheet-rolltemplate-test .inlinerollresult,
+.sheet-rolltemplate-test .inlinerollresult.fullfail,
+.sheet-rolltemplate-test .inlinerollresult.fullcrit {
+    background: none;
+    border: none;
 }

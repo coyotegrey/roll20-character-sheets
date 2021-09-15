@@ -1,187 +1,167 @@
 <div class="grid col1 gap">
-    <div class="grid col3 charname gap">
-        <h1><input type="text" name="attr_character_name" /></h1>
-        <div class="grid col1 statbox">
+    <h1 class="grid col1 charname box">
+        <input type="text" name="attr_character_name" />
+    </h1>
+
+    <div class="grid col3 gap origin">
+        <div class="grid col1 box">
+            <h2>Origin</h2>
+            <select name="attr_origin">
+                <option value="">Choose</option>
+                <option value="Trained">Trained</option>
+                <option value="Transformed">Transformed</option>
+                <option value="Birthright">Birthright</option>
+                <option value="Gimmick">Gimmick</option>
+                <option value="Artificial">Artificial</option>
+                <option value="Unearthly">Unearthly</option>
+            </select>
+        </div>
+        <div class="grid col1 stat box">
             <h2>Determination</h2>
-            <div class="grid col2">
-                <input type="number" name="attr_determination" value="0" />
-                <span class="input" name="attr_determination_max" />
+            <div class="grid col3 smallgap">
+                <input type="number" name="attr_determination" />
+                <span class="input">/</span>
+                <input type="number" name="attr_determination_max" />
             </div>
         </div>
-        <div class="grid col1 statbox">
+        <div class="grid col1 stat box">
             <h2>Stamina</h2>
-            <div class="grid col2">
+            <div class="grid col3 smallgap">
                 <input type="number" name="attr_stamina" value="0" />
+                <span class="input">/</span>
                 <span class="input" name="attr_stamina_max" />
             </div>
         </div>
     </div>
 
-    <div class="grid col2 gap">
-        <div class="grid col1">
-            <h2>Abilities</h2>
-            <div class="grid col3">
-                <label>Prowess</label>
-                <span class="input" name="attr_prowess_adjective" />
-                <input name="attr_prowess" value="0" />
+    <div class="grid col2 stats gap">
+        <div class="grid col1 gap">
+            <div class="grid col1 box">
+                <h2>Abilities</h2>
+                <div class="grid col3 abilities smallgap">
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Prowess}} {{result=[[1d6 + @{prowess}]]}}"
+                        name="roll_prowess"><label>Prowess</label></button>
+                    <input type="hidden" name="attr_prowess_adjective" value="Weak" />
+                    <span class="input" name="attr_prowess_adjective" />
+                    <input type="number" name="attr_prowess" value="1" />
+
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Coordination}} {{result=[[1d6 + @{coordination}]]}}"
+                        name="roll_coordination"><label>Coordination</label></button>
+                    <input type="hidden" name="attr_coordination_adjective" value="Weak" />
+                    <span class="input" name="attr_coordination_adjective" />
+                    <input type="number" name="attr_coordination" value="1" />
+
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Strength}} {{result=[[1d6 + @{strength}]]}}"
+                        name="roll_strength"><label>Strength</label></button>
+                    <input type="hidden" name="attr_strength_adjective" value="Weak" />
+                    <span class="input" name="attr_strength_adjective" />
+                    <input type="number" name="attr_strength" value="1" />
+
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Intellect}} {{result=[[1d6 + @{intellect}]]}}"
+                        name="roll_intellect"><label>Intellect</label></button>
+                    <input type="hidden" name="attr_intellect_adjective" value="Weak" />
+                    <span class="input" name="attr_intellect_adjective" />
+                    <input type="number" name="attr_intellect" value="1" />
+
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Awareness}} {{result=[[1d6 + @{awareness}]]}}"
+                        name="roll_awareness"><label>Awareness</label></button>
+                    <input type="hidden" name="attr_awareness_adjective" value="Weak" />
+                    <span class="input" name="attr_awareness_adjective" />
+                    <input type="number" name="attr_awareness" value="1" />
+
+                    <button type="roll"
+                        value="&{template:test} {{name=@{character_name}}} {{ability=Willpower}} {{result=[[1d6 + @{willpower}]]}}"
+                        name="roll_willpower"><label>Willpower</label></button>
+                    <input type="hidden" name="attr_willpower_adjective" value="Weak" />
+                    <span class="input" name="attr_willpower_adjective" />
+                    <input type="number" name="attr_willpower" value="1" />
+                </div>
             </div>
-            <div class="grid col3">
-                <label>Coordination</label>
-                <span class="input" name="attr_coordination_adjective" />
-                <input name="attr_coordination" value="0" />
+
+            <div class="grid col1 box">
+                <h2>Specialties</h2>
+                <fieldset class="repeating_specialties grid col1 smallgap">
+                    <div class="grid col3">
+                        <input type="text" name="attr_name" placeholder="Speciality" />
+                        <select name="attr_level">
+                            <option value="1"></option>
+                            <option value="2">Expert</option>
+                            <option value="3">Master</option>
+                        </select>
+                        <button type="roll"
+                            value="&{template:test} {{name=@{character_name}}} {{ability=@{name}}} {{ability_choice=[[?{Ability|Prowess, @{prowess}|Coordination, @{coordination}|Strength, @{strength}|Intellect, @{intellect}|Awareness, @{awareness}|Willpower, @{willpower}}]]}} {{result=[[1d6+?{Ability}+@{level}]]}}"
+                            name="roll_specialty" />
+                    </div>
+                </fieldset>
             </div>
-            <div class="grid col3">
-                <label>Strength</label>
-                <span class="input" name="attr_strength_adjective" />
-                <input name="attr_strength" value="0" />
-            </div>
-            <div class="grid col3">
-                <label>Intellect</label>
-                <span class="input" name="attr_intellect_adjective" />
-                <input name="attr_intellect" value="0" />
-            </div>
-            <div class="grid col3">
-                <label>Awareness</label>
-                <span class="input" name="attr_awareness_adjective" />
-                <input name="attr_awareness" value="0" />
-            </div>
-            <div class="grid col3">
-                <label>Willpower</label>
-                <span class="input" name="attr_willpower_adjective" />
-                <input name="attr_willpower" value="0" />
+
+            <div class="grid col1 box">
+                <h2>Qualities</h2>
+                <fieldset class="repeating_qualities grid col1 smallgap">
+                    <input type="text" name="attr_name" placeholder="Quality" />
+                </fieldset>
             </div>
         </div>
 
-        <div class="grid col1">
-            <h2>Powers</h2>
+        <div class="grid col1 gap">
+            <div class="grid col1 box">
+                <h2>Powers</h2>
+                <fieldset class="repeating_powers grid col1 smallgap">
+                    <div class="grid col3">
+                        <input class="label" type="text" name="attr_name" placeholder="Power name" />
+                        <button type="roll"
+                            value="&{template:test} {{name=@{character_name}}} {{ability=@{name}}} {{result=[[1d6+@{level}]]}}"
+                            name="roll_power" />
+                        <input type="hidden" name="attr_adjective" value="Weak" />
+                        <span class="input" name="attr_adjective" />
+                        <input type="number" name="attr_level" value="1" />
+                        <span />
+                        <input type="text" name="attr_description" placeholder="Extras, limits, etc." />
+                    </div>
+                </fieldset>
+            </div>
         </div>
-    </div>
-
-    <div class="grid col3">
-        <div>
-            <img src="https://i.imgur.com/MvnuBb8.png">
-        </div>
-        <div>
-            <table class="section-top">
-    	    	<tr>
-            		<td>ORIGIN:</td>
-     	       		<td><select name="attr_Origin">
-                    <option value="0" selected> </option>
-    				<option value="Trained">Trained</option>
-    				<option value="Transformed">Transformed</option>
-    				<option value="Birthright">Birthright</option>
-    				<option value="Gimmick">Gimmick</option>
-    				<option value="Artificial">Artificial</option>
-    				<option value="Unearthly">Unearthly</option>
-    				</select></td>
-    			</tr>
-    		</table>
-        </div>
-    </div> <!-- .section-Top -->
-
-
-    <div class="grid col2">
-        <div class="col-left-abilities">
-    			<div class="section-header">ATTRIBUTES</div>
-    			<table class="section-abilities">
-    				<tr>
-    					<td>Prowess</td>
-    					<td><input type="number" name="attr_Prowess"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Prowess}" name="roll_ProwessCheck"/></td>
-    				</tr>
-    				<tr>
-    					<td>Coordination</td>
-    					<td><input type="number" name="attr_Coordination"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Coordination}" name="roll_CoordinationCheck"/></td>
-    				</tr>
-    				<tr>
-    					<td>Strength</td>
-    					<td><input type="number" name="attr_Strength"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Strength}" name="roll_StrengthCheck"/></td>
-    				</tr>
-    				<tr>
-    					<td>Intellect</td>
-    					<td><input type="number" name="attr_Intellect"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Intellect}" name="roll_IntellectCheck"/></td>
-    				</tr>
-    				<tr>
-    					<td>Awareness</td>
-    					<td><input type="number" name="attr_Awareness"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Awareness}" name="roll_AwarenessCheck"/></td>
-    				</tr>
-    				<tr>
-    					<td>Willpower</td>
-    					<td><input type="number" name="attr_Willpower"></td>
-                        <td><button type="roll" value="/roll 1d6 + @{Willpower}" name="roll_WillpowerCheck"/></td>
-    				</tr>
-    			</table>		 <!-- .section-Attributes -->
-    	</div>
-    	<div class="col-right-powers">
-    			<div class="section-header">POWERS</div>
-    			<table class="section-powers">
-    				<thead>
-    					<th style="width:5%">Rank</th>
-    					<th style="width:95%" text-align="left">Power (Extras, Limits)</th>
-    				</thead>
-    			</table>
-    			<fieldset class="repeating_Powers">
-    				<table>
-    					<input style="width:5%" type="number" name="attr_power_rank" />
-    					<input style="width:95%" type="text" name="attr_power_desc" />
-    				</table>
-    			</fieldset>
-
-    	</div> <!-- .section-Powers -->
-    </div>
-
-    <div class="grid col2">
-    	<div>
-    		<div class="section-header">QUALITIES</div>
-    		<fieldset class="repeating_Qualities">
-    	        <input style="width:100%" type="text" name="attr_quality" />
-    	    </fieldset>
-        </div>
-
-    	<div>
-    		    <div class="section-header">SPECIALTIES</div>
-                <table class="section-rowheader">
-    		        <thead>
-                        <th style="width:10%">Rank</th>
-            	        <th style="width:89%">Speciality</th>
-                    </thead>
-                </table>
-            <fieldset class="repeating_Specialties">
-    			<table>
-    				<input style="width:10%" type="number" name="attr_spec_level" />
-    				<input style="width:89%"type="text" name="attr_spec_desc" />
-    			</table>
-    		</fieldset>
-    	</div>
-    </div>
-
-    <div class="section-header">ROLL BUILDER</div>
-        <table class="section-rowheader">
-            <thead>
-                <th style="width:500px">Roll Description</th>
-        		<th style="width:150px">Key Attribute</th>
-                <th style="width:50px">Modifiers</th>
-            </thead>
-        </table>
-        <table>
-            <fieldset class="repeating_Rollbuilder">
-                <input type="text" name="attr_roll_name" style="width:500px">
-                    <select name="attr_roll_ability" style="width:150px">
-                        <option value="0" selected> </option>
-                        <option value="@{Prowess}">Prowess</option>
-                        <option value="@{Coordination}">Coordination</option>
-                        <option value="@{Strength}">Strength</option>
-                        <option value="@{Awareness}">Awareness</option>
-        	            <option value="@{Intellect}">Intellect</option>
-    		            <option value="@{Willpower}">Willpower</option>
-                    </select>
-                <input type="number" style="width:50px" name="attr_roll_bonus" value="0">
-                <button type="roll" value="/e uses @{roll_name} [[1d6 + @{roll_ability} + @{roll_bonus}]]">
-            </fieldset>
-        </table>
     </div>
 </div>
+
+<script type="text/worker">
+    const adjectives_list = ['Weak','Poor','Average','Fair','Good','Great',
+        'Incredible','Amazing','Fantastic','Supreme'];
+    const abilities_list = ['prowess','coordination','strength','intellect',
+        'awareness','willpower'];
+
+    abilities_list.forEach(ability => {
+        on(`change:${ability}`, function(eventInfo) {
+            getAttrs(abilities_list, function(values) {
+                let update = {};
+                let level = parseInt(values[ability])||0;
+                let strength = parseInt(values['strength'])||0;
+                let willpower = parseInt(values['willpower'])||0;
+                update[`${ability}_adjective`] = adjectives_list[level - 1];
+                update['stamina_max'] = strength + willpower;
+                setAttrs(update);
+            });
+        });
+    });
+
+    on('change:repeating_powers:level', function(eventInfo) {
+        getAttrs(['repeating_powers_level'], function(values) {
+            let update = {};
+            let level = parseInt(values['repeating_powers_level'])||0;
+            update['repeating_powers_adjective'] = adjectives_list[level - 1];
+            setAttrs(update);
+        });
+    });
+</script>
+
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="container">
+        <h1>{{name}} tests {{ability}}!</h1>
+        <p>{{result}}</p>
+    </div>
+</rolltemplate>
