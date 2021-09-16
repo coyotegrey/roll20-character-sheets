@@ -9,9 +9,8 @@ body .charsheet * {
     color: #166fb1;
 }
 
-body .charsheet {
-    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_hero.png')
-        left repeat-y;
+.main {
+    padding: 10px;
 }
 
 .charsheet h1,
@@ -212,24 +211,132 @@ body .charsheet .abilities button[type=roll] label {
     text-align: right;
 }
 
+/* settings */
+.main {
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_hero.png')
+        left repeat-y;
+}
+.charsheet .setting-type[value="villain"] ~ .main {
+    background: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/icons-dev/Icons%20Assembled/images/bg_villain.png')
+        left repeat-y;
+}
+.charsheet .setting-type[value="jarvis"] ~ .main,
+.setting-type[value="jarvis"] ~ .main .box {
+    background: black;
+}
+.charsheet .setting-type[value="jarvis"] ~ .main h2,
+.charsheet .setting-type[value="jarvis"] ~ .main label,
+.charsheet .setting-type[value="jarvis"] ~ .main .label,
+.charsheet .setting-type[value="jarvis"] ~ .main .repeating_powers ~ .repcontainer .grid.col3 button {
+    background: #00a5ff;
+    color: white;
+}
+.charsheet .setting-type[value="jarvis"] ~ .main .repeating_powers ~ .repcontainer .grid.col3 *:nth-child(6n),
+.charsheet .setting-type[value="jarvis"] ~ .main .repeating_powers ~ .repcontainer .grid.col3 *:nth-child(7n) {
+    background: #0d3e59;
+}
+.setting-type[value="jarvis"] ~ .main .box,
+.setting-type[value="jarvis"] ~ .main .box h2 {
+    border: solid 1px #00a5ff;
+}
+.charsheet .setting-type[value="jarvis"] ~ .main * {
+    color: #00a5ff;
+}
+.charsheet .setting-type[value="jarvis"] ~ .main .repcontrol .btn {
+    background: black;
+    border: solid 1px #0d3e59;
+    box-shadow: none;
+    outline: none;
+    text-shadow: none;
+}
+.main .settings {
+    display: none;
+}
+.charsheet .setting-toggle[value="1"] ~ .main .settings {
+    display: grid;
+}
+
+/* slider */
+.charsheet {
+    position: relative;
+}
+body .charsheet .switch {
+    position: absolute;
+    right: 25px;
+    top: 28px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    border-radius: 20px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: black;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px black;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
 /* templates */
 
 .sheet-rolltemplate-test .sheet-container {
     background: white;
-    border: solid 1px #166fb1;
+    border: solid 2px #166fb1;
     border-radius: 10px;
     padding: 10px;
+}
+.sheet-rolltemplate-test .sheet-hidden-type[data-i18n-placeholder="villain"] ~ .sheet-container {
+    border-color: red;
 }
 .sheet-rolltemplate-test h1 {
     font: bold italic 18px/27px 'Architects Daughter', cursive;
     text-align: center;
     text-transform: uppercase;
+    color: black;
 }
 .sheet-rolltemplate-test p {
     font: 27px/27px 'Architects Daughter', cursive;
     color: #166fb1;
     text-align: center;
     text-transform: uppercase;
+}
+.sheet-rolltemplate-test .sheet-hidden-type[data-i18n-placeholder="villain"] ~ .sheet-container p {
+    color: red;
 }
 .sheet-rolltemplate-test .inlinerollresult,
 .sheet-rolltemplate-test .inlinerollresult.fullfail,

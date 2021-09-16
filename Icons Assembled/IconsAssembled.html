@@ -1,7 +1,27 @@
-<div class="grid col1 gap">
+<input type="hidden" class="setting-toggle" name="attr_setting_toggle" value="0" />
+<input type="hidden" class="setting-type" name="attr_setting_type" value="hero" />
+
+<label class="switch settings">
+    <input type="checkbox" name="attr_setting_toggle" value="1" />
+    <span class="slider"></span>
+</label>
+
+<div class="grid col1 main gap">
     <h1 class="grid col1 charname box">
         <input type="text" name="attr_character_name" />
     </h1>
+
+    <div class="grid col1 box settings">
+        <h2>Settings</h2>
+        <div class="grid col2">
+            <label>Style</label>
+            <select name="attr_setting_type">
+                <option value="hero">Hero</option>
+                <option value="villain">Villain</option>
+                <option value="jarvis">Jarvis</option>
+            </select>
+        </div>
+    </div>
 
     <div class="grid col3 gap origin">
         <div class="grid col1 box">
@@ -40,42 +60,42 @@
                 <h2>Abilities</h2>
                 <div class="grid col3 abilities smallgap">
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Prowess}} {{result=[[1d6 + @{prowess}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Prowess}} {{result=[[1d6 + @{prowess}]]}}"
                         name="roll_prowess"><label>Prowess</label></button>
                     <input type="hidden" name="attr_prowess_adjective" value="Weak" />
                     <span class="input" name="attr_prowess_adjective" />
                     <input type="number" name="attr_prowess" value="1" />
 
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Coordination}} {{result=[[1d6 + @{coordination}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Coordination}} {{result=[[1d6 + @{coordination}]]}}"
                         name="roll_coordination"><label>Coordination</label></button>
                     <input type="hidden" name="attr_coordination_adjective" value="Weak" />
                     <span class="input" name="attr_coordination_adjective" />
                     <input type="number" name="attr_coordination" value="1" />
 
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Strength}} {{result=[[1d6 + @{strength}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Strength}} {{result=[[1d6 + @{strength}]]}}"
                         name="roll_strength"><label>Strength</label></button>
                     <input type="hidden" name="attr_strength_adjective" value="Weak" />
                     <span class="input" name="attr_strength_adjective" />
                     <input type="number" name="attr_strength" value="1" />
 
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Intellect}} {{result=[[1d6 + @{intellect}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Intellect}} {{result=[[1d6 + @{intellect}]]}}"
                         name="roll_intellect"><label>Intellect</label></button>
                     <input type="hidden" name="attr_intellect_adjective" value="Weak" />
                     <span class="input" name="attr_intellect_adjective" />
                     <input type="number" name="attr_intellect" value="1" />
 
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Awareness}} {{result=[[1d6 + @{awareness}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Awareness}} {{result=[[1d6 + @{awareness}]]}}"
                         name="roll_awareness"><label>Awareness</label></button>
                     <input type="hidden" name="attr_awareness_adjective" value="Weak" />
                     <span class="input" name="attr_awareness_adjective" />
                     <input type="number" name="attr_awareness" value="1" />
 
                     <button type="roll"
-                        value="&{template:test} {{name=@{character_name}}} {{ability=Willpower}} {{result=[[1d6 + @{willpower}]]}}"
+                        value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=Willpower}} {{result=[[1d6 + @{willpower}]]}}"
                         name="roll_willpower"><label>Willpower</label></button>
                     <input type="hidden" name="attr_willpower_adjective" value="Weak" />
                     <span class="input" name="attr_willpower_adjective" />
@@ -94,7 +114,7 @@
                             <option value="3">Master</option>
                         </select>
                         <button type="roll"
-                            value="&{template:test} {{name=@{character_name}}} {{ability=@{name}}} {{ability_choice=[[?{Ability|Prowess, @{prowess}|Coordination, @{coordination}|Strength, @{strength}|Intellect, @{intellect}|Awareness, @{awareness}|Willpower, @{willpower}}]]}} {{result=[[1d6+?{Ability}+@{level}]]}}"
+                            value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=@{name}}} {{ability_choice=[[?{Ability|Prowess, @{prowess}|Coordination, @{coordination}|Strength, @{strength}|Intellect, @{intellect}|Awareness, @{awareness}|Willpower, @{willpower}}]]}} {{result=[[1d6+?{Ability}+@{level}]]}}"
                             name="roll_specialty" />
                     </div>
                 </fieldset>
@@ -115,7 +135,7 @@
                     <div class="grid col3">
                         <input class="label" type="text" name="attr_name" placeholder="Power name" />
                         <button type="roll"
-                            value="&{template:test} {{name=@{character_name}}} {{ability=@{name}}} {{result=[[1d6+@{level}]]}}"
+                            value="&{template:test} {{name=@{character_name}}} {{type=@{setting_type}}} {{ability=@{name}}} {{result=[[1d6+@{level}]]}}"
                             name="roll_power" />
                         <input type="hidden" name="attr_adjective" value="Weak" />
                         <span class="input" name="attr_adjective" />
@@ -160,6 +180,7 @@
 </script>
 
 <rolltemplate class="sheet-rolltemplate-test">
+    <span class="hidden-type" data-i18n-placeholder="{{type}}"></span>
     <div class="container">
         <h1>{{name}} tests {{ability}}!</h1>
         <p>{{result}}</p>
