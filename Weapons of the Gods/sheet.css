@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body .charactersheet * {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 10px;
+}
+
+.charactersheet .grid {
+    position: relative;
+    display: grid;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 10px;
+    width: 100%;
+}
+
+.col2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.col2-attribute {
+    grid-template-columns: 4fr 1fr;
+}
+.col5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.jade {
+    background-color: #00A36C;
+}
+.crimson {
+    background-color: #DC143C;
+}
+.gold {
+    background-color: #FFD700;
+}
+.white {
+    background-color: #FFF;
+}
+.silver {
+    background-color: #C0C0C0;
+}
