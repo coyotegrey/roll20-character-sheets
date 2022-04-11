@@ -2,137 +2,576 @@
 
     <h1>Weapons of the Gods <sub>Role-playing Game</sub></h1>
 
-    <div class="grid col2">
+    <div class="grid col1 border">
+        <div class="grid col6-bio1">
+            <label>Name</label>
+            <input type="text" name="attr_character_name" value="" />
 
-        <label>Name</label>
-        <input type="text" name="attr_character_name" value="" />
+            <label>Rank</label>
+            <select name="attr_rank">
+                <option value="">Choose</option>
+                <option value="Fifth Rank">Fifth Rank</option>
+                <option value="Fourth Rank">Fourth Rank</option>
+                <option value="Third Rank">Third Rank</option>
+                <option value="Second Rank">Second Rank</option>
+                <option value="First Rank">First Rank</option>
+            </select>
 
-        <label>Rank</label>
-        <input type="text" name="attr_rank" value="" />
+            <label>Archetype</label>
+            <input type="text" list="archetype" name="attr_archetype" value="" placeholder="Archetype" />
+            <datalist id="archetype">
+                <option value="Warrior">Warrior</option>
+                <option value="Courtier">Courtier</option>
+                <option value="Scholar">Scholar</option>
+            </datalist>
+        </div>
 
-        <label>Archetype</label>
-        <input type="text" name="attr_archetype" value="" />
+        <div class="grid col6-bio2">
+            <label>Origin</label>
+            <input type="text" name="attr_origin" value="" />
 
-        <label>Origin</label>
-        <input type="text" name="attr_origin" value="" />
+            <label>Passion</label>
+            <input type="text" name="attr_passion" value="" />
 
+            <label>Destiny</label>
+            <input type="number" name="attr_destiny" value="" />
+        </div>
     </div>
 
-    <div class="grid col5">
-        <div class="grid col2-attribute jade">
-            <label>Might</label>
-            <input type="number" name="attr_might" value="1" />
+    <div class="grid col3">
+        <div class="grid col1 jade border">
+            <div class="grid col2-attribute">
+                <label>Might</label>
+                <input type="number" name="attr_might" value="1" />
+            </div>
 
-            <label class="defining">Athletics</label>
-            <input type="number" name="attr_athletics" />
+            <div class="grid col5-skill">
+                <label class="defining">Athletics</label>
+                <input type="text" name="attr_athletics_specialty" required />
+                <input type="number" name="attr_athletics" />
+                <div class="stars">
+                    <input type="radio" name="attr_athletics_stars" id="attr_athletics_stars1" value="1" checked>
+                    <label for="attr_athletics_stars1"></label>
+                    <input type="radio" name="attr_athletics_stars" id="attr_athletics_stars2" value="2">
+                    <label for="attr_athletics_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_athletics_boosted" />
+                <span name="attr_athletics_boosted" />
 
-            <label>Climb</label>
-            <input type="number" name="attr_climb" />
+                <label>Climb</label>
+                <input type="text" name="attr_climb_specialty" required />
+                <input type="number" name="attr_climb" />
+                <div class="stars">
+                    <input type="radio" name="attr_climb_stars" id="attr_climb_stars1" value="1" checked>
+                    <label for="attr_climb_stars1"></label>
+                    <input type="radio" name="attr_climb_stars" id="attr_climb_stars2" value="2">
+                    <label for="attr_climb_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_climb_boosted" />
+                <span name="attr_climb_boosted" />
 
-            <label>Fight</label>
-            <input type="number" name="attr_fight" />
+                <label>Fight</label>
+                <input type="text" name="attr_fight_specialty" required />
+                <input type="number" name="attr_fight" />
+                <div class="stars">
+                    <input type="radio" name="attr_fight_stars" id="attr_fight_stars1" value="1" checked>
+                    <label for="attr_fight_stars1"></label>
+                    <input type="radio" name="attr_fight_stars" id="attr_fight_stars2" value="2">
+                    <label for="attr_fight_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_fight_boosted" />
+                <span name="attr_fight_boosted" />
 
-            <label>Hardiness</label>
-            <input type="number" name="attr_hardiness" />
+                <label>Hardiness</label>
+                <input type="text" name="attr_hardiness_specialty" required />
+                <input type="number" name="attr_hardiness" />
+                <div class="stars">
+                    <input type="radio" name="attr_hardiness_stars" id="attr_hardiness_stars1" value="1" checked>
+                    <label for="attr_hardiness_stars1"></label>
+                    <input type="radio" name="attr_hardiness_stars" id="attr_hardiness_stars2" value="2">
+                    <label for="attr_hardiness_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_hardiness_boosted" />
+                <span name="attr_hardiness_boosted" />
 
-            <label>Lift</label>
-            <input type="number" name="attr_lift" />
+                <label>Lift</label>
+                <input type="text" name="attr_lift_specialty" required />
+                <input type="number" name="attr_lift" />
+                <div class="stars">
+                    <input type="radio" name="attr_lift_stars" id="attr_lift_stars1" value="1" checked>
+                    <label for="attr_lift_stars1"></label>
+                    <input type="radio" name="attr_lift_stars" id="attr_lift_stars2" value="2">
+                    <label for="attr_lift_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_lift_boosted" />
+                <span name="attr_lift_boosted" />
+            </div>
 
-            <label>Wood / Jade Chi</label>
-            <input type="number" name="attr_jade_chi" value="1" />
+            <div class="grid col2-chi">
+                <label>Wood / Jade Chi</label>
+                <input type="number" name="attr_jade_chi" value="1" />
+            </div>
         </div>
 
-        <div class="grid col2-attribute crimson">
-            <label>Speed</label>
-            <input type="number" name="attr_speed" value="1" />
+        <div class="grid col1 crimson border">
+            <div class="grid col2-attribute">
+                <label>Speed</label>
+                <input type="number" name="attr_speed" value="1" />
+            </div>
 
-            <label class="defining">Initiative</label>
-            <input type="number" name="attr_initiative" />
+            <div class="grid col5-skill">
+                <label class="defining">Initiative</label>
+                <input type="text" name="attr_initiative_specialty" required />
+                <input type="number" name="attr_initiative" />
+                <div class="stars">
+                    <input type="radio" name="attr_initiative_stars" id="attr_initiative_stars1" value="1" checked>
+                    <label for="attr_initiative_stars1"></label>
+                    <input type="radio" name="attr_initiative_stars" id="attr_initiative_stars2" value="2">
+                    <label for="attr_initiative_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_initiative_boosted" />
+                <span name="attr_initiative_boosted" />
 
-            <label>Dodge</label>
-            <input type="number" name="attr_dodge" />
+                <label>Dodge</label>
+                <input type="text" name="attr_dodge_specialty" required />
+                <input type="number" name="attr_dodge" />
+                <div class="stars">
+                    <input type="radio" name="attr_dodge_stars" id="attr_dodge_stars1" value="1" checked>
+                    <label for="attr_dodge_stars1"></label>
+                    <input type="radio" name="attr_dodge_stars" id="attr_dodge_stars2" value="2">
+                    <label for="attr_dodge_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_dodge_boosted" />
+                <span name="attr_dodge_boosted" />
 
-            <label>Finesse</label>
-            <input type="number" name="attr_finesse" />
+                <label>Finesse</label>
+                <input type="text" name="attr_finesse_specialty" required />
+                <input type="number" name="attr_finesse" />
+                <div class="stars">
+                    <input type="radio" name="attr_finesse_stars" id="attr_finesse_stars1" value="1" checked>
+                    <label for="attr_finesse_stars1"></label>
+                    <input type="radio" name="attr_finesse_stars" id="attr_finesse_stars2" value="2">
+                    <label for="attr_finesse_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_finesse_boosted" />
+                <span name="attr_finesse_boosted" />
 
-            <label>Melee</label>
-            <input type="number" name="attr_melee" />
+                <label>Melee</label>
+                <input type="text" name="attr_melee_specialty" required />
+                <input type="number" name="attr_melee" />
+                <div class="stars">
+                    <input type="radio" name="attr_melee_stars" id="attr_melee_stars1" value="1" checked>
+                    <label for="attr_melee_stars1"></label>
+                    <input type="radio" name="attr_melee_stars" id="attr_melee_stars2" value="2">
+                    <label for="attr_melee_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_melee_boosted" />
+                <span name="attr_melee_boosted" />
 
-            <label>Ride</label>
-            <input type="number" name="attr_ride" />
+                <label>Ride</label>
+                <input type="text" name="attr_ride_specialty" required />
+                <input type="number" name="attr_ride" />
+                <div class="stars">
+                    <input type="radio" name="attr_ride_stars" id="attr_ride_stars1" value="1" checked>
+                    <label for="attr_ride_stars1"></label>
+                    <input type="radio" name="attr_ride_stars" id="attr_ride_stars2" value="2">
+                    <label for="attr_ride_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_ride_boosted" />
+                <span name="attr_ride_boosted" />
+            </div>
 
-            <label>Fire / Crimson Chi</label>
-            <input type="number" name="attr_crimson_chi" value="1" />
+            <div class="grid col2-chi">
+                <label>Fire / Crimson Chi</label>
+                <input type="number" name="attr_crimson_chi" value="1" />
+            </div>
         </div>
 
-        <div class="grid col2-attribute gold">
-            <label>Presence</label>
-            <input type="number" name="attr_presence" value="1" />
+        <div class="grid col1 gold border">
+            <div class="grid col2-attribute">
+                <label>Presence</label>
+                <input type="number" name="attr_presence" value="1" />
+            </div>
 
-            <label class="defining">Confidence</label>
-            <input type="number" name="attr_confidence" />
+            <div class="grid col5-skill">
+                <label class="defining">Confidence</label>
+                <input type="text" name="attr_confidence_specialty" required />
+                <input type="number" name="attr_confidence" />
+                <div class="stars">
+                    <input type="radio" name="attr_confidence_stars" id="attr_confidence_stars1" value="1" checked>
+                    <label for="attr_confidence_stars1"></label>
+                    <input type="radio" name="attr_confidence_stars" id="attr_confidence_stars2" value="2">
+                    <label for="attr_confidence_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_confidence_boosted" />
+                <span name="attr_confidence_boosted" />
 
-            <label>Grace</label>
-            <input type="number" name="attr_grace" />
+                <label>Grace</label>
+                <input type="text" name="attr_grace_specialty" required />
+                <input type="number" name="attr_grace" />
+                <div class="stars">
+                    <input type="radio" name="attr_grace_stars" id="attr_grace_stars1" value="1" checked>
+                    <label for="attr_grace_stars1"></label>
+                    <input type="radio" name="attr_grace_stars" id="attr_grace_stars2" value="2">
+                    <label for="attr_grace_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_grace_boosted" />
+                <span name="attr_grace_boosted" />
 
-            <label>Inspire</label>
-            <input type="number" name="attr_inspire" />
+                <label>Inspire</label>
+                <input type="text" name="attr_inspire_specialty" required />
+                <input type="number" name="attr_inspire" />
+                <div class="stars">
+                    <input type="radio" name="attr_inspire_stars" id="attr_inspire_stars1" value="1" checked>
+                    <label for="attr_inspire_stars1"></label>
+                    <input type="radio" name="attr_inspire_stars" id="attr_inspire_stars2" value="2">
+                    <label for="attr_inspire_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_inspire_boosted" />
+                <span name="attr_inspire_boosted" />
 
-            <label>Perform</label>
-            <input type="number" name="attr_perform" />
+                <label>Perform</label>
+                <input type="text" name="attr_perform_specialty" required />
+                <input type="number" name="attr_perform" />
+                <div class="stars">
+                    <input type="radio" name="attr_perform_stars" id="attr_perform_stars1" value="1" checked>
+                    <label for="attr_perform_stars1"></label>
+                    <input type="radio" name="attr_perform_stars" id="attr_perform_stars2" value="2">
+                    <label for="attr_perform_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_perform_boosted" />
+                <span name="attr_perform_boosted" />
 
-            <label>Persuade</label>
-            <input type="number" name="attr_persuade" />
+                <label>Persuade</label>
+                <input type="text" name="attr_persuade_specialty" required />
+                <input type="number" name="attr_persuade" />
+                <div class="stars">
+                    <input type="radio" name="attr_persuade_stars" id="attr_persuade_stars1" value="1" checked>
+                    <label for="attr_persuade_stars1"></label>
+                    <input type="radio" name="attr_persuade_stars" id="attr_persuade_stars2" value="2">
+                    <label for="attr_persuade_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_persuade_boosted" />
+                <span name="attr_persuade_boosted" />
+            </div>
 
-            <label>Earth / Gold Chi</label>
-            <input type="number" name="attr_gold_chi" value="1" />
+            <div class="grid col2-chi">
+                <label>Earth / Gold Chi</label>
+                <input type="number" name="attr_gold_chi" value="1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="grid col2-pad">
+        <div class="grid col1 white border">
+            <div class="grid col2-attribute">
+                <label>Genius</label>
+                <input type="number" name="attr_genius" value="1" />
+            </div>
+
+            <div class="grid col5-skill">
+                <label class="defining">Learning</label>
+                <input type="text" name="attr_learning_specialty" required />
+                <input type="number" name="attr_learning" />
+                <div class="stars">
+                    <input type="radio" name="attr_learning_stars" id="attr_learning_stars1" value="1" checked>
+                    <label for="attr_learning_stars1"></label>
+                    <input type="radio" name="attr_learning_stars" id="attr_learning_stars2" value="2">
+                    <label for="attr_learning_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_learning_boosted" />
+                <span name="attr_learning_boosted" />
+
+                <label>Crafting</label>
+                <input type="text" name="attr_crafting_specialty" required />
+                <input type="number" name="attr_crafting" />
+                <div class="stars">
+                    <input type="radio" name="attr_crafting_stars" id="attr_crafting_stars1" value="1" checked>
+                    <label for="attr_crafting_stars1"></label>
+                    <input type="radio" name="attr_crafting_stars" id="attr_crafting_stars2" value="2">
+                    <label for="attr_crafting_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_crafting_boosted" />
+                <span name="attr_crafting_boosted" />
+
+                <label>Medicine</label>
+                <input type="text" name="attr_medicine_specialty" required />
+                <input type="number" name="attr_medicine" />
+                <div class="stars">
+                    <input type="radio" name="attr_medicine_stars" id="attr_medicine_stars1" value="1" checked>
+                    <label for="attr_medicine_stars1"></label>
+                    <input type="radio" name="attr_medicine_stars" id="attr_medicine_stars2" value="2">
+                    <label for="attr_medicine_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_medicine_boosted" />
+                <span name="attr_medicine_boosted" />
+
+                <label>Politics</label>
+                <input type="text" name="attr_politics_specialty" required />
+                <input type="number" name="attr_politics" />
+                <div class="stars">
+                    <input type="radio" name="attr_politics_stars" id="attr_politics_stars1" value="1" checked>
+                    <label for="attr_politics_stars1"></label>
+                    <input type="radio" name="attr_politics_stars" id="attr_politics_stars2" value="2">
+                    <label for="attr_politics_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_politics_boosted" />
+                <span name="attr_politics_boosted" />
+
+                <label>Tactics</label>
+                <input type="text" name="attr_tactics_specialty" required />
+                <input type="number" name="attr_tactics" />
+                <div class="stars">
+                    <input type="radio" name="attr_tactics_stars" id="attr_tactics_stars1" value="1" checked>
+                    <label for="attr_tactics_stars1"></label>
+                    <input type="radio" name="attr_tactics_stars" id="attr_tactics_stars2" value="2">
+                    <label for="attr_tactics_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_tactics_boosted" />
+                <span name="attr_tactics_boosted" />
+            </div>
+
+            <div class="grid col2-chi">
+                <label>Metal / White Chi</label>
+                <input type="number" name="attr_white_chi" value="1" />
+            </div>
         </div>
 
-        <div class="grid col2-attribute white">
-            <label>Genius</label>
-            <input type="number" name="attr_genius" value="1" />
+        <div class="grid col1 silver border">
+            <div class="grid col2-attribute">
+                <label>Wu Wei</label>
+                <input type="number" name="attr_wuwei" value="1" />
+            </div>
 
-            <label class="defining">Learning</label>
-            <input type="number" name="attr_learning" />
+            <div class="grid col5-skill">
+                <label class="defining">Awareness</label>
+                <input type="text" name="attr_awareness_specialty" required />
+                <input type="number" name="attr_awareness" />
+                <div class="stars">
+                    <input type="radio" name="attr_awareness_stars" id="attr_awareness_stars1" value="1" checked>
+                    <label for="attr_awareness_stars1"></label>
+                    <input type="radio" name="attr_awareness_stars" id="attr_awareness_stars2" value="2">
+                    <label for="attr_awareness_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_awareness_boosted" />
+                <span name="attr_awareness_boosted" />
 
-            <label>Crafting</label>
-            <input type="number" name="attr_crafting" />
+                <label>Investigation</label>
+                <input type="text" name="attr_investigation_specialty" required />
+                <input type="number" name="attr_investigation" />
+                <div class="stars">
+                    <input type="radio" name="attr_investigation_stars" id="attr_investigation_stars1" value="1" checked>
+                    <label for="attr_investigation_stars1"></label>
+                    <input type="radio" name="attr_investigation_stars" id="attr_investigation_stars2" value="2">
+                    <label for="attr_investigation_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_investigation_boosted" />
+                <span name="attr_investigation_boosted" />
 
-            <label>Medicine</label>
-            <input type="number" name="attr_medicine" />
+                <label>Ranged</label>
+                <input type="text" name="attr_ranged_specialty" required />
+                <input type="number" name="attr_ranged" />
+                <div class="stars">
+                    <input type="radio" name="attr_ranged_stars" id="attr_ranged_stars1" value="1" checked>
+                    <label for="attr_ranged_stars1"></label>
+                    <input type="radio" name="attr_ranged_stars" id="attr_ranged_stars2" value="2">
+                    <label for="attr_ranged_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_ranged_boosted" />
+                <span name="attr_ranged_boosted" />
 
-            <label>Politics</label>
-            <input type="number" name="attr_politics" />
+                <label>Senses</label>
+                <input type="text" name="attr_senses_specialty" required />
+                <input type="number" name="attr_senses" />
+                <div class="stars">
+                    <input type="radio" name="attr_senses_stars" id="attr_senses_stars1" value="1" checked>
+                    <label for="attr_senses_stars1"></label>
+                    <input type="radio" name="attr_senses_stars" id="attr_senses_stars2" value="2">
+                    <label for="attr_senses_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_senses_boosted" />
+                <span name="attr_senses_boosted" />
 
-            <label>Tactics</label>
-            <input type="number" name="attr_tactics" />
+                <label>Stealth</label>
+                <input type="text" name="attr_stealth_specialty" required />
+                <input type="number" name="attr_stealth" />
+                <div class="stars">
+                    <input type="radio" name="attr_stealth_stars" id="attr_stealth_stars1" value="1" checked>
+                    <label for="attr_stealth_stars1"></label>
+                    <input type="radio" name="attr_stealth_stars" id="attr_stealth_stars2" value="2">
+                    <label for="attr_stealth_stars2"></label>
+                </div>
+                <input type="hidden" name="attr_stealth_boosted" />
+                <span name="attr_stealth_boosted" />
+            </div>
 
-            <label>Metal / White Chi</label>
-            <input type="number" name="attr_white_chi" value="1" />
+            <div class="grid col2-chi">
+                <label>Water / Silver Chi</label>
+                <input type="number" name="attr_silver_chi" value="1" />
+            </div>
         </div>
+    </div>
 
-        <div class="grid col2-attribute silver">
-            <label>Wu Wei</label>
-            <input type="number" name="attr_wuwei" value="1" />
+    <div class="grid col1 border">
+        <h2>Advantages</h2>
+        <div class="grid col2">
+            <label>Name</label>
 
-            <label class="defining">Awareness</label>
-            <input type="number" name="attr_awareness" />
-
-            <label>Investigation</label>
-            <input type="number" name="attr_investigation" />
-
-            <label>Ranged</label>
-            <input type="number" name="attr_ranged" />
-
-            <label>Senses</label>
-            <input type="number" name="attr_senses" />
-
-            <label>Stealth</label>
-            <input type="number" name="attr_stealth" />
-
-            <label>Water / Silver Chi</label>
-            <input type="number" name="attr_silver_chi" value="1" />
+            <label>Points</label>
         </div>
+        <fieldset class="repeating_advantages">
+            <div class="grid col2">
+                <input type="text" name="attr_advantagename" value="" />
+
+                <input type="number" name="attr_advantagepoints" value="" />
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="grid col1 border">
+        <h2>Disadvantages</h2>
+    </div>
+
+    <div class="grid col1 border">
+        <h2>Weapons</h2>
+    </div>
+
+    <div class="grid col1 border">
+        <h2>Protection</h2>
+    </div>
+
+    <div class="grid col1 border">
+        <h2>Health</h2>
     </div>
 
 </div>
+
+<script type="text/worker">
+
+    const skillsDictionary = {
+        "ATHLETICS": {
+            "name": "Athletics",
+            "attribute": "might"
+        },
+        "CLIMB": {
+            "name": "Climb",
+            "attribute": "might"
+        },
+        "FIGHT": {
+            "name": "Fight",
+            "attribute": "might"
+        },
+        "HARDINESS": {
+            "name": "Hardiness",
+            "attribute": "might"
+        },
+        "LIFT": {
+            "name": "Lift",
+            "attribute": "might"
+        },
+        "INITIATIVE": {
+            "name": "Initiative",
+            "attribute": "speed"
+        },
+        "DODGE": {
+            "name": "Dodge",
+            "attribute": "speed"
+        },
+        "FINESSE": {
+            "name": "Finesse",
+            "attribute": "speed"
+        },
+        "MELEE": {
+            "name": "Melee",
+            "attribute": "speed"
+        },
+        "RIDE": {
+            "name": "Ride",
+            "attribute": "speed"
+        },
+        "CONFIDENCE": {
+            "name": "Confidence",
+            "attribute": "presence"
+        },
+        "GRACE": {
+            "name": "Grace",
+            "attribute": "presence"
+        },
+        "INSPIRE": {
+            "name": "Inspire",
+            "attribute": "presence"
+        },
+        "PERFORM": {
+            "name": "Perform",
+            "attribute": "presence"
+        },
+        "PERSUADE": {
+            "name": "Persuade",
+            "attribute": "presence"
+        },
+        "LEARNING": {
+            "name": "Learning",
+            "attribute": "genius"
+        },
+        "CRAFTING": {
+            "name": "Crafting",
+            "attribute": "genius"
+        },
+        "MEDICINE": {
+            "name": "Medicine",
+            "attribute": "genius"
+        },
+        "POLITICS": {
+            "name": "Politics",
+            "attribute": "genius"
+        },
+        "TACTICS": {
+            "name": "Tactics",
+            "attribute": "genius"
+        },
+        "AWARENESS": {
+            "name": "Awareness",
+            "attribute": "wuwei"
+        },
+        "INVESTIGATION": {
+            "name": "Investigation",
+            "attribute": "wuwei"
+        },
+        "RANGED": {
+            "name": "Ranged",
+            "attribute": "wuwei"
+        },
+        "SENSES": {
+            "name": "Senses",
+            "attribute": "wuwei"
+        },
+        "STEALTH": {
+            "name": "Stealth",
+            "attribute": "wuwei"
+        }
+    };
+
+    Object.keys(skillsDictionary).forEach(key => {
+        let skill = skillsDictionary[key];
+        let skill_name = key.toLowerCase();
+        let attribute_name = skill['attribute'];
+        on(`change:${skill_name} change:${attribute_name}`, function() {
+            getAttrs([`${skill_name}`,`${attribute_name}`], function(values) {
+                let update = {};
+                let sval = parseInt(values[skill_name])||0;
+                let aval = parseInt(values[attribute_name])||0;
+                let bval = sval;
+                //console.log(`${skill_name} | original: ${sval}`);
+                if (sval == 0) {
+                    bval = "";
+                } else if (aval >= sval) {
+                    bval++;
+                }
+                //console.log(`${skill_name} | modified: ${bval}`);
+                update[`${skill_name}_boosted`] = bval;
+                setAttrs(update);
+            });
+        });
+    });
+
+</script>
