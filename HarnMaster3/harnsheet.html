@@ -6,6 +6,11 @@
 	<button type="action" name="act_dismissupgradenotice" class="dismissnotification">Dismiss notification</button>
 </div>
 
+
+<div class=avatarbanner>
+	<img class='avatarimage' name='attr_character_avatar' alt="Character Avatar">
+</div>
+
 <!-- buttons to select desired tab -->
 <div class="tab-buttons">
    <button id=chartab type="action" name="act_character" >Character<span class="buttonicon">&nbsp;U </span></button>
@@ -13,17 +18,17 @@
    <button id=settingstab type="action" name="act_settings" >Settings<span class="buttonicon">&nbsp;x </span></button>
 </div>
 
-<!-- some inputs to switch tabs and toggle themes --> 
+<!-- inputs to switch tabs and various other things --> 
 <input type='hidden' class='tabstoggle' name='attr_sheettab'  value='character'  />
-<input type='hidden' class='themeactivator' name='attr_colorthemeselector' value='light' >
-<input type='hidden' class='characterviewer' name='attr_colorthemeselector' value='light' >
 <input type="hidden" name="attr_sheetversion" value='1'><!-- to facilitate migration from old HarnMaster3 sheet to v2 -->
 
 <!-- actual character sheet, divided in tabs -->
 <div class='character'> <!-- CHARACTER TAB -->
-    <h1>HarnMaster Character Profile</h1>
+
+	<h2 class='tab-header'>HârnMaster</h2>
+    <h1 class='tab-header'>Character Profile</h1>
     <div class='character-grid'> <!-- CHARACTER grid container-->
-        <div class='character-grid-section personal personal-grid'>
+        <div class='character-grid-section personal personal-grid colored-grid'>
     		<div class="skill-section-title">PERSONAL</div>
             <label for=charname>Name</label><input type="text" id=charname name="attr_character_name" class="personal-input">
             <label for=race>Race</label><input type="text" id=race name="attr_species" class="personal-input">
@@ -57,7 +62,7 @@
                 <option value="lado-ulandus">Lado-Ulandus</option>
             </select> 
         </div>
-        <div class='character-grid-section attribs attribs-grid'>
+        <div class='character-grid-section attribs attribs-grid colored-grid'>
      		<div class="skill-section-title">ATTRIBUTES</div>
             <label for=str>STR</label>
             <input id=str type="number" name="attr_str" class="attribute-input" value="0">
@@ -108,7 +113,7 @@
 			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} tests Willpower}} {{rolltarget=[[{[[{[[@{wil} * ?{Attribute multiplier?|3|4|5|6|7} - [[(@{universal_penalty})*5]] ]],5}kh1]],95}kl1]]}} {{Target Level=[[@{wil} * ?{Attribute multiplier?}]] (@{wil} * ?{Attribute multiplier?}) }} {{penalty=[[(@{universal_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} " name="roll_WillpowerCheck">
     		</button>
         </div>
-        <div class='character-grid-section family family-grid'>
+        <div class='character-grid-section family family-grid colored-grid'>
     		<div class="skill-section-title">FAMILY</div>
             <label for=birthplace>Birthplace</label>
             <input id=birthplace type="text" name="attr_birthplace" class="family-input">
@@ -129,7 +134,7 @@
             <label for=physical>Physical</label>
             <input id=physical type="text" name="attr_physical" class="family-input">   
         </div>
-        <div class='character-grid-section physical physical-grid'>
+        <div class='character-grid-section physical physical-grid colored-grid'>
           <label for=age>Age</label><input type="number" id=age name="attr_age" class="physical-input">
 		  <label for=skin>Skin</label><input type="text" id=skin name="attr_complexion" class="physical-input">
     	  <label for=height>Height</label><input type="text" id=height name="attr_height" class="physical-input skill-value">
@@ -421,9 +426,8 @@
     		<label for=mountedtoggle>Mounted?</label>
     		  <input id=mountedtoggle type="checkbox" name="attr_is_mounted" value="1">	
 				<input type="hidden" name="attr_is_mounted" class="display-mounted-status"> <!-- this is filled with the value set by the is carried checkbox above-->
-				<input type='hidden' class='themeactivator' name='attr_colorthemeselector' value='light' >
-    			<div class="mounted-display full-width themeactivator"> <img class="full-width" src="https://github.com/olafvantol/roll20-character-sheets/blob/77eb88aea6fe38651e24c68cfae1b6f3ab5f4c60/HarnMaster3_v2/mounted-icon-v2.png?raw=true" /> </div>
-				<div class="unmounted-display full-width themeactivator"> <img class="full-width" src="https://github.com/olafvantol/roll20-character-sheets/blob/77eb88aea6fe38651e24c68cfae1b6f3ab5f4c60/HarnMaster3_v2/on-foot-icon-v2.png?raw=true" />  </div>
+				<div class="mounted-display full-width"> <img class="full-width" src="https://github.com/olafvantol/roll20-character-sheets/blob/77eb88aea6fe38651e24c68cfae1b6f3ab5f4c60/HarnMaster3_v2/mounted-icon-v2.png?raw=true" /> </div>
+				<div class="unmounted-display full-width"> <img class="full-width" src="https://github.com/olafvantol/roll20-character-sheets/blob/77eb88aea6fe38651e24c68cfae1b6f3ab5f4c60/HarnMaster3_v2/on-foot-icon-v2.png?raw=true" />  </div>
 				
     	</div>    
         <div class='character-grid-section penalties penalties-grid colored-grid'>
@@ -692,7 +696,7 @@
     				<input type="number" name="attr_weapon_atk" class="skill-value" readonly>
     				<input type="number" name="attr_weapon_def" class="skill-value" readonly>
     				<input type="number" name="attr_weapon_hm" class="skill-value" readonly>
-    				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} attacks with a @{weapon_name}}} {{subtitle=With HM penalty}} {{rolltarget=[[{[[{[[@{weapon_aml} + @{weapon_hm} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{weapon_aml}]]}} {{penalty=[[[[(@{physical_penalty})*5]] + [[-1*@{weapon_hm}]]]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{desc=B(@{weapon_b}) E(@{weapon_e}) P(@{weapon_p}) F(@{weapon_f})}}" name="roll_WeaponHMAMLSkillCheck" data-tooltiptext="Use this button to roll attack with included HM penalty">
+    				<button type="roll" class="harntooltip" value="&{template:custom} {{color=harn}} {{title=@{character_name} attacks with a @{weapon_name}}} {{subtitle=With HM penalty}} {{rolltarget=[[{[[{[[@{weapon_aml} + @{weapon_hm} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{weapon_aml}]]}} {{penalty=[[[[(@{physical_penalty})*5]] + [[-1*@{weapon_hm}]]]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{desc=B(@{weapon_b}) E(@{weapon_e}) P(@{weapon_p}) F(@{weapon_f})}}" name="roll_WeaponHMAMLSkillCheck" data-tooltiptext="Use this button to roll attack with included HM penalty">
     				</button>
     				<input type="number" name="attr_weapon_b" class="skill-value" readonly>
     				<input type="number" name="attr_weapon_e" class="skill-value" readonly>
@@ -700,10 +704,10 @@
     				<input type="number" name="attr_weapon_f" class="skill-value" readonly>
     				<input type="number" name="attr_weapon_ml" class="skill-value" readonly>
     				<input type="number" name="attr_weapon_aml" class="skill-value" readonly>  
-    				<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} attacks with a @{weapon_name}}}  {{rolltarget=[[{[[{[[@{weapon_aml} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}}{{Mastery Lvl=[[@{weapon_aml}]]}}  {{penalty=[[(@{physical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=B(@{weapon_b}) E(@{weapon_e}) P(@{weapon_p}) F(@{weapon_f})}}" name="roll_WeaponAMLSkillCheck" data-tooltiptext="Use this button to roll a normal attack">
+    				<button type="roll"	class="harntooltip" value="&{template:custom} {{color=harn}} {{title=@{character_name} attacks with a @{weapon_name}}}  {{rolltarget=[[{[[{[[@{weapon_aml} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}}{{Mastery Lvl=[[@{weapon_aml}]]}}  {{penalty=[[(@{physical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=B(@{weapon_b}) E(@{weapon_e}) P(@{weapon_p}) F(@{weapon_f})}}" name="roll_WeaponAMLSkillCheck" data-tooltiptext="Use this button to roll a normal attack">
     				</button>
     				<input type="number" name="attr_weapon_dml" class="skill-value" readonly>
-    				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} blocks with a @{weapon_name}}} {{rolltarget=[[{[[{[[@{weapon_dml} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}}{{Mastery Lvl=[[@{weapon_dml}}}  {{penalty=[[(@{physical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{desc=wq @{weapon_wq}]]}}" name="roll_WeaponDMLSkillCheck">
+    				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} blocks with a @{weapon_name}}} {{rolltarget=[[{[[{[[@{weapon_dml} - [[(@{physical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{weapon_dml}]]}}  {{penalty=[[(@{physical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{desc=WQ @{weapon_wq}}}" name="roll_WeaponDMLSkillCheck">
     				</button>
     				<input type="text" name="attr_weapon_note" class="skill-label" readonly>
     			</div>
@@ -720,20 +724,21 @@
     		<div class="skill-header skill-value">AML</div>
     		<div class="skill-header skill-value">Dmg</div>
     		<div class="skill-header skill-value">&nbsp;</div>
-    		<div class="skill-header skill-value">Medium</div>
-    		<div class="skill-header skill-value">AML</div>
-    		<div class="skill-header skill-value">Dmg</div>
-    		<div class="skill-header skill-value">&nbsp;</div>
-    		<div class="skill-header skill-value">Long</div>
-    		<div class="skill-header skill-value">AML</div>
-    		<div class="skill-header skill-value">Dmg</div>
-    		<div class="skill-header skill-value">&nbsp;</div>
-    		<div class="skill-header skill-value">Extreme</div>
-    		<div class="skill-header skill-value">AML</div>
-    		<div class="skill-header skill-value">Dmg</div>
-    		<div class="skill-header skill-value">&nbsp;</div>
+			<div class="mw-extraranges">
+				<div class="skill-header skill-value">Medium</div>
+				<div class="skill-header skill-value">AML</div>
+				<div class="skill-header skill-value">Dmg</div>
+				<div class="skill-header skill-value">&nbsp;</div>
+				<div class="skill-header skill-value">Long</div>
+				<div class="skill-header skill-value">AML</div>
+				<div class="skill-header skill-value">Dmg</div>
+				<div class="skill-header skill-value">&nbsp;</div>
+				<div class="skill-header skill-value">Extreme</div>
+				<div class="skill-header skill-value">AML</div>
+				<div class="skill-header skill-value">Dmg</div>
+				<div class="skill-header skill-value">&nbsp;</div>
+			</div>
     		<div class="skill-header skill-value">Ammo</div>
-    		
     		<fieldset class="repeating_missileweapon">
     		<input type="hidden" name="attr_missileweapon_iscarried" class="display-carried-missileweapon"> <!-- this is filled with the value set by the is carried checkbox above-->
     			<div class="missileweapon-display">
@@ -747,25 +752,23 @@
     				<input type="number" name="attr_missileweapon_short_dmg" class="skill-value" value="0" readonly>
     				<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Short Range}} {{rolltarget=[[{[[{[[@{missileweapon_short_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_short_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_short_dmg}) }}" name="roll_MissileWeaponShortSkillCheck">
     				</button>
-    							
-    				<input type="number" name="attr_missileweapon_medium" class="skill-value" value="0" readonly>
-    				<input type="number" name="attr_missileweapon_medium_aml" class="skill-value" value="0" readonly>
-    				<input type="number" name="attr_missileweapon_medium_dmg" class="skill-value" value="0" readonly> 
-    				<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Medium Range}} {{rolltarget=[[{[[{[[@{missileweapon_medium_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_medium_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_medium_dmg})}}" name="roll_MissileWeaponMediumSkillCheck">
-    				</button>
-    				
-    				<input type="number" name="attr_missileweapon_long" class="skill-value" value="0" readonly>
-    				<input type="number" name="attr_missileweapon_long_aml" class="skill-value" value="0" readonly>
-    				<input type="number" name="attr_missileweapon_long_dmg" class="skill-value" value="0" readonly>
-    				<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Long Range}} {{rolltarget=[[{[[{[[@{missileweapon_long_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_long_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_long_dmg})}}" name="roll_MissileWeaponLongSkillCheck">
-    				</button>
-    				
-    				<input type="number" name="attr_missileweapon_extreme" class="skill-value" value="0" readonly>					
-    				<input type="number" name="attr_missileweapon_extreme_aml" class="skill-value" value="0" readonly>
-    				<input type="number" name="attr_missileweapon_extreme_dmg" class="skill-value" value="0" readonly>
-    				<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Extreme Range}} {{rolltarget=[[{[[{[[@{missileweapon_extreme_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_extreme_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_extreme_dmg})}}" name="roll_MissileWeaponExtremeSkillCheck">
-    				</button>
-    				
+    				<div class="mw-extraranges">			
+						<input type="number" name="attr_missileweapon_medium" class="skill-value" value="0" readonly>
+						<input type="number" name="attr_missileweapon_medium_aml" class="skill-value" value="0" readonly>
+						<input type="number" name="attr_missileweapon_medium_dmg" class="skill-value" value="0" readonly> 
+						<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Medium Range}} {{rolltarget=[[{[[{[[@{missileweapon_medium_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_medium_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_medium_dmg})}}" name="roll_MissileWeaponMediumSkillCheck">
+						</button>
+						<input type="number" name="attr_missileweapon_long" class="skill-value" value="0" readonly>
+						<input type="number" name="attr_missileweapon_long_aml" class="skill-value" value="0" readonly>
+						<input type="number" name="attr_missileweapon_long_dmg" class="skill-value" value="0" readonly>
+						<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Long Range}} {{rolltarget=[[{[[{[[@{missileweapon_long_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_long_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_long_dmg})}}" name="roll_MissileWeaponLongSkillCheck">
+						</button>
+						<input type="number" name="attr_missileweapon_extreme" class="skill-value" value="0" readonly>					
+						<input type="number" name="attr_missileweapon_extreme_aml" class="skill-value" value="0" readonly>
+						<input type="number" name="attr_missileweapon_extreme_dmg" class="skill-value" value="0" readonly>
+						<button type="roll"	value="&{template:custom} {{color=harn}} {{title=@{character_name} shoots with a @{missileweapon_name}}} {{subtitle=at Extreme Range}} {{rolltarget=[[{[[{[[@{missileweapon_extreme_aml} - [[(@{physical_penalty})*5]] - [[(@{is_mounted})*10]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{missileweapon_extreme_aml}]]}} {{penalty=[[(@{physical_penalty})*5 +(@{is_mounted})*10]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifier=[[?{Target Modifier?|0}]]}} {{successdesc=@{missileweapon_aspect}(@{missileweapon_extreme_dmg})}}" name="roll_MissileWeaponExtremeSkillCheck">
+						</button>
+    				</div>
     				<input type="number" name="attr_missileweapon_ammo" class="skill-value">
     			</div>
     		</fieldset>		
@@ -782,54 +785,92 @@
 		<input class="showsinglepiety" name="attr_hrconsolidatedpiety" type="hidden" value="1"/>
 		<div class='character-grid-section magic magic-grid mr-spells colored-grid'>
 		    <div class="skill-section-title">SPELLS</div>
-			<div class="skill-header">Name</div>
+			<div class="skill-header ">Name</div>
 			<div class="skill-header">Convocation</div>
-			<div class="skill-header">Lvl</div>
-			<div class="skill-header">EML</div>
 			<div class="skill-header">&nbsp;</div>
-			<div class="skill-header">Notes</div>
+			<div class="skill-header skill-value">Lvl</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Casting Time (seconds)">CT</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Duration (seconds)">Dur</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Range (meters, self or touch)">Range</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Base of spell when using individual spell skills">SB</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Index of spell when using individual spell skills">SI</div>
+			<div class="skill-header skill-value">ML</div>
+			<div class="skill-header">&nbsp;</div>
 			<fieldset class="repeating_spells">
 				<input type="text" name="attr_spell_name" class="magic-label">
 				<input type="text" name="attr_spell_convocation" class="magic-label">
+				<div>&nbsp;</div>
 				<input type="number" name="attr_spell_level" class="skill-value" value="0">
+				<input type="number" name="attr_spell_ct" class="skill-value" value="0">
+				<input type="number" name="attr_spell_duration" class="skill-value" value="0">
+				<input type="text" name="attr_spell_range" class="skill-value" value="0">
+				<input type="number" name="attr_spell_sb" class="skill-value" value="0">
+				<input type="number" name="attr_spell_si" class="skill-value" value="0" readonly>
 				<input type="number" name="attr_spell_eml" class="skill-value" value="0">
 				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} casts @{spell_name}}} {{subtitle=@{spell_convocation}}} {{rolltarget=[[{[[{[[@{spell_eml} - [[(@{universal_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{spell_eml}]]}} {{penalty=[[(@{universal_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{successdesc=@{spell_note}}}" name="roll_spellcastcheck">
 				</button>
-				<input type="text" name="attr_spell_note" class="magic-label">
+				
+				<label for="spell-description">Spell description</label>
+				<input id="spell-description" type="text" name="attr_spell_note" class="magic-note">
+				
 			</fieldset>
 		</div>
         <div class='character-grid-section magic magic-grid mr-rituals colored-grid'>
 		    <div class="skill-section-title">RITUALS</div>
 			<div class="skill-header">Name</div>
 			<div class="skill-header">Deity</div>
-			<div class="skill-value skill-header">Lvl</div>
-			<div class="skill-value skill-header">EML</div>
-			<div class="skill-value skill-header">&nbsp;</div>
-			<div class="magic-label skill-header">Notes</div>
+			<div class="skill-header">&nbsp;</div>
+			<div class="skill-header skill-value">Lvl</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Casting Time (seconds)">CT</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Duration (seconds)">Dur</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Range (meters, self or touch)">Range</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Base of spell when using individual ritual skills">SB</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Index of spell when using individual ritual skills">SI</div>
+			<div class="skill-header skill-value">ML</div>
+			<div class="skill-header">&nbsp;</div>
 			<fieldset class="repeating_rituals">
 				<input type="text" name="attr_ritual_name" class="magic-label ">
 				<input type="text" name="attr_ritual_religion" class="piety-label">
+				<div>&nbsp;</div>
 				<input type="number" name="attr_ritual_level" class="skill-value" value="0">
+				<input type="number" name="attr_ritual_ct" class="skill-value" value="0">
+				<input type="number" name="attr_ritual_duration" class="skill-value" value="0">
+				<input type="text" name="attr_ritual_range" class="skill-value" value="0">
+				<input type="number" name="attr_ritual_sb" class="skill-value" value="0">
+				<input type="number" name="attr_ritual_si" class="skill-value" value="0" readonly>
 				<input type="number" name="attr_ritual_eml" class="skill-value" value="0">
 				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} performs @{ritual_name}}} {{subtitle=@{ritual_religion}}} {{rolltarget=[[{[[{[[@{ritual_eml} - [[(@{universal_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{ritual_eml}]]}} {{penalty=[[(@{universal_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{successdesc=@{ritual_note}}}" name="roll_ritualcheck"></button>
-				<input type="text" name="attr_ritual_note" class="spell-note">
+				<label for="ritual-description">Ritual description</label>
+				<input id="ritual-description" type="text" name="attr_ritual_note" class="magic-note">
 			</fieldset>			
 		</div>    
         <div class='character-grid-section magic magic-grid mr-psionic colored-grid'>
 			<div class="skill-section-title">PSIONIC POWERS</div>
 			<div class="skill-header">Talent</div>
-			<div class="skill-value skill-header">Fatigue</div>
-			<div class="skill-value skill-header">Time</div>
-			<div class="skill-value skill-header">EML</div>
-			<div class="skill-value skill-header">&nbsp;</div>
-			<div class="magic-label skill-header">Notes</div>
+			<div class="skill-header">&nbsp;</div>
+			<div class="skill-header">&nbsp;</div>
+			<div class="skill-value skill-header harntooltip" data-tooltiptext="Fatigue Penalty">FP</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Casting Time (seconds)">CT</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Duration (seconds)">Dur</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Range (meters, self or touch)">Range</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Base of spell when using individual spell skills">SB</div>
+			<div class="skill-header skill-value harntooltip" data-tooltiptext="Skill Index of spell when using individual spell skills">SI</div>
+			<div class="skill-header skill-value">ML</div>
+			<div class="skill-header">&nbsp;</div>
 			<fieldset class="repeating_psionics">
 				<input type="text" name="attr_talent_name" class="magic-label ">
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
 				<input type="number" name="attr_talent_fatigue" class="skill-value" value="0">
-				<input type="number" name="attr_talent_time" class="skill-value" value="">
+				<input type="number" name="attr_talent_time" class="skill-value" value="0">
+				<input type="number" name="attr_talent_duration" class="skill-value" value="0">
+				<input type="text" name="attr_talent_range" class="skill-value" value="0">
+				<input type="number" name="attr_talent_sb" class="skill-value" value="0">
+				<input type="number" name="attr_talent_si" class="skill-value" value="0" readonly>
 				<input type="number" name="attr_talent_eml" class="skill-value" value="0">
 				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{character_name} invokes @{talent_name}}}  {{rolltarget=[[{[[{[[@{talent_eml} - [[(@{universal_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{talent_eml}]]}} {{penalty=[[(@{universal_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{successdesc=(@{talent_time}); @{talent_note}}}" name="roll_talentcheck"></button>
-				<input type="text" name="attr_talent_note" class="spell-note">
+				<label for="psionic-description">Talent description</label>
+				<input id="psionic-description" type="text" name="attr_talent_note" class="magic-note">
 			</fieldset>			
 		</div>   
         <input class="showsinglepiety" name="attr_hrconsolidatedpiety" type="hidden" value="1"/>
@@ -850,7 +891,7 @@
 			<label for=horsename>Horse Name</label>
 			<input id=horsename type="text" name="attr_hname" class="skill-label">
 			<label for=horsebreed>Horse Breed</label>
-			<input id=horsebreed name="attr_hspecies" class="skill-label" list="hbreeds">
+			<input type="text" id=horsebreed name="attr_hspecies" class="skill-label" list="hbreeds">
 			<datalist id="hbreeds">
 				<option value="Reksyni">Reksyni</option><!-- standard Harn value-->
 				<option value="Hacherdad">Hacherdad</option><!-- standard Harn value-->
@@ -862,7 +903,7 @@
 				<option value="Goklan">Goklan</option><!-- our setting custom value-->
 			</datalist>
 			<label for=horsegender>Gender</label>
-			<input id=horsegender name="attr_hgender" class="skill-label" list="hgender">
+			<input type="text" id=horsegender name="attr_hgender" class="skill-label" list="hgender">
 			<datalist id="hgender">	
 				<option value="Stallion">Stallion</option>
 				<option value="Mare">Mare</option>
@@ -903,27 +944,27 @@
 			<input type="text" class="skill-label" name="attr_hawareness_name" value="Awareness" disabled="true">
 			<input type="number" name="attr_hawareness_sb" class="skill-value" value="0">
 			<input type="number" name="attr_hawareness_ml" class="skill-value" value="0">
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hawareness_name}}} {{rolltarget=[[{[[{[[@{hawareness_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hawareness_ml}]]}}" name="roll_HorseAwarenessCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hawareness_name}}} {{rolltarget=[[{[[{[[@{hawareness_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hawareness_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseAwarenessCheck">
 			</button>
 			<input type="text" class="skill-label" name="attr_hdodge_name" value="Dodge" disabled="true">
 			<input type="number" name="attr_hdodge_sb" class="skill-value" value="0">
 			<input type="number" name="attr_hdodge_ml" class="skill-value" value="0">
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hdodge_name}}} {{rolltarget=[[{[[{[[@{hdodge_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hdodge_ml}]]}}" name="roll_HorseDodgeCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hdodge_name}}} {{rolltarget=[[{[[{[[@{hdodge_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hdodge_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseDodgeCheck">
 			</button>
 			<input type="text" class="skill-label" name="attr_hinitiative_name" value="Horse Initiative" disabled="true">
 			<input type="number" name="attr_hinitiative_sb" class="skill-value" value="0">
 			<input type="number" name="attr_hinitiative_ml" class="skill-value" value="0">
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hinitiative_name}}} {{rolltarget=[[{[[{[[@{hinitiative_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hinitiative_ml}]]}}" name="roll_HorseInitiativeCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hinitiative_name}}} {{rolltarget=[[{[[{[[@{hinitiative_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hinitiative_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseInitiativeCheck">
 			</button>
 			<input type="text" class="skill-label" name="attr_hjumping_name" value="Jumping" disabled="true">
 			<input type="number" name="attr_hjumping_sb" class="skill-value" value="0">
 			<input type="number" name="attr_hjumping_ml" class="skill-value" value="0">
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hjumping_name}}} {{rolltarget=[[{[[{[[@{hjumping_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hjumping_ml}]]}}" name="roll_HorseJumpCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hjumping_name}}} {{rolltarget=[[{[[{[[@{hjumping_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hjumping_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseJumpCheck">
 			</button>
 			<input type="text" class="skill-label" name="attr_hstealth_name" value="Stealth" disabled="true">
 			<input type="number" name="attr_hstealth_sb" class="skill-value" value="0">
 			<input type="number" name="attr_hstealth_ml" class="skill-value" value="0">
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hstealth_name}}} {{rolltarget=[[{[[{[[@{hstealth_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hstealth_ml}]]}}" name="roll_HorseStealthCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tests @{hstealth_name}}} {{rolltarget=[[{[[{[[@{hstealth_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hstealth_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseStealthCheck">
 			</button>
 			<input type="text" class="skill-label" name="attr_htrample_name" value="Trample" disabled="true">
 			<input type="number" name="attr_htrample_sb" class="skill-value" value="0">
@@ -950,7 +991,7 @@
 			<div>&nbsp </div>
 			<label for=horsecombatdodge>Dodge</label>
 			<input id=horsecombatdodge type="number" name="attr_hdodge_ml" class="skill-value" readonly>
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname}} dodges}  {{rolltarget=[[{[[{[[@{hcombat_dodge} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{hcombat_dodge}]]}}" name="roll_HorseCombatDodgeCheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} dodges}}  {{rolltarget=[[{[[{[[@{hdodge_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{hdodge_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}" name="roll_HorseCombatDodgeCheck">
 			</button>
 			<label for=horsespeed>Horse speed:</label>
             <select id=horsespeed name="attr_horse_speed" class="skill-label width-2col">
@@ -1018,7 +1059,7 @@
 				<input type="number" name="attr_hinjury_level" class="skill-value" value="0">
 				<input type="number" name="attr_hinjury_healingroll" class="skill-value" value="0">
 				<input type="number" name="attr_hinjury_day" class="skill-value" value="0">
-				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} rolls a healing check}} {{infected=[[@{hinjury_infected_feedback}]]}} {{rolltarget=[[{[[{[[(@{hinjury_healingroll} * [[@{hcombat_endurance}]]) + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Healing Roll=[[@{hinjury_healingroll} * [[@{hcombat_endurance}]]]]}} {{desc=@{hinjury_location} @{hinjury_severity}@{hinjury_level} h@{hinjury_healingroll}}}" name="roll_horsehealingcheck">
+				<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} rolls a healing check}} {{infected=[[@{hinjury_infected_feedback}]]}} {{rolltarget=[[{[[{[[(@{hinjury_healingroll} * [[@{hcombat_endurance}]]) + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Healing Roll=[[@{hinjury_healingroll} * [[@{hcombat_endurance}]]]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[0]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{desc=@{hinjury_location} @{hinjury_severity}@{hinjury_level} h@{hinjury_healingroll}}}" name="roll_horsehealingcheck">
 				</button>
 				<input type="checkbox" name="attr_hinjury_infected"><span></span>
 				<input type="hidden" name="attr_hinjury_infected_feedback" value="0" readonly>
@@ -1032,7 +1073,7 @@
 			<input id=hfatigue type="number" name="attr_hfatigue_total" class="skill-value" value="0">
 			<label for=hunipenalty class="sumrow">Universal</label>
 			<input id=hunipenalty type="number" value="0" class="skill-value sumrow" name="attr_huniversal_penalty" readonly>
-			<label for=hencumbrance>Encum.</label>
+			<label for=hencumbrance>Encumbrance</label>
 			<input id=hencumbrance type="number" name="attr_hencumbrance" class="skill-value" value="0" readonly>
 			<label for=hphyspenalty class="sumrow">Physical</label>
 			<input id=hphyspenalty type="number" name="attr_hphysical_penalty" class="skill-value sumrow" value="0" readonly>
@@ -1052,14 +1093,15 @@
 			<input type="number" name="attr_trample_weapon_p" class="skill-value" disabled="true" value="0">
 			<input type="number" name="attr_htrample_ml" class="skill-value" readonly>
 			<input type="number" name="attr_htrample_ml" class="skill-value" readonly>
-			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tramples}} {{rolltarget=[[{[[{[[@{htrample_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{Mastery Lvl=[[@{htrample_ml}]]}} {{note=B(@{trample_weapon_b}) E(@{trample_weapon_e}) P(@{trample_weapon_p})}}" name="roll_trampleweaponamlskillcheck">
+			<button type="roll" value="&{template:custom} {{color=harn}} {{title=@{hname} tramples}} {{rolltarget=[[{[[{[[@{htrample_ml} - [[(@{hphysical_penalty})*5]] + ?{Target Modifier?|0}]],5}kh1]],95}kl1]]}} {{Mastery Lvl=[[@{htrample_ml}]]}} {{Modifiers=[[?{Target Modifier?|0}]]}} {{penalty=[[(@{hphysical_penalty})*5]]}} {{rollresult=[[1d100cs5cs10cs15cs20cs25cs30cs35cs40cs45cs50cs55cs60cs65cs70cs75cs80cs85cs90cs95cs100]]}}  {{note=B(@{trample_weapon_b}) E(@{trample_weapon_e}) P(@{trample_weapon_p})}}" name="roll_trampleweaponamlskillcheck">
 			</button>
 		</div>
     </div> 
 </div>
 
 <div class='inventory'> <!-- INVENTORY TAB -->
-   <h1>HarnMaster Character Inventory</h1>
+   <h2 class='tab-header'>HârnMaster</h2>
+   <h1 class='tab-header'>Character Inventory</h1>
    <div class='inventory-grid'> <!-- grid container-->
     <div class='inventory-grid-section inven-weapons weapons-grid colored-grid'>
 		<div class="skill-section-title">MELEE WEAPONS</div>
@@ -1115,18 +1157,20 @@
 		<div class="skill-header skill-value">AML</div>
 		<div class="skill-header skill-value">Dmg</div>
 		<div class="skill-header skill-value">&nbsp;</div>
-		<div class="skill-header skill-value">Medium</div>
-		<div class="skill-header skill-value">AML</div>
-		<div class="skill-header skill-value">Dmg</div>
-		<div class="skill-header skill-value">&nbsp;</div>
-		<div class="skill-header skill-value">Long</div>
-		<div class="skill-header skill-value">AML</div>
-		<div class="skill-header skill-value">Dmg</div>
-		<div class="skill-header skill-value">&nbsp;</div>
-		<div class="skill-header skill-value">Extreme</div>
-		<div class="skill-header skill-value">AML</div>
-		<div class="skill-header skill-value">Dmg</div>
-		<div class="skill-header skill-value">&nbsp;</div>
+		<div class="mw-extraranges">
+			<div class="skill-header skill-value">Medium</div>
+			<div class="skill-header skill-value">AML</div>
+			<div class="skill-header skill-value">Dmg</div>
+			<div class="skill-header skill-value">&nbsp;</div>
+			<div class="skill-header skill-value">Long</div>
+			<div class="skill-header skill-value">AML</div>
+			<div class="skill-header skill-value">Dmg</div>
+			<div class="skill-header skill-value">&nbsp;</div>
+			<div class="skill-header skill-value">Extreme</div>
+			<div class="skill-header skill-value">AML</div>
+			<div class="skill-header skill-value">Dmg</div>
+			<div class="skill-header skill-value">&nbsp;</div>
+		</div>
 		<div class="skill-header skill-value">Ammo</div>
 		<fieldset class="repeating_missileweapon">
 			<input type="text" name="attr_missileweapon_name" class="weapon-label">
@@ -1138,18 +1182,20 @@
 			<input type="number" name="attr_missileweapon_short_aml" class="skill-value" readonly value="0">
 			<input type="number" name="attr_missileweapon_short_dmg" class="skill-value" readonly value="0">
 			<div class="skill-value">&nbsp;</div>				
-			<input type="number" name="attr_missileweapon_medium" class="skill-value" value="0">
-			<input type="number" name="attr_missileweapon_medium_aml" class="skill-value" readonly value="0">
-			<input type="number" name="attr_missileweapon_medium_dmg" class="skill-value" readonly value="0"> 
-			<div class="skill-value">&nbsp;</div>
-			<input type="number" name="attr_missileweapon_long" class="skill-value" value="0">
-			<input type="number" name="attr_missileweapon_long_aml" class="skill-value" readonly value="0">
-			<input type="number" name="attr_missileweapon_long_dmg" class="skill-value" readonly value="0">
-			<div class="skill-value">&nbsp;</div>
-			<input type="number" name="attr_missileweapon_extreme" class="skill-value" value="0">					
-			<input type="number" name="attr_missileweapon_extreme_aml" class="skill-value" readonly value="0">
-			<input type="number" name="attr_missileweapon_extreme_dmg" class="skill-value" readonly value="0">
-			<div class="skill-value">&nbsp;</div>
+			<div class="mw-extraranges">
+				<input type="number" name="attr_missileweapon_medium" class="skill-value" value="0">
+				<input type="number" name="attr_missileweapon_medium_aml" class="skill-value" readonly value="0">
+				<input type="number" name="attr_missileweapon_medium_dmg" class="skill-value" readonly value="0"> 
+				<div class="skill-value">&nbsp;</div>
+				<input type="number" name="attr_missileweapon_long" class="skill-value" value="0">
+				<input type="number" name="attr_missileweapon_long_aml" class="skill-value" readonly value="0">
+				<input type="number" name="attr_missileweapon_long_dmg" class="skill-value" readonly value="0">
+				<div class="skill-value">&nbsp;</div>
+				<input type="number" name="attr_missileweapon_extreme" class="skill-value" value="0">					
+				<input type="number" name="attr_missileweapon_extreme_aml" class="skill-value" readonly value="0">
+				<input type="number" name="attr_missileweapon_extreme_dmg" class="skill-value" readonly value="0">
+				<div class="skill-value">&nbsp;</div>
+			</div>
 			<input type="number" name="attr_missileweapon_ammo" class="skill-value">
 		</fieldset>
 		<div class="footnote"> Note: If you have a missile weapon equipped, make sure to add it to the "Weapons" list above too, with weight and the equipped checkbox ticked</div>
@@ -1158,39 +1204,40 @@
     <div class='inventory-grid-section inven-armor armorinvengrid colored-grid'>
 	    <div class="skill-section-title">ARMOUR</div>
 		<div class="skill-header">Armour/Clothing</div>
-		<div class="skill-header harntooltip" data-tooltiptext="Equipped?">E</div>
+		<div class="skill-header skill-value  harntooltip" data-tooltiptext="Equipped?">E</div>
 		<div class="skill-header skill-value">WGT</div>
 		<div class="skill-header skill-value">AQ</div>
 		<div class="skill-header skill-value">B</div>
 		<div class="skill-header skill-value">E</div>
 		<div class="skill-header skill-value">P</div>
 		<div class="skill-header skill-value">F</div>
-		<div class="skill-header skill-value sectionarmourhead">Sk</div>
-		<div class="skill-header skill-value sectionarmourhead">Fa</div>
-		<div class="skill-header skill-value sectionarmourhead">Nk</div>
-		<div class="skill-header skill-value sectionarmourarms">Sh</div>
-		<div class="skill-header skill-value sectionarmourarms">Ua</div>
-		<div class="skill-header skill-value sectionarmourarms">El</div>
-		<div class="skill-header skill-value sectionarmourarms">Fo</div>
-		<div class="skill-header skill-value sectionarmourarms">Ha</div>
-		<div class="skill-header skill-value sectionarmourtorso">Tx</div>
-		<div class="skill-header skill-value sectionarmourtorso">Ab</div>
-		<div class="skill-header skill-value sectionarmourtorso">Hp</div>
-		<div class="skill-header skill-value sectionarmourtorso">Gr</div>
-		<div class="skill-header skill-value sectionarmourlegs">Th</div>
-		<div class="skill-header skill-value sectionarmourlegs">Kn</div>
-		<div class="skill-header skill-value sectionarmourlegs">Ca</div>
-		<div class="skill-header skill-value sectionarmourlegs">Ft</div>	
+		<div class="armourareawrapper">
+			<div class="skill-header skill-value sectionarmourhead">Sk</div>
+			<div class="skill-header skill-value sectionarmourhead">Fa</div>
+			<div class="skill-header skill-value sectionarmourhead">Nk</div>
+			<div class="skill-header skill-value sectionarmourarms">Sh</div>
+			<div class="skill-header skill-value sectionarmourarms">Ua</div>
+			<div class="skill-header skill-value sectionarmourarms">El</div>
+			<div class="skill-header skill-value sectionarmourarms">Fo</div>
+			<div class="skill-header skill-value sectionarmourarms">Ha</div>
+			<div class="skill-header skill-value sectionarmourtorso">Tx</div>
+			<div class="skill-header skill-value sectionarmourtorso">Ab</div>
+			<div class="skill-header skill-value sectionarmourtorso">Hp</div>
+			<div class="skill-header skill-value sectionarmourtorso">Gr</div>
+			<div class="skill-header skill-value sectionarmourlegs">Th</div>
+			<div class="skill-header skill-value sectionarmourlegs">Kn</div>
+			<div class="skill-header skill-value sectionarmourlegs">Ca</div>
+			<div class="skill-header skill-value sectionarmourlegs">Ft</div>
+		</div>		
 		<fieldset class="repeating_armoritems">
 			<input type="text" name="attr_armor_name" class="skill-label">
 			<input type="checkbox" name="attr_armor_iscarried" value="1">
-			<input type="number" name="attr_armor_wgt" class="skill-value" value="0">
+			<input type="number" step="any" name="attr_armor_wgt" class="skill-value" value="0">
 			<input type="number" name="attr_armor_aq" class="skill-value" value="0">
 			<input type="number" name="attr_armor_b" class="skill-value" value="0">
 			<input type="number" name="attr_armor_e" class="skill-value" value="0">
 			<input type="number" name="attr_armor_p" class="skill-value" value="0">
 			<input type="number" name="attr_armor_f" class="skill-value" value="0">
-			
 			<div class="invensectionwrapper sectionarmourhead">
 				<input type="checkbox" name="attr_armor_loc_sk" class="skill-value " value="1">
 				<input type="hidden" name="attr_armor_sk_bvalue" class="skill-value " value="1">
@@ -1258,27 +1305,28 @@
 				<input type="hidden" name="attr_armor_gr_fvalue" class="skill-value " value="1">
 			</div>
 			<div class="invensectionwrapper sectionarmourlegs">
-				<input type="checkbox" name="attr_armor_loc_th" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_th_bvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_th_evalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_th_pvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_th_fvalue" class="skill-value " value="1">
-				<input type="checkbox" name="attr_armor_loc_kn" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_kn_bvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_kn_evalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_kn_pvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_kn_fvalue" class="skill-value " value="1">
-				<input type="checkbox" name="attr_armor_loc_ca" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ca_bvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ca_evalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ca_pvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ca_fvalue" class="skill-value " value="1">
-				<input type="checkbox" name="attr_armor_loc_ft" class="skill-value " value="1">	
-				<input type="hidden" name="attr_armor_ft_bvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ft_evalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ft_pvalue" class="skill-value " value="1">
-				<input type="hidden" name="attr_armor_ft_fvalue" class="skill-value " value="1">
-			</div>
+					<input type="checkbox" name="attr_armor_loc_th" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_th_bvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_th_evalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_th_pvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_th_fvalue" class="skill-value " value="1">
+					<input type="checkbox" name="attr_armor_loc_kn" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_kn_bvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_kn_evalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_kn_pvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_kn_fvalue" class="skill-value " value="1">
+					<input type="checkbox" name="attr_armor_loc_ca" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ca_bvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ca_evalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ca_pvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ca_fvalue" class="skill-value " value="1">
+					<input type="checkbox" name="attr_armor_loc_ft" class="skill-value " value="1">	
+					<input type="hidden" name="attr_armor_ft_bvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ft_evalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ft_pvalue" class="skill-value " value="1">
+					<input type="hidden" name="attr_armor_ft_fvalue" class="skill-value " value="1">
+				</div>
+
 		</fieldset>
 		<div class="footnote"> <details><summary>Note: Equipped (E) armour will count towards encumbrance (weight) and armour protection on the character tab.</summary><p>Fill in the B/E/P/F protection values from the rulebook and tick each location that is protected by the armour. The protection values will be added to the Armour Protection table on the Character Tab its weight will count towards the characters encumbrance (automatically calculated).</p></details></div>
 	</div>   
@@ -1288,6 +1336,7 @@
 			<div class="skill-section-title">ARMOR PROTECTION - LEGACY INFORMATION</div>
     		<div class="skill-label skill-header">Location</div>
     		<div class="skill-label skill-header">Compound Layers</div>
+			<div class="skill-value skill-header">AQ</div>
     		<div class="skill-value skill-header">B</div>
     		<div class="skill-value skill-header">E</div>
     		<div class="skill-value skill-header">P</div>
@@ -1295,6 +1344,7 @@
 			
 			<div class="skill-label skill-header">Location</div>
     		<div class="skill-label skill-header">Compound Layers</div>
+			<div class="skill-value skill-header">AQ</div>
     		<div class="skill-value skill-header">B</div>
     		<div class="skill-value skill-header">E</div>
     		<div class="skill-value skill-header">P</div>
@@ -1302,104 +1352,120 @@
 			
     		<label for=skull2>Skull</label>
     		<input id=skull2 type="text" name="attr_skull_layers" class="armor-label">
-    		<input type="number" name="attr_skull_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_skull_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_skull_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_skull_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_skull_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_skull_f" class="skill-value" value="0" readonly>
 			<label for=thorax2>Thorax</label>
     		<input id=thorax2 type="text" name="attr_thorax_layers" class="armor-label">
-    		<input type="number" name="attr_thorax_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_thorax_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_thorax_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thorax_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thorax_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thorax_f" class="skill-value" value="0" readonly>
     
     		<label for=face2>Face</label>
     		<input id=face2 type="text" name="attr_face_layers" class="armor-label">
-    		<input type="number" name="attr_face_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_face_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_face_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_face_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_face_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_face_f" class="skill-value" value="0" readonly>
     		<label for=abdomen2>Abdomen</label>
     		<input id=abdomen2 type="text" name="attr_abdomen_layers" class="armor-label">
-    		<input type="number" name="attr_abdomen_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_abdomen_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_abdomen_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_abdomen_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_abdomen_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_abdomen_f" class="skill-value" value="0" readonly>
        
     		<label for=neck2>Neck</label>
     		<input id=neck2 type="text" name="attr_neck_layers" class="armor-label">
-    		<input type="number" name="attr_neck_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_neck_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_neck_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_neck_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_neck_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_neck_f" class="skill-value" value="0" readonly>
  			<label for=hip2>Hip</label>
     		<input id=hip2 type="text" name="attr_hip_layers" class="armor-label">
-    		<input type="number" name="attr_hip_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_hip_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_hip_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hip_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hip_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hip_f" class="skill-value" value="0" readonly>
            
     		<label for=shoulder2>Shoulder</label>
     		<input id=shoulder2 type="text" name="attr_shoulder_layers" class="armor-label">
-    		<input type="number" name="attr_shoulder_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_shoulder_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_shoulder_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_shoulder_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_shoulder_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_shoulder_f" class="skill-value" value="0" readonly>
     		<label for=groin2>Groin</label>
     		<input id=groin2 type="text" name="attr_groin_layers" class="armor-label">
-    		<input type="number" name="attr_groin_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_groin_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_groin_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_groin_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_groin_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_groin_f" class="skill-value" value="0" readonly>
    
     		<label for=upperarm2>Upper Arm</label>
     		<input id=upperarm2 type="text" name="attr_upperarm_layers" class="armor-label">
-    		<input type="number" name="attr_upperarm_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_upperarm_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_upperarm_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_upperarm_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_upperarm_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_upperarm_f" class="skill-value" value="0" readonly>
     		<label for=thigh2>Thigh</label>
     		<input id=thigh2 type="text" name="attr_thigh_layers" class="armor-label">
-    		<input type="number" name="attr_thigh_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_thigh_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_thigh_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thigh_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thigh_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_thigh_f" class="skill-value" value="0" readonly>
     
     		<label for=elbow2>Elbow</label>
     		<input id=elbow2 type="text" name="attr_elbow_layers" class="armor-label">
-    		<input type="number" name="attr_elbow_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_elbow_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_elbow_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_elbow_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_elbow_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_elbow_f" class="skill-value" value="0" readonly>
      		<label for=knee2>Knee</label>
     		<input id=knee2 type="text" name="attr_knee_layers" class="armor-label">
-    		<input type="number" name="attr_knee_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_knee_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_knee_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_knee_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_knee_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_knee_f" class="skill-value" value="0" readonly>
    
     		<label for=forearm2>Forearm</label>
     		<input id=forearm2 type="text" name="attr_forearm_layers" class="armor-label">
-    		<input type="number" name="attr_forearm_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_forearm_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_forearm_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_forearm_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_forearm_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_forearm_f" class="skill-value" value="0" readonly>
       		<label for=calf2>Calf</label>
     		<input id=calf2 type="text" name="attr_calf_layers" class="armor-label">
-    		<input type="number" name="attr_calf_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_calf_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_calf_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_calf_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_calf_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_calf_f" class="skill-value" value="0" readonly>
     
     		<label for=hand2>Hand</label>
     		<input id=hand2 type="text" name="attr_hand_layers" class="armor-label">
-    		<input type="number" name="attr_hand_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_hand_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_hand_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hand_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hand_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_hand_f" class="skill-value" value="0" readonly>
     		<label for=foot2>Foot</label>
     		<input id=foot2 type="text" name="attr_foot_layers" class="armor-label">
-    		<input type="number" name="attr_foot_b" class="skill-value" value="0" readonly>
+    		<input type="number" name="attr_foot_aq" class="skill-value" value="0" readonly>
+			<input type="number" name="attr_foot_b" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_foot_e" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_foot_p" class="skill-value" value="0" readonly>
     		<input type="number" name="attr_foot_f" class="skill-value" value="0" readonly>		
@@ -1440,7 +1506,7 @@
        	<fieldset class="repeating_harmoritems">
        		<input type="text" name="attr_harmor_name" class="inventory-label-xsmall">
        		<input type="number" name="attr_harmor_aq" class="skill-value" value="0">
-       		<input type="number" name="attr_harmor_wgt" class="skill-value" value="0">
+       		<input type="number" step="any" name="attr_harmor_wgt" class="skill-value" value="0">
        	</fieldset>
        	<div class="footnote">Note: this armour counts towards horse's encumbrance</div>
 	</div>
@@ -1492,7 +1558,8 @@
 </div>
 
 <div class='settings'> <!-- SETTINGS TAB -->
-	<h1>Character Sheet settings</h1><!-- TODO add tooltips to clarify settings -->
+	<h2 class='tab-header'>Character Sheet</h2>
+	<h1 class='tab-header'>Settings</h1><!-- TODO add tooltips to clarify settings -->
 	<div class='settings-grid'> <!-- grid container-->
     	<div class='settings-grid-section settingsgroup colored-grid'>
     	    <div class="skill-section-title">Houserules</div> 
@@ -1511,26 +1578,77 @@
 			<input name="attr_fumblestumblepenalty" type="hidden" value="0"> <!-- provide a default value in case someone rolls before either the option or any penalty is set --> 
     	</div>
     	<div class='settings-grid-section settingsgroup colored-grid'>
-    	    <div class="skill-section-title">Sheet settings</div>
-			<div class="full-width skill-header">Theme</div>
-			<select class="colorselector full-width" name="attr_colorthemeselector"> 
-               <option value="light" id="theme-light">Light theme</option>
-               <option value="dark" id="theme-dark">Dark theme</option>			
-			</select>
+			<div class="skill-section-title">Sheet settings</div> 
 			<div class="full-width skill-header">Custom section control</div>
 			<label for=showhorsetoggle>Show Horse on sheet?</label>
 			<input id=showhorsetoggle name="attr_hrhorseonsheet" type="checkbox" value="1" checked>
 			<label for=showpietytoggle class="harntooltip" data-tooltiptext="When this is unchecked the sheet will show space for tracking piety per god with repeating rows" >Show consolidated piety?</label>
 			<input id=showpietytoggle name="attr_hrconsolidatedpiety" type="checkbox" value="1" checked>
+			<div class="full-width skill-header">Legacy info</div>
+			<label for=showlegacyarmortoggle>Hide armor info from legacy (v1) sheet?</label>
+			<input id=showlegacyarmortoggle name="attr_legacyarmorhidden" type="checkbox" value="1">	
+			<label for=legacycharname class="full-width">Name stored in old "name" field:</label>
+			<input id=legacycharname name="attr_name" type="text" class="full-width" readonly>
 			<div class="full-width skill-header">Sheet version</div>
 			<div class="full-width">
-			  <input name="attr_character_sheet_version" type="number" value="20210803" readonly>
+			  <input name="attr_character_sheet_version" type="number" value="20220314" readonly>
 			  <input type="hidden" name="attr_data_version" value="" readonly>
 			</div>
     	</div>
 	</div>
 	<div class="changelog">
 		<h2>Changelog</h2>
+		<h3>20220314 - Version 2.7.1</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Finetune some dark mode styling based on user feedback</p>
+			</summary>
+		</details>
+		<h3>20220312 - Version 2.7</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Removed themes from sheet and merged dark styling with VTT darkmode</p>
+			</summary>
+		</details>
+		<h3>20220303 - Version 2.6</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Small adjustment to styling to align better with new roll20 dark mode. When using roll20 dark mode, dark theme for the sheet is suggested.</p>
+			</summary>
+		</details>
+		<h3>20211023 - Version 2.5</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Updated header to the sheet to include roll20's new ability to include the avatar image. </p>
+			</summary>
+		</details>
+		<h3>20210912 - Version 2.4</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Some minor tweaks and fixes:</p>
+			</summary>
+			<ul>
+				<li>Allow decimal value input for armour</li>
+				<li>Fix bug in horse penalty calculation (encumbrance was ignored)</li>
+				<li>Fixed horse dodge roll button not working</li> 
+				<li>Add SB field to spells to allow for optional rule Individual Spell skills (Shek-Pvar 24)</li>
+				<li>Added more fields to spells to quickly see time, duration etc. Added auto-calculation for Skill Index (SI) </li>
+				<li>layout changes to spells section to track additional info and create more space for spell description</li>
+				<li>background script to copy back character name to old "name" field for backward compatibility</li>
+			</ul>
+		</details>		
+		<h3>20210804 - Version 2.3</h3>
+		<details>
+			<summary class="changelog-summary">
+				<p class="changelog-summary">Fix broken DML rolls and horse information not being stored. Plus some minor tweaks and fixes:</p>
+			</summary>
+			<ul>
+				<li>Add a header to the sheet inspired by the paper version of the character sheet, this will include the characters avatar in the future. </li>
+				<li>Restored AQ (armour quality) information in legacy armour section</li>
+				<li>Added option in settings to unhide armor information from legacy (v1) sheet if it was accidentally hidden but still needed</li> 
+				<li>Added some more tooltips for clarification</li>
+			</ul>
+		</details>
 		<h3>20210803 - Version 2.2</h3>
 		<p>Small bugfix to address issue with drag-and-drop of roll buttons from repeating weapon section to macro quick bar</p>
 		<h3>20210802 - Version 2.1</h3>
@@ -1890,8 +2008,8 @@ function migrateTo20210801 (migrationChain) {
 		setAttrs({
 		    'combat_effectivecondition': effectivecondition,
 			'healing_effectivecondition': healeffcondition,
-			'character_name': charname,
-			'name': 0 /* clear the old name so we don't keep resetting back the version */
+			'character_name': charname
+			/* 'name': 0  we don't need to clear the old name, migration check works based on presence of old name field and version being set or not*/
 			});
 		});
 	/* re-calculate all weapons in the repeating weapons section. */ 
@@ -1924,7 +2042,16 @@ function migrateTo20210801 (migrationChain) {
 		});
 }
 
-
+<!-- restore Character name in old name variable in parallel to new character_name for backward compatibility (old variable was empty out by migration script -->
+on('change:character_name sheet:opened', function() {
+	getAttrs(['character_name'], function(values) {	
+		var charactername = values['character_name'];
+		setAttrs({
+			'name': charactername
+		});
+	});
+});	
+		
 <!-- weapon load totals /-->
 on('change:repeating_weapon remove:repeating_weapon', function() {
 	repeatingSum('load_weapons_total', 'weapon',['weapon_wgt','weapon_iscarried']);
@@ -2034,7 +2161,7 @@ on('change:load_weapons_total change:load_armor_total change:load_inventory_tota
 });
 
 <!-- horse load limit, load and encumbrance /-->
-on('change:hstr change:weight change:load_total change:hload_armor_total change:hload_inventory_total', 
+on('change:hstr change:weight change:load_total change:hload_armor_total change:hload_inventory_total change:hcombat_endurance change:hstr', 
 function() {
     var total = 0.0;
     getAttrs(['weight', 'load_total', 'hload_armor_total', 'hload_inventory_total', 'hcombat_endurance', 'hstr'], 
@@ -2049,10 +2176,10 @@ function() {
 		var hadjustedload = Math.max(0, hadjustedloadtemp);
 		var hcomend = parseInt(values['hcombat_endurance'])||0;			
         if ( hcomend != 0 ) {
-			var hencumbrance = Math.round(hadjustedload/hcomend)||0;
+			var hencumb = Math.round(hadjustedload/hcomend)||0;
 		} else {
-			var hencumbrance = 0;
-			console.log("Horse endurance not known, setting encumbrance to 0");
+			var hencumb = 0;
+			console.log("Horse endurance not known, setting horse encumbrance to 0");
 		}
 			
 		var riderweight = parseFloat(values['weight'])||0;
@@ -2061,7 +2188,7 @@ function() {
             'hloadlimit': hllimit,
 			'hadjusted_load': hadjustedload,
 			'hload_total': parseInt(total)||0,
-            'hencumbrance': hencumbrance,
+            'hencumbrance': hencumb,
 			'hload_rider_total': riderload
         });
     });
@@ -2126,7 +2253,7 @@ on('change:is_mounted change:injury_total change:fatigue_total change:encumbranc
 
 <!-- horse universal and physical penalties  /-->
 on('change:hinjury_total change:hfatigue_total change:hencumbrance', function() {
-    getAttrs(['hinjury_total', 'hfatigue_total'], function(values) {
+    getAttrs(['hinjury_total', 'hfatigue_total', 'hencumbrance'], function(values) {
         var hfat = parseInt(values.hfatigue_total)||0;
 		var hinj = parseInt(values.hinjury_total)||0;
 		var henc = parseInt(values.hencumbrance)||0;
@@ -2345,7 +2472,7 @@ locations.forEach(function (location) {
 }); <!-- end set armour values per location --> 
 
 
-<!-- AP totals per location , could be more elegant with loop, but complicated due to skull vs sk naming . Clean up when everyone has updated their char sheets with armor on inventory tab ; update 21-06-2021: renamed attributes, old info in previous attributes kept around for legacy sheets on inventory tab./-->
+<!-- AP totals per location , could be more elegant with loop. condense first via https://wiki.roll20.net/RepeatingSum#Multiplying_More_Than_One_Column -->
 on('change:repeating_armoritems remove:repeating_armoritems', function() {
 	repeatingSum('sk_b', 'armoritems',['armor_sk_bvalue', 'armor_loc_sk','armor_iscarried']);
 	repeatingSum('sk_e', 'armoritems',['armor_sk_evalue', 'armor_loc_sk','armor_iscarried']);
@@ -2412,6 +2539,23 @@ on('change:repeating_armoritems remove:repeating_armoritems', function() {
 	repeatingSum('ft_p', 'armoritems',['armor_ft_pvalue', 'armor_loc_ft','armor_iscarried']);
 	repeatingSum('ft_f', 'armoritems',['armor_ft_fvalue', 'armor_loc_ft','armor_iscarried']);
 }); 
+
+<!-- spell characteristics -->
+<!-- calculate SI from SB -->
+on('change:repeating_spells:spell_eml change:repeating_rituals:ritual_eml change:repeating_psionics:talent_eml', function() {
+    getAttrs(['repeating_spells_spell_eml', 'repeating_rituals_ritual_eml', 'repeating_psionics_talent_eml'], function(values) {
+		var spellsi = Math.floor(parseInt(values['repeating_spells_spell_eml']/10));
+		var ritualsi = Math.floor(parseInt(values['repeating_rituals_ritual_eml']/10));
+		var talentsi = Math.floor(parseInt(values['repeating_psionics_talent_eml']/10));
+		console.log("spell si: ", spellsi);
+		setAttrs({
+			repeating_spells_spell_si: spellsi,
+			repeating_rituals_ritual_si: ritualsi,
+			repeating_psionics_talent_si: talentsi
+		});
+	});
+});
+
 
 <!-- miscellaneous -->
 

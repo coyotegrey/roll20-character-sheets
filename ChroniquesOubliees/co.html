@@ -1,5 +1,5 @@
 <div class="mainBg"> <!-- FDP -->
-  <input type="hidden" name="attr_version" value="5.00" />
+  <input type="hidden" name="attr_version" value="5.01" />
   <!-- INPUT HIDDEN TYPE DE JETS -->
   <input type="hidden" name="attr_jetnormal" value="1d@{ETATDE}" />
   <input type="hidden" name="attr_jetsup" value="2d@{ETATDE}kh1" />
@@ -8,6 +8,10 @@
   <input type="hidden" name="attr_pnj_default_jets_caches" value="false" />
   <input type="hidden" name="attr_max_attack_label" value=0 />
   <input type="hidden" name="attr_maxrangaction" value=0 />
+  <input type="hidden" name="attr_maxrangaction1" value=0 />
+  <input type="hidden" name="attr_maxrangaction2" value=0 />
+  <input type="hidden" name="attr_maxrangaction3" value=0 />
+  <input type="hidden" name="attr_maxrangaction4" value=0 />
   <input type="hidden" name="attr_titrevoie4" value="Voie 4" />
   <input type="hidden" name="attr_titrevoie5" value="Voie 5" />
   <input type="hidden" name="attr_titrecapaciteraciale" value="Capacité raciale" />
@@ -222,7 +226,7 @@
               </td>
               <td class="boxinputlight-car"><input type="number" class="car" name="attr_DEX" value="floor((@{dexterite}-10)/2)" disabled /></td>
               <td class="boxinput-car"><input type="number" class="car" name="attr_DEX_BONUS" value="0" title="Bonus au Test" /></td>
-              <td class="boxinputlight-car"><input type="number" class="car" name="attr_DEX_TEST" value="@{DEX}+@{DEX_BONUS}-((@{DEFARMUREON}*@{DEFARMUREMALUS})+(@{DEFBOUCLIERON}*@{DEFBOUCLIERMALUS}))" disabled /></td>
+              <td class="boxinputlight-car"><input type="number" class="car" name="attr_DEX_TEST" value="@{DEX}+@{DEX_BONUS}-((@{defarmureon}*@{defarmuremalus})+(@{defbouclieron}*@{defboucliermalus}))" disabled /></td>
             </tr>
             <tr>
               <td class="boxtitre-car">
@@ -470,11 +474,11 @@
                     <td class="textfat-def">DÉFENSE</td>
                     <td class="textbase-def">
                                              Armure
-                                             <input type="checkbox" class="def" name="attr_DEFARMUREON" value="1" title="Armure portée" />
+                                             <input type="checkbox" class="def" name="attr_defarmureon" value="1" title="Armure portée" />
                     </td>
                     <td class="textbase-def">
                                              Bouclier
-                                             <input type="checkbox" class="def" name="attr_DEFBOUCLIERON" value="1" title="Bouclier équipé" />
+                                             <input type="checkbox" class="def" name="attr_defbouclieron" value="1" title="Bouclier équipé" />
                     </td>
                     <td class="textbase-def">DEX</td>
                     <td class="textbase-def">Div.</td>
@@ -482,16 +486,16 @@
                   </tr>
                   <tr>
                     <td class="boxtitre-def">DEF</td>
-                    <td class="boxinput-def"><input type="number" class="def" name="attr_DEFARMURE" title="Armure" value="0" min="0" /></td>
-                    <td class="boxinput-def"><input type="number" class="def" name="attr_DEFBOUCLIER" title="Bouclier" value="0" min="0" /></td>
+                    <td class="boxinput-def"><input type="number" class="def" name="attr_defarmure" title="Armure" value="0" min="0" /></td>
+                    <td class="boxinput-def"><input type="number" class="def" name="attr_defbouclier" title="Bouclier" value="0" min="0" /></td>
                     <td class="boxinputlight-def"><input type="number" class="def" name="attr_DEFCAR" value="@{DEX}" title="Modificateur de Dextérité" disabled /></td>
                     <td class="boxinput-def"><input type="number" class="def" name="attr_DEFDIV" title="Bonus divers" value="0" /></td>
-                    <td class="boxinputlight-def"><input type="number" class="def" name="attr_DEF" value="10+(@{DEFARMURE}*@{DEFARMUREON})+(@{DEFBOUCLIER}*@{DEFBOUCLIERON})+@{DEFCAR}+@{DEFDIV}-4*@{attaque_risquee_check}" title="Défense" disabled /></td>
+                    <td class="boxinputlight-def"><input type="number" class="def" name="attr_DEF" value="10+(@{defarmure}*@{defarmureon})+(@{defbouclier}*@{defbouclieron})+@{DEFCAR}+@{DEFDIV}-4*@{attaque_risquee_check}" title="Défense" disabled /></td>
                   </tr>
                   <tr>
                     <td class="textfat-def" style="text-align: right;">Malus</td>
-                    <td class="boxinput-def"><input type="number" class="def" name="attr_DEFARMUREMALUS" title="Malus aux Tests de DEX quand l'Amrure est portée." value="0" min="0"/></td>
-                    <td class="boxinput-def"><input type="number" class="def" name="attr_DEFBOUCLIERMALUS" title="Malus aux Tests de DEX quand le Bouclier est équipé" value="0" min="0"/></td>
+                    <td class="boxinput-def"><input type="number" class="def" name="attr_defarmuremalus" title="Malus aux Tests de DEX quand l'Amrure est portée." value="0" min="0"/></td>
+                    <td class="boxinput-def"><input type="number" class="def" name="attr_defboucliermalus" title="Malus aux Tests de DEX quand le Bouclier est équipé" value="0" min="0"/></td>
                     <td class="textbase-def" colspan="2">
                       Casque
                       <input type="checkbox" class="def" name="attr_casque_on" value="1" title="Casque équipé" />
@@ -646,7 +650,7 @@
                 </tr>
               </table>
             </div>
-            <div class="options">
+            <div class="options" style="margin-bottm:6px; margin-top:-2px;">
               <table class="tabsep">
                 <tr>
                   <td style="width:18px; text-align:center;">
@@ -687,6 +691,24 @@
                   </td>
                 </tr>
               </table>
+      <input type="checkbox" class="block-switch hidden-tab" name="attr_armejet"><span></span>
+      <div class="block-show" style="margin-top:-2px">
+              <table class="tabsep">
+                <tr>
+                  <td style="min-width:30px; text-align:center;"></td>
+                  <td class="boxinputleft-atk">
+                  Disponibles : <input name="attr_armejetqte" type="number" min="0" value="1">
+                  </td>
+                  <td class="boxinputleft-atk">
+                  Possédés : <input name="attr_armejetqte_max" type="number" min="0" value="1">
+                  </td>
+                  <td class="boxinputleft-atk">
+                  Taux de pertes : <input name="attr_armejettaux" type="number" min="0" max="100" value="0">%
+                  </td>
+                  <td style="width:100%; text-align:center;"></td>
+                </tr>
+              </table>
+      </div>
             </div>
           </div>
         </fieldset>
@@ -797,7 +819,7 @@
             </td>
             <td class="boxinputleft">
               <input class="block-switch-arrow" name="attr_voie1showexpl" type="checkbox"><span>
-                <input type="text" class="nomvoie" name="attr_voie2nom" placeholder="Nom de la Voie n°2" />
+                <input type="text" class="nomvoie" name="attr_voie2nom" title="@{voie2nom}" placeholder="Nom de la Voie n°2" />
               </span>
               <div class="block-show-arrow">
                 <span name="attr_voie2expl" class="boxability"></span>
@@ -805,7 +827,7 @@
             </td>
             <td class="boxinputleft">
               <input class="block-switch-arrow" name="attr_voie1showexpl" type="checkbox"><span>
-                <input type="text" class="nomvoie" name="attr_voie3nom" placeholder="Nom de la Voie n°3" />
+                <input type="text" class="nomvoie" name="attr_voie3nom" title="@{voie3nom}" placeholder="Nom de la Voie n°3" />
               </span>
               <div class="block-show-arrow">
                 <span name="attr_voie3expl" class="boxability"></span>
@@ -1034,7 +1056,7 @@
             <td class="boxtitresmall">R</td>
             <td class="boxinputleft">
               <input class="block-switch-arrow" name="attr_voie2showexpl" type="checkbox"><span>
-                <input type="text" class="nomvoie" name="attr_voie4nom" placeholder="Nom de la Voie" />
+                <input type="text" class="nomvoie" name="attr_voie4nom" title="@{voie4nom}" placeholder="Nom de la Voie" />
               </span>
               <div class="block-show-arrow">
                 <span name="attr_voie4expl" class="boxability"></span>
@@ -1042,7 +1064,7 @@
             </td>
             <td class="boxinputleft">
               <input class="block-switch-arrow" name="attr_voie2showexpl" type="checkbox"><span>
-                <input type="text" class="nomvoie" name="attr_voie5nom" placeholder="Nom de la Voie" />
+                <input type="text" class="nomvoie" name="attr_voie5nom" title="@{voie5nom}" placeholder="Nom de la Voie" />
               </span>
               <div class="block-show-arrow">
                 <span name="attr_voie5expl" class="boxability"></span>
@@ -1050,7 +1072,7 @@
             </td>
             <td class="boxinputleft">
               <input class="block-switch-arrow" name="attr_voie2showexpl" type="checkbox"><span>
-                <input type="text" class="nomvoie" name="attr_voie6nom" placeholder="Nom de la Voie de Prestige" />
+                <input type="text" class="nomvoie" name="attr_voie6nom" title="@{voie6nom}" placeholder="Nom de la Voie de Prestige" />
               </span>
               <div class="block-show-arrow">
                 <span name="attr_voie6expl" class="boxability"></span>
@@ -1283,7 +1305,7 @@
                 <td class="boxtitresmall">R</td>
                 <td class="boxinputleft">
                   <input class="block-switch-arrow" name="attr_voie3showexpl" type="checkbox"><span>
-                    <input type="text" class="nomvoie" name="attr_voie7nom" placeholder="Nom de la Voie n°7" />
+                    <input type="text" class="nomvoie" name="attr_voie7nom" title="@{voie7nom}" placeholder="Nom de la Voie n°7" />
                 </td>
                   </span>
                   <div class="block-show-arrow">
@@ -1291,7 +1313,7 @@
                   </div>
                   <td class="boxinputleft">
                     <input class="block-switch-arrow" name="attr_voie3showexpl" type="checkbox"><span>
-                      <input type="text" class="nomvoie" name="attr_voie8nom" placeholder="Nom de la Voie n°8" />
+                      <input type="text" class="nomvoie" name="attr_voie8nom" title="@{voie8nom}" placeholder="Nom de la Voie n°8" />
                     </span>
                     <div class="block-show-arrow">
                       <span name="attr_voie8expl" class="boxability"></span>
@@ -1299,7 +1321,7 @@
                   </td>
                   <td class="boxinputleft">
                     <input class="block-switch-arrow" name="attr_voie3showexpl" type="checkbox"><span>
-                      <input type="text" class="nomvoie" name="attr_voie9nom" placeholder="Nom de la Voie n°9" />
+                      <input type="text" class="nomvoie" name="attr_voie9nom" title="@{voie9nom}" placeholder="Nom de la Voie n°9" />
                     </span>
                     <div class="block-show-arrow">
                       <span name="attr_voie9expl" class="boxability"></span>
@@ -1545,12 +1567,12 @@
               <textarea spellcheck="false" name="attr_voie1expl" title="Explications voie 1"></textarea>
             </td>
             <td class="boxinput">
-              <input type="text" class="nomvoie" name="attr_voie2nom" placeholder="Nom de la Voie n°2" />
+              <input type="text" class="nomvoie" name="attr_voie2nom" title="@{voie1nom}" placeholder="Nom de la Voie n°2" />
               <br>
               <textarea spellcheck="false" name="attr_voie2expl" title="Explications voie 2"></textarea>
             </td>
             <td class="boxinput">
-              <input type="text" class="nomvoie" name="attr_voie3nom" placeholder="Nom de la Voie n°3" />
+              <input type="text" class="nomvoie" name="attr_voie3nom" title="@{voie3nom}" placeholder="Nom de la Voie n°3" />
               <br>
               <textarea spellcheck="false" name="attr_voie3expl" title="Explications voie 3"></textarea>
             </td>
@@ -1686,17 +1708,17 @@
           <tr>
             <td class="boxtitresmall">R</td>
             <td class="boxinputleft">
-              <input type="text" class="nomvoie" name="attr_voie4nom" placeholder="Nom de la Voie n°4" />
+              <input type="text" class="nomvoie" name="attr_voie4nom" title="@{voie4nom}" placeholder="Nom de la Voie n°4" />
               <br>
               <textarea spellcheck="false" name="attr_voie4expl" title="Explications voie 4"></textarea>
             </td>
             <td class="boxinput">
-              <input type="text" class="nomvoie" name="attr_voie5nom" placeholder="Nom de la Voie n°5" />
+              <input type="text" class="nomvoie" name="attr_voie5nom" title="@{voie5nom}" placeholder="Nom de la Voie n°5" />
               <br>
               <textarea spellcheck="false" name="attr_voie5expl" title="Explications voie 4"></textarea>
             </td>
             <td class="boxinput">
-              <input type="text" class="nomvoie" name="attr_voie6nom" placeholder="Nom de la Voie de Prestige" />
+              <input type="text" class="nomvoie" name="attr_voie6nom" title="@{voie6nom}" placeholder="Nom de la Voie de Prestige" />
               <br>
               <textarea spellcheck="false" name="attr_voie6expl" title="Explications voie de prestige"></textarea>
             </td>
@@ -1836,17 +1858,17 @@
               <tr>
                 <td class="boxtitresmall">R</td>
                 <td class="boxinputleft">
-                  <input type="text" class="nomvoie" name="attr_voie7nom" placeholder="Nom de la Voie n°7" />
+                  <input type="text" class="nomvoie" name="attr_voie7nom" title="@{voie7nom}" placeholder="Nom de la Voie n°7" />
                   <br>
                   <textarea spellcheck="false" name="attr_voie7expl" title="Explications voie 7"></textarea>
                 </td>
                 <td class="boxinput">
-                  <input type="text" class="nomvoie" name="attr_voie8nom" placeholder="Nom de la Voie n°8" />
+                  <input type="text" class="nomvoie" name="attr_voie8nom" title="@{voie8nom}" placeholder="Nom de la Voie n°8" />
                   <br>
                   <textarea spellcheck="false" name="attr_voie8expl" title="Explications voie 8"></textarea>
                 </td>
                 <td class="boxinput">
-                  <input type="text" class="nomvoie" name="attr_voie9nom" placeholder="Nom de la Voie n°9" />
+                  <input type="text" class="nomvoie" name="attr_voie9nom" title="@{voie9nom}" placeholder="Nom de la Voie n°9" />
                   <br>
                   <textarea spellcheck="false" name="attr_voie9expl" title="Explications voie 9"></textarea>
                 </td>
@@ -2245,7 +2267,7 @@
     </div> <!-- FIN tab4 de fiche type PJ -->
     <div class="tab-content tab5"> <!-- Données pour le script -->
       <input type="checkbox" class="block-switch hidden-tab" name="attr_show_script" value="1"><span></span>
-      <div class=block-hidden><span class=textbasesmall>Le script COFantasy n'est pas installé. </span> </div>
+      <div class="block-hidden"><span class=textbasesmall>Le script COFantasy n'est pas installé. </span> </div>
       <div class="block-show">
         <input type="hidden" name="attr_message_version" value="Pas encore utilisable par le script" />
         <div style="text-align:center;">
@@ -2390,7 +2412,7 @@
           <div class="sheet-col">
             <table>
               <tr><td class="boxtitre">Prédicats</td></tr>
-              <tr><td class="boxinputleft"><textarea name="attr_predicats_script" style="height:15em;" title="Predicats"></textarea></td></tr>
+              <tr><td class="boxinputleft"><textarea name="attr_predicats_script" style="height:15em;" spellcheck="false" title="Predicats"></textarea></td></tr>
             </table>
           </div>
         </div>
@@ -2479,10 +2501,10 @@
             </table>
             <table style="width:51px">
               <tr><td>
-                  <input type="checkbox" name="attr_pnj_armure" title="@{pnj_armure}" style="width:9px"><span class="def" style="font-size:9px">Armure</span>
+                  <input type="checkbox" name="attr_defarmureon" value="1" title="@{defarmureon}" style="width:9px"><span class="def" style="font-size:9px">Armure</span>
                 </td></tr>
                 <tr><td>
-                    <input type="checkbox" name="attr_pnj_bouclier" title="@{pnj_bouclier}" style="width:9px"><span class="def" style="font-size:9px">Bouclier</span>
+                    <input type="checkbox" name="attr_defbouclieron" value="1" title="@{defbouclieron}" style="width:9px"><span class="def" style="font-size:9px">Bouclier</span>
                   </td></tr>
             </table>
             <table class="tabsep" style="width:18%;">
@@ -2577,7 +2599,7 @@
                 </tr>
               </table>
             </div>
-            <div class="options">
+            <div class="options" style="margin-bottm:6px; margin-top:-2px;">
               <table class="tabsep">
                 <tr>
                   <td style="width:18px; text-align:center;">
@@ -2618,6 +2640,24 @@
                   </td>
                 </tr>
               </table>
+      <input type="checkbox" class="block-switch hidden-tab" name="attr_armejet"><span></span>
+      <div class="block-show" style="margin-top:-2px">
+              <table class="tabsep">
+                <tr>
+                  <td style="min-width:30px; text-align:center;"></td>
+                  <td class="boxinputleft-atk">
+                  Disponibles : <input name="attr_armejetqte" type="number" min="0" value="1">
+                  </td>
+                  <td class="boxinputleft-atk">
+                  Possédés : <input name="attr_armejetqte_max" type="number" min="0" value="1">
+                  </td>
+                  <td class="boxinputleft-atk">
+                  Taux de pertes : <input name="attr_armejettaux" type="number" min="0" max="100" value="0">%
+                  </td>
+                  <td style="width:100%; text-align:center;"></td>
+                </tr>
+              </table>
+      </div>
             </div>
           </div>
         </fieldset>
@@ -2874,7 +2914,7 @@
           <div class="sheet-col">
             <table>
               <tr><td class="boxtitre">Prédicats</td></tr>
-              <tr><td class="boxinputleft"><textarea name="attr_predicats_script" style="height:15em;" title="Predicats"></textarea></td></tr>
+              <tr><td class="boxinputleft"><textarea name="attr_predicats_script" style="height:15em;" spellcheck="false" title="Predicats"></textarea></td></tr>
             </table>
           </div>
         </div>
@@ -3043,16 +3083,15 @@
           silent: true
         });
         getAttrs(["charisme", "option_pc", "pc", "pc_max"], function(values) {
-          var option_pc = values.option_pc;
+          let option_pc = values.option_pc;
           if (option_pc == 1 || option_pc == 'on') {
-            var charisme = parseInt(values.charisme);
+            let charisme = parseInt(values.charisme);
             if (!isNaN(charisme) && charisme > 0) {
-              var pc_base = 3 + Math.floor((charisme - 10) / 2);
-              var toSet = {
+              let pc_base = 3 + Math.floor((charisme - 10) / 2);
+              let toSet = {
                 pc_base: pc_base
               };
-              var new_pc = 3;
-              var pc_max = parseInt(values.pc_max);
+              let pc_max = parseInt(values.pc_max);
               if (!isNaN(pc_max) && pc_max != pc_base) {
                 toSet.pc_bonus = pc_max - pc_base;
               } else {
@@ -3100,7 +3139,7 @@
           });
         });
         getAttrs(["DEFBOUCLIER"], function(values) {
-          var def = parseInt(values.DEFBOUCLIER);
+          let def = parseInt(values.DEFBOUCLIER);
           if (def === 0) setAttrs({
             DEFBOUCLIERON: 0
           }, {
@@ -3225,10 +3264,10 @@
             });
           }
           if (values.BOURSE) {
-            var sa = {};
-            var bourse = values.BOURSE.toLowerCase().split(/[ ,]/);
-            var lastNumber = 0;
-            var reste = '';
+            let sa = {};
+            let bourse = values.BOURSE.toLowerCase().split(/[ ,]/);
+            let lastNumber = 0;
+            let reste = '';
             bourse.forEach(function(t) {
               switch (t.trim()) {
                 case '':
@@ -3312,13 +3351,13 @@
           }
         }
         getAttrs(a, function(values) {
-          var s = {};
+          let s = {};
           for (voie = 1; voie < 10; voie++) {
             for (rang = 1; rang < 6; rang++) {
-              var titre = 'v' + voie + 'r' + rang + 'titre';
+              let titre = 'v' + voie + 'r' + rang + 'titre';
               if (values[titre] !== '') continue;
               var capa = 'voie' + voie + '-' + rang;
-              var r = extraireTitreCapacite(values[capa]);
+              let r = extraireTitreCapacite(values[capa]);
               if (r.titre === '') continue;
               s[titre] = r.titre;
               s[capa] = r.texte;
@@ -3327,14 +3366,38 @@
           setAttrs(s);
         });
       }
+      if (verfdp < 5.00) {
+        getAttrs(['montrerarmeenmain'], function(v) {
+          let montrer = v.montrerarmeenmain === '1';
+          updateAttaques45('armes', montrer);
+          updateAttaques45('pnjatk', montrer);
+        });
+      }
+      if (verfdp < 5.01) {
+        getAttrs(['type_personnage', 'pnj_bouclier', 'pnj_armure'], function(values) {
+          if (values.type_personnage == 'PNJ') {
+            let attrs = {};
+            let mod;
+            if (values.pnj_bouclier == 'on') {
+              attrs.defbouclieron = 1;
+              mod = true;
+            }
+            if (values.pnj_armure == 'on') {
+              attrs.defarmureon = 1;
+              mod = true;
+            }
+            if (mod) setAttrs(attrs);
+          }
+        });
+      }
       setAttrs({
-        version: 4.04
+        version: 5.01
       });
       if (v.option_setting == 'arran') {
         //Quelques valeurs de départ selon la famille de profil par défaut
         getAttrs(['famille_par_defaut', 'famille', 'charisme', 'sagesse', 'niveau'], function(values) {
           if (values.famille_par_defaut == 1 && values.famille == 'aventurier') {
-            var attr = {
+            let attr = {
               famille_par_defaut: 0,
               DV: 8,
               mod_atkcac: 1,
@@ -3367,6 +3430,25 @@
     });
   });
 
+  function updateAttaques45(section, montrer) {
+    getSectionIDs('repeating_' + section, function(idArray) {
+      idArray.forEach(function(id) {
+        const prefix = 'repeating_' + section + '_' + id + '_';
+        getAttrs([prefix + 'armetypeattaque'], function(values) {
+          let toSet = {};
+          let at = values[prefix + 'armetypeattaque'];
+          if (at == 'Arme de jet') {
+            toSet[prefix + 'armejet'] = 'on';
+            setAttrs(toSet);
+          } else if (montrer && at.startsWith('Arme')) {
+            toSet[prefix + 'armeactionvisible'] = 1;
+            setAttrs(toSet);
+          }
+        });
+      });
+    });
+  }
+
   function extraireTitreCapacite(capacite) {
     var res = {
       titre: capacite,
@@ -3393,12 +3475,12 @@
   function appliqueModificateurs34(section) {
     getSectionIDs('repeating_' + section, function(idArray) {
       idArray.forEach(function(id) {
-        var prefix = 'repeating_' + section + '_' + id + '_';
+        const prefix = 'repeating_' + section + '_' + id + '_';
         getAttrs([prefix + 'armemodificateurs'], function(values) {
-          var modifs = values[prefix + 'armemodificateurs'].split(',');
-          var attrs = {};
-          var nbDes = 1; //Nombre de dés pour l'attaque
-          var plusFort = true;
+          let modifs = values[prefix + 'armemodificateurs'].split(',');
+          let attrs = {};
+          let nbDes = 1; //Nombre de dés pour l'attaque
+          let plusFort = true;
           modifs.forEach(function(m) {
             switch (m.trim()) {
               case 'tempDmg':
@@ -3542,18 +3624,18 @@
       getAttrs(
         ["force", "FOR_BONUS", "dexterite", "DEX_BONUS", "constitution",
           "CON_BONUS", "intelligence", "INT_BONUS", "sagesse", "SAG_BONUS",
-          "charisme", "CHA_BONUS", "INIT_DIV", "DEFARMURE", "DEFARMUREON",
-          "DEFBOUCLIER", "DEFBOUCLIERON", "DEFDIV", "PV_max", "for_sup",
+          "charisme", "CHA_BONUS", "INIT_DIV", "defarmure", "defarmureon",
+          "defbouclier", "defbouclieron", "DEFDIV", "PV_max", "for_sup",
           "dex_sup", "con_sup", "int_sup", "sag_sup", "cha_sup", "PV", "RDS",
           "jets_caches", "pnj_default_jets_caches",
         ],
         function(values) {
-          var attrs = {
+          let attrs = {
             tab: "carac. pnj"
           };
           attrs.pnj_for = Math.floor((parseInt(values.force) - 10) / 2);
           if (isNaN(attrs.pnj_for)) attrs.pnj_for = 0;
-          var bonus = parseInt(values.FOR_BONUS);
+          let bonus = parseInt(values.FOR_BONUS);
           if (!isNaN(bonus)) attrs.pnj_for += bonus;
           attrs.pnj_init = parseInt(values.dexterite);
           if (isNaN(attrs.pnj_init)) attrs.pnj_init = 10;
@@ -3577,9 +3659,9 @@
           if (isNaN(attrs.pnj_cha)) attrs.pnj_cha = 0;
           bonus = parseInt(values.CHA_BONUS);
           if (!isNaN(bonus)) attrs.pnj_cha += bonus;
-          bonus = parseInt(values.DEFARMURE) * parseInt(values.DEFARMUREON);
+          bonus = parseInt(values.defarmure) * parseInt(values.defarmureon);
           if (!isNaN(bonus)) attrs.pnj_def += bonus;
-          bonus = parseInt(values.DEFBOUCLIER) * parseInt(values.DEFBOUCLIERON);
+          bonus = parseInt(values.defbouclier) * parseInt(values.defbouclieron);
           if (!isNaN(bonus)) attrs.pnj_def += bonus;
           bonus = parseInt(values.DEFDIV);
           if (!isNaN(bonus)) attrs.pnj_def += bonus;
@@ -3597,8 +3679,6 @@
           } else {
             attrs.pnj_jets_caches = values.jets_caches;
           }
-          attrs.pnj_armure = values.DEFARMUREON;
-          attrs.pnj_bouclier = values.DEFBOUCLIERON;
           setAttrs(attrs);
         });
       //Copie des attaques
@@ -3704,7 +3784,7 @@
     } else {
       //On passe de PNJ à PJ
       getAttrs(['option_ba_niveau', 'niveau'], function(values) {
-        var attrsPJ = {
+        let attrsPJ = {
           tab: 'caracteristiques'
         };
         if (values.option_ba_niveau == '1') {
@@ -3730,14 +3810,14 @@
     });
   });
   on('change:pnj_dex', function(eventinfo) {
-    getAttrs(["DEX_BONUS", "pnj_dex", "INIT_DIV", "DEFARMURE", "DEFARMUREON", "DEFBOUCLIER", "DEFBOUCLIERON", "pnj_init", "pnj_def"], function(values) {
-      var bonus_carac = parseInt(values.pnj_dex);
+    getAttrs(["DEX_BONUS", "pnj_dex", "INIT_DIV", "defarmure", "defarmureon", "defbouclier", "defbouclieron", "pnj_init", "pnj_def"], function(values) {
+      let bonus_carac = parseInt(values.pnj_dex);
       if (isNaN(bonus_carac)) return;
-      var pre_bonus = parseInt(values.DEX_BONUS);
+      let pre_bonus = parseInt(values.DEX_BONUS);
       if (!isNaN(pre_bonus)) bonus_carac -= pre_bonus;
-      var carac = 10 + 2 * bonus_carac;
+      let carac = 10 + 2 * bonus_carac;
       //update INIT_DIV so that init does not change
-      var init = parseInt(values.pnj_init);
+      let init = parseInt(values.pnj_init);
       if (!isNaN(init)) {
         if (init % 2 == 1) carac++;
         setAttrs({
@@ -3745,12 +3825,12 @@
         });
       }
       //update DEFDIV so that DEF does not change
-      var def = parseInt(values.pnj_def);
+      let def = parseInt(values.pnj_def);
       if (!isNaN(def)) {
-        var defense = 10;
-        var bonus = parseInt(values.DEFARMURE) * parseInt(values.DEFARMUREON);
+        let defense = 10;
+        let bonus = parseInt(values.defarmure) * parseInt(values.defarmureon);
         if (!isNaN(bonus)) defense += bonus;
-        bonus = parseInt(values.DEFBOUCLIER) * parseInt(values.DEFBOUCLIERON);
+        bonus = parseInt(values.defbouclier) * parseInt(values.defbouclieron);
         if (!isNaN(bonus)) defense += bonus;
         bonus = Math.floor((parseInt(values.dexterite) - 10) / 2);
         if (!isNaN(bonus)) defense += bonus;
@@ -3808,16 +3888,16 @@
     });
   });
   on('change:pnj_def', function(eventinfo) {
-    getAttrs(["DEFARMURE", "DEFARMUREON", "DEFBOUCLIER", "DEFBOUCLIERON", "dexterite", "pnj_def"], function(values) {
+    getAttrs(["defarmure", "defarmureon", "defbouclier", "defbouclieron", "dexterite", "pnj_def"], function(values) {
       var new_def = parseInt(values.pnj_def);
       if (isNaN(new_def)) {
         console.log("DEF pnj non définie");
         return;
       }
       var defense = 10;
-      var bonus = parseInt(values.DEFARMURE) * parseInt(values.DEFARMUREON);
+      var bonus = parseInt(values.defarmure) * parseInt(values.defarmureon);
       if (!isNaN(bonus)) defense += bonus;
-      bonus = parseInt(values.DEFBOUCLIER) * parseInt(values.DEFBOUCLIERON);
+      bonus = parseInt(values.defbouclier) * parseInt(values.defbouclieron);
       if (!isNaN(bonus)) defense += bonus;
       bonus = Math.floor((parseInt(values.dexterite) - 10) / 2);
       if (!isNaN(bonus)) defense += bonus;
@@ -3949,24 +4029,6 @@
       setAttrs({
         jets_caches: values.pnj_jets_caches
       });
-    });
-  });
-  on('change:pnj_armure', function(eventinfo) {
-    getAttrs(["DEFARMUREON", "pnj_armure"], function(values) {
-      if (values.DEFARMUREON != values.pnj_armure) {
-        setAttrs({
-          DEFARMUREON: values.pnj_armure
-        });
-      }
-    });
-  });
-  on('change:pnj_bouclier', function(eventinfo) {
-    getAttrs(["DEFBOUCLIERON", "pnj_bouclier"], function(values) {
-      if (values.DEFBOUCLIERON != values.pnj_bouclier) {
-        setAttrs({
-          DEFBOUCLIERON: values.pnj_bouclier
-        });
-      }
     });
   });
 
@@ -4141,15 +4203,6 @@
 
   const mapArmes = keyListToMap(listeArmes);
 
-  //values doit contenir montrerarmeenmain et scriptVersion_max
-  function montrerArme(typeAttaque, values) {
-    if (!typeAttaque.startsWith('Arme')) return false;
-    if (typeAttaque == 'Arme de jet') return false;
-    var version = parseFloat(values.scriptVersion_max);
-    return !isNaN(version) && version >= 3 &&
-      values.montrerarmeenmain && values.montrerarmeenmain === '1';
-  }
-
   //values doit contenir au moins:
   // - scriptVersion
   // - scriptVersion_max
@@ -4163,6 +4216,7 @@
       var s = mapArmes[mot];
       if (s && s.typeattaque) {
         newAttrs[prefix + 'typeattaque'] = s.typeattaque;
+        if (s.typeattaque == 'Arme de jet') newAttrs[prefix + 'armejet'] = 'on';
         typeAttaque = s.typeattaque;
         newAttrs[prefix + 'modificateurs'] = s.modificateurs;
         newAttrs[prefix + 'typedegats'] = s.typedegats;
@@ -4177,9 +4231,6 @@
     }
     if (values.scriptVersion && values.scriptVersion !== '') {
       newAttrs[prefix + 'optflag'] = 'on';
-      if (montrerArme(typeAttaque, values)) {
-        newAttrs[prefix + 'actionvisible'] = '0';
-      }
     }
   }
 
@@ -4426,34 +4477,34 @@
   });
 
   //Coche le port d'armure si sa def devient positive
-  on('change:DEFARMURE', function(eventinfo) {
-    getAttrs(['DEFARMURE', 'DEFARMUREON'], function(values) {
-      var def = parseInt(values.DEFARMURE);
+  on('change:defarmure', function(eventinfo) {
+    getAttrs(['defarmure', 'defarmureon'], function(values) {
+      var def = parseInt(values.defarmure);
       if (isNaN(def)) return;
-      var armureOn = parseInt(values.DEFARMUREON);
+      var armureOn = parseInt(values.defarmureon);
       if (eventinfo.previousValue > 0 && eventinfo.previousValue != def) {
         if (def === 0 && armureOn) setAttrs({
-          DEFARMUREON: 0
+          defarmureon: 0
         });
       } else { //comprend aussi le cas où previousValue == def, car c'est le cas si l'attribut n'a encore jamais été modifié
         if (def > 0 && !armureOn) setAttrs({
-          DEFARMUREON: 1
+          defarmureon: 1
         });
       }
     });
   });
-  on('change:DEFBOUCLIER', function(eventinfo) {
-    getAttrs(['DEFBOUCLIER', 'DEFBOUCLIERON'], function(values) {
-      var def = parseInt(values.DEFBOUCLIER);
+  on('change:defbouclier', function(eventinfo) {
+    getAttrs(['defbouclier', 'defbouclieron'], function(values) {
+      let def = parseInt(values.defbouclier);
       if (isNaN(def)) return;
-      var bouclierOn = parseInt(values.DEFBOUCLIERON);
+      let bouclierOn = parseInt(values.defbouclieron);
       if (eventinfo.previousValue > 0 && eventinfo.previousValue != def) {
         if (def === 0 && bouclierOn) setAttrs({
-          DEFBOUCLIERON: 0
+          defbouclieron: 0
         });
       } else {
         if (def > 0 && !bouclierOn) setAttrs({
-          DEFBOUCLIERON: 1
+          defbouclieron: 1
         });
       }
     });
@@ -4545,25 +4596,35 @@
     });
   });
 
-  //Montrer ou cacher l'attaque selon le type. Ne cascade pas.
+  //Montrer ou cacher les options d'arme de jet. Ne cascade pas.
   on('change:repeating_armes:armetypeattaque', function(eventinfo) {
-    getAttrs(['repeating_armes_armetypeattaque', 'scriptVersion_max', 'montrerarmeenmain'], function(values) {
-      if (montrerArme(values.repeating_armes_armetypeattaque, values))
-        setAttrs({
-          repeating_armes_armeactionvisible: '0'
-        }, {
-          silent: true
-        });
+    getAttrs(['repeating_armes_armetypeattaque', 'repeating_armes_armejet'], function(values) {
+      if (values.repeating_armes_armetypeattaque == 'Arme de jet') {
+        if (values.repeating_armes_armejet != 'on')
+          setAttrs({
+            repeating_armes_armejet: 'on'
+          });
+      } else {
+        if (values.repeating_armes_armejet != 'off')
+          setAttrs({
+            repeating_armes_armejet: 'off'
+          });
+      }
     });
   });
   on('change:repeating_pnjatk:armetypeattaque', function(eventinfo) {
-    getAttrs(['repeating_pnjatk_armetypeattaque', 'scriptVersion_max', 'montrerarmeenmain'], function(values) {
-      if (montrerArme(values.repeating_pnjatk_armetypeattaque, values))
-        setAttrs({
-          repeating_pnjatk_armeactionvisible: '0'
-        }, {
-          silent: true
-        });
+    getAttrs(['repeating_pnjatk_armetypeattaque', 'repeating_pnjatk_armejet'], function(values) {
+      if (values.repeating_pnjatk_armetypeattaque == 'Arme de jet') {
+        if (values.repeating_pnjatk_armejet != 'on')
+          setAttrs({
+            repeating_pnkatk_armejet: 'on'
+          });
+      } else {
+        if (values.repeating_pnjatk_armejet != 'off')
+          setAttrs({
+            repeating_pnjatk_armejet: 'off'
+          });
+      }
     });
   });
 
@@ -4872,14 +4933,19 @@
     if (eventinfo.newValue != 'Script' && eventinfo.newValue != 'script pnj') return;
     getAttrs(['show_script', 'scriptVersion', 'scriptVersion_max'], function(values) {
       if (values.scriptVersion) {
-        if (values.show_script == 1) return;
-        var sa = {
-          show_script: 1
+        let sa = {
+          message_version: ''
         };
-        var version = parseFloat(values.scriptVersion_max);
+        const version = parseFloat(values.scriptVersion_max);
         if (!isNaN(version) && version >= 3)
           sa.message_version = "COFantasy version " + version;
-        setAttrs(sa);
+        if (values.show_script === '0')
+          sa = {
+            show_script: 1
+          };
+        setAttrs(sa, {
+          silent: true
+        });
       } else {
         if (values.show_script == 0) return;
         setAttrs({
@@ -5284,7 +5350,7 @@
   });
 
   on('change:famille', function(eventinfo) {
-    getAttrs(['famille', 'DEFARMUREON', 'DEFARMUREMALUS', 'DEFBOUCLIERON', 'DEFBOUCLIERMALUS'], function(values) {
+    getAttrs(['famille', 'defarmureon', 'defarmuremalus', 'defbouclieron', 'defboucliermalus'], function(values) {
       var attrs = {};
       switch (values.famille) {
         case 'aventurier':
@@ -5311,18 +5377,18 @@
         default:
           return;
       }
-      var malusArmure = values.DEFARMUREON * values.DEFARMUREMALUS + values.DEFBOUCLIERON * values.DEFBOUCLIERMALUS;
+      let malusArmure = values.defarmureon * values.defarmuremalus + values.defbouclieron * values.defboucliermalus;
       attrs.mod_atkmag -= malusArmure;
       attrs.mod_atktir -= Math.floor(malusArmure / 2);
       setAttrs(attrs);
     });
   });
 
-  on('change:DEFARMUREON change:DEFARMUREMALUS change:DEFBOUCLIERON change:DEFBOUCLIERMALUS', function(eventinfo) {
-    getAttrs(['famille', 'DEFARMUREON', 'DEFARMUREMALUS', 'DEFBOUCLIERON', 'DEFBOUCLIERMALUS', 'option_setting'], function(values) {
+  on('change:defarmureon change:defarmuremalus change:defbouclieron change:defboucliermalus', function(eventinfo) {
+    getAttrs(['famille', 'defarmureon', 'defarmuremalus', 'defbouclieron', 'defboucliermalus', 'option_setting'], function(values) {
       if (values.option_setting != 'arran') return;
-      var malusArmure = values.DEFARMUREON * values.DEFARMUREMALUS + values.DEFBOUCLIERON * values.DEFBOUCLIERMALUS;
-      var attrs = {};
+      let malusArmure = values.defarmureon * values.defarmuremalus + values.defbouclieron * values.defboucliermalus;
+      let attrs = {};
       switch (values.famille) {
         case 'aventurier':
           attrs.mod_atktir = 1;
@@ -5462,14 +5528,14 @@
   });
 
   function bonusTotalCompetence(compValues, prefix, values) {
-    var bonusTotal = 0;
-    var bonus = parseInt(compValues[prefix + 'bonusCapa']);
+    let bonusTotal = 0;
+    let bonus = parseInt(compValues[prefix + 'bonusCapa']);
     if (!isNaN(bonus)) bonusTotal += bonus;
     bonus = parseInt(compValues[prefix + 'bonus']);
     if (!isNaN(bonus)) bonusTotal += bonus;
     switch (compValues[prefix + 'malus']) {
       case 'armure':
-        bonus = values.DEFARMUREON * values.DEFARMUREMALUS + values.DEFBOUCLIERON * values.DEFBOUCLIERMALUS;
+        bonus = values.defarmureon * values.defarmuremalus + values.defbouclieron * values.defboucliermalus;
         if (!isNaN(bonus)) bonusTotal -= bonus;
         break;
       case 'casque':
@@ -5483,13 +5549,13 @@
   }
 
   on('change:repeating_competences:comp_bonusCapa change:repeating_competences:comp_bonus change:repeating_competences:comp_malus', function(eventinfo) {
-    getAttrs(['repeating_competences_comp_bonusCapa', 'repeating_competences_comp_bonus', 'repeating_competences_comp_malus', 'DEFARMUREON', 'DEFARMUREMALUS', 'DEFBOUCLIERON', 'DEFBOUCLIERMALUS', 'casque_on', 'casque_malus'], function(values) {
+    getAttrs(['repeating_competences_comp_bonusCapa', 'repeating_competences_comp_bonus', 'repeating_competences_comp_malus', 'defarmureon', 'defarmuremalus', 'defbouclieron', 'defboucliermalus', 'casque_on', 'casque_malus'], function(values) {
       bonusTotalCompetence(values, 'repeating_competences_comp_', values);
     });
   });
 
-  on('change:DEFARMUREON change:DEFARMUREMALUS change:DEFBOUCLIERON change:DEFBOUCLIERMALUS change:casque_on change:casque_malus', function(eventinfo) {
-    getAttrs(['DEFARMUREON', 'DEFARMUREMALUS', 'DEFBOUCLIERON', 'DEFBOUCLIERMALUS', 'casque_on', 'casque_malus'], function(values) {
+  on('change:defarmureon change:defarmuremalus change:defbouclieron change:defboucliermalus change:casque_on change:casque_malus', function(eventinfo) {
+    getAttrs(['defarmureon', 'defarmuremalus', 'defbouclieron', 'defboucliermalus', 'casque_on', 'casque_malus'], function(values) {
       getSectionIDs('repeating_competences', function(idArray) {
         idArray.forEach(function(id) {
           var prefix = 'repeating_competences_' + id + '_comp_';
@@ -5549,7 +5615,7 @@
 
   //Les capacités
 
-  var capacites = {
+  /*let capacites = {
     mecanismes: {
       voie: "voie de l'artilleur",
       rang: 1,
@@ -5564,5 +5630,5 @@
         valeur: 'rang'
       }, ]
     },
-  };
+  };*/
 </script>
