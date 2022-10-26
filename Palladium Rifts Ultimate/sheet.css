@@ -1,3 +1,10 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
+
+body * {
+    font-family: "Nanum Gothic", sans-serif;
+}
+
 /* cleanup number fields */
 
 /* Chrome, Safari, Edge, Opera */
@@ -18,7 +25,7 @@ input[type=number] {
 .ui-dialog .charsheet .grid-hthstyle .grid2 .grid2 label.switch,
 .ui-dialog .charsheet .grid-robotstyle .grid2 .grid2 label.switch {
     position: relative;
-    width: 75%;
+    width: 100%;
     max-height: 15px;
     min-height: auto;
     margin: auto;
@@ -98,8 +105,6 @@ input:disabled + .slider {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
-    content: "";
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -113,7 +118,6 @@ input:disabled + .slider {
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: white;
     color: black;
     -webkit-transition: .4s;
     transition: .4s;
@@ -131,13 +135,35 @@ input:disabled + .lock:before {
     color: #ccc;
 }
 
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .grid-attack .switch + span,
+.rpa-collapse[value="1"] ~ .grid .grid.rpa .grid-attack .switch + span {
+    color: white;
+}
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .repeating_weapon ~ .repcontainer .repitem > *:nth-child(14) .switch + span,
+.rpa-collapse[value="1"] ~ .grid .grid.rpa .repeating_rpa ~ .repcontainer .page > *:nth-child(13) .switch + span {
+    color: #f2f2f2;
+}
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .grid-attack .switch + span:before,
+.rpa-collapse[value="1"] ~ .grid .grid.rpa .grid-attack .switch + span:before {
+    content: "N";
+    color: black;
+}
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .weapon-volley[value="1"] + input + input + .grid-attack .switch + span:before,
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .weapon-ps-bonus[value="1"] + input + .grid-attack .switch + span:before,
+.rpa-collapse[value="1"] ~ .grid .grid.rpa .weapon-volley[value="1"] + input + input + .grid-attack .switch + span:before,
+.rpa-collapse[value="1"] ~ .grid .grid.rpa .weapon-ps-bonus[value="1"] + input + .grid-attack .switch + span:before {
+    content: "Y";
+}
+
 /*Configure the tab buttons*/
+.charsheet .statcard,
 .charsheet .basic,
 .charsheet .equipment,
 .charsheet .magic,
 .charsheet .skills,
 .charsheet .combat,
 .charsheet .minions,
+.charsheet .settings,
 .charsheet .weapons,
 .charsheet .armor,
 .charsheet .rpa,
@@ -155,12 +181,14 @@ input:disabled + .lock:before {
 }
 
 /* show the selected tab */
+.charsheet .tabstoggle[value="statcard"] ~ .grid div.statcard,
 .charsheet .tabstoggle[value="basic"] ~ .grid div.basic,
 .charsheet .tabstoggle[value="equipment"] ~ .grid div.equipment,
 .charsheet .tabstoggle[value="magic"] ~ .grid div.magic,
 .charsheet .tabstoggle[value="skills"] ~ .grid div.skills,
 .charsheet .tabstoggle[value="combat"] ~ .grid div.combat,
 .charsheet .tabstoggle[value="minions"] ~ .grid div.minions,
+.charsheet .tabstoggle[value="settings"] ~ .grid div.settings,
 .charsheet .equiptoggle[value="weapons"] ~ .grid div.weapons,
 .charsheet .equiptoggle[value="armor"] ~ .grid div.armor,
 .charsheet .equiptoggle[value="rpa"] ~ .grid div.rpa,
@@ -181,15 +209,17 @@ input:disabled + .lock:before {
 .rpa .rpa-wtoggle[value="rpaw4"] ~ .pages .page:nth-child(5),
 .rpa .rpa-wtoggle[value="rpaw5"] ~ .pages .page:nth-child(6),
 .rpa .rpa-wtoggle[value="rpaw6"] ~ .pages .page:nth-child(7) {
-    display: block;
+    display: grid;
 }
 
+.charsheet .tabstoggle[value="statcard"] ~ .grid button[name="act_statcard"],
 .charsheet .tabstoggle[value="basic"] ~ .grid button[name="act_basic"],
 .charsheet .tabstoggle[value="equipment"] ~ .grid button[name="act_equipment"],
 .charsheet .tabstoggle[value="magic"] ~ .grid button[name="act_magic"],
 .charsheet .tabstoggle[value="skills"] ~ .grid button[name="act_skills"],
 .charsheet .tabstoggle[value="combat"] ~ .grid button[name="act_combat"],
 .charsheet .tabstoggle[value="minions"] ~ .grid button[name="act_minions"],
+.charsheet .tabstoggle[value="settings"] ~ .grid button[name="act_settings"],
 .charsheet .equiptoggle[value="weapons"] ~ .grid button[name="act_weapons"],
 .charsheet .equiptoggle[value="armor"] ~ .grid button[name="act_armor"],
 .charsheet .equiptoggle[value="rpa"] ~ .grid button[name="act_rpa"],
@@ -212,11 +242,33 @@ input:disabled + .lock:before {
     color: black;
 }
 
+.hidden {
+    display: none;
+}
+button[type="action"].btn {
+    padding: 2px 3px;
+    font-size: 1.3em;
+    margin: 0px 3px 0px 3px;
+}
+button[type="action"].btn:before {
+    font-family: "dicefontd20";
+    content: "t";
+}
+
+.tabs {
+    display: flex;
+    gap: 0.2em;
+}
 .tabs button {
     border: solid 1px black;
     border-bottom: none;
     background: black;
     color: white;
+    text-transform: uppercase;
+}
+.tabs button.glyph {
+    font-family: "Pictos";
+    text-transform: none;
 }
 h2, h3, h4, h5, h6 {
     margin: auto 0;
@@ -225,6 +277,7 @@ h2, h3, h4, h5, h6 {
 }
 h2 {
     text-transform: uppercase;
+    font-weight: normal;
     padding: 0.5em 0;
     border-top: solid 1px black;
     border-bottom: solid 1px black;
@@ -234,6 +287,7 @@ h3,
 .robot h4 {
     text-transform: uppercase;
     margin-top: 1.0em;
+    font-weight: normal;
 }
 .hth .grid > h4:first-child,
 .robot .grid > h4:first-child,
@@ -241,6 +295,39 @@ h3,
     margin-top: 0;
 }
 
+.note {
+    border: dashed slategray 0.1em;
+    padding: 0.5em;
+    margin-left: 5.0em;
+    color: slategray;
+    background: #f2f2f2;
+    position: relative;
+    font-size: 0.8em;
+}
+.note:before {
+    position: absolute;
+    left: -1.5em;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    font-size: 3.0em;
+    font-family: "Pictos";
+    content: "!";
+}
+
+.flex {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+.flex.lane {
+    flex-wrap: nowrap;
+}
+.flex.lane > * {
+    flex-grow: 1;
+    width: min-content;
+}
 .grid,
 .repcontainer {
     display: grid;
@@ -249,6 +336,15 @@ h3,
 }
 .repcontainer {
     gap: 0;
+}
+.grid.shrink {
+    width: fit-content;
+    gap: 0;
+}
+.grid.gap,
+.grid.shrink.gap,
+.repeating_movement + .repcontainer {
+    gap: 0.5em;
 }
 .slot1 {
     grid-column: 1;
@@ -277,6 +373,9 @@ h3,
 .rowspan2 {
     grid-row: span 2;
 }
+.rowspan3 {
+    grid-row: span 3;
+}
 .notes {
     grid-column: span 2;
 }
@@ -284,8 +383,8 @@ textarea.notes,
 .ui-dialog .charsheet span.notes {
     grid-row: span 3;
     margin: 0;
-    height: 9.0em;
-    overflow-y: scroll;
+    max-height: 9.0em;
+    overflow-y: auto;
 }
 .grid-weapon .damage {
     grid-column: span 3;
@@ -298,6 +397,9 @@ textarea.notes,
 }
 .grid2 {
     grid-template-columns: repeat(2, 1fr);
+}
+.grid2.frontload {
+    grid-template-columns: 3fr 1fr;
 }
 h2.grid2,
 h3.grid2,
@@ -322,6 +424,12 @@ h4.grid2 {
 }
 .grid6 {
     grid-template-columns: repeat(6, 1fr);
+}
+.grid7 {
+    grid-template-columns: repeat(7, 1fr);
+}
+.grid8 {
+    grid-template-columns: repeat(8, 1fr);
 }
 .grid-basic {
     grid-template-columns: 3fr 5fr 2fr;
@@ -355,6 +463,40 @@ h4.grid2 {
 }
 .grid-header {
     grid-template-columns: 70px 1fr;
+    background: slategray url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/rifts.png")
+        right / contain no-repeat border-box;
+    position: relative;
+}
+.icondefault {
+    background: url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/logo.png")
+        center / contain no-repeat border-box;
+    height: 70px;
+    width: 70px;
+}
+.display-token[value="0"] ~ .grid .grid-header .icon,
+.display-token[value="1"] ~ .grid .grid-header .icondefault {
+    display: none;
+}
+h1.grid-header {
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.8em;
+    font-weight: normal;
+}
+h1.grid-header .grid.shrink {
+    margin-top: 0.2em;
+}
+.ui-dialog .charsheet h1.grid-header .sub {
+    margin-bottom: -0.5em;
+}
+.ui-dialog .charsheet h1 .sub,
+.ui-dialog .charsheet h2 .sub {
+    font-size: 0.5em;
+}
+.grid-header .tabs {
+    position: absolute;
+    bottom: 0;
+    font-size: 13px;
 }
 .grid-movement {
     grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -405,11 +547,19 @@ h4.grid2 {
 }
 .magic-collapse[value="1"] ~ .grid .ability-skill[value=""] ~ .grid-magic .skill,
 .magic-collapse[value="1"] ~ .grid .ability-strike[value=""] ~ .grid-magic .strike,
-.magic-collapse[value="1"] ~ .grid .ability-damage[value=""] ~ .grid-magic .damage,
-.weapons-collapse[value="1"] ~ .grid .damage .weapon-damage[value=""] + input + h5 + input + span + select + span,
-.weapons-collapse[value="1"] ~ .grid .damage .weapon-damage[value=""] + input + h5 + input + span + select + span + button,
-.weapons-collapse[value="1"] ~ .grid .damage .weapon-damage[value=""] + input + h5 + input + span + select + span + button + button {
+.magic-collapse[value="1"] ~ .grid .ability-damage[value=""] ~ .grid-magic .damage {
     visibility: hidden;
+}
+.weapons-collapse[value="1"] ~ .grid .grid.weapons .weapon-damage[value=""] + .grid-attack {
+    display: none;
+}
+.repeating_weapon ~ .repcontainer .repitem {
+    display: grid;
+    gap: 0.5em;
+}
+.repeating_weapon ~ .repcontainer .repitem > *:nth-child(14),
+.repeating_rpa ~ .repcontainer .page > *:nth-child(13) {
+    background: #f2f2f2;
 }
 .grid.skills .repitem,
 .grid-hthstyle .repitem,
@@ -487,7 +637,13 @@ h4.grid2 {
     color: silver;
 }
 .grid-weapon {
-    grid-template-columns: 4fr 6fr 3fr 3fr 3fr;
+    grid-template-columns: 5fr 6fr 2fr 2fr 2fr;
+}
+.weapon-template[value="ancient"] ~ .grid-weapon {
+    grid-template-columns: 5fr 6fr 3fr 3fr;
+}
+.grid-attack {
+    grid-template-columns: 1fr 5fr 1fr 3fr;
 }
 .grid-armor {
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
@@ -538,16 +694,23 @@ h4.grid2 {
 .grid-weapon input[type=number] {
     xtext-align: center;
 }
-.hth-autododge[value="0"] ~ .grid .hth .autododge,
-.robot-autododge[value="0"] ~ .grid-robotstyle .autododge {
+.hth-autododge[value="0"] ~ .grid .hthc .autododge,
+.rb-autododge[value="0"] ~ .grid .rb .autododge,
+.re1-autododge[value="0"] ~ .grid .re1 .autododge,
+.rb-acquired[value="0"] ~ .grid .robot .rb > *:not(:first-child),
+.rb-acquired[value="0"] ~ .grid .robot .rb .robotskill-name ~ * {
     display: none;
 }
-.weapon-template[value="modern"] ~ .grid-weapon .ancient,
-.weapon-template[value="ancient"] ~ .grid-weapon .modern {
+.weapon-template[value="modern"] ~ .grid .ancient,
+.weapon-template[value="ancient"] ~ .grid .modern,
+.weapon-template[value="modern"] ~ .flex .ancient,
+.weapon-template[value="ancient"] ~ .flex .modern {
     display: none;
 }
-.weapon-template[value="ancient"] ~ .grid-weapon .ancient,
-.weapon-template[value="modern"] ~ .grid-weapon .modern {
+.weapon-template[value="ancient"] ~ .grid .grid.ancient,
+.weapon-template[value="modern"] ~ .grid .grid.modern,
+.weapon-template[value="ancient"] ~ .flex .grid.ancient,
+.weapon-template[value="modern"] ~ .flex .grid.modern {
     display: grid;
 }
 .scroller .grid-movement:first-child,
@@ -568,7 +731,7 @@ h4.grid2 {
     border: none;
     font-size: 1.0em;
     line-height: 1.6em;
-    font-size: 0.5em;
+    font-size: 0.7em;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
@@ -591,13 +754,24 @@ h4.grid2 {
 .grid.rpa .repcontainer .repitem:nth-child(even) {
     border: solid 1px black;
 }
-.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] ~ .grid-weapon .wops,
-.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] ~ .grid-weapon .wps,
-.weapon-template[value="modern"] ~ .grid-weapon .wps {
+.weapon-template[value="ancient"] ~ .flex .weapon-ps-bonus[value="1"] + input + div .wops,
+.weapon-template[value="ancient"] ~ .flex .weapon-ps-bonus[value="0"] + input + div .wps,
+.weapon-template[value="ancient"] ~ .flex .wv,
+.weapon-template[value="modern"] ~ .flex .wps,
+.weapon-template[value="modern"] ~ .flex .weapon-volley[value="1"] + input + input + div .wov,
+.weapon-template[value="modern"] ~ .flex .weapon-volley[value="0"] + input + input + div .wv,
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] + input + .grid .wops,
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] + input + .grid .wps,
+.weapon-template[value="ancient"] ~ .grid .wv,
+.weapon-template[value="modern"] ~ .grid .wps,
+.weapon-template[value="modern"] ~ .weapon-volley[value="1"] + input + input + .grid .wov,
+.weapon-template[value="modern"] ~ .weapon-volley[value="0"] + input + input + .grid .wv {
     display: none;
 }
-.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] ~ .grid-weapon .wops,
-.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] ~ .grid-weapon .wps {
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] ~ .flex .wops,
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] ~ .flex .wps,
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] + input + .grid .wops,
+.weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] + input + .grid .wps {
     display: block;
 }
 .wpancient-collapse[value="1"] ~ .grid .grid-wp .active[value="0"] + h4,
@@ -645,6 +819,10 @@ h4.grid2 {
 .charsheet .pstype[value="Supernatural"] ~ .grid .grid.supernatural {
     display: grid;
 }
+.charsheet .ppemax[value=""] ~ .grid .ppe,
+.charsheet .ispmax[value=""] ~ .grid .isp,
+.charsheet .arval[value=""] ~ .grid .ar,
+.charsheet .hfval[value=""] ~ .grid .hf,
 .charsheet .sdc,
 .charsheet .mdc {
     display: none;
@@ -694,7 +872,7 @@ h4.grid2 {
     margin: auto 0;
     min-height: 26px;
     line-height: 26px;
-    font-size: 0.5em;
+    font-size: 0.7em;
     text-transform: uppercase;
 }
 input.lbl,
@@ -742,38 +920,237 @@ footer * {
 }
 
 
+/* statcard */
+.statcard,
+.ui-dialog .charsheet .statcard .repeating_rpa + .repcontainer .repitem {
+    display: grid;
+    grid-template-columns: 2.0em 10fr;
+    gap: 0;
+}
+.statcard {
+    margin-bottom: 1.0em;
+}
+
+.statcard h4 {
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    text-transform: uppercase;
+    height: 100%;
+    margin-bottom: 0.5em;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+}
+
+.statcard > *:not(.statcard-rpa),
+.ui-dialog .charsheet .statcard .repeating_rpa + .repcontainer .repitem > * {
+    padding: 0.5em 0 0.5em 0;
+    border-bottom: solid 1px silver;
+}
+.statcard > *:nth-child(n+1):nth-child(-n+2) {
+    padding-top: 0;
+}
+.statcard h2.grid3 {
+    grid-template-columns: 70px 1fr;
+    background: slategray url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/rifts.png")
+        right / contain no-repeat border-box;
+    border: none;
+    padding: 0;
+}
+.statcard h2.grid3 span {
+    color: white;
+}
+.statcard strong {
+    margin: auto 0;
+}
+.display-token[value="0"] ~ .grid .statcard .icon,
+.display-token[value="1"] ~ .grid .statcard .icondefault {
+    display: none;
+}
+.ui-dialog .charsheet .statcard button[type="roll"],
+.ui-dialog .charsheet .statcard button[type="action"],
+.ui-dialog .charsheet .grid-magic button[type="action"] {
+    background: none;
+    border: none;
+    font-size: 1.0em;
+    margin: auto 0;
+    padding: 0;
+    text-align: left;
+    line-height: 1.5em;
+    text-shadow: none;
+    box-shadow: none;
+    width: fit-content;
+}
+.ui-dialog .charsheet .statcard button[type="roll"]:before,
+.ui-dialog .charsheet .statcard button[type="action"]:before,
+.ui-dialog .charsheet .grid-magic button[type="action"]:before {
+    content: "";
+    display: none;
+}
+.ui-dialog .charsheet .statcard button[type="roll"]:hover,
+.ui-dialog .charsheet .statcard button[type="action"]:hover,
+.ui-dialog .charsheet .grid-magic button[type="action"]:hover {
+    text-decoration: underline;
+}
+.ui-dialog .charsheet .statcard .repitem {
+    display: flex;
+    gap: 0.5em;
+}
+.statcard .repeating_armor + .repcontainer,
+.statcard .repeating_consumable + .repcontainer {
+    display: flex;
+    gap: 0.5em;
+}
+.statcard .repeating_armor + .repcontainer .armor-active[value="0"] ~ .grid {
+    display: none;
+}
+.statcard fieldset + .repcontainer .grid-dcstats,
+.statcard .repeating_consumable + .repcontainer .grid-counter {
+    grid-template-columns: 1fr 2fr;
+}
+.statcard .repeating_maneuvers + .repcontainer,
+.statcard .repeating_robotbasic + .repcontainer,
+.statcard .repeating_robotelite1 + .repcontainer,
+.statcard .repeating_weapon + .repcontainer {
+    gap: 0.5em;
+}
+.statcard .repeating_maneuvers + .repcontainer,
+.statcard .repeating_robotbasic + .repcontainer,
+.statcard .repeating_robotelite1 + .repcontainer,
+.statcard .repeating_movement + .repcontainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.statcard .repeating_skills + .repcontainer,
+.statcard .repeating_ability + .repcontainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+}
+.statcard .flex.bullets > div:before,
+.statcard .repeating_maneuvers + .repcontainer .repitem:before,
+.statcard .repeating_robotbasic + .repcontainer .repitem:before,
+.statcard .repeating_robotelite1 + .repcontainer .repitem:before {
+    content: "t";
+    font-family: "Pictos Custom";
+}
+.flex.bullets {
+    border: none;
+}
+.statcard .repeating_movement + .repcontainer .repitem:not(:last-child):after {
+    content: ",";
+    margin-left: -0.4em;
+}
+.statcard .repcontrol {
+    display: none;
+}
+.ps-restrained[value="none"] ~ .grid .statcard .restrained,
+.statcard .strike-acquired[value="0"] + div {
+    display: none;
+}
+.statcard .weapon-template[value="modern"] ~ .flex .ancient,
+.statcard .weapon-template[value="ancient"] ~ .flex .modern {
+    display: none;
+}
+.statcard .weapon-template[value="ancient"] ~ .flex .ancient,
+.statcard .weapon-template[value="modern"] ~ .flex .modern {
+    display: inline;
+}
+.statcard .weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] ~ .flex .wops,
+.statcard .weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] ~ .flex .wps,
+.statcard .weapon-template[value="modern"] ~ .flex .wps {
+    display: none;
+}
+.statcard .weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="0"] ~ .flex .wops,
+.statcard .weapon-template[value="ancient"] ~ .weapon-ps-bonus[value="1"] ~ .flex .wps {
+    display: block;
+}
+.ui-dialog .charsheet .statcard .ability-skill[value=""] ~ .skill,
+.ui-dialog .charsheet .statcard .ability-strike[value=""] ~ .strike,
+.ui-dialog .charsheet .statcard .ability-damage[value=""] ~ .damage,
+.ui-dialog .charsheet .statcard .weapon-template ~ .flex .weapon-damage[value=""] + div,
+.ui-dialog .charsheet .statcard .weapon-name[value="Weapon"] ~ .flex,
+.ui-dialog .charsheet .statcard .weapon-name[value=""] ~ .flex {
+    display: none;
+}
+.ui-dialog .charsheet .statcard .weapon-range[value=""] ~ .flex .range:before {
+    content: 'no range';
+}
+
+.armor-count[value="0"] ~ .grid .statcard .repeating-armor,
+.armor-count[value="0"] ~ .grid .statcard .repeating-armor + .repeating_armor + .repcontainer,
+.weapon-count[value="0"] ~ .grid .statcard .repeating-weapon,
+.weapon-count[value="0"] ~ .grid .statcard .repeating-weapon + .repeating_weapon + .repcontainer,
+.rb-acquired[value="0"] ~ .grid .statcard .rb,
+.re1name[value=""] ~ .grid .statcard .re1,
+.skills-count[value="0"] ~ .grid .statcard .repeating-skills,
+.skills-count[value="0"] ~ .grid .statcard .repeating-skills + .repeating_skills + .repcontainer,
+.ability-count[value="0"] ~ .grid .statcard .repeating-ability,
+.ability-count[value="0"] ~ .grid .statcard .repeating-ability + .repeating_ability + .repcontainer,
+.consumable-count[value="0"] ~ .grid .statcard .repeating-consumable,
+.consumable-count[value="0"] ~ .grid .statcard .repeating-consumable + .repeating_consumable + .repcontainer,
+.statcard .rpa-active[value="0"] ~ *,
+.statcard .skill-base[value=""] ~ button,
+.statcard .skill-base:not([value=""]) ~ span {
+    display: none;
+}
+
 /* roll templates */
 
 .sheet-rolltemplate-d20 .sheet-template-body,
 .sheet-rolltemplate-d100 .sheet-template-body,
-.sheet-rolltemplate-damage .sheet-template-body {
+.sheet-rolltemplate-damage .sheet-template-body,
+.sheet-rolltemplate-message .sheet-template-body {
     display: grid;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 0;
     grid-template-columns: 2fr 3fr 2fr;
     background: black;
 }
+.sheet-rolltemplate-message .sheet-template-body {
+    grid-template-columns: 2fr 5fr;
+}
+.sheet-rolltemplate-d20 .sheet-template-body *,
+.sheet-rolltemplate-d100 .sheet-template-body *,
+.sheet-rolltemplate-damage .sheet-template-body *,
+.sheet-rolltemplate-message .sheet-template-body * {
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+.sheet-rolltemplate-d20 .sheet-template-body > div.sheet-icondefault,
+.sheet-rolltemplate-d100 .sheet-template-body > div.sheet-icondefault,
+.sheet-rolltemplate-damage .sheet-template-body > div.sheet-icondefault,
+.sheet-rolltemplate-message .sheet-template-body > div.sheet-icondefault {
+    background: url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/logo.png")
+        center / contain no-repeat border-box;
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+}
 .sheet-rolltemplate-d20 .sheet-template-body > div,
 .sheet-rolltemplate-d20 .sheet-template-body > a,
 .sheet-rolltemplate-d100 .sheet-template-body > div,
 .sheet-rolltemplate-d100 .sheet-template-body > a,
 .sheet-rolltemplate-damage .sheet-template-body > div,
-.sheet-rolltemplate-damage .sheet-template-body > a {
+.sheet-rolltemplate-damage .sheet-template-body > a,
+.sheet-rolltemplate-message .sheet-template-body > div,
+.sheet-rolltemplate-message .sheet-template-body > a {
     padding: 0.2em;
 }
 .sheet-rolltemplate-d20 .sheet-template-body > div,
 .sheet-rolltemplate-d100 .sheet-template-body > div,
-.sheet-rolltemplate-damage .sheet-template-body > div {
+.sheet-rolltemplate-damage .sheet-template-body > div,
+.sheet-rolltemplate-message .sheet-template-body > div {
     margin: 0.5em;
 }
 .sheet-rolltemplate-d20 .sheet-template-body > a,
 .sheet-rolltemplate-d100 .sheet-template-body > a,
-.sheet-rolltemplate-damage .sheet-template-body > a {
+.sheet-rolltemplate-damage .sheet-template-body > a,
+.sheet-rolltemplate-message .sheet-template-body > a {
     margin: auto;
 }
 .sheet-rolltemplate-d20 .sheet-template-body .sheet-template-results,
 .sheet-rolltemplate-d100 .sheet-template-body .sheet-template-results,
-.sheet-rolltemplate-damage .sheet-template-body .sheet-template-results {
+.sheet-rolltemplate-damage .sheet-template-body .sheet-template-results,
+.sheet-rolltemplate-message .sheet-template-body .sheet-template-results {
     display: grid;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 0.2em;
@@ -783,9 +1160,11 @@ footer * {
 .sheet-rolltemplate-d20 .sheet-template-results span,
 .sheet-rolltemplate-d100 .sheet-template-results span,
 .sheet-rolltemplate-damage .sheet-template-results span,
+.sheet-rolltemplate-message .sheet-template-results span,
 .sheet-rolltemplate-d20 .sheet-template-results a,
 .sheet-rolltemplate-d100 .sheet-template-results a,
-.sheet-rolltemplate-damage .sheet-template-results a {
+.sheet-rolltemplate-damage .sheet-template-results a,
+.sheet-rolltemplate-message .sheet-template-results a {
     display: block;
     line-height: 1.0em;
     text-align: center;
@@ -800,24 +1179,29 @@ footer * {
 }
 .sheet-rolltemplate-d20 .sheet-template-body .inlinerollresult,
 .sheet-rolltemplate-d100 .sheet-template-body .inlinerollresult,
-.sheet-rolltemplate-damage .sheet-template-body .inlinerollresult {
+.sheet-rolltemplate-damage .sheet-template-body .inlinerollresult,
+.sheet-rolltemplate-message .sheet-template-body .inlinerollresult {
     padding: 0;
     background: none;
     font-size: 3.0em;
     border: none;
 }
-.sheet-rolltemplate-d20 .sheet-template-body .inlinerollresult {
-    font-size: 3.0em;
-}
+.sheet-rolltemplate-d20 .sheet-template-body .inlinerollresult,
 .sheet-rolltemplate-d100 .sheet-template-body .inlinerollresult,
-.sheet-rolltemplate-damage .sheet-template-body .inlinerollresult {
+.sheet-rolltemplate-damage .sheet-template-body .inlinerollresult,
+.sheet-rolltemplate-message .sheet-template-body .inlinerollresult {
     font-size: 2.0em;
+}
+.sheet-rolltemplate-d20 .sheet-template-body p > .inlinerollresult {
+    font-size: 1.0em;
+    font-weight: normal;
 }
 .sheet-rolltemplate-d20 .sheet-template-results .sheet-template-feedback,
 .sheet-rolltemplate-d100 .sheet-template-results .sheet-template-feedback,
-.sheet-rolltemplate-damage .sheet-template-results .sheet-template-feedback {
+.sheet-rolltemplate-damage .sheet-template-results .sheet-template-feedback,
+.sheet-rolltemplate-message .sheet-template-results .sheet-template-feedback {
     text-transform: uppercase;
-    font-size: 0.5em;
+    font-size: 0.7em;
     font-weight: bold;
 }
 .sheet-rolltemplate-damage .sheet-template-results .sheet-template-type {
@@ -827,12 +1211,13 @@ footer * {
 }
 .sheet-rolltemplate-d20 .sheet-template-results a[href^="~"],
 .sheet-rolltemplate-d100 .sheet-template-results a[href^="~"],
-.sheet-rolltemplate-damage .sheet-template-results a[href^="~"] {
+.sheet-rolltemplate-damage .sheet-template-results a[href^="~"],
+.sheet-rolltemplate-message .sheet-template-results a[href^="~"] {
     border: solid 1px black;
     background: white;
     color: black;
     text-transform: uppercase;
-    font-size: 0.5em;
+    font-size: 0.7em;
     width: fit-content;
     margin: auto;
 }
@@ -851,7 +1236,8 @@ footer * {
     background: black;
 }
 .sheet-rolltemplate-d20 .sheet-template-body *,
-.sheet-rolltemplate-d100 .sheet-template-body * {
+.sheet-rolltemplate-d100 .sheet-template-body *,
+.sheet-rolltemplate-message .sheet-template-body * {
     color: white;
 }
 .sheet-rolltemplate-d20 .sheet-template-crit ~ .sheet-template-body *,
