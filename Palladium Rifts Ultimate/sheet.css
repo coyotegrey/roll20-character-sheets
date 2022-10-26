@@ -1227,6 +1227,10 @@ footer * {
 .sheet-rolltemplate-damage .sheet-template-body .sheet-template-results {
     background: crimson;
 }
+.sheet-rolltemplate-d20 .sheet-template-crit ~ .sheet-template-body {
+    background: crimson url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/crit.png")
+        left top / auto repeat-y;
+}
 .sheet-rolltemplate-d100 .sheet-template-fail {
     background: slategray;
 }
