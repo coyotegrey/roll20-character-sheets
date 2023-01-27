@@ -652,7 +652,7 @@ h1.grid-header .grid.shrink {
     grid-template-columns: 7fr 3fr 3fr 3fr 5fr 1fr;
 }
 .grid-rpa {
-    grid-template-columns: 4fr 4fr 4fr 4fr 1fr;
+    grid-template-columns: 4fr 4fr 4fr 4fr 4fr 1fr;
 }
 .rpa .sticker {
     grid-template-columns: 2.0em 10fr;
@@ -663,11 +663,12 @@ h1.grid-header .grid.shrink {
     writing-mode: vertical-rl;
     white-space: nowrap;
     text-transform: uppercase;
+    height: 100%;
 }
 .rpa .sticker:nth-child(2) .grid-rpa {
     grid-template-columns: repeat(7, 1fr);
 }
-.rpa .sticker:nth-child(3) .grid-rpa {
+.rpa .sticker:nth-child(4) .grid-rpa {
     grid-template-columns: repeat(4, 1fr);
 }
 .saves .grid2 {
@@ -809,13 +810,13 @@ h1.grid-header .grid.shrink {
 }
 .charsheet .pstype[value="Normal"] ~ .grid .normal,
 .charsheet .pstype[value="Augmented"] ~ .grid .augmented,
-.charsheet .pstype[value="Robot"] ~ .grid .robot,
+.charsheet .pstype[value="Robot"] ~ .grid .robotic,
 .charsheet .pstype[value="Supernatural"] ~ .grid .supernatural {
     display: block;
 }
 .charsheet .pstype[value="Normal"] ~ .grid .grid.normal,
 .charsheet .pstype[value="Augmented"] ~ .grid .grid.augmented,
-.charsheet .pstype[value="Robot"] ~ .grid .grid.robot,
+.charsheet .pstype[value="Robot"] ~ .grid .grid.robotic,
 .charsheet .pstype[value="Supernatural"] ~ .grid .grid.supernatural {
     display: grid;
 }
@@ -1229,7 +1230,7 @@ footer * {
 }
 .sheet-rolltemplate-d20 .sheet-template-crit ~ .sheet-template-body {
     background: crimson url("https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/palladium-rifts-ultimate/Palladium%20Rifts%20Ultimate/crit.png")
-        left top / auto repeat-y;
+        left top / 30% repeat-y;
 }
 .sheet-rolltemplate-d100 .sheet-template-fail {
     background: slategray;

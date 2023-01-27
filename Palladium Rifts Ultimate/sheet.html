@@ -4,7 +4,7 @@
 <input type="hidden" class="equiptoggle" name="attr_sheetEquipTab" value="weapons" />
 <input type="hidden" class="combattoggle" name="attr_sheetCombatTab" value="hth" />
 <input type="hidden" class="rctoggle" name="attr_sheetRobotCombatTab" value="robot_basic" />
-<input type="hidden" class="pstype" name="attr_ps_type" value="normal" />
+<input type="hidden" class="pstype" name="attr_ps_type" value="Normal" />
 <input type="hidden" class="dctype" name="attr_charactertype_select" value="S.D.C." />
 <input type="hidden" class="ppemax" name="attr_character_ppe_max" value="" />
 <input type="hidden" class="ispmax" name="attr_character_isp_max" value="" />
@@ -1027,9 +1027,8 @@
                     <option value="Scrupulous">Scrupulous</option>
                     <option value="Unprincipled">Unprincipled</option>
                     <option value="Anarchist">Anarchist</option>
-                    <option value="Taoist">Taoist</option>
+                    <option value="Aberrant">Aberrant</option>
                     <option value="Miscreant">Miscreant</option>
-                    <option value="Abberant">Abberant</option>
                     <option value="Diabolic">Diabolic</option>
                 </select>
                 <span class="locked" name="attr_alignment_select"></span>
@@ -1252,7 +1251,7 @@
                 </div>
                 <div class="grid grid2">
                     <label>Hold Max</label>
-                    <div class="normal augmented robot">
+                    <div class="normal augmented robotic">
                         <span name="attr_hold_max"></span> seconds
                     </div>
                     <div class="supernatural">
@@ -3290,6 +3289,7 @@
                 <div class="grid">
                     <div class="grid grid-rpa">
                         <label>Name</label>
+                        <label>Robot Combat</label>
                         <label>Model</label>
                         <label>Class</label>
                         <label>Crew</label>
@@ -3297,6 +3297,11 @@
 
                         <input class="unlocked" type="text" value="" name="attr_rpa_name" placeholder="Robot/Armor/Vehicle Name" />
                         <h5 class="locked"><span name="attr_rpa_name" ></span></h5>
+                        <select class="unlocked" name="attr_rpa_combat">
+                            <option value="Basic">Basic</option>
+                            <option value="Elite">Elite</option>
+                        </select>
+                        <span class="locked" name="attr_rpa_combat" ></span>
                         <input class="unlocked" type="text" value="" name="attr_rpa_model" />
                         <span class="locked" name="attr_rpa_model" ></span>
                         <input class="unlocked" type="text" value="" name="attr_rpa_class" />
@@ -3460,6 +3465,36 @@
                                 <input type="number" value="" name="attr_rpa_other19" />
                                 <input class="unlocked" type="number" value="" name="attr_rpa_other19_max" />
                                 <span class="locked">/<span name="attr_rpa_other19_max" ></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid2 sticker">
+                        <input type="hidden" value="" name="attr_rpa_lift" />
+                        <h4>P.S.</h4>
+                        <div class="flex lane">
+                            <div class="grid">
+                                <select class="unlocked lbl" name="attr_rpa_ps_type">
+                                    <option value="Normal">Normal</option>
+                                    <option value="Augmented">Augmented</option>
+                                    <option value="Robot">Robot</option>
+                                    <option value="Supernatural">Supernatural</option>
+                                </select>
+                                <label class="locked"><span name="attr_rpa_ps_type"></span></label>
+                                <input class="unlocked" type="number" value="" name="attr_rpa_ps" />
+                                <span class="locked" name="attr_rpa_ps" ></span>
+                            </div>
+                            <div class="grid">
+                                <label>Lift</label>
+                                <span><span name="attr_rpa_lift" ></span> lbs.</span>
+                            </div>
+                            <div class="grid">
+                                <label>Carry</label>
+                                <span><span name="attr_rpa_carry" ></span> lbs.</span>
+                            </div>
+                            <div class="grid">
+                                <label>Throw</label>
+                                <span><span name="attr_rpa_throw_weight"></span> lbs.
+                                    <span name="attr_rpa_throw_distance"></span> ft.</span>
                             </div>
                         </div>
                     </div>
@@ -4928,7 +4963,7 @@
         <div class="grid grid2">
             <div class="grid grid2 frontload">
                 <label>Current version</label>
-                <span>0.1</span>
+                <span>0.11</span>
 
                 <label>Sheet version</label>
                 <span name="attr_version"></span>
@@ -5063,6 +5098,7 @@
         });
     });
 
+    /* buggy sort function - not used currently */
     const sortlist = ["ability_name","ability_level"];
     sortlist.forEach(button => {
         let section = button.split("_")[0];
@@ -5131,121 +5167,124 @@
             update_count(repeating, repeating == "armor");
         });
 
+        // version updates
         getAttrs(["version"], function(values) {
-            let version = values.version;
+            let version = parseFloat(values.version)||0;
             if (version == current_version) {
                 console.log(`Current sheet version: ${current_version}`);
                 return;
             }
             console.log(`Updating sheet to version: ${current_version}`);
 
-            // version 0.11 updates
-            const fnames = ["rpa_w1_template","rpa_w1_name","rpa_w1_proficiency","rpa_w1_strike",
-                "rpa_w1_thrown","rpa_w1_aim","rpa_w1_burst","rpa_w1_parry","rpa_w1_disarm",
-                "rpa_w1_range","rpa_w1_payload","rpa_w1_rate","rpa_w1_details","rpa_w1_damage",
-                "rpa_w1_damage_name","rpa_w1_damage_type","rpa_w1_damage2","rpa_w1_damage2_name",
-                "rpa_w1_damage2_type"];
-            getSectionIDs("repeating_rpa", function(idarray) {
-                let fields = [];
-                for (var i=0; i < idarray.length; i++) {
-                    let id = idarray[i];
-                    for (var i2 = 1; i2 <= 6; i2++) {
-                        for (var f in fnames) {
-                            let fname_mod = fnames[f].replace("_w1_", `_w${i2}_`);
-                            fields.push(`repeating_rpa_${id}_${fname_mod}`);
-                        }
-                    }
-                }
-
-                getAttrs(fields, function(values2) {
-                    let update = {"version": current_version};
-                    for (var i=0; i < idarray.length; i++) {
-                        let id = idarray[i];
-                        for (var f in fields) {
-                            let key = fields[f];
-                            let current = values2[key];
-                            if (current) {
-                                let destination = key.replace("rpa_w", "rpaw");
-                                update[destination] = current;
-                            } else {
-                                console.log(`${key} expected but not found in update.`);
-                            }
-                        }
-                    };
-                    setAttrs(update);
-                });
-            });
-
             // version 0.1 updates
-            //update_pe(eventInfo);
-            const update_0_1_map = {
-                "fields": {"ps_type": "ps_type", "charactertype_select": "dc_type", "psionic_strength": "psionic_strength",
-                    "ps_hth_punch_type": "dc_type", "ps_hth_kick_type": "dc_type", "ps_hth_power_punch_type": "dc_type", "ps_hth_power_kick_type": "dc_type",
-                    "ps_hth_leap_kick_type": "dc_type", "ps_hth_restrained_punch_type": "dc_type", "combatskill": "combatskill",},
-                "repeating": {
-                    "repeating_skills": {"skill_type": "skill_type",},
-                    "repeating_ability": {"ability_damage_type": "dc_type", "ability_source": "ability_source",},
-                    "repeating_weapon": {"weapon_damage_type": "dc_type", "weapon_proficiency": "wp",},
-                    "repeating_armor": {"armortype_select": "dc_type",},
-                    "repeating_maneuvers": {"maneuver_damage_type": "dc_type",},
-                },
-                "ps_type": {"normal": "Normal", "augmented": "Augmented", "robot": "Robot", "supernatural": "Supernatural",},
-                "dc_type": {"sdc": "S.D.C.", "mdc": "M.D.C.", "md": "M.D."},
-                "skill_type": {"occ": "OCC", "related": "OCC Related", "secondary": "Secondary", "rcc": "RCC",},
-                "psionic_strength": {"none": "Not Psychic", "minor": "Minor Psychic", "major": "Major Psychic", "master": "Master Psychic",},
-                "ability_source": {"ppe": "P.P.E.", "isp": "I.S.P.", "chi": "Chi", "bio-e": "BIO-E",},
-                "combatskill": {"non_combatant": "Non-Combatant", "basic": "Basic", "expert": "Expert", "martial": "Martial Arts", "assassin": "Assassin", "commando": "Commando", "dragon": "Dragon",},
-                "wp": {"archery": "W.P. Archery","axe": "W.P. Axe","blunt": "W.P. Blunt","chain": "W.P. Chain","forked": "W.P. Forked",
-                    "grappling_hook": "W.P. Grappling Hook","knife": "W.P. Knife","paired_weapons": "W.P. Paired Weapons",
-                    "pole_arm": "W.P. Pole Arm","quick_draw": "W.P. Quick Draw","rope": "W.P. Rope","shield": "W.P. Shield",
-                    "spear": "W.P. Spear","staff": "W.P. Staff","sword": "W.P. Sword","targeting": "W.P. Targeting","whip": "W.P. Whip",
-                    "handguns": "W.P. Handguns","rifles": "W.P. Rifles","shotgun": "W.P. Shotgun","submachine_gun": "W.P. Submachine-Gun",
-                    "heavy_military_weapons": "W.P. Heavy Military Weapons","military_flamethrowers": "W.P. Military Flamethrowers",
-                    "harpoon_&_spear_gun": "W.P. Harpoon & Spear Gun","energy_pistol": "W.P. Energy Pistol",
-                    "energy_rifle": "W.P. Energy Rifle","heavy_mega_damage_weapons": "W.P. Heavy Mega-Damage Weapons",},
-            };
-            /*
-            const fields_keys = Object.keys(update_0_1_map["fields"]);
-            getAttrs(fields_keys, function(values2) {
-                let update = {"version": current_version};
-                for (const field in update_0_1_map["fields"]) { //charactertype_select
-                    let key = values2[field].toLowerCase(); //sdc
-                    let source = update_0_1_map["fields"][field]; //dc_type
-                    if (key in update_0_1_map[source]) {
-                        update[field] = update_0_1_map[source][key];
-                    }
-                }
-                setAttrs(update);
+            if (version < 0.1) {
+                update_pe(eventInfo);
+                const update_0_1_map = {
+                    "fields": {"ps_type": "ps_type", "charactertype_select": "dc_type", "psionic_strength": "psionic_strength",
+                        "ps_hth_punch_type": "dc_type", "ps_hth_kick_type": "dc_type", "ps_hth_power_punch_type": "dc_type", "ps_hth_power_kick_type": "dc_type",
+                        "ps_hth_leap_kick_type": "dc_type", "ps_hth_restrained_punch_type": "dc_type", "combatskill": "combatskill",},
+                    "repeating": {
+                        "repeating_skills": {"skill_type": "skill_type",},
+                        "repeating_ability": {"ability_damage_type": "dc_type", "ability_source": "ability_source",},
+                        "repeating_weapon": {"weapon_damage_type": "dc_type", "weapon_proficiency": "wp",},
+                        "repeating_armor": {"armortype_select": "dc_type",},
+                        "repeating_maneuvers": {"maneuver_damage_type": "dc_type",},
+                    },
+                    "ps_type": {"normal": "Normal", "augmented": "Augmented", "robot": "Robot", "supernatural": "Supernatural",},
+                    "dc_type": {"sdc": "S.D.C.", "mdc": "M.D.C.", "md": "M.D."},
+                    "skill_type": {"occ": "OCC", "related": "OCC Related", "secondary": "Secondary", "rcc": "RCC",},
+                    "psionic_strength": {"none": "Not Psychic", "minor": "Minor Psychic", "major": "Major Psychic", "master": "Master Psychic",},
+                    "ability_source": {"ppe": "P.P.E.", "isp": "I.S.P.", "chi": "Chi", "bio-e": "BIO-E",},
+                    "combatskill": {"non_combatant": "Non-Combatant", "basic": "Basic", "expert": "Expert", "martial": "Martial Arts", "assassin": "Assassin", "commando": "Commando", "dragon": "Dragon",},
+                    "wp": {"archery": "W.P. Archery","axe": "W.P. Axe","blunt": "W.P. Blunt","chain": "W.P. Chain","forked": "W.P. Forked",
+                        "grappling_hook": "W.P. Grappling Hook","knife": "W.P. Knife","paired_weapons": "W.P. Paired Weapons",
+                        "pole_arm": "W.P. Pole Arm","quick_draw": "W.P. Quick Draw","rope": "W.P. Rope","shield": "W.P. Shield",
+                        "spear": "W.P. Spear","staff": "W.P. Staff","sword": "W.P. Sword","targeting": "W.P. Targeting","whip": "W.P. Whip",
+                        "handguns": "W.P. Handguns","rifles": "W.P. Rifles","shotgun": "W.P. Shotgun","submachine_gun": "W.P. Submachine-Gun",
+                        "heavy_military_weapons": "W.P. Heavy Military Weapons","military_flamethrowers": "W.P. Military Flamethrowers",
+                        "harpoon_&_spear_gun": "W.P. Harpoon & Spear Gun","energy_pistol": "W.P. Energy Pistol",
+                        "energy_rifle": "W.P. Energy Rifle","heavy_mega_damage_weapons": "W.P. Heavy Mega-Damage Weapons",},
+                };
 
-                for (var repeater in update_0_1_map["repeating"]) {
-                    let repeater_key = repeater;
-                    getSectionIDs(`${repeater}`, function(idarray) {
-                        let fields = [];
-                        for (var i=0; i < idarray.length; i++) {
-                            let id = idarray[i];
-                            for (var field in update_0_1_map["repeating"][repeater_key]) {
-                                fields.push(`${repeater_key}_${id}_${field}`);
-                            }
+                const fields_keys = Object.keys(update_0_1_map["fields"]);
+                getAttrs(fields_keys, function(values2) {
+                    let update = {"version": current_version};
+                    for (const field in update_0_1_map["fields"]) { //charactertype_select
+                        let key = values2[field].toLowerCase(); //sdc
+                        let source = update_0_1_map["fields"][field]; //dc_type
+                        if (key in update_0_1_map[source]) {
+                            update[field] = update_0_1_map[source][key];
                         }
+                    }
+                    setAttrs(update);
 
-                        getAttrs(fields, function(values3) {
-                            let update2 = {};
+                    for (var repeater in update_0_1_map["repeating"]) {
+                        let repeater_key = repeater;
+                        getSectionIDs(`${repeater}`, function(idarray) {
+                            let fields = [];
                             for (var i=0; i < idarray.length; i++) {
                                 let id = idarray[i];
-                                for (var field in update_0_1_map["repeating"][repeater_key]) { //ability_damage_type
-                                    let key = values3[`${repeater_key}_${id}_${field}`].toLowerCase(); //sdc
-                                    let source = update_0_1_map["repeating"][repeater_key][field]; //dc_type
-                                    if (key in update_0_1_map[source]) {
-                                        update2[`${repeater_key}_${id}_${field}`] = update_0_1_map[source][key];
-                                    }
+                                for (var field in update_0_1_map["repeating"][repeater_key]) {
+                                    fields.push(`${repeater_key}_${id}_${field}`);
                                 }
-                            };
-                            setAttrs(update2);
+                            }
+
+                            getAttrs(fields, function(values3) {
+                                let update2 = {};
+                                for (var i=0; i < idarray.length; i++) {
+                                    let id = idarray[i];
+                                    for (var field in update_0_1_map["repeating"][repeater_key]) { //ability_damage_type
+                                        let key = values3[`${repeater_key}_${id}_${field}`].toLowerCase(); //sdc
+                                        let source = update_0_1_map["repeating"][repeater_key][field]; //dc_type
+                                        if (key in update_0_1_map[source]) {
+                                            update2[`${repeater_key}_${id}_${field}`] = update_0_1_map[source][key];
+                                        }
+                                    }
+                                };
+                                setAttrs(update2);
+                            });
                         });
+                    }
+                });
+            }
+            // version 0.11 updates
+            if (version < 0.11) {
+                const fnames = ["rpa_w1_template","rpa_w1_name","rpa_w1_proficiency","rpa_w1_strike",
+                    "rpa_w1_thrown","rpa_w1_aim","rpa_w1_burst","rpa_w1_parry","rpa_w1_disarm",
+                    "rpa_w1_range","rpa_w1_payload","rpa_w1_rate","rpa_w1_details","rpa_w1_damage",
+                    "rpa_w1_damage_name","rpa_w1_damage_type","rpa_w1_damage2","rpa_w1_damage2_name",
+                    "rpa_w1_damage2_type"];
+                getSectionIDs("repeating_rpa", function(idarray) {
+                    let fields = [];
+                    for (var i=0; i < idarray.length; i++) {
+                        let id = idarray[i];
+                        for (var i2 = 1; i2 <= 6; i2++) {
+                            for (var f in fnames) {
+                                let fname_mod = fnames[f].replace("_w1_", `_w${i2}_`);
+                                fields.push(`repeating_rpa_${id}_${fname_mod}`);
+                            }
+                        }
+                    }
+
+                    getAttrs(fields, function(values2) {
+                        let update = {"version": current_version};
+                        for (var i=0; i < idarray.length; i++) {
+                            let id = idarray[i];
+                            for (var f in fields) {
+                                let key = fields[f];
+                                let current = values2[key];
+                                if (current) {
+                                    let destination = key.replace("rpa_w", "rpaw");
+                                    update[destination] = current;
+                                } else {
+                                    console.log(`${key} expected but not found in update.`);
+                                }
+                            }
+                        };
+                        setAttrs(update);
                     });
-                }
-            });
-            */
+                });
+            }
         });
     });
 
@@ -5422,11 +5461,22 @@
     });
 
     const weaponlist = ["proficiency","strike","thrown","parry","aim","burst","disarm"];
-    Object.keys(weapongrouplist).forEach(group => {
-        weapongrouplist[group].forEach(key => {
+    Object.keys(weapongrouplist).forEach(group => { // repeating_weapon / repeating_rpa
+        weapongrouplist[group].forEach(key => { // weapon / rpaw1
             weaponlist.forEach(field => {
-                on(`change:${group}:${key}_${field}`, function(eventInfo) {
-                    getAttrs([`${group}_${key}_proficiency`,`${group}_${key}_strike`,`${group}_${key}_thrown`,`${group}_${key}_parry`,`${group}_${key}_aim`,`${group}_${key}_burst`,`${group}_${key}_disarm`,"hth_strike_total","hth_parry_total","hth_disarm_total"], function(values) {
+                let main_trigger = `change:${group}:${key}_${field}`;
+                if (group == "repeating_rpa") {
+                    main_trigger += " change:repeating_rpa:rpa_combat";
+                }
+                on(main_trigger, function(eventInfo) {
+                    let main_attrs = [`${group}_${key}_proficiency`,`${group}_${key}_strike`,
+                        `${group}_${key}_thrown`,`${group}_${key}_parry`,`${group}_${key}_aim`,
+                        `${group}_${key}_burst`,`${group}_${key}_disarm`,"hth_strike_total",
+                        "hth_parry_total","hth_disarm_total"];
+                    if (group == "repeating_rpa") {
+                        main_attrs.push("repeating_rpa_rpa_combat");
+                    }
+                    getAttrs(main_attrs, function(values) {
                         let wp = values[`${group}_${key}_proficiency`];
                         let wpkey = wplookuplistreverse[wp];
                         let strike = parseInt(values[`${group}_${key}_strike`])||0;
@@ -5437,12 +5487,20 @@
                             let thrown = parseInt(values[`${group}_${key}_thrown`])||0;
                             let parry = parseInt(values[`${group}_${key}_parry`])||0;
                             let disarm = parseInt(values[`${group}_${key}_disarm`])||0;
-                            getAttrs([`${wpkey}_strike_total`, `${wpkey}_thrown_total`, `${wpkey}_parry_total`, `${wpkey}_disarm_total`], function(values) {
+                            let rcombat = values["repeating_rpa_rpa_combat"];
+                            let ancient_attrs = [`${wpkey}_strike_total`,`${wpkey}_thrown_total`,
+                                `${wpkey}_parry_total`,`${wpkey}_disarm_total`];
+                            let rcombat_key = "";
+                            if (rcombat) {
+                                rcombat_key = rcombat == "Basic" ? "robot_basic" : "robot_elite1";
+                                ancient_attrs = ancient_attrs.concat([`${rcombat_key}_strike`,`${rcombat_key}_parry`,`${rcombat_key}_disarm`]);
+                            }
+                            getAttrs(ancient_attrs, function(values2) {
                                 let update = {};
-                                let wp_strike = parseInt(values[`${wpkey}_strike_total`])||0;
-                                let wp_thrown = wpkey == "hth" ? wp_strike : parseInt(values[`${wpkey}_thrown_total`])||0;
-                                let wp_parry = parseInt(values[`${wpkey}_parry_total`])||0;
-                                let wp_disarm = parseInt(values[`${wpkey}_disarm_total`])||0;
+                                let wp_strike = (parseInt(values2[`${wpkey}_strike_total`])||0) + (parseInt(values2[`${rcombat_key}_strike`])||0);
+                                let wp_thrown = wpkey == "hth" ? wp_strike : (parseInt(values2[`${wpkey}_thrown_total`])||0) + (parseInt(values2[`${rcombat_key}_strike`])||0);
+                                let wp_parry = (parseInt(values2[`${wpkey}_parry_total`])||0)  + (parseInt(values2[`${rcombat_key}_parry`])||0);
+                                let wp_disarm = (parseInt(values2[`${wpkey}_disarm_total`])||0) + (parseInt(values2[`${rcombat_key}_disarm`])||0);
                                 update[`${group}_${key}_template`] = weapon_template;
                                 update[`${group}_${key}_strike_total`] = strike + wp_strike;
                                 update[`${group}_${key}_thrown_total`] = thrown + wp_thrown;
@@ -5934,6 +5992,36 @@
             },
         },
     };
+    function get_ps_stats(ps, pe, ps_type) {
+        let carry = ps > 16 ? ps*20 : ps*10;
+        if (ps_type == "robot" && ps > 39) {
+            carry = ps*100;
+        } else if (ps_type == "robot" && ps > 16) {
+            carry = ps*25;
+        } else if (ps_type == "supernatural" && ps > 17) {
+            carry = ps*50;
+        } else if (ps_type == "supernatural") {
+            carry = ps*20;
+        }
+        let lift = carry * 2;
+        let hold_max = pe * 3;
+        let throw_weight = carry / 2;
+        let throw_distance = ps;
+        if (ps_type == "augmented") {
+            throw_distance = ps*2;
+        } else if (ps_type == "supernatural" && ps > 16) {
+            throw_distance = ps*5;
+        } else if (ps_type == "robot" || ps_type == "supernatural") {
+            throw_distance = ps*3;
+        }
+        return {
+            "lift": lift,
+            "carry": carry,
+            "hold_max": hold_max,
+            "throw_weight": throw_weight,
+            "throw_distance": throw_distance
+        };
+    }
     on("change:ps change:ps_type change:pe change:hth_damage", function(eventInfo) {
         getAttrs(["ps","ps_type","pe","hth_damage"], function(values) {
             let ps = parseInt(values.ps)||0;
@@ -5942,27 +6030,8 @@
             let ps_type = values.ps_type.toLowerCase();
             let ps_hth_damage = ps > 15 ? ps - 15 : 0;
             let hth_damage_total = hth_damage + ps_hth_damage;
-            let carry = ps > 16 ? ps*20 : ps*10;
-            if (ps_type == "robot" && ps > 39) {
-                carry = ps*100;
-            } else if (ps_type == "robot" && ps > 16) {
-                carry = ps*25;
-            } else if (ps_type == "supernatural" && ps > 17) {
-                carry = ps*50;
-            } else if (ps_type == "supernatural") {
-                carry = ps*20;
-            }
-            let lift = carry * 2;
-            let hold_max = pe * 3;
-            let throw_weight = carry / 2;
-            let throw_distance = ps;
-            if (ps_type == "augmented") {
-                throw_distance = ps*2;
-            } else if (ps_type == "supernatural" && ps > 16) {
-                throw_distance = ps*5;
-            } else if (ps_type == "robot" || ps_type == "supernatural") {
-                throw_distance = ps*3;
-            }
+            let stats = get_ps_stats(ps, pe, ps_type);
+
             // strength class
             let ps_class = "default";
             if (ps_type == "augmented") {
@@ -5988,11 +6057,11 @@
             setAttrs({
                 ps_hth_damage: ps_hth_damage,
                 hth_damage_total: hth_damage_total,
-                lift: lift,
-                carry: carry,
-                throw_weight: throw_weight,
-                throw_distance: throw_distance,
-                hold_max: hold_max,
+                lift: stats["lift"],
+                carry: stats["carry"],
+                throw_weight: stats["throw_weight"],
+                throw_distance: stats["throw_distance"],
+                hold_max: stats["hold_max"],
                 ps_hth_punch: ps_class_damage[ps_type][ps_class]["punch"],
                 ps_hth_punch_type: ps_class_damage[ps_type][ps_class]["punch_type"],
                 ps_hth_kick: ps_class_damage[ps_type][ps_class]["kick"],
@@ -6158,6 +6227,20 @@
                 }
             });
             setAttrs(update);
+        });
+    });
+
+    on("change:repeating_rpa:rpa_ps change:repeating_rpa:rpa_ps_type", function(eventInfo) {
+        getAttrs(["repeating_rpa_rpa_ps","repeating_rpa_rpa_ps_type"], function(values) {
+            let ps = parseInt(values.repeating_rpa_rpa_ps)||0;
+            let ps_type = values.repeating_rpa_rpa_ps_type.toLowerCase();
+            let stats = get_ps_stats(ps, 0, ps_type);
+            setAttrs({
+                repeating_rpa_rpa_lift: stats["lift"],
+                repeating_rpa_rpa_carry: stats["carry"],
+                repeating_rpa_rpa_throw_weight: stats["throw_weight"],
+                repeating_rpa_rpa_throw_distance: stats["throw_distance"]
+            });
         });
     });
 
