@@ -1,4 +1,5 @@
 <input type="hidden" name="attr_version" value="" />
+<input type="hidden" class="sheet-theme" name="attr_theme" value="rifts" />
 <input type="hidden" class="display-token" name="attr_display_token" value="0" />
 <input type="hidden" class="tabstoggle" name="attr_sheetTab" value="basic" />
 <input type="hidden" class="equiptoggle" name="attr_sheetEquipTab" value="weapons" />
@@ -4961,9 +4962,15 @@
         <h2>Settings</h2>
 
         <div class="grid grid2">
-            <div class="grid grid2 frontload">
+            <div class="grid grid2">
+                <label>Theme</label>
+                <select name="attr_theme">
+                    <option value="rifts">Rifts</option>
+                    <option value="hu">Heroes Unlimited</option>
+                </select>
+
                 <label>Current version</label>
-                <span>0.11</span>
+                <span>0.12</span>
 
                 <label>Sheet version</label>
                 <span name="attr_version"></span>
@@ -5154,7 +5161,7 @@
             }
         });
     }
-    const current_version = "0.11";
+    const current_version = "0.12";
     const repeatinglist = ["armor","maneuvers","weapon","skills","ability","consumable"];
     repeatinglist.forEach(repeating => {
         on(`change:repeating_${repeating} remove:repeating_${repeating}`, function(eventInfo) {
