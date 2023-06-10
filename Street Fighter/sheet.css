@@ -1,5 +1,11 @@
 /* Street Fighter style */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Rajdhani:wght@700&family=Splash&display=swap');
+
+body .charactersheet * {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .charactersheet .grid,
 .repcontainer,
 .repitem {
@@ -8,11 +14,14 @@
     padding: 0;
     grid-auto-rows: minmax(min-content, max-content);
     gap: 10px;
-    place-content: center;
+    align-items: center;
 }
 .charactersheet .nogap {
     gap: 0px;
     grid-template-rows: 20px auto;
+}
+.charactersheet .grid.base {
+    align-items: baseline;
 }
 .col2 {
     grid-template-columns: repeat(2, 1fr);
@@ -34,7 +43,10 @@
 .charactersheet .grid h1,
 .charactersheet .grid h2,
 .charactersheet .grid h3 {
+    font-family: 'Rajdhani', sans-serif;
+    xfont-family: 'Splash', cursive;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .charactersheet .grid input[type="text"] {

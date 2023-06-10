@@ -1,6 +1,6 @@
 <div class="grid">
     <h1>Street Fighter</h1>
-    <div class="grid col6">
+    <div class="grid col6 base">
         <label>Name</label>
         <input type="text" name="attr_character_name" />
         <label>Style</label>
@@ -22,7 +22,7 @@
     </div>
 
     <h2>Attributes</h2>
-    <div class="grid col3">
+    <div class="grid col3 base">
         <div class="grid">
             <h3>Physical</h3>
             <div class="grid col2">
@@ -124,7 +124,7 @@
     </div>
 
     <h2>Abilities</h2>
-    <div class="grid col3">
+    <div class="grid col3 base">
         <div class="grid">
             <h3>Talents</h3>
             <div class="grid col2">
@@ -306,14 +306,14 @@
         </div>
     </div>
 
-    <div class="grid col3">
+    <div class="grid col3 base">
         <div class="grid span2">
             <h2>Advantages</h2>
-            <div class="grid col2">
+            <div class="grid col2 base">
                 <div class="grid">
                     <h3>Backgrounds</h3>
                     <fieldset class="repeating_backgrounds">
-                        <input type="text" name="attr_background_name" placeholder="Name" />
+                        <input type="text" name="attr_background_name" placeholder="Background" />
                         <div class="grid col6 nogap">
                             <input type="radio" name="attr_background_value" value="0" checked="checked" />
                             <input type="radio" name="attr_background_value" value="1" />
@@ -389,7 +389,10 @@
 
         <div class="grid">
             <h2>&nbsp;</h2>
-            <h3>Special Manuevers</h3>
+            <h3>Special Maneuvers</h3>
+            <fieldset class="repeating_maneuvers">
+                <input type="text" name="attr_maneuver_name" placeholder="Maneuver" />
+            </fieldset>
         </div>
     </div>
 </div>
