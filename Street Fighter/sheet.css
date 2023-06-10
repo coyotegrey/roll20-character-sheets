@@ -1,0 +1,90 @@
+/* Street Fighter style */
+
+.charactersheet .grid,
+.repcontainer,
+.repitem {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 10px;
+    place-content: center;
+}
+.charactersheet .nogap {
+    gap: 0px;
+    grid-template-rows: 20px auto;
+}
+.col2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.col3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+.col6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+.span2 {
+    grid-column: span 2;
+}
+
+.repeating_backgrounds ~ .repcontainer .repitem {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.charactersheet .grid h1,
+.charactersheet .grid h2,
+.charactersheet .grid h3 {
+    text-align: center;
+}
+
+.charactersheet .grid input[type="text"] {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px black;
+    border-radius: 0;
+    background: none;
+}
+
+.charactersheet .grid label {
+    margin: 0;
+    padding: 0;
+    line-height: 150%;
+}
+
+/* radio stuff */
+.charactersheet .grid input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: solid 1px black;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+.charactersheet .grid input[type="radio"]:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: 120ms transform ease-in-out;
+    background: black;
+    line-height: 16px;
+}
+.charactersheet .grid input[type="radio"]:checked ~ input[type="radio"]:before {
+  transform: scale(0);
+}
+.charactersheet .grid input[type="radio"]:first-child {
+    border: none;
+}
+.charactersheet .grid input[type="radio"]:first-child:before {
+    background: none;
+}
+.charactersheet .grid input[type="radio"]:first-child:hover:before {
+    content: "✖";
+}
