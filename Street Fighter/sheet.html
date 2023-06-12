@@ -1,24 +1,34 @@
 <div class="grid">
-    <h1>Street Fighter</h1>
-    <div class="grid col6 base">
-        <label>Name</label>
-        <input type="text" name="attr_character_name" />
-        <label>Style</label>
-        <input type="text" name="attr_style" />
-        <label>Team</label>
-        <input type="text" name="attr_team" />
-        <label>Player</label>
-        <input type="text" name="attr_player" />
-        <label>School</label>
-        <input type="text" name="attr_school" />
-        <label>Concept</label>
-        <input type="text" name="attr_concept" />
-        <label>Chronicle</label>
-        <input type="text" name="attr_chronicle" />
-        <label>Stable</label>
-        <input type="text" name="attr_stable" />
-        <label>Signature</label>
-        <input type="text" name="attr_signature" />
+    <div class="cabinet">
+        <h1>Street Fighter</h1>
+        <button class="arcade light" type="roll" name="roll_pool"
+            value="&{template:sfroll} {{name=@{character_name}}} {{attribute=?{Attribute|Strength,@{strength}[strength]|Dexterity,@{dexterity}[dexterity]|Stamina,@{stamina}[stamina]|Charisma,@{charisma}[charisma]|Manipulation,@{manipulation}[manipulation]|Appearance,@{appearance}[appearance]|Perception,@{perception}[perception]|Intelligence,@{intelligence}[intelligence]|Wits,@{wits}[wits]}}} {{ability=?{Ability|None,0[none]|Alertness,@{alertness}[alertness]|Interrogation,@{interrogation}[interrogation]|Intimidation,@{intimidation}[intimidation]|Insight,@{insight}[insight]|Streetwise,@{streetwise}[streetwise]|Subterfuge,@{subterfuge}[subterfuge]|Blind Fighting,@{blind_fighting}[blind_fighting]|Drive,@{drive}[drive]|Leadership,@{leadership}[leadership]|Security,@{security}[security]|Stealth,@{stealth}[stealth]|Survival,@{survival}[survival]|Arena,@{arena}[arena]|Computer,@{computer}[computer]|Investigation,@{investigation}[investigation]|Medicine,@{medicine}[medicine]|Mysteries,@{Mysteries}[mysteries]|Style Lore,@{style_lore}[style_lore]}}} {{difficulty=[[?{Difficulty|6|2|3|4|5|6|7|8|9|10}]]}} {{result=[[([[?{Attribute}+?{Ability}]])d10>?{Difficulty}f1]]}}" />
+    </div>
+    <div class="grid col3 base">
+        <div class="grid col2-flex">
+            <label>Name</label>
+            <input type="text" name="attr_character_name" />
+            <label>Player</label>
+            <input type="text" name="attr_player" />
+            <label>Chronicle</label>
+            <input type="text" name="attr_chronicle" />
+        </div>
+        <div class="grid col2-flex">
+            <label>Style</label>
+            <input type="text" name="attr_style" />
+            <label>School</label>
+            <input type="text" name="attr_school" />
+            <label>Stable</label>
+            <input type="text" name="attr_stable" />
+        </div>
+        <div class="grid col2-flex">
+            <label>Team</label>
+            <input type="text" name="attr_team" />
+            <label>Concept</label>
+            <input type="text" name="attr_concept" />
+            <label>Signature</label>
+            <input type="text" name="attr_signature" />
+        </div>
     </div>
 
     <h2>Attributes</h2>
@@ -383,6 +393,17 @@
                             <input type="radio" name="attr_focus" value="5" />
                         </div>
                     </div>
+                    <fieldset class="repeating_techniques">
+                        <input type="text" name="attr_technique_name" placeholder="Technique" />
+                        <div class="grid col6 nogap">
+                            <input type="radio" name="attr_technique_value" value="0" checked="checked" />
+                            <input type="radio" name="attr_technique_value" value="1" />
+                            <input type="radio" name="attr_technique_value" value="2" />
+                            <input type="radio" name="attr_technique_value" value="3" />
+                            <input type="radio" name="attr_technique_value" value="4" />
+                            <input type="radio" name="attr_technique_value" value="5" />
+                        </div>
+                    </fieldset>
                 </div>
             </div>
         </div>
@@ -395,4 +416,46 @@
             </fieldset>
         </div>
     </div>
+
+    <div class="grid col3 base">
+        <div class="grid">
+            <h3>Chi</h3>
+            <div class="grid col11 nogap chi">
+                <input type="radio" name="attr_chi_max" value="0" checked="checked" />
+                <input type="radio" name="attr_chi_max" value="1" />
+                <input type="radio" name="attr_chi_max" value="2" />
+                <input type="radio" name="attr_chi_max" value="3" />
+                <input type="radio" name="attr_chi_max" value="4" />
+                <input type="radio" name="attr_chi_max" value="5" />
+                <input type="radio" name="attr_chi_max" value="6" />
+                <input type="radio" name="attr_chi_max" value="7" />
+                <input type="radio" name="attr_chi_max" value="8" />
+                <input type="radio" name="attr_chi_max" value="9" />
+                <input type="radio" name="attr_chi_max" value="10" />
+            </div>
+
+            <h3>Willpower</h3>
+            <div class="grid">
+            </div>
+
+            <h3>Health</h3>
+            <div class="grid">
+            </div>
+        </div>
+
+        <div class="grid span2">
+            <h3>Maneuvers and Powers</h3>
+            <div class="grid">
+            </div>
+        </div>
+    </div>
 </div>
+
+<rolltemplate class="sheet-rolltemplate-sfroll">
+    <div class="sheet-template">
+        <h4>{{name}}</h4>
+        <p>rolls {{attribute}} + {{ability}}</p>
+        <p class="sheet-difficulty">vs. {{difficulty}}</p>
+        <p class="sheet-result">{{result}} successes!</p>
+    </div>
+</rolltemplate>
