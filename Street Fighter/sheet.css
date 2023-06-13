@@ -27,17 +27,47 @@ body .charactersheet * {
 .col2 {
     grid-template-columns: repeat(2, 1fr);
 }
+.col2-weighted {
+    grid-template-columns: 110px auto;
+}
 .col2-flex {
     grid-template-columns: auto auto;
 }
 .col3 {
     grid-template-columns: repeat(3, 1fr);
 }
+.col4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+.col4-flex {
+    grid-template-columns: auto auto auto auto;
+}
+.col5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+.col5-powers {
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+}
 .col6 {
     grid-template-columns: repeat(6, 1fr);
 }
+.col9 {
+    grid-template-columns: repeat(9, 1fr);
+}
 .col11 {
     grid-template-columns: repeat(11, 1fr);
+}
+.slot1 {
+    grid-column: 1;
+}
+.slot2 {
+    grid-column: 2;
+}
+.slot3 {
+    grid-column: 3;
+}
+.slot4 {
+    grid-column: 4;
 }
 .span2 {
     grid-column: span 2;
@@ -45,7 +75,10 @@ body .charactersheet * {
 
 .repeating_backgrounds ~ .repcontainer .repitem,
 .repeating_techniques ~ .repcontainer .repitem {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 110px auto;
+}
+.repeating_maneuvers ~ .repcontainer .repitem {
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
 }
 
 .charactersheet .grid h1 {
@@ -59,19 +92,42 @@ body .charactersheet * {
     text-indent: -9999px;
 }
 .charactersheet .grid h2,
-.charactersheet .grid h3 {
+.charactersheet .grid h3,
+.charactersheet .grid h4 {
     font-family: 'Rajdhani', sans-serif;
     xfont-family: 'Splash', cursive;
     text-align: center;
     text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+.charactersheet .grid h2,
+.charactersheet .grid .maneuvers h3,
+.charactersheet .grid h3.willpower,
+.charactersheet .grid h3.experience,
+.charactersheet .info label {
+    color: red;
+}
+.charactersheet .grid h3 {
+    color: darkblue;
+}
+.charactersheet .grid h3.chi {
+    color: purple;
+}
+.charactersheet .grid h3.health {
+    color: green;
 }
 
 .charactersheet .grid input[type="text"] {
     width: 100%;
+    height: 16px;
+    padding: 0;
+    line-height: 16px;
     border: none;
     border-bottom: solid 1px black;
     border-radius: 0;
     background: none;
+    font-size: 11px;
 }
 
 .charactersheet .grid label {
@@ -79,45 +135,153 @@ body .charactersheet * {
     padding: 0;
     line-height: 150%;
     width: auto;
+    font-size: 11px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 10px;
+}
+.footer dt,
+.footer dd {
+    display: inline;
+}
+.footer dd:not(:last-child) {
+    padding-right: 10px;
 }
 
 /* radio stuff */
 .charactersheet .grid input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
-    background-color: none;
-    width: 18px;
-    height: 18px;
+    background: white;
+    width: 14px;
+    height: 14px;
     margin: 0;
     padding: 0;
     cursor: pointer;
-    border: solid 1px black;
-    border-radius: 50%;
+    border: solid 1px darkblue;
     display: grid;
     place-content: center;
+    transform: skew(-30deg);
+}
+.charactersheet .grid input[type="radio"]:nth-child(7) {
+    border-color: blue;
+}
+.charactersheet .grid input[type="radio"]:nth-child(8) {
+    border-color: purple;
+}
+.charactersheet .grid input[type="radio"]:nth-child(9) {
+    border-color: violet;
 }
 .charactersheet .grid input[type="radio"]:before {
     content: "";
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
+    width: 12px;
+    height: 12px;
     transform: scale(1);
     transition: 120ms transform ease-in-out;
-    background: black;
-    line-height: 16px;
+    background: darkblue;
+    line-height: 12px;
+}
+.charactersheet .grid input[type="radio"]:nth-child(7):before {
+    background: blue;
+}
+.charactersheet .grid input[type="radio"]:nth-child(8):before {
+    background: purple;
+}
+.charactersheet .grid input[type="radio"]:nth-child(9):before {
+    background: violet;
 }
 .charactersheet .grid input[type="radio"]:checked ~ input[type="radio"]:before {
-  transform: scale(0);
+    transform: scale(0);
 }
 .charactersheet .grid input[type="radio"]:first-child {
     border: none;
     background: none;
+    transform: none;
 }
 .charactersheet .grid input[type="radio"]:first-child:before {
     background: none;
 }
 .charactersheet .grid input[type="radio"]:first-child:hover:before {
     content: "✖";
+}
+.charactersheet .grid.glory input[type="radio"],
+.charactersheet .grid.honor input[type="radio"],
+.charactersheet .grid.chi input[type="radio"],
+.charactersheet .grid.willpower input[type="radio"],
+.charactersheet .grid.health input[type="radio"] {
+    height: 8px;
+    margin-top: -15px;
+}
+.charactersheet .grid.glory input[type="radio"]:before,
+.charactersheet .grid.honor input[type="radio"]:before,
+.charactersheet .grid.chi input[type="radio"]:before,
+.charactersheet .grid.willpower input[type="radio"]:before,
+.charactersheet .grid.health input[type="radio"]:before {
+    height: 6px;
+    line-height: 6px;
+}
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="1"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="2"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="3"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="4"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="5"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="6"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="7"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="8"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="9"] ~ input[type="radio"]:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="10"] ~ input[type="radio"]:before {
+    transform: scale(0);
+}
+.charactersheet .grid.health ~ .grid.health .health[value="0"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="1"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="2"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="3"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="4"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="5"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="6"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="7"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="8"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="9"] ~ input[type="radio"]:before,
+.charactersheet .grid.health ~ .grid.health .health[value="10"] ~ input[type="radio"]:before {
+    transform: scale(0);
+}
+.charactersheet .grid.glory-max input[type="radio"]:not(:first-child),
+.charactersheet .grid.glory input[type="radio"]:not(:first-child),
+.charactersheet .grid.honor-max input[type="radio"]:not(:first-child),
+.charactersheet .grid.honor input[type="radio"]:not(:first-child) {
+    border-color: darkblue;
+}
+.charactersheet .grid.glory-max input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.glory input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.honor-max input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.honor input[type="radio"]:not(:first-child):before {
+    background: darkblue;
+}
+.charactersheet .grid.chi-max input[type="radio"]:not(:first-child),
+.charactersheet .grid.chi input[type="radio"]:not(:first-child) {
+    border-color: purple;
+}
+.charactersheet .grid.chi-max input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.chi input[type="radio"]:not(:first-child):before {
+    background: purple;
+}
+.charactersheet .grid.willpower-max input[type="radio"]:not(:first-child),
+.charactersheet .grid.willpower input[type="radio"]:not(:first-child) {
+    border-color: red;
+}
+.charactersheet .grid.willpower-max input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.willpower input[type="radio"]:not(:first-child):before {
+    background: red;
+}
+.charactersheet .grid.health-max input[type="radio"]:not(:first-child),
+.charactersheet .grid.health input[type="radio"]:not(:first-child) {
+    border-color: green;
+}
+.charactersheet .grid.health-max input[type="radio"]:not(:first-child):before,
+.charactersheet .grid.health input[type="radio"]:not(:first-child):before {
+    background: green;
 }
 
 /* arcade cabinet */

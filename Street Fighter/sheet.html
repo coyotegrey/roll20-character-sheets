@@ -4,7 +4,7 @@
         <button class="arcade light" type="roll" name="roll_pool"
             value="&{template:sfroll} {{name=@{character_name}}} {{attribute=?{Attribute|Strength,@{strength}[strength]|Dexterity,@{dexterity}[dexterity]|Stamina,@{stamina}[stamina]|Charisma,@{charisma}[charisma]|Manipulation,@{manipulation}[manipulation]|Appearance,@{appearance}[appearance]|Perception,@{perception}[perception]|Intelligence,@{intelligence}[intelligence]|Wits,@{wits}[wits]}}} {{ability=?{Ability|None,0[none]|Alertness,@{alertness}[alertness]|Interrogation,@{interrogation}[interrogation]|Intimidation,@{intimidation}[intimidation]|Insight,@{insight}[insight]|Streetwise,@{streetwise}[streetwise]|Subterfuge,@{subterfuge}[subterfuge]|Blind Fighting,@{blind_fighting}[blind_fighting]|Drive,@{drive}[drive]|Leadership,@{leadership}[leadership]|Security,@{security}[security]|Stealth,@{stealth}[stealth]|Survival,@{survival}[survival]|Arena,@{arena}[arena]|Computer,@{computer}[computer]|Investigation,@{investigation}[investigation]|Medicine,@{medicine}[medicine]|Mysteries,@{Mysteries}[mysteries]|Style Lore,@{style_lore}[style_lore]}}} {{difficulty=[[?{Difficulty|6|2|3|4|5|6|7|8|9|10}]]}} {{result=[[([[?{Attribute}+?{Ability}]])d10>?{Difficulty}f1]]}}" />
     </div>
-    <div class="grid col3 base">
+    <div class="grid col3 base info">
         <div class="grid col2-flex">
             <label>Name</label>
             <input type="text" name="attr_character_name" />
@@ -35,99 +35,126 @@
     <div class="grid col3 base">
         <div class="grid">
             <h3>Physical</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Strength</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_strength" value="1" checked="checked" />
                     <input type="radio" name="attr_strength" value="2" />
                     <input type="radio" name="attr_strength" value="3" />
                     <input type="radio" name="attr_strength" value="4" />
                     <input type="radio" name="attr_strength" value="5" />
+                    <input type="radio" name="attr_strength" value="6" />
+                    <input type="radio" name="attr_strength" value="7" />
+                    <input type="radio" name="attr_strength" value="8" />
                 </div>
                 <label>Dexterity</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_dexterity" value="1" checked="checked" />
                     <input type="radio" name="attr_dexterity" value="2" />
                     <input type="radio" name="attr_dexterity" value="3" />
                     <input type="radio" name="attr_dexterity" value="4" />
                     <input type="radio" name="attr_dexterity" value="5" />
+                    <input type="radio" name="attr_dexterity" value="6" />
+                    <input type="radio" name="attr_dexterity" value="7" />
+                    <input type="radio" name="attr_dexterity" value="8" />
                 </div>
                 <label>Stamina</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_stamina" value="1" checked="checked" />
                     <input type="radio" name="attr_stamina" value="2" />
                     <input type="radio" name="attr_stamina" value="3" />
                     <input type="radio" name="attr_stamina" value="4" />
                     <input type="radio" name="attr_stamina" value="5" />
+                    <input type="radio" name="attr_stamina" value="6" />
+                    <input type="radio" name="attr_stamina" value="7" />
+                    <input type="radio" name="attr_stamina" value="8" />
                 </div>
             </div>
         </div>
 
         <div class="grid">
             <h3>Social</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Charisma</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_charisma" value="1" checked="checked" />
                     <input type="radio" name="attr_charisma" value="2" />
                     <input type="radio" name="attr_charisma" value="3" />
                     <input type="radio" name="attr_charisma" value="4" />
                     <input type="radio" name="attr_charisma" value="5" />
+                    <input type="radio" name="attr_charisma" value="6" />
+                    <input type="radio" name="attr_charisma" value="7" />
+                    <input type="radio" name="attr_charisma" value="8" />
                 </div>
                 <label>Manipulation</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_manipulation" value="1" checked="checked" />
                     <input type="radio" name="attr_manipulation" value="2" />
                     <input type="radio" name="attr_manipulation" value="3" />
                     <input type="radio" name="attr_manipulation" value="4" />
                     <input type="radio" name="attr_manipulation" value="5" />
+                    <input type="radio" name="attr_manipulation" value="6" />
+                    <input type="radio" name="attr_manipulation" value="7" />
+                    <input type="radio" name="attr_manipulation" value="8" />
                 </div>
                 <label>Appearance</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_appearance" value="1" checked="checked" />
                     <input type="radio" name="attr_appearance" value="2" />
                     <input type="radio" name="attr_appearance" value="3" />
                     <input type="radio" name="attr_appearance" value="4" />
                     <input type="radio" name="attr_appearance" value="5" />
+                    <input type="radio" name="attr_appearance" value="6" />
+                    <input type="radio" name="attr_appearance" value="7" />
+                    <input type="radio" name="attr_appearance" value="8" />
                 </div>
             </div>
         </div>
 
         <div class="grid">
             <h3>Mental</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Perception</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_perception" value="1" checked="checked" />
                     <input type="radio" name="attr_perception" value="2" />
                     <input type="radio" name="attr_perception" value="3" />
                     <input type="radio" name="attr_perception" value="4" />
                     <input type="radio" name="attr_perception" value="5" />
+                    <input type="radio" name="attr_perception" value="6" />
+                    <input type="radio" name="attr_perception" value="7" />
+                    <input type="radio" name="attr_perception" value="8" />
                 </div>
                 <label>Intelligence</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_intelligence" value="1" checked="checked" />
                     <input type="radio" name="attr_intelligence" value="2" />
                     <input type="radio" name="attr_intelligence" value="3" />
                     <input type="radio" name="attr_intelligence" value="4" />
                     <input type="radio" name="attr_intelligence" value="5" />
+                    <input type="radio" name="attr_intelligence" value="6" />
+                    <input type="radio" name="attr_intelligence" value="7" />
+                    <input type="radio" name="attr_intelligence" value="8" />
                 </div>
                 <label>Wits</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <span />
                     <input type="radio" name="attr_wits" value="1" checked="checked" />
                     <input type="radio" name="attr_wits" value="2" />
                     <input type="radio" name="attr_wits" value="3" />
                     <input type="radio" name="attr_wits" value="4" />
                     <input type="radio" name="attr_wits" value="5" />
+                    <input type="radio" name="attr_wits" value="6" />
+                    <input type="radio" name="attr_wits" value="7" />
+                    <input type="radio" name="attr_wits" value="8" />
                 </div>
             </div>
         </div>
@@ -137,180 +164,234 @@
     <div class="grid col3 base">
         <div class="grid">
             <h3>Talents</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Alertness</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_alertness" value="0" checked="checked" />
                     <input type="radio" name="attr_alertness" value="1" />
                     <input type="radio" name="attr_alertness" value="2" />
                     <input type="radio" name="attr_alertness" value="3" />
                     <input type="radio" name="attr_alertness" value="4" />
                     <input type="radio" name="attr_alertness" value="5" />
+                    <input type="radio" name="attr_alertness" value="6" />
+                    <input type="radio" name="attr_alertness" value="7" />
+                    <input type="radio" name="attr_alertness" value="8" />
                 </div>
                 <label>Interrogation</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_interrogation" value="0" checked="checked" />
                     <input type="radio" name="attr_interrogation" value="1" />
                     <input type="radio" name="attr_interrogation" value="2" />
                     <input type="radio" name="attr_interrogation" value="3" />
                     <input type="radio" name="attr_interrogation" value="4" />
                     <input type="radio" name="attr_interrogation" value="5" />
+                    <input type="radio" name="attr_interrogation" value="6" />
+                    <input type="radio" name="attr_interrogation" value="7" />
+                    <input type="radio" name="attr_interrogation" value="8" />
                 </div>
                 <label>Intimidation</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_intimidation" value="0" checked="checked" />
                     <input type="radio" name="attr_intimidation" value="1" />
                     <input type="radio" name="attr_intimidation" value="2" />
                     <input type="radio" name="attr_intimidation" value="3" />
                     <input type="radio" name="attr_intimidation" value="4" />
                     <input type="radio" name="attr_intimidation" value="5" />
+                    <input type="radio" name="attr_intimidation" value="6" />
+                    <input type="radio" name="attr_intimidation" value="7" />
+                    <input type="radio" name="attr_intimidation" value="8" />
                 </div>
                 <label>Insight</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_insight" value="0" checked="checked" />
                     <input type="radio" name="attr_insight" value="1" />
                     <input type="radio" name="attr_insight" value="2" />
                     <input type="radio" name="attr_insight" value="3" />
                     <input type="radio" name="attr_insight" value="4" />
                     <input type="radio" name="attr_insight" value="5" />
+                    <input type="radio" name="attr_insight" value="6" />
+                    <input type="radio" name="attr_insight" value="7" />
+                    <input type="radio" name="attr_insight" value="8" />
                 </div>
                 <label>Streetwise</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_streetwise" value="0" checked="checked" />
                     <input type="radio" name="attr_streetwise" value="1" />
                     <input type="radio" name="attr_streetwise" value="2" />
                     <input type="radio" name="attr_streetwise" value="3" />
                     <input type="radio" name="attr_streetwise" value="4" />
                     <input type="radio" name="attr_streetwise" value="5" />
+                    <input type="radio" name="attr_streetwise" value="6" />
+                    <input type="radio" name="attr_streetwise" value="7" />
+                    <input type="radio" name="attr_streetwise" value="8" />
                 </div>
                 <label>Subterfuge</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_subterfuge" value="0" checked="checked" />
                     <input type="radio" name="attr_subterfuge" value="1" />
                     <input type="radio" name="attr_subterfuge" value="2" />
                     <input type="radio" name="attr_subterfuge" value="3" />
                     <input type="radio" name="attr_subterfuge" value="4" />
                     <input type="radio" name="attr_subterfuge" value="5" />
+                    <input type="radio" name="attr_subterfuge" value="6" />
+                    <input type="radio" name="attr_subterfuge" value="7" />
+                    <input type="radio" name="attr_subterfuge" value="8" />
                 </div>
             </div>
         </div>
 
         <div class="grid">
             <h3>Skills</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Blind Fighting</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_blind_fighting" value="0" checked="checked" />
                     <input type="radio" name="attr_blind_fighting" value="1" />
                     <input type="radio" name="attr_blind_fighting" value="2" />
                     <input type="radio" name="attr_blind_fighting" value="3" />
                     <input type="radio" name="attr_blind_fighting" value="4" />
                     <input type="radio" name="attr_blind_fighting" value="5" />
+                    <input type="radio" name="attr_blind_fighting" value="6" />
+                    <input type="radio" name="attr_blind_fighting" value="7" />
+                    <input type="radio" name="attr_blind_fighting" value="8" />
                 </div>
                 <label>Drive</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_drive" value="0" checked="checked" />
                     <input type="radio" name="attr_drive" value="1" />
                     <input type="radio" name="attr_drive" value="2" />
                     <input type="radio" name="attr_drive" value="3" />
                     <input type="radio" name="attr_drive" value="4" />
                     <input type="radio" name="attr_drive" value="5" />
+                    <input type="radio" name="attr_drive" value="6" />
+                    <input type="radio" name="attr_drive" value="7" />
+                    <input type="radio" name="attr_drive" value="8" />
                 </div>
                 <label>Leadership</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_leadership" value="0" checked="checked" />
                     <input type="radio" name="attr_leadership" value="1" />
                     <input type="radio" name="attr_leadership" value="2" />
                     <input type="radio" name="attr_leadership" value="3" />
                     <input type="radio" name="attr_leadership" value="4" />
                     <input type="radio" name="attr_leadership" value="5" />
+                    <input type="radio" name="attr_leadership" value="6" />
+                    <input type="radio" name="attr_leadership" value="7" />
+                    <input type="radio" name="attr_leadership" value="8" />
                 </div>
                 <label>Security</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_security" value="0" checked="checked" />
                     <input type="radio" name="attr_security" value="1" />
                     <input type="radio" name="attr_security" value="2" />
                     <input type="radio" name="attr_security" value="3" />
                     <input type="radio" name="attr_security" value="4" />
                     <input type="radio" name="attr_security" value="5" />
+                    <input type="radio" name="attr_security" value="6" />
+                    <input type="radio" name="attr_security" value="7" />
+                    <input type="radio" name="attr_security" value="8" />
                 </div>
                 <label>Stealth</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_stealth" value="0" checked="checked" />
                     <input type="radio" name="attr_stealth" value="1" />
                     <input type="radio" name="attr_stealth" value="2" />
                     <input type="radio" name="attr_stealth" value="3" />
                     <input type="radio" name="attr_stealth" value="4" />
                     <input type="radio" name="attr_stealth" value="5" />
+                    <input type="radio" name="attr_stealth" value="6" />
+                    <input type="radio" name="attr_stealth" value="7" />
+                    <input type="radio" name="attr_stealth" value="8" />
                 </div>
                 <label>Survival</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_survival" value="0" checked="checked" />
                     <input type="radio" name="attr_survival" value="1" />
                     <input type="radio" name="attr_survival" value="2" />
                     <input type="radio" name="attr_survival" value="3" />
                     <input type="radio" name="attr_survival" value="4" />
                     <input type="radio" name="attr_survival" value="5" />
+                    <input type="radio" name="attr_survival" value="6" />
+                    <input type="radio" name="attr_survival" value="7" />
+                    <input type="radio" name="attr_survival" value="8" />
                 </div>
             </div>
         </div>
 
         <div class="grid">
             <h3>Knowledges</h3>
-            <div class="grid col2">
+            <div class="grid col2-weighted">
                 <label>Arena</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_arena" value="0" checked="checked" />
                     <input type="radio" name="attr_arena" value="1" />
                     <input type="radio" name="attr_arena" value="2" />
                     <input type="radio" name="attr_arena" value="3" />
                     <input type="radio" name="attr_arena" value="4" />
                     <input type="radio" name="attr_arena" value="5" />
+                    <input type="radio" name="attr_arena" value="6" />
+                    <input type="radio" name="attr_arena" value="7" />
+                    <input type="radio" name="attr_arena" value="8" />
                 </div>
                 <label>Computer</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_computer" value="0" checked="checked" />
                     <input type="radio" name="attr_computer" value="1" />
                     <input type="radio" name="attr_computer" value="2" />
                     <input type="radio" name="attr_computer" value="3" />
                     <input type="radio" name="attr_computer" value="4" />
                     <input type="radio" name="attr_computer" value="5" />
+                    <input type="radio" name="attr_computer" value="6" />
+                    <input type="radio" name="attr_computer" value="7" />
+                    <input type="radio" name="attr_computer" value="8" />
                 </div>
                 <label>Investigation</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_investigation" value="0" checked="checked" />
                     <input type="radio" name="attr_investigation" value="1" />
                     <input type="radio" name="attr_investigation" value="2" />
                     <input type="radio" name="attr_investigation" value="3" />
                     <input type="radio" name="attr_investigation" value="4" />
                     <input type="radio" name="attr_investigation" value="5" />
+                    <input type="radio" name="attr_investigation" value="6" />
+                    <input type="radio" name="attr_investigation" value="7" />
+                    <input type="radio" name="attr_investigation" value="8" />
                 </div>
                 <label>Medicine</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_medicine" value="0" checked="checked" />
                     <input type="radio" name="attr_medicine" value="1" />
                     <input type="radio" name="attr_medicine" value="2" />
                     <input type="radio" name="attr_medicine" value="3" />
                     <input type="radio" name="attr_medicine" value="4" />
                     <input type="radio" name="attr_medicine" value="5" />
+                    <input type="radio" name="attr_medicine" value="6" />
+                    <input type="radio" name="attr_medicine" value="7" />
+                    <input type="radio" name="attr_medicine" value="8" />
                 </div>
                 <label>Mysteries</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_mysteries" value="0" checked="checked" />
                     <input type="radio" name="attr_mysteries" value="1" />
                     <input type="radio" name="attr_mysteries" value="2" />
                     <input type="radio" name="attr_mysteries" value="3" />
                     <input type="radio" name="attr_mysteries" value="4" />
                     <input type="radio" name="attr_mysteries" value="5" />
+                    <input type="radio" name="attr_mysteries" value="6" />
+                    <input type="radio" name="attr_mysteries" value="7" />
+                    <input type="radio" name="attr_mysteries" value="8" />
                 </div>
                 <label>Style Lore</label>
-                <div class="grid col6 nogap">
+                <div class="grid col9 nogap">
                     <input type="radio" name="attr_style_lore" value="0" checked="checked" />
                     <input type="radio" name="attr_style_lore" value="1" />
                     <input type="radio" name="attr_style_lore" value="2" />
                     <input type="radio" name="attr_style_lore" value="3" />
                     <input type="radio" name="attr_style_lore" value="4" />
                     <input type="radio" name="attr_style_lore" value="5" />
+                    <input type="radio" name="attr_style_lore" value="6" />
+                    <input type="radio" name="attr_style_lore" value="7" />
+                    <input type="radio" name="attr_style_lore" value="8" />
                 </div>
             </div>
         </div>
@@ -324,7 +405,7 @@
                     <h3>Backgrounds</h3>
                     <fieldset class="repeating_backgrounds">
                         <input type="text" name="attr_background_name" placeholder="Background" />
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_background_value" value="0" checked="checked" />
                             <input type="radio" name="attr_background_value" value="1" />
                             <input type="radio" name="attr_background_value" value="2" />
@@ -337,71 +418,92 @@
 
                 <div class="grid">
                     <h3>Techniques</h3>
-                    <div class="grid col2">
+                    <div class="grid col2-weighted">
                         <label>Punch</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_punch" value="0" checked="checked" />
                             <input type="radio" name="attr_punch" value="1" />
                             <input type="radio" name="attr_punch" value="2" />
                             <input type="radio" name="attr_punch" value="3" />
                             <input type="radio" name="attr_punch" value="4" />
                             <input type="radio" name="attr_punch" value="5" />
+                            <input type="radio" name="attr_punch" value="6" />
+                            <input type="radio" name="attr_punch" value="7" />
+                            <input type="radio" name="attr_punch" value="8" />
                         </div>
                         <label>Kick</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_kick" value="0" checked="checked" />
                             <input type="radio" name="attr_kick" value="1" />
                             <input type="radio" name="attr_kick" value="2" />
                             <input type="radio" name="attr_kick" value="3" />
                             <input type="radio" name="attr_kick" value="4" />
                             <input type="radio" name="attr_kick" value="5" />
+                            <input type="radio" name="attr_kick" value="6" />
+                            <input type="radio" name="attr_kick" value="7" />
+                            <input type="radio" name="attr_kick" value="8" />
                         </div>
                         <label>Block</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_block" value="0" checked="checked" />
                             <input type="radio" name="attr_block" value="1" />
                             <input type="radio" name="attr_block" value="2" />
                             <input type="radio" name="attr_block" value="3" />
                             <input type="radio" name="attr_block" value="4" />
                             <input type="radio" name="attr_block" value="5" />
+                            <input type="radio" name="attr_block" value="6" />
+                            <input type="radio" name="attr_block" value="7" />
+                            <input type="radio" name="attr_block" value="8" />
                         </div>
                         <label>Grab</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_grab" value="0" checked="checked" />
                             <input type="radio" name="attr_grab" value="1" />
                             <input type="radio" name="attr_grab" value="2" />
                             <input type="radio" name="attr_grab" value="3" />
                             <input type="radio" name="attr_grab" value="4" />
                             <input type="radio" name="attr_grab" value="5" />
+                            <input type="radio" name="attr_grab" value="6" />
+                            <input type="radio" name="attr_grab" value="7" />
+                            <input type="radio" name="attr_grab" value="8" />
                         </div>
                         <label>Athletics</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_athletics" value="0" checked="checked" />
                             <input type="radio" name="attr_athletics" value="1" />
                             <input type="radio" name="attr_athletics" value="2" />
                             <input type="radio" name="attr_athletics" value="3" />
                             <input type="radio" name="attr_athletics" value="4" />
                             <input type="radio" name="attr_athletics" value="5" />
+                            <input type="radio" name="attr_athletics" value="6" />
+                            <input type="radio" name="attr_athletics" value="7" />
+                            <input type="radio" name="attr_athletics" value="8" />
                         </div>
                         <label>Focus</label>
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_focus" value="0" checked="checked" />
                             <input type="radio" name="attr_focus" value="1" />
                             <input type="radio" name="attr_focus" value="2" />
                             <input type="radio" name="attr_focus" value="3" />
                             <input type="radio" name="attr_focus" value="4" />
                             <input type="radio" name="attr_focus" value="5" />
+                            <input type="radio" name="attr_focus" value="6" />
+                            <input type="radio" name="attr_focus" value="7" />
+                            <input type="radio" name="attr_focus" value="8" />
                         </div>
                     </div>
                     <fieldset class="repeating_techniques">
                         <input type="text" name="attr_technique_name" placeholder="Technique" />
-                        <div class="grid col6 nogap">
+                        <div class="grid col9 nogap">
                             <input type="radio" name="attr_technique_value" value="0" checked="checked" />
                             <input type="radio" name="attr_technique_value" value="1" />
                             <input type="radio" name="attr_technique_value" value="2" />
                             <input type="radio" name="attr_technique_value" value="3" />
                             <input type="radio" name="attr_technique_value" value="4" />
                             <input type="radio" name="attr_technique_value" value="5" />
+                            <input type="radio" name="attr_technique_value" value="6" />
+                            <input type="radio" name="attr_technique_value" value="7" />
+                            <input type="radio" name="attr_technique_value" value="8" />
                         </div>
                     </fieldset>
                 </div>
@@ -410,19 +512,152 @@
 
         <div class="grid">
             <h2>&nbsp;</h2>
-            <h3>Special Maneuvers</h3>
-            <fieldset class="repeating_maneuvers">
-                <input type="text" name="attr_maneuver_name" placeholder="Maneuver" />
-            </fieldset>
+            <h3>Reknown</h3>
+
+            <h4>Glory</h4>
+            <div class="grid col11 nogap glory-max">
+                <input type="radio" name="attr_glory_max" value="0" checked="checked" />
+                <input type="radio" name="attr_glory_max" value="1" />
+                <input type="radio" name="attr_glory_max" value="2" />
+                <input type="radio" name="attr_glory_max" value="3" />
+                <input type="radio" name="attr_glory_max" value="4" />
+                <input type="radio" name="attr_glory_max" value="5" />
+                <input type="radio" name="attr_glory_max" value="6" />
+                <input type="radio" name="attr_glory_max" value="7" />
+                <input type="radio" name="attr_glory_max" value="8" />
+                <input type="radio" name="attr_glory_max" value="9" />
+                <input type="radio" name="attr_glory_max" value="10" />
+            </div>
+            <div class="grid col11 nogap glory">
+                <input type="radio" name="attr_glory" value="0" checked="checked" />
+                <input type="radio" name="attr_glory" value="1" />
+                <input type="radio" name="attr_glory" value="2" />
+                <input type="radio" name="attr_glory" value="3" />
+                <input type="radio" name="attr_glory" value="4" />
+                <input type="radio" name="attr_glory" value="5" />
+                <input type="radio" name="attr_glory" value="6" />
+                <input type="radio" name="attr_glory" value="7" />
+                <input type="radio" name="attr_glory" value="8" />
+                <input type="radio" name="attr_glory" value="9" />
+                <input type="radio" name="attr_glory" value="10" />
+            </div>
+
+            <h4>Honor</h4>
+            <div class="grid col11 nogap honor-max">
+                <input type="radio" name="attr_honor_max" value="0" checked="checked" />
+                <input type="radio" name="attr_honor_max" value="1" />
+                <input type="radio" name="attr_honor_max" value="2" />
+                <input type="radio" name="attr_honor_max" value="3" />
+                <input type="radio" name="attr_honor_max" value="4" />
+                <input type="radio" name="attr_honor_max" value="5" />
+                <input type="radio" name="attr_honor_max" value="6" />
+                <input type="radio" name="attr_honor_max" value="7" />
+                <input type="radio" name="attr_honor_max" value="8" />
+                <input type="radio" name="attr_honor_max" value="9" />
+                <input type="radio" name="attr_honor_max" value="10" />
+            </div>
+            <div class="grid col11 nogap honor">
+                <input type="radio" name="attr_honor" value="0" checked="checked" />
+                <input type="radio" name="attr_honor" value="1" />
+                <input type="radio" name="attr_honor" value="2" />
+                <input type="radio" name="attr_honor" value="3" />
+                <input type="radio" name="attr_honor" value="4" />
+                <input type="radio" name="attr_honor" value="5" />
+                <input type="radio" name="attr_honor" value="6" />
+                <input type="radio" name="attr_honor" value="7" />
+                <input type="radio" name="attr_honor" value="8" />
+                <input type="radio" name="attr_honor" value="9" />
+                <input type="radio" name="attr_honor" value="10" />
+            </div>
+
+            <div class="grid col2-flex">
+                <label>Division:</label>
+                <input type="text" name="attr_division" />
+                <label>Rank:</label>
+                <input type="text" name="attr_rank" />
+            </div>
+
+            <h4>Standing</h4>
+            <div class="grid col4-flex">
+                <label>Wins:</label>
+                <input type="text" name="attr_wins" />
+                <label>Losses:</label>
+                <input type="text" name="attr_losses" />
+                <label>Draws:</label>
+                <input type="text" name="attr_draws" />
+                <label>KOs:</label>
+                <input type="text" name="attr_kos" />
+            </div>
         </div>
     </div>
 
     <div class="grid col3 base">
+        <div class="grid span2 maneuvers">
+            <h3>Maneuvers and Powers</h3>
+            <div class="grid col5-powers header">
+                <span />
+                <h4>Speed</h4>
+                <h4>Damage</h4>
+                <h4>Move</h4>
+                <h4>Cost</h4>
+            </div>
+            <div class="grid col5-powers">
+                <label class="slot1">Jab</label>
+                <input type="text" name="attr_jab_speed" placeholder="+2" />
+                <input type="text" name="attr_jab_damage" placeholder="-1" />
+                <input type="text" name="attr_jab_move" placeholder="+0" />
+
+                <label class="slot1">Strong</label>
+                <input type="text" name="attr_strong_speed" placeholder="+0" />
+                <input type="text" name="attr_strong_damage" placeholder="+1" />
+                <input type="text" name="attr_strong_move" placeholder="+0" />
+
+                <label class="slot1">Fierce</label>
+                <input type="text" name="attr_fierce_speed" placeholder="-1" />
+                <input type="text" name="attr_fierce_damage" placeholder="+3" />
+                <input type="text" name="attr_fierce_move" placeholder="-1" />
+
+                <label class="slot1">Short</label>
+                <input type="text" name="attr_short_speed" placeholder="+1" />
+                <input type="text" name="attr_short_damage" placeholder="+0" />
+                <input type="text" name="attr_short_move" placeholder="+0" />
+
+                <label class="slot1">Forward</label>
+                <input type="text" name="attr_forward_speed" placeholder="+0" />
+                <input type="text" name="attr_forward_damage" placeholder="+2" />
+                <input type="text" name="attr_forward_move" placeholder="-1" />
+
+                <label class="slot1">Roundhouse</label>
+                <input type="text" name="attr_roundhouse_speed" placeholder="-2" />
+                <input type="text" name="attr_roundhouse_damage" placeholder="+4" />
+                <input type="text" name="attr_roundhouse_move" placeholder="-1" />
+
+                <label class="slot1">Block</label>
+                <input type="text" name="attr_block_speed" placeholder="+4" />
+
+                <label class="slot1">Movement</label>
+                <input type="text" name="attr_movement_speed" placeholder="+3" />
+                <input class="slot4" type="text" name="attr_movement_move" placeholder="+3" />
+
+                <label class="slot1">Grab</label>
+                <input type="text" name="attr_grab_speed" placeholder="+0" />
+                <input type="text" name="attr_grab_damage" placeholder="+0" />
+                <input type="text" name="attr_grab_move" placeholder="1" />
+            </div>
+            <fieldset class="repeating_maneuvers">
+                <input type="text" name="attr_maneuver_name" placeholder="Maneuver" />
+                <input type="text" name="attr_maneuver_speed" placeholder="Speed" />
+                <input type="text" name="attr_maneuver_damage" placeholder="Damage" />
+                <input type="text" name="attr_maneuver_move" placeholder="Move" />
+                <input type="text" name="attr_maneuver_cost" placeholder="Cost" />
+            </fieldset>
+        </div>
+
         <div class="grid">
-            <h3>Chi</h3>
-            <div class="grid col11 nogap chi">
-                <input type="radio" name="attr_chi_max" value="0" checked="checked" />
-                <input type="radio" name="attr_chi_max" value="1" />
+            <h3 class="chi">Chi</h3>
+            <div class="grid col11 nogap chi-max">
+                <span />
+                <input type="radio" name="attr_chi_max" value="1" checked="checked" />
                 <input type="radio" name="attr_chi_max" value="2" />
                 <input type="radio" name="attr_chi_max" value="3" />
                 <input type="radio" name="attr_chi_max" value="4" />
@@ -433,22 +668,125 @@
                 <input type="radio" name="attr_chi_max" value="9" />
                 <input type="radio" name="attr_chi_max" value="10" />
             </div>
-
-            <h3>Willpower</h3>
-            <div class="grid">
+            <div class="grid col11 nogap chi">
+                <input type="radio" name="attr_chi" value="0" />
+                <input type="radio" name="attr_chi" value="1" checked="checked" />
+                <input type="radio" name="attr_chi" value="2" />
+                <input type="radio" name="attr_chi" value="3" />
+                <input type="radio" name="attr_chi" value="4" />
+                <input type="radio" name="attr_chi" value="5" />
+                <input type="radio" name="attr_chi" value="6" />
+                <input type="radio" name="attr_chi" value="7" />
+                <input type="radio" name="attr_chi" value="8" />
+                <input type="radio" name="attr_chi" value="9" />
+                <input type="radio" name="attr_chi" value="10" />
             </div>
 
-            <h3>Health</h3>
-            <div class="grid">
+            <h3 class="willpower">Willpower</h3>
+            <div class="grid col11 nogap willpower-max">
+                <span />
+                <input type="radio" name="attr_willpower_max" value="1" checked="checked" />
+                <input type="radio" name="attr_willpower_max" value="2" />
+                <input type="radio" name="attr_willpower_max" value="3" />
+                <input type="radio" name="attr_willpower_max" value="4" />
+                <input type="radio" name="attr_willpower_max" value="5" />
+                <input type="radio" name="attr_willpower_max" value="6" />
+                <input type="radio" name="attr_willpower_max" value="7" />
+                <input type="radio" name="attr_willpower_max" value="8" />
+                <input type="radio" name="attr_willpower_max" value="9" />
+                <input type="radio" name="attr_willpower_max" value="10" />
             </div>
-        </div>
+            <div class="grid col11 nogap willpower">
+                <input type="radio" name="attr_willpower" value="0" />
+                <input type="radio" name="attr_willpower" value="1" checked="checked" />
+                <input type="radio" name="attr_willpower" value="2" />
+                <input type="radio" name="attr_willpower" value="3" />
+                <input type="radio" name="attr_willpower" value="4" />
+                <input type="radio" name="attr_willpower" value="5" />
+                <input type="radio" name="attr_willpower" value="6" />
+                <input type="radio" name="attr_willpower" value="7" />
+                <input type="radio" name="attr_willpower" value="8" />
+                <input type="radio" name="attr_willpower" value="9" />
+                <input type="radio" name="attr_willpower" value="10" />
+            </div>
 
-        <div class="grid span2">
-            <h3>Maneuvers and Powers</h3>
-            <div class="grid">
+            <h3 class="health">Health</h3>
+            <div class="grid col11 nogap health-max">
+                <span />
+                <input type="radio" name="attr_health_max" value="1" />
+                <input type="radio" name="attr_health_max" value="2" />
+                <input type="radio" name="attr_health_max" value="3" />
+                <input type="radio" name="attr_health_max" value="4" />
+                <input type="radio" name="attr_health_max" value="5" />
+                <input type="radio" name="attr_health_max" value="6" />
+                <input type="radio" name="attr_health_max" value="7" />
+                <input type="radio" name="attr_health_max" value="8" />
+                <input type="radio" name="attr_health_max" value="9" />
+                <input type="radio" name="attr_health_max" value="10" checked="checked" />
             </div>
+            <div class="grid col11 nogap health">
+                <input type="radio" name="attr_health" value="0" />
+                <input type="radio" name="attr_health" value="1" />
+                <input type="radio" name="attr_health" value="2" />
+                <input type="radio" name="attr_health" value="3" />
+                <input type="radio" name="attr_health" value="4" />
+                <input type="radio" name="attr_health" value="5" />
+                <input type="radio" name="attr_health" value="6" />
+                <input type="radio" name="attr_health" value="7" />
+                <input type="radio" name="attr_health" value="8" />
+                <input type="radio" name="attr_health" value="9" />
+                <input type="radio" name="attr_health" value="10" checked="checked" />
+            </div>
+            <div class="grid col11 nogap health-max">
+                <span />
+                <input class="health-max" type="hidden" name="attr_health_max" />
+                <input type="radio" name="attr_health_max" value="11" />
+                <input type="radio" name="attr_health_max" value="12" />
+                <input type="radio" name="attr_health_max" value="13" />
+                <input type="radio" name="attr_health_max" value="14" />
+                <input type="radio" name="attr_health_max" value="15" />
+                <input type="radio" name="attr_health_max" value="16" />
+                <input type="radio" name="attr_health_max" value="17" />
+                <input type="radio" name="attr_health_max" value="18" />
+                <input type="radio" name="attr_health_max" value="19" />
+                <input type="radio" name="attr_health_max" value="20" />
+            </div>
+            <div class="grid col11 nogap health">
+                <span />
+                <input class="health" type="hidden" name="attr_health" />
+                <input type="radio" name="attr_health" value="11" />
+                <input type="radio" name="attr_health" value="12" />
+                <input type="radio" name="attr_health" value="13" />
+                <input type="radio" name="attr_health" value="14" />
+                <input type="radio" name="attr_health" value="15" />
+                <input type="radio" name="attr_health" value="16" />
+                <input type="radio" name="attr_health" value="17" />
+                <input type="radio" name="attr_health" value="18" />
+                <input type="radio" name="attr_health" value="19" />
+                <input type="radio" name="attr_health" value="20" />
+            </div>
+
+            <h3 class="experience">Experience</h3>
+            <input type="text" name="attr_experience" />
         </div>
     </div>
+
+    <dl class="footer">
+        <dt>Attributes:</dt>
+        <dd>7/5/3</dd>
+        <dt>Abilities:</dt>
+        <dd>9/7/4</dd>
+        <dt>Backgrounds:</dt>
+        <dd>5</dd>
+        <dt>Techniques:</dt>
+        <dd>8</dd>
+        <dt>Special Maneuvers:</dt>
+        <dd>7</dd>
+        <dt>Chi, Willpower:</dt>
+        <dd>per styles</dd>
+        <dt>Freebie Points:</dt>
+        <dd>15</dd>
+    </dl>
 </div>
 
 <rolltemplate class="sheet-rolltemplate-sfroll">
