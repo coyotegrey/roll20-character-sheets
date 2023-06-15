@@ -594,62 +594,81 @@
     <div class="grid col3 base">
         <div class="grid span2 maneuvers">
             <h3>Maneuvers and Powers</h3>
-            <div class="grid col5-powers header">
-                <span />
-                <h4>Speed</h4>
+            <div class="grid col6-powers header">
+                <h4 class="slot3">Speed</h4>
                 <h4>Damage</h4>
                 <h4>Move</h4>
-                <h4>Cost</h4>
+                <h4>Special</h4>
             </div>
-            <div class="grid col5-powers">
-                <label class="slot1">Jab</label>
+            <div class="grid col6-powers">
+                <button class="slot1 light" type="roll" name="roll_jab"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Jab Punch}} {{speed=@{jab_speed}}} {{damage=@{jab_damage}}} {{move=@{jab_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{jab_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Jab Punch</label>
                 <input type="text" name="attr_jab_speed" placeholder="+2" />
                 <input type="text" name="attr_jab_damage" placeholder="-1" />
                 <input type="text" name="attr_jab_move" placeholder="+0" />
 
-                <label class="slot1">Strong</label>
+                <button class="slot1 medium" type="roll" name="roll_strong"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Strong Punch}} {{speed=@{strong_speed}}} {{damage=@{strong_damage}}} {{move=@{strong_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{strong_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Strong Punch</label>
                 <input type="text" name="attr_strong_speed" placeholder="+0" />
                 <input type="text" name="attr_strong_damage" placeholder="+1" />
                 <input type="text" name="attr_strong_move" placeholder="+0" />
 
-                <label class="slot1">Fierce</label>
+                <button class="slot1 heavy" type="roll" name="roll_fierce"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Fierce Punch}} {{speed=@{fierce_speed}}} {{damage=@{fierce_damage}}} {{move=@{fierce_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{fierce_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Fierce Punch</label>
                 <input type="text" name="attr_fierce_speed" placeholder="-1" />
                 <input type="text" name="attr_fierce_damage" placeholder="+3" />
                 <input type="text" name="attr_fierce_move" placeholder="-1" />
 
-                <label class="slot1">Short</label>
+                <button class="slot1 light" type="roll" name="roll_short"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Short Kick}} {{speed=@{short_speed}}} {{damage=@{short_damage}}} {{move=@{short_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{short_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Short Kick</label>
                 <input type="text" name="attr_short_speed" placeholder="+1" />
                 <input type="text" name="attr_short_damage" placeholder="+0" />
                 <input type="text" name="attr_short_move" placeholder="+0" />
 
-                <label class="slot1">Forward</label>
+                <button class="slot1 medium" type="roll" name="roll_forward"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Forward Kick}} {{speed=@{forward_speed}}} {{damage=@{forward_damage}}} {{move=@{forward_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{forward_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Forward Kick</label>
                 <input type="text" name="attr_forward_speed" placeholder="+0" />
                 <input type="text" name="attr_forward_damage" placeholder="+2" />
                 <input type="text" name="attr_forward_move" placeholder="-1" />
 
-                <label class="slot1">Roundhouse</label>
+                <button class="slot1 heavy" type="roll" name="roll_roundhouse"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Roundhouse Kick}} {{speed=@{roundhouse_speed}}} {{damage=@{roundhouse_damage}}} {{move=@{roundhouse_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{roundhouse_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Roundhouse Kick</label>
                 <input type="text" name="attr_roundhouse_speed" placeholder="-2" />
                 <input type="text" name="attr_roundhouse_damage" placeholder="+4" />
                 <input type="text" name="attr_roundhouse_move" placeholder="-1" />
 
-                <label class="slot1">Block</label>
+                <button class="slot1 kick" type="roll" name="roll_block"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Block}} {{speed=@{block_speed}}} {{damage=@{block_damage}}} {{move=@{block_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{block_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Block</label>
                 <input type="text" name="attr_block_speed" placeholder="+4" />
 
-                <label class="slot1">Movement</label>
+                <button class="slot1" type="roll" name="roll_movement"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Movement}} {{speed=@{movement_speed}}} {{damage=@{movement_damage}}} {{move=@{movement_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{movement_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Movement</label>
                 <input type="text" name="attr_movement_speed" placeholder="+3" />
-                <input class="slot4" type="text" name="attr_movement_move" placeholder="+3" />
+                <input class="slot5" type="text" name="attr_movement_move" placeholder="+3" />
 
-                <label class="slot1">Grab</label>
+                <button class="slot1" type="roll" name="roll_grab"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=Grab}} {{speed=@{grab_speed}}} {{damage=@{grab_damage}}} {{move=@{grab_move}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{grab_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
+                <label>Grab</label>
                 <input type="text" name="attr_grab_speed" placeholder="+0" />
                 <input type="text" name="attr_grab_damage" placeholder="+0" />
                 <input type="text" name="attr_grab_move" placeholder="1" />
             </div>
             <fieldset class="repeating_maneuvers">
+                <button class="slot1" type="roll" name="roll_maneuver"
+                    value="&{template:sfcc} {{name=@{character_name}}} {{maneuver=@{maneuver_name}}} {{speed=@{maneuver_speed}}} {{damage=@{maneuver_damage}}} {{move=@{maneuver_move}}} {{special=@{maneuver_special}}} {{soak=?{Soak|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20}}} {{result=[[([[{@{maneuver_damage}-?{Soak},1}d1]])d10>6f1]]}}" />
                 <input type="text" name="attr_maneuver_name" placeholder="Maneuver" />
                 <input type="text" name="attr_maneuver_speed" placeholder="Speed" />
                 <input type="text" name="attr_maneuver_damage" placeholder="Damage" />
                 <input type="text" name="attr_maneuver_move" placeholder="Move" />
-                <input type="text" name="attr_maneuver_cost" placeholder="Cost" />
+                <input type="text" name="attr_maneuver_special" placeholder="Special" />
             </fieldset>
         </div>
 
@@ -795,5 +814,45 @@
         <p>rolls {{attribute}} + {{ability}}</p>
         <p class="sheet-difficulty">vs. {{difficulty}}</p>
         <p class="sheet-result">{{result}} successes!</p>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-sfcc">
+    <div class="sheet-template">
+        <h4>{{name}}'s {{maneuver}}</h4>
+        <div class="sheet-stats">
+            <p>{{speed}}</p>
+            <p><strong>Speed</strong></p>
+            <p>{{damage}}</p>
+            <p><strong>Damage</strong></p>
+            <p>{{move}}</p>
+            <p><strong>Move</strong></p>
+        </div>
+        {{#special}}
+            <div class="sheet-special">
+                <p><strong>Special</strong></p>
+                <p>{{special}}</p>
+            </div>
+        {{/special}}
+        <div class="sheet-vs">
+            <div class="sheet-soak">
+                <p>{{soak}}</p>
+                <p><strong>Soak</strong></p>
+            </div>
+        </div>
+        <div class="sheet-result">
+            {{#rollLess() result 0}}
+                <span class="sheet-botch">{{result}} Botch!</span>
+            {{/rollLess() result 0}}
+            {{#rollTotal() result 0}}
+                {{result}} successes!
+            {{/rollTotal() result 0}}
+            {{#rollTotal() result 1}}
+                {{result}} success!
+            {{/rollTotal() result 1}}
+            {{#rollGreater() result 1}}
+                {{result}} successes!
+            {{/rollGreater() result 1}}
+        </div>
     </div>
 </rolltemplate>

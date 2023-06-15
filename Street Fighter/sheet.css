@@ -1,9 +1,10 @@
 /* Street Fighter style */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Rajdhani:wght@700&family=Splash&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap');
 
 body .charactersheet * {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .charactersheet .grid,
@@ -45,11 +46,11 @@ body .charactersheet * {
 .col5 {
     grid-template-columns: repeat(5, 1fr);
 }
-.col5-powers {
-    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-}
 .col6 {
     grid-template-columns: repeat(6, 1fr);
+}
+.col6-powers {
+    grid-template-columns: 1fr 5fr 2fr 2fr 2fr 7fr;
 }
 .col9 {
     grid-template-columns: repeat(9, 1fr);
@@ -69,6 +70,9 @@ body .charactersheet * {
 .slot4 {
     grid-column: 4;
 }
+.slot5 {
+    grid-column: 5;
+}
 .span2 {
     grid-column: span 2;
 }
@@ -78,7 +82,59 @@ body .charactersheet * {
     grid-template-columns: 110px auto;
 }
 .repeating_maneuvers ~ .repcontainer .repitem {
-    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 5fr 2fr 2fr 2fr 7fr;
+}
+
+.ui-dialog .charactersheet .col6-powers button[type=roll],
+.repeating_maneuvers ~ .repcontainer .repitem button[type=roll] {
+    background: none;
+    border: solid 1px black;
+    border-radius: 50%;
+    box-shadow: none;
+    transition: 120ms all ease-in-out;
+    height: 16px;
+}
+.repeating_maneuvers ~ .repcontainer .repitem button[type=roll] {
+    border: solid 1px purple;
+    color: purple;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll]:hover {
+    background: black;
+    color: white;
+}
+.repeating_maneuvers ~ .repcontainer .repitem button[type=roll]:hover {
+    background: purple;
+    color: white;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll]:before,
+.repeating_maneuvers ~ .repcontainer .repitem button[type=roll]:before {
+    content: '0';
+    font-family: 'dicefontd10';
+    width: 100%;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].light {
+    color: crimson;
+    border: solid 1px crimson;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].light:hover {
+    background: crimson;
+    color: white;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].medium {
+    color: mediumseagreen;
+    border: solid 1px mediumseagreen;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].medium:hover {
+    background: mediumseagreen;
+    color: white;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].heavy {
+    color: royalblue;
+    border: solid 1px royalblue;
+}
+.ui-dialog .charactersheet .col6-powers button[type=roll].heavy:hover {
+    background: royalblue;
+    color: white;
 }
 
 .charactersheet .grid h1 {
@@ -94,8 +150,9 @@ body .charactersheet * {
 .charactersheet .grid h2,
 .charactersheet .grid h3,
 .charactersheet .grid h4 {
-    font-family: 'Rajdhani', sans-serif;
-    xfont-family: 'Splash', cursive;
+    position: relative;
+    font-family: 'Caveat Brush', cursive;
+    font-weight: normal;
     text-align: center;
     text-transform: uppercase;
     padding: 0;
@@ -106,19 +163,19 @@ body .charactersheet * {
 .charactersheet .grid h3.willpower,
 .charactersheet .grid h3.experience,
 .charactersheet .info label {
-    color: red;
+    color: crimson;
 }
 .charactersheet .grid h3 {
-    color: darkblue;
+    color: royalblue;
 }
 .charactersheet .grid h3.chi {
     color: purple;
 }
 .charactersheet .grid h3.health {
-    color: green;
+    color: mediumseagreen;
 }
 
-.charactersheet .grid input[type="text"] {
+.charactersheet .grid input[type='text'] {
     width: 100%;
     height: 16px;
     padding: 0;
@@ -127,7 +184,7 @@ body .charactersheet * {
     border-bottom: solid 1px black;
     border-radius: 0;
     background: none;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .charactersheet .grid label {
@@ -135,7 +192,7 @@ body .charactersheet * {
     padding: 0;
     line-height: 150%;
     width: auto;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .footer {
@@ -151,7 +208,7 @@ body .charactersheet * {
 }
 
 /* radio stuff */
-.charactersheet .grid input[type="radio"] {
+.charactersheet .grid input[type='radio'] {
     -webkit-appearance: none;
     appearance: none;
     background: white;
@@ -160,22 +217,22 @@ body .charactersheet * {
     margin: 0;
     padding: 0;
     cursor: pointer;
-    border: solid 1px darkblue;
+    border: solid 1px blue;
     display: grid;
     place-content: center;
     transform: skew(-30deg);
 }
-.charactersheet .grid input[type="radio"]:nth-child(7) {
-    border-color: blue;
+.charactersheet .grid input[type='radio']:nth-child(7) {
+    border-color: blueviolet;
 }
-.charactersheet .grid input[type="radio"]:nth-child(8) {
-    border-color: purple;
-}
-.charactersheet .grid input[type="radio"]:nth-child(9) {
+.charactersheet .grid input[type='radio']:nth-child(8) {
     border-color: violet;
 }
-.charactersheet .grid input[type="radio"]:before {
-    content: "";
+.charactersheet .grid input[type='radio']:nth-child(9) {
+    border-color: magenta;
+}
+.charactersheet .grid input[type='radio']:before {
+    content: '';
     width: 12px;
     height: 12px;
     transform: scale(1);
@@ -183,104 +240,104 @@ body .charactersheet * {
     background: darkblue;
     line-height: 12px;
 }
-.charactersheet .grid input[type="radio"]:nth-child(7):before {
+.charactersheet .grid input[type='radio']:nth-child(7):before {
     background: blue;
 }
-.charactersheet .grid input[type="radio"]:nth-child(8):before {
-    background: purple;
+.charactersheet .grid input[type='radio']:nth-child(8):before {
+    background: blueviolet;
 }
-.charactersheet .grid input[type="radio"]:nth-child(9):before {
+.charactersheet .grid input[type='radio']:nth-child(9):before {
     background: violet;
 }
-.charactersheet .grid input[type="radio"]:checked ~ input[type="radio"]:before {
+.charactersheet .grid input[type='radio']:checked ~ input[type='radio']:before {
     transform: scale(0);
 }
-.charactersheet .grid input[type="radio"]:first-child {
+.charactersheet .grid input[type='radio']:first-child {
     border: none;
     background: none;
     transform: none;
 }
-.charactersheet .grid input[type="radio"]:first-child:before {
+.charactersheet .grid input[type='radio']:first-child:before {
     background: none;
 }
-.charactersheet .grid input[type="radio"]:first-child:hover:before {
-    content: "✖";
+.charactersheet .grid input[type='radio']:first-child:hover:before {
+    content: '✖';
 }
-.charactersheet .grid.glory input[type="radio"],
-.charactersheet .grid.honor input[type="radio"],
-.charactersheet .grid.chi input[type="radio"],
-.charactersheet .grid.willpower input[type="radio"],
-.charactersheet .grid.health input[type="radio"] {
+.charactersheet .grid.glory input[type='radio'],
+.charactersheet .grid.honor input[type='radio'],
+.charactersheet .grid.chi input[type='radio'],
+.charactersheet .grid.willpower input[type='radio'],
+.charactersheet .grid.health input[type='radio'] {
     height: 8px;
     margin-top: -15px;
 }
-.charactersheet .grid.glory input[type="radio"]:before,
-.charactersheet .grid.honor input[type="radio"]:before,
-.charactersheet .grid.chi input[type="radio"]:before,
-.charactersheet .grid.willpower input[type="radio"]:before,
-.charactersheet .grid.health input[type="radio"]:before {
+.charactersheet .grid.glory input[type='radio']:before,
+.charactersheet .grid.honor input[type='radio']:before,
+.charactersheet .grid.chi input[type='radio']:before,
+.charactersheet .grid.willpower input[type='radio']:before,
+.charactersheet .grid.health input[type='radio']:before {
     height: 6px;
     line-height: 6px;
 }
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="1"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="2"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="3"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="4"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="5"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="6"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="7"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="8"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="9"] ~ input[type="radio"]:before,
-.charactersheet .grid.health-max ~ .grid.health-max .health-max[value="10"] ~ input[type="radio"]:before {
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='1'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='2'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='3'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='4'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='5'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='6'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='7'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='8'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='9'] ~ input[type='radio']:before,
+.charactersheet .grid.health-max ~ .grid.health-max .health-max[value='10'] ~ input[type='radio']:before {
     transform: scale(0);
 }
-.charactersheet .grid.health ~ .grid.health .health[value="0"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="1"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="2"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="3"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="4"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="5"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="6"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="7"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="8"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="9"] ~ input[type="radio"]:before,
-.charactersheet .grid.health ~ .grid.health .health[value="10"] ~ input[type="radio"]:before {
+.charactersheet .grid.health ~ .grid.health .health[value='0'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='1'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='2'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='3'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='4'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='5'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='6'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='7'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='8'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='9'] ~ input[type='radio']:before,
+.charactersheet .grid.health ~ .grid.health .health[value='10'] ~ input[type='radio']:before {
     transform: scale(0);
 }
-.charactersheet .grid.glory-max input[type="radio"]:not(:first-child),
-.charactersheet .grid.glory input[type="radio"]:not(:first-child),
-.charactersheet .grid.honor-max input[type="radio"]:not(:first-child),
-.charactersheet .grid.honor input[type="radio"]:not(:first-child) {
-    border-color: darkblue;
+.charactersheet .grid.glory-max input[type='radio']:not(:first-child),
+.charactersheet .grid.glory input[type='radio']:not(:first-child),
+.charactersheet .grid.honor-max input[type='radio']:not(:first-child),
+.charactersheet .grid.honor input[type='radio']:not(:first-child) {
+    border-color: blue;
 }
-.charactersheet .grid.glory-max input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.glory input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.honor-max input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.honor input[type="radio"]:not(:first-child):before {
+.charactersheet .grid.glory-max input[type='radio']:not(:first-child):before,
+.charactersheet .grid.glory input[type='radio']:not(:first-child):before,
+.charactersheet .grid.honor-max input[type='radio']:not(:first-child):before,
+.charactersheet .grid.honor input[type='radio']:not(:first-child):before {
     background: darkblue;
 }
-.charactersheet .grid.chi-max input[type="radio"]:not(:first-child),
-.charactersheet .grid.chi input[type="radio"]:not(:first-child) {
-    border-color: purple;
+.charactersheet .grid.chi-max input[type='radio']:not(:first-child),
+.charactersheet .grid.chi input[type='radio']:not(:first-child) {
+    border-color: mediumpurple;
 }
-.charactersheet .grid.chi-max input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.chi input[type="radio"]:not(:first-child):before {
+.charactersheet .grid.chi-max input[type='radio']:not(:first-child):before,
+.charactersheet .grid.chi input[type='radio']:not(:first-child):before {
     background: purple;
 }
-.charactersheet .grid.willpower-max input[type="radio"]:not(:first-child),
-.charactersheet .grid.willpower input[type="radio"]:not(:first-child) {
-    border-color: red;
+.charactersheet .grid.willpower-max input[type='radio']:not(:first-child),
+.charactersheet .grid.willpower input[type='radio']:not(:first-child) {
+    border-color: tomato;
 }
-.charactersheet .grid.willpower-max input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.willpower input[type="radio"]:not(:first-child):before {
-    background: red;
+.charactersheet .grid.willpower-max input[type='radio']:not(:first-child):before,
+.charactersheet .grid.willpower input[type='radio']:not(:first-child):before {
+    background: crimson;
 }
-.charactersheet .grid.health-max input[type="radio"]:not(:first-child),
-.charactersheet .grid.health input[type="radio"]:not(:first-child) {
-    border-color: green;
+.charactersheet .grid.health-max input[type='radio']:not(:first-child),
+.charactersheet .grid.health input[type='radio']:not(:first-child) {
+    border-color: limegreen;
 }
-.charactersheet .grid.health-max input[type="radio"]:not(:first-child):before,
-.charactersheet .grid.health input[type="radio"]:not(:first-child):before {
+.charactersheet .grid.health-max input[type='radio']:not(:first-child):before,
+.charactersheet .grid.health input[type='radio']:not(:first-child):before {
     background: green;
 }
 
@@ -324,7 +381,7 @@ body .ui-dialog .charactersheet .arcade:hover {
     top: 0;
 }
 body .ui-dialog .charactersheet button[type=roll].arcade:before {
-    content: "";
+    content: '';
     display: block;
     background: #f00;
     border-top: 2px solid #d00;
@@ -338,8 +395,8 @@ body .ui-dialog .charactersheet button[type=roll].arcade:before {
     box-shadow: inset 0px 8px 12px #d00;
 }
 body .ui-dialog .charactersheet button[type=roll].arcade:after {
-    font-family: "dicefontd10";
-    content: "k";
+    font-family: 'dicefontd10';
+    content: 'k';
     font-size: 40px;
     text-shadow: none;
     line-height: 48px;
@@ -352,4 +409,173 @@ body .ui-dialog .charactersheet button[type=roll].arcade:after {
 }
 body .ui-dialog .charactersheet button[type=roll].arcade:hover:after {
     color: #333;
+}
+
+/* roll templates */
+.sheet-rolltemplate-sfroll,
+.sheet-rolltemplate-sfcc {
+    background-image: linear-gradient(black 40%, white 40%, white 75%, gold 75%);
+    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 6px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+.sheet-rolltemplate-sfroll *,
+.sheet-rolltemplate-sfcc * {
+    font-family: 'DM Sans', sans-serif;
+}
+.sheet-rolltemplate-sfroll .sheet-template,
+.sheet-rolltemplate-sfcc .sheet-template {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 0;
+    align-items: center;
+}
+.sheet-rolltemplate-sfroll h4,
+.sheet-rolltemplate-sfcc h4 {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 20px 0 0 30px;
+    margin: 0;
+    color: white;
+    text-shadow: 2px 2px 5px red, 0 0 3px red, -2px -2px 5px red;
+}
+.sheet-rolltemplate-sfcc .sheet-stats {
+    position: relative;
+    display: grid;
+    margin: 0;
+    padding: 20px 10px 10px 10px;
+    gap: 0;
+    align-items: center;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-template: 1fr auto / repeat(3, 1fr);
+    grid-auto-flow: column;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p {
+    margin: 0;
+    padding: 5px 5px 2px 5px;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px -1px darkblue, 1px -1px darkblue, -1px 1px darkblue, 1px 1px darkblue, 0 0 2px darkblue;
+    z-index: 1;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p strong {
+    font-family: 'Caveat Brush', cursive;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p:nth-child(n+1):nth-child(-n+2) {
+    text-shadow: -1px -1px darkgoldenrod, 1px -1px darkgoldenrod, -1px 1px darkgoldenrod, 1px 1px darkgoldenrod, 0 0 2px darkgoldenrod;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p:nth-child(1) {
+    border-top-left-radius: 100%10px;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p:nth-child(n+3):nth-child(-n+4) {
+    text-shadow: -1px -1px maroon, 1px -1px maroon, -1px 1px maroon, 1px 1px maroon, 0 0 2px maroon;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p:nth-child(5) {
+    border-top-right-radius: 100%13px;
+}
+.sheet-rolltemplate-sfcc .sheet-stats p:nth-child(even) {
+    font-size: 12px;
+    margin-top: -5px;
+    padding: 0 0 10px 0;
+}
+.sheet-rolltemplate-sfcc .sheet-stats:before {
+    position: absolute;
+    content: '';
+    background-image: linear-gradient(to right, gold 30%, crimson 40%, crimson 60%, royalblue 70%);
+    mask-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/street-fighter-dev/Street%20Fighter/brush.png?');
+    mask-repeat: no-repeat;
+    mask-position: top center;
+    mask-size: 150%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+}
+.sheet-rolltemplate-sfcc .sheet-vs {
+    position: relative;
+    background: white;
+    border-bottom-left-radius: 100%10px;
+    border-bottom-right-radius: 100%20px;
+    display: grid;
+    margin: 0;
+    padding: 0 10px 10px 80px;
+    gap: 0;
+    align-items: center;
+    grid-auto-rows: minmax(min-content, max-content);
+}
+.sheet-rolltemplate-sfcc .sheet-vs:before {
+    position: absolute;
+    content: 'VS';
+    left: 25px;
+    top: -10px;
+    padding: 5px;
+    font-size: 36px;
+    font-family: 'Caveat Brush', cursive;
+    background-image: linear-gradient(black, darkred, crimson);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 1px red);
+}
+.sheet-rolltemplate-sfcc .sheet-soak {
+    position: relative;
+    width: 50%;
+}
+.sheet-rolltemplate-sfcc .sheet-vs .sheet-soak p {
+    margin: -5px 0 0 0;
+    padding: 5px 5px 7px 5px;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px -1px darkgreen, 1px -1px darkgreen, -1px 1px darkgreen, 1px 1px darkgreen, 0 0 2px darkgreen;
+    z-index: 1;
+}
+.sheet-rolltemplate-sfcc .sheet-vs .sheet-soak p strong {
+    font-family: 'Caveat Brush', cursive;
+}
+.sheet-rolltemplate-sfcc .sheet-vs .sheet-soak p:nth-child(even) {
+    font-size: 12px;
+    padding: 0 0 10px 0;
+}
+.sheet-rolltemplate-sfcc .sheet-soak:before {
+    position: absolute;
+    content: '';
+    background: mediumseagreen;
+    mask-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/street-fighter-dev/Street%20Fighter/brush.png');
+    mask-repeat: no-repeat;
+    mask-position: top center;
+    mask-size: 150%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+}
+.sheet-rolltemplate-sfroll .sheet-template .sheet-result,
+.sheet-rolltemplate-sfcc .sheet-template .sheet-result {
+    padding: 10px 30px;
+}
+.sheet-rolltemplate-sfroll .sheet-template .inlinerollresult,
+.sheet-rolltemplate-sfcc .sheet-template .inlinerollresult {
+    background: none;
+    border: none;
+    font-weight: unset;
+}
+.sheet-rolltemplate-sfroll .sheet-template .sheet-result .inlinerollresult,
+.sheet-rolltemplate-sfcc .sheet-template .sheet-result .inlinerollresult {
+    background: crimson;
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 10px 0 10px 0;
+    font-family: 'Caveat Brush', cursive;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 100%;
+    text-shadow: 0 0 3px white;
+    filter: drop-shadow(0 0 2px white);
 }
