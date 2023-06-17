@@ -487,7 +487,7 @@ body .ui-dialog .charactersheet button[type=roll].arcade:hover:after {
     position: absolute;
     content: '';
     background-image: linear-gradient(to right, gold 30%, crimson 40%, crimson 60%, royalblue 70%);
-    mask-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/street-fighter-dev/Street%20Fighter/brush.png?');
+    mask-image: url('https://raw.githubusercontent.com/coyotegrey/roll20-character-sheets/street-fighter-dev/Street%20Fighter/brush.png');
     mask-repeat: no-repeat;
     mask-position: top center;
     mask-size: 150%;
