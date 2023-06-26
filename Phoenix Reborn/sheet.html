@@ -1,38 +1,171 @@
-<charmancer class="sheet-charmancer-intro">
-    <h1>Create a Character</h1>
+<charmancer class="sheet-charmancer-origin">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Origin</h3>
 
-    <h2>Knight</h2>
-    <label>Health</label>
-    <input type="number" name="comp_health" required value="0" />
+        <p>Select an origin.</p>
+        <select class="origin" name="comp_origin" required></select>
 
-    <label>Coordination</label>
-    <input type="number" name="comp_coordination" required value="0" />
+        <div class="choice originchoice">
+            <h4>Abilities</h4>
+            <p class="origin-abilities"></p>
+            <h4>Size</h4>
+            <p class="origin-size"></p>
+            <h4>Speed</h4>
+            <p class="origin-speed"></p>
+            <h4>Senses</h4>
+            <p class="origin-senses"></p>
+            <h4>Skills</h4>
+            <p class="origin-skills"></p>
+            <div class="origin-traits"></div>
+        </div>
 
-    <label>Focus</label>
-    <input type="number" name="comp_focus" required value="0" />
+        <div class="grid col4">
+            <button type="submit" value="class" disabled>Prev</button>
+            <button type="submit" value="class">Next</button>
+            <button type="cancel" value="origin">Cancel</button>
+            <button type="finish" value="origin">Apply</button>
+        </div>
+    </div>
+</charmancer>
 
-    <h2>Sword</h2>
-    <label>Power</label>
-    <input type="number" name="comp_power" required value="0" />
+<charmancer class="sheet-repeating-trait">
+    <div></div>
+</charmancer>
 
-    <label>Speed</label>
-    <input type="number" name="comp_speed" required value="0" />
+<charmancer class="sheet-charmancer-class">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Class</h3>
 
-    <label>Connection</label>
-    <input type="number" name="comp_connection" required value="0" />
+        <div class="grid col4">
+            <button type="submit" value="origin">Prev</button>
+            <button type="submit" value="abilities">Next</button>
+            <button type="cancel" value="class">Cancel</button>
+            <button type="finish" value="class">Apply</button>
+        </div>
+    </div>
+</charmancer>
 
-    <button type="submit" value="example">Next</button>
-    <button type="cancel" value="example">Cancel</button>
-    <button type="finish" value="example">Apply</button>
+<charmancer class="sheet-charmancer-abilities">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Abilities</h3>
+
+        <h2>Knight</h2>
+        <label>Health</label>
+        <input type="number" name="comp_health" required value="0" />
+
+        <label>Coordination</label>
+        <input type="number" name="comp_coordination" required value="0" />
+
+        <label>Focus</label>
+        <input type="number" name="comp_focus" required value="0" />
+
+        <h2>Sword</h2>
+        <label>Power</label>
+        <input type="number" name="comp_power" required value="0" />
+
+        <label>Speed</label>
+        <input type="number" name="comp_speed" required value="0" />
+
+        <label>Connection</label>
+        <input type="number" name="comp_connection" required value="0" />
+
+        <div class="grid col4">
+            <button type="submit" value="class">Prev</button>
+            <button type="submit" value="skills">Next</button>
+            <button type="cancel" value="abilities">Cancel</button>
+            <button type="finish" value="abilities">Apply</button>
+        </div>
+    </div>
+</charmancer>
+
+<charmancer class="sheet-charmancer-skills">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Skills</h3>
+
+        <div class="grid col4">
+            <button type="submit" value="abilities">Prev</button>
+            <button type="submit" value="feats">Next</button>
+            <button type="cancel" value="skills">Cancel</button>
+            <button type="finish" value="skills">Apply</button>
+        </div>
+    </div>
+</charmancer>
+
+<charmancer class="sheet-charmancer-feats">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Feats</h3>
+
+        <div class="grid col4">
+            <button type="submit" value="skills">Prev</button>
+            <button type="submit" value="powers">Next</button>
+            <button type="cancel" value="feats">Cancel</button>
+            <button type="finish" value="feats">Apply</button>
+        </div>
+    </div>
+</charmancer>
+
+<charmancer class="sheet-charmancer-powers">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Powers</h3>
+
+        <div class="grid col4">
+            <button type="submit" value="feats">Prev</button>
+            <button type="submit" value="equipment">Next</button>
+            <button type="cancel" value="powers">Cancel</button>
+            <button type="finish" value="powers">Apply</button>
+        </div>
+    </div>
+</charmancer>
+
+<charmancer class="sheet-charmancer-equipment">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Equipment</h3>
+
+        <div class="grid col4">
+            <button type="submit" value="powers">Prev</button>
+            <button type="submit" value="review">Next</button>
+            <button type="cancel" value="equipment">Cancel</button>
+            <button type="finish" value="equipment">Apply</button>
+        </div>
+    </div>
+</charmancer>
+
+<charmancer class="sheet-charmancer-review">
+    <div class="grid">
+        <h1>Phoenix Reborn</h1>
+        <h2>Character Creation</h2>
+        <h3>Review</h3>
+
+        <div class="grid col4">
+            <button type="submit" value="equipment">Prev</button>
+            <button type="submit" value="review" disabled>Next</button>
+            <button type="cancel" value="review">Cancel</button>
+            <button type="finish" value="review">Apply</button>
+        </div>
+    </div>
 </charmancer>
 
 <div class="grid">
     <h1>Phoenix Reborn</h1>
 
-    <button type="action" name="act_start"></button>
+    <button type="action" name="act_create">Create</button>
 
     <div class="grid col2">
-        <h2>Knight</h2>
+        <h2 class="span2">Knight</h2>
         <label>Health</label>
         <input type="number" name="attr_health" value="0" />
 
@@ -42,7 +175,7 @@
         <label>Focus</label>
         <input type="number" name="attr_focus" value="0" />
 
-        <h2>Sword</h2>
+        <h2 class="span2">Sword</h2>
         <label>Power</label>
         <input type="number" name="attr_power" value="0" />
 
@@ -53,3 +186,90 @@
         <input type="number" name="attr_connection" required value="0" />
     </div>
 </div>
+
+<script type="text/worker">
+    // Data
+    const char_dict = {
+        "background": {
+            "Fey": {
+                "abilities": {"Mobility": 1, "Sensors": 1},
+                "size": "Medium",
+                "speed": 7,
+                "senses": "Low-light",
+                "skills": {"Nature": 2, "Perception": 2},
+                "other": {
+                    "Fey Weapon Proficiency": "You gain proficiency with the longbow and the shortbow.",
+                    "Fey Origin": "Your ancestors were native to the Feywild, so you are considered a fey creature for the purpose of effects that relate to creature origin.",
+                    "Group Awareness": "You grant non-elf allies within 5 squares of you a +1 racial bonus to Perception checks.",
+                    "Wild Step": "You ignore difficult terrain when you shift (even if you have a power that allows you to shift multiple squares).Elven Accuracy: You can use elven accuracy as an encounter power."
+                }
+            }
+        },
+        "classes": {
+            "Fighter": {
+                "role": "Tank",
+                "source": ""
+            }
+        },
+        "powers": {
+            "Dragon Breath": {}
+        }
+    };
+
+    Power Source: Martial. You have become a master of combat through endless hours of practice, determi-nation, and your own sheer physical toughness.Key Abilities: Strength, Dexterity, Wisdom, ConstitutionArmor Proficiencies: Cloth, leather, hide, chainmail, scale; light shield, heavy shieldWeapon Proficiencies: Simple melee, military melee, simple ranged, military rangedBonus to Defense: +2 FortitudeHit Points at 1st Level: 15 + Constitution scoreHit Points per Level Gained: 6Healing Surges per Day: 9 + Constitution modifierTrained Skills: From the class skills list below, choose three trained skills at 1st level.Class Skills: Athletics (Str), Endurance (Con), Heal (Wis), Intimidate (Cha), Streetwise (Cha)Build Options: Great weapon fighter, guardian fighterClass Features: Combat Challenge, Combat Superiority, Fighter Weapon Talent
+
+    on("clicked:create", function(eventInfo) {
+        startCharactermancer("origin");
+    });
+
+    on("mancer:cancel", function(eventInfo) {
+        deleteCharmancerData();
+    });
+
+    on("mancerfinish:apply", function(eventInfo) {
+        const mancer_data = getCharmancerData();
+
+        let update = {};
+
+        setAttrs(update, function() {
+            deleteCharmancerData();
+            finishCharactermancer();
+        });
+    });
+
+    on("page:origin", function(eventInfo) {
+        let origins = [""].concat(Object.keys(char_dict["origins"]));
+        setCharmancerOptions("origin", origins);
+    });
+
+    on("mancerchange:origin", function(eventinfo) {
+        clearRepeatingSections("origin-traits", function() {});
+        let origin = char_dict["origins"][eventinfo["newValue"]];
+        if (!origin) {
+            hideChoices();
+            return;
+        }
+        let abilities = Object.keys(origin["abilities"]).map(key => `+${origin["abilities"][key]} ${key}`).join(", ");
+        let size = origin["size"];
+        let speed = origin["speed"];
+        let senses = origin["senses"];
+        let skills = Object.keys(origin["skills"]).map(key => `+${origin["skills"][key]} ${key}`).join(", ");
+        setCharmancerText({
+            "origin-abilities": abilities,
+            "origin-size": size,
+            "origin-speed": speed,
+            "origin-senses": senses,
+            "origin-skills": skills
+        });
+
+        Object.keys(origin["other"]).forEach(key => {
+            addRepeatingSection("origin-traits", "trait", "traitrow", function(sectionid) {
+                let update = {};
+                let value = origin["other"][key];
+                update[sectionid] = `<h4>${key}</h4><p>${value}</p>`;
+                setCharmancerText(update);
+            });
+        });
+        showChoices(["originchoice"]);
+    });
+</script>
