@@ -1,0 +1,307 @@
+/* Roll20 Character Sheet Framework */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+body .charsheet * {
+    font-family: 'Noto Sans', serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+body .charsheet label,
+body .charsheet .label {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.charsheet .flex {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+.charsheet .flex.grow > * {
+    width: unset;
+}
+.charsheet .flex.grow > *:last-child {
+    flex-grow: 1;
+}
+.charsheet .grid,
+.repcontainer,
+.repitem {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 10px;
+}
+.charsheet .nogap {
+    gap: 0px;
+}
+.col2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.col3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+.col3-skill {
+    grid-template-columns: 2fr 1fr 7fr;
+}
+.col4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+.col5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+.col6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+.col7 {
+    grid-template-columns: repeat(7, 1fr);
+}
+.col8 {
+    grid-template-columns: repeat(8, 1fr);
+}
+.slot1 {
+    grid-column: 1;
+}
+.slot2 {
+    grid-column: 2;
+}
+.slot3 {
+    grid-column: 3;
+}
+.slot4 {
+    grid-column: 4;
+}
+.span2 {
+    grid-column: span 2;
+}
+.span3 {
+    grid-column: span 3;
+}
+.span4 {
+    grid-column: span 4;
+}
+.vcol {
+    grid-template-rows: 20px auto;
+    grid-auto-flow: column;
+}
+
+/* tabs */
+.tabs {
+    display: flex;
+}
+.tabs div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.tabs button {
+    background: white;
+    border: none;
+    color: black;
+}
+.tabs button:hover {
+    background: darkgray;
+    color: white;
+}
+.toggle-tabs[value='character'] ~ .tabs div.tab-character button,
+.toggle-tabs[value='settings'] ~ .tabs div.tab-settings button {
+    background: black;
+    color: white;
+}
+
+body .charactersheet .character,
+body .charactersheet .settings {
+    display: none;
+}
+body .charactersheet .character:after,
+body .charactersheet .settings:after {
+    content: '2D20 SRD Character Sheet Ver.0.1 | https://app.roll20.net/users/2699740/robert-b';
+    text-align: right;
+    font-size: 8px;
+}
+body .toggle-tabs[value='character'] ~ div.character,
+body .toggle-tabs[value='settings'] ~ div.settings {
+    display: grid;
+}
+
+body .charsheet .tabs .roller {
+    flex: 1;
+    text-align: right;
+}
+body .charsheet .tabs .roller button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+body .charsheet .tabs .roller button {
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    padding: 0 5px;
+    height: 100%;
+}
+body .charsheet .tabs .roller button:before {
+    content: 'F';
+    font-family: 'dicefontd6';
+    color: black;
+}
+body .charsheet .tabs .roller button:hover:before {
+    color: darkgray;
+}
+/* end tabs */
+
+/* slider */
+body .charsheet div .switch {
+    background: none;
+    border: none;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    background-color: darkgray;
+    border-radius: 20px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: black;
+}
+.injury + .switch input:checked + .slider {
+    background-color: black;
+}
+input:focus + .slider {
+    border: solid 1px gold;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* autoexpand */
+.auto-expand {
+	position: relative;
+	cursor: text;
+	word-wrap: break-word;
+    min-height: 20px;
+}
+.auto-expand.tall {
+    min-height: 100px;
+}
+.auto-expand span {
+	visibility: hidden;
+	white-space: pre-wrap;
+	display: block;
+    line-height: 20px;
+}
+.auto-expand textarea {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	margin: 0;
+	overflow: hidden;
+	resize: none;
+    line-height: 20px;
+	height: 100%;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	color: inherit;
+	letter-spacing: inherit;
+	padding: inherit;
+	text-align: inherit;
+	text-transform: inherit;
+}
+.auto-expand.lrg span,
+.auto-expand.lrg textarea {
+    font-size: 20px;
+}
+
+/* 2D20 style */
+
+body .charsheet .av3,
+body .charsheet .av4,
+body .charsheet .av6,
+body .charsheet .av7,
+body .charsheet .av8,
+body .charsheet .theme0,
+body .charsheet .theme1,
+body .charsheet .theme2 {
+    display: none;
+}
+body .charsheet .variant-attributes[value='3'] ~ .variant-theme[value='theme0'] ~ div .av3,
+body .charsheet .variant-attributes[value='3'] ~ .variant-third[value='presence'] ~ .variant-theme[value='theme0'] ~ div .av3a,
+body .charsheet .variant-attributes[value='3'] ~ .variant-third[value='spirit'] ~ .variant-theme[value='theme0'] ~ div .av3b,
+body .charsheet .variant-attributes[value='7'] ~ .variant-seventh[value='personality'] ~ .variant-theme[value='theme0'] ~ div .av7a,
+body .charsheet .variant-attributes[value='7'] ~ .variant-seventh[value='strength'] ~ .variant-theme[value='theme0'] ~ div .av7b,
+body .charsheet .variant-attributes[value='4'] ~ .variant-theme[value='theme0'] ~ div .av4,
+body .charsheet .variant-attributes[value='6'] ~ .variant-theme[value='theme0'] ~ div .av6,
+body .charsheet .variant-attributes[value='7'] ~ .variant-theme[value='theme0'] ~ div .av7,
+body .charsheet .variant-attributes[value='8'] ~ .variant-theme[value='theme0'] ~ div .av8,
+body .charsheet .variant-theme[value='theme1'] ~ div .theme1,
+body .charsheet .variant-theme[value='theme2'] ~ div .theme2 {
+    display: grid;
+}
+body .charsheet .variant-attributes[value='6'] ~ .variant-theme[value='theme0'] ~ div .grid.attributes,
+body .charsheet .variant-theme[value='theme1'] ~ div .grid.attributes,
+body .charsheet .variant-theme[value='theme2'] ~ div .grid.attributes {
+    grid-template-columns: repeat(6, 1fr);
+}
+body .charsheet .variant-attributes[value='3'] ~ .variant-theme[value='theme0'] ~ div .grid.attributes {
+    grid-template-columns: repeat(3, 1fr);
+}
+body .charsheet .variant-attributes[value='4'] ~ .variant-theme[value='theme0'] ~ div .grid.attributes {
+    grid-template-columns: repeat(4, 1fr);
+}
+body .charsheet .variant-attributes[value='7'] ~ .variant-theme[value='theme0'] ~ div .grid.attributes {
+    grid-template-columns: repeat(7, 1fr);
+}
+body .charsheet .variant-attributes[value='8'] ~ .variant-theme[value='theme0'] ~ div .grid.attributes {
+    grid-template-columns: repeat(8, 1fr);
+}

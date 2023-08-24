@@ -1,0 +1,219 @@
+<input class="toggle-tabs" type="hidden" name="attr_tab" value="character"  />
+<input class="variant-attributes" type="hidden" name="attr_attributes_variant" value="six" />
+<input class="variant-third" type="hidden" name="attr_third_attribute" value="presence" />
+<input class="variant-seventh" type="hidden" name="attr_seventh_attribute" value="personality" />
+<input class="variant-theme" type="hidden" name="attr_attributes_theme" value="theme0" />
+
+<div class="tabs">
+    <div class="tab-character"><button type="action" name="act_character">Character</button></div>
+    <div class="tab-settings"><button type="action" name="act_settings">Settings</button></div>
+    <div class="roller">
+        <button type="action" name="act_diceroll" value=""></button>
+    </div>
+</div>
+
+<div class="grid character">
+    <h1>2D20 SRD Character</h1>
+
+    <div class="grid col2 stats">
+        <label>Name</label>
+        <input type="text" spellcheck="false" name="attr_character_name" />
+    </div>
+
+    <h2>Attributes</h2>
+
+    <div class="grid vcol attributes">
+        <label class="theme2">Cunning</label>
+        <input class="theme2" type="number" name="attr_cunning" value="6" />
+
+        <label class="theme1">Control</label>
+        <input class="theme1" type="number" name="attr_control" value="6" />
+
+        <label class="theme1 theme2">Daring</label>
+        <input class="theme1 theme2" type="number" name="attr_daring" value="6" />
+
+        <label class="av4 av6 av7 av8 theme0">Agility</label>
+        <input class="av4 av6 av7 av8 theme0" type="number" name="attr_agility" value="6" />
+
+        <label class="theme1">Fitness</label>
+        <input class="theme1" type="number" name="attr_fitness" value="6" />
+
+        <label class="av3 theme0">Body</label>
+        <input class="av3 theme0" type="number" name="attr_body" value="6" />
+
+        <label class="theme2">Empathy</label>
+        <input class="theme2" type="number" name="attr_empathy" value="6" />
+
+        <label class="av4 theme0 theme2">Might</label>
+        <input class="av4 theme0 theme2" type="number" name="attr_might" value="6" />
+
+        <label class="av6 av7a theme0">Brawn</label>
+        <input class="av6 av7a theme0" type="number" name="attr_brawn" value="6" />
+
+        <label class="av6 av7 av8 theme0">Coordination</label>
+        <input class="av6 av7 av8 theme0" type="number" name="attr_coordination" value="6" />
+
+        <label class="av7b av8 theme0">Strength</label>
+        <input class="av7b av8 theme0" type="number" name="attr_strength" value="6" />
+
+        <label class="av7b av8 theme0">Endurance</label>
+        <input class="av7b av8 theme0" type="number" name="attr_endurance" value="6" />
+
+        <label class="av3 theme0">Mind</label>
+        <input class="av3 theme0" type="number" name="attr_mind" value="6" />
+
+        <label class="av4 av6 av7 av8 theme0 theme1">Insight</label>
+        <input class="av4 av6 av7 av8 theme0 theme1" type="number" name="attr_insight" value="6" />
+
+        <label class="theme2">Passion</label>
+        <input class="theme2" type="number" name="attr_passion" value="6" />
+
+        <label class="av3a theme0 theme1">Presence</label>
+        <input class="av3a theme0 theme1" type="number" name="attr_presence" value="6" />
+
+        <label class="av6 av7 av8 theme0 theme1 theme2">Reason</label>
+        <input class="av6 av7 av8 theme0 theme1 theme2" type="number" name="attr_reason" value="6" />
+
+        <label class="av4 theme0">Wits</label>
+        <input class="av4 theme0" type="number" name="attr_wits" value="6" />
+
+        <label class="av6 av7 av8 theme0">Will</label>
+        <input class="av6 av7 av8 theme0" type="number" name="attr_will" value="6" />
+
+        <label class="av7a av8 theme0">Personality</label>
+        <input class="av7a av8 theme0" type="number" name="attr_personality" value="6" />
+
+        <label class="av3b theme0">Spirit</label>
+        <input class="av3b theme0" type="number" name="attr_spirit" value="6" />
+    </div>
+
+    <h2>Skills</h2>
+
+    <div class="grid col3-skill skills">
+        <label><span name="attr_fight_name"></span></label>
+        <input type="number" name="attr_fight" />
+        <div class="flex grow">
+            <label class="toggle">
+                <input type="checkbox" name="attr_fight_focus1" value="1" />
+                <span><span name="attr_fight_focus1_name"></span></span>
+            </label>
+            <label class="toggle">
+                <input type="checkbox" name="attr_fight_focus2" value="1" />
+                <span><span name="attr_fight_focus2_name"></span></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="grid settings">
+    <h1>Settings</h1>
+
+    <h2>Attributes</h2>
+
+    <div class="grid col2">
+        <label>Variant</label>
+        <select name="attr_attributes_variant">
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="6" selected>Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+        </select>
+
+        <span class="label av3">Third Attribute</span>
+        <select class="av3" name="attr_third_attribute">
+            <option value="presence" selected>Presence</option>
+            <option value="spirit">Spirit</option>
+        </select>
+
+        <span class="label av7">Seventh Attribute</span>
+        <select class="av7" name="attr_seventh_attribute">
+            <option value="personality" selected>Personality</option>
+            <option value="strength">Strength and Endurance</option>
+        </select>
+
+        <label>Theme</label>
+        <select name="attr_attributes_theme">
+            <option value="theme0" selected>Default</option>
+            <option value="theme1">Problem Solving</option>
+            <option value="theme2">Pulp</option>
+        </select>
+    </div>
+
+    <h2>Skills</h2>
+
+    <div class="grid col2">
+        <label>Fight</label>
+        <input type="text" spellcheck="false" name="attr_fight_name" value="Fight" />
+        <label>Brawling</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus1_name" value="Brawling" />
+        <label>Swords</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus2_name" value="Swords" />
+        <label>Firearms</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus3_name" value="Firearms" />
+        <label>Martial Arts</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus4_name" value="Martial Arts" />
+        <label>Explosives</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus5_name" value="Explosives" />
+        <label>Archery</label>
+        <input type="text" spellcheck="false" name="attr_fight_focus6_name" value="Archery" />
+    </div>
+</div>
+
+<script type="text/worker">
+
+    const tab_list = ["character","settings"];
+
+    tab_list.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({"tab": button});
+        });
+    });
+
+    const parseTriggerName = function(string){
+		let match = string.replace(/^clicked:/,'').match(/(?:(repeating_[^_]+)_([^_]+)_)?(.+)/);
+		match.shift();
+		return match;
+	};
+
+	on("clicked:diceroll", (eventInfo) => {
+		let [section,rowID,field] = parseTriggerName(eventInfo.triggerName);
+		let template_str = "&{template:2d20dice} {{reroll=[Reroll](~diceroll)}} {{name=@{character_name}}}";//eventInfo.htmlAttributes.value;
+
+		if (typeof(rowID) != 'undefined') {
+			let repeat_idx = section+"_"+rowID+"_";
+			template_str = template_str.replaceAll('rowid-', repeat_idx);
+		}
+		template_str += "{{attribute=?{Attribute|Agility,Agility[@{agility}]|Brawn,Brawn[@{brawn}]}}}";
+
+		startRoll(template_str, (results) => {
+            let result_comp = {};
+            /*
+			let dx_str = results.results.dxroll.expression;
+			let result_comp = {};
+			let dice_result = dx(dx_str);
+
+			if(dice_result == 0) {
+				result_comp.dice_result = results.results.dxroll.result;
+				result_comp.dice_orig = dx_str;
+			} else {
+				result_comp.dice_result = dice_result[0];
+				result_comp.dice_detail = dice_result[1];
+				result_comp.dice_orig = dice_result[2];
+			}
+            */
+			finishRoll(results.rollId, result_comp);
+		});
+	});
+
+</script>
+
+<rolltemplate class="sheet-rolltemplate-2d20dice">
+    <div class="container">
+        <h1>Dice Roll</h1>
+        <p>{{attribute}}</p>
+        <div class="options">
+            {{reroll}}
+        </div>
+    </div>
+</rolltemplate>
