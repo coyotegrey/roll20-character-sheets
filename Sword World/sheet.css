@@ -150,6 +150,12 @@ body .charsheet select {
 .col2-classes {
     grid-template-columns: 3fr 1fr;
 }
+body .charsheet .toggle-xp[value='1'] ~ .grid .col2-classes {
+    grid-template-columns: 8fr 4fr 3fr;
+}
+body .charsheet .toggle-xp:not([value='1']) ~ .grid .col2-classes div:nth-child(4n+2) {
+    display: none;
+}
 .col2-feats {
     grid-template-columns: 1fr 11fr;
 }
@@ -187,7 +193,7 @@ body .charsheet select {
     grid-template-columns: 3fr 2fr 98px;
 }
 .col3-accdmg {
-    grid-template-columns: 5fr 9fr 219px;
+    grid-template-columns: 1fr 1fr 219px;
 }
 .col3-title {
     grid-template-columns: 1fr 8fr 3fr;
@@ -359,6 +365,7 @@ input:checked + .slider:before {
 	word-wrap: break-word;
     min-height: 20px;
     width: 100%;
+    box-sizing: border-box;
 }
 .auto-expand.tall {
     min-height: 100px;
@@ -557,7 +564,7 @@ body .charactersheet .page2:after,
 body .charactersheet .monster:after,
 body .charactersheet .fellow:after,
 body .charactersheet .settings:after {
-    content: 'Sword World 2.5 Character Sheet Ver.0.177 | https://app.roll20.net/users/2699740/robert-b';
+    content: 'Sword World 2.5 Character Sheet Ver.0.18 | https://app.roll20.net/users/2699740/robert-b';
     text-align: right;
     font-size: 8px;
 }
@@ -805,7 +812,6 @@ body .charsheet .boxstat .label {
     grid-template-columns: repeat(2, 1fr);
 }
 .col2-guild .grid.vcol label:after {
-    content: 'Grade';
     text-align: right;
 }
 .col2-guild .grid.vcol:first-child label:after {
@@ -908,6 +914,9 @@ body .charsheet .col5-abilities > div.vspan2 input[type=number] {
     border: solid 1px black;
     background: linear-gradient(90deg, white 74%, black 74%, black 74.5%, white 74.5%);
 }
+body .charsheet .toggle-xp[value='1'] ~ .grid .classes {
+    background: linear-gradient(90deg, white 52%, black 52%, black 52.5%, white 52.5%);
+}
 .charsheet .classes > input[type=checkbox] {
     position: absolute;
     left: 0;
@@ -942,7 +951,8 @@ body .charsheet .col2-classes div input[type=number] {
     text-align: center;
 }
 body .charsheet .toggle-class[value='1'] ~ .col2-classes .toggle-class[value='0'] + div,
-body .charsheet .toggle-class[value='1'] ~ .col2-classes .toggle-class[value='0'] + div + div {
+body .charsheet .toggle-class[value='1'] ~ .col2-classes .toggle-class[value='0'] + div + div,
+body .charsheet .toggle-class[value='1'] ~ .col2-classes .toggle-class[value='0'] + div + div + div {
     display: none;
 }
 .col3-packages {
@@ -992,7 +1002,7 @@ body .charsheet .box .class-level[value='0'] + label + span {
     visibility: hidden;
 }
 body .charsheet .box span {
-    text-align: right;
+    text-align: center;
 }
 body .charsheet .box:after {
     position: absolute;
@@ -1153,7 +1163,7 @@ body .charsheet .boxstat > label {
     text-align: center;
 }
 body .charsheet .box.wide + div.stretch > div:nth-child(even) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 1fr;
     place-content: center;
 }
 body .charsheet .box.wide + div.stretch > div:nth-child(even) label,

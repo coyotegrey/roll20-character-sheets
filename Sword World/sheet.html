@@ -1,4 +1,5 @@
 <input class="toggle-token" type="hidden" name="attr_display_token" value="0" />
+<input class="toggle-xp" type="hidden" name="attr_xp_calc" value="0" />
 <input class="toggle-monster" type="hidden" name="attr_monster" value="0" />
 <input class="toggle-workskills" type="hidden" name="attr_workskills" value="0" />
 <input class="toggle-expanded" type="hidden" name="attr_fellow_expanded" value="0" />
@@ -144,6 +145,14 @@
                 <div><input type="checkbox" name="attr_language_speak" value="yes" /></div>
                 <div><input type="checkbox" name="attr_language_read" value="yes" /></div>
             </fieldset>
+        </div>
+
+        <div class="grid boxstat nogap schools">
+            <label>Schools, Secrets, etc.</label>
+            <div class="auto-expand">
+                <span name="attr_schools_secrets"></span>
+                <textarea spellcheck="false" name="attr_schools_secrets"></textarea>
+            </div>
         </div>
 
         <div class="grid nogap lined workskills">
@@ -416,86 +425,112 @@
                 <input type="checkbox" name="attr_classtoggle" value="1" />
                 <div class="grid col2-classes nogap">
                     <div class="header">Class</div>
+                    <div class="header">XP</div>
                     <div class="header">Level</div>
 
                     <input class="toggle-class" type="hidden" name="attr_fighter_level" value="0" />
                     <div class="input">Fighter</div>
+                    <div><input type="number" name="attr_fighter_xp" /></div>
                     <div><input type="number" name="attr_fighter_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_grappler_level" value="0" />
                     <div class="input">Grappler</div>
+                    <div><input type="number" name="attr_grappler_xp" /></div>
                     <div><input type="number" name="attr_grappler_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_fencer_level" value="0" />
                     <div class="input">Fencer</div>
+                    <div><input type="number" name="attr_fencer_xp" /></div>
                     <div><input type="number" name="attr_fencer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_marksman_level" value="0" />
                     <div class="input">Marksman</div>
+                    <div><input type="number" name="attr_marksman_xp" /></div>
                     <div><input type="number" name="attr_marksman_level" /></div>
+
+                    <input class="toggle-class" type="hidden" name="attr_battle_dancer_level" value="0" />
+                    <div class="input">Battle Dancer</div>
+                    <div><input type="number" name="attr_battle_dancer_xp" /></div>
+                    <div><input type="number" name="attr_battle_dancer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_sorcerer_level" value="0" />
                     <div class="input">Sorcerer</div>
+                    <div><input type="number" name="attr_sorcerer_xp" /></div>
                     <div><input type="number" name="attr_sorcerer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_conjurer_level" value="0" />
                     <div class="input">Conjurer</div>
+                    <div><input type="number" name="attr_conjurer_xp" /></div>
                     <div><input type="number" name="attr_conjurer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_priest_level" value="0" />
                     <div class="input">Priest</div>
+                    <div><input type="number" name="attr_priest_xp" /></div>
                     <div><input type="number" name="attr_priest_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_artificer_level" value="0" />
                     <div class="input">Artificer</div>
+                    <div><input type="number" name="attr_artificer_xp" /></div>
                     <div><input type="number" name="attr_artificer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_fairy_tamer_level" value="0" />
                     <div class="input">Fairy Tamer</div>
+                    <div><input type="number" name="attr_fairy_tamer_xp" /></div>
                     <div><input type="number" name="attr_fairy_tamer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_druid_level" value="0" />
                     <div class="input">Druid</div>
+                    <div><input type="number" name="attr_druid_xp" /></div>
                     <div><input type="number" name="attr_druid_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_warlock_level" value="0" />
                     <div class="input">Warlock</div>
+                    <div><input type="number" name="attr_warlock_xp" /></div>
                     <div><input type="number" name="attr_warlock_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_scout_level" value="0" />
                     <div class="input">Scout</div>
+                    <div><input type="number" name="attr_scout_xp" /></div>
                     <div><input type="number" name="attr_scout_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_ranger_level" value="0" />
                     <div class="input">Ranger</div>
+                    <div><input type="number" name="attr_ranger_xp" /></div>
                     <div><input type="number" name="attr_ranger_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_sage_level" value="0" />
                     <div class="input">Sage</div>
+                    <div><input type="number" name="attr_sage_xp" /></div>
                     <div><input type="number" name="attr_sage_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_enhancer_level" value="0" />
                     <div class="input">Enhancer</div>
+                    <div><input type="number" name="attr_enhancer_xp" /></div>
                     <div><input type="number" name="attr_enhancer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_bard_level" value="0" />
                     <div class="input">Bard</div>
+                    <div><input type="number" name="attr_bard_xp" /></div>
                     <div><input type="number" name="attr_bard_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_rider_level" value="0" />
                     <div class="input">Rider</div>
+                    <div><input type="number" name="attr_rider_xp" /></div>
                     <div><input type="number" name="attr_rider_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_alchemist_level" value="0" />
                     <div class="input">Alchemist</div>
+                    <div><input type="number" name="attr_alchemist_xp" /></div>
                     <div><input type="number" name="attr_alchemist_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_geomancer_level" value="0" />
                     <div class="input">Geomancer</div>
+                    <div><input type="number" name="attr_geomancer_xp" /></div>
                     <div><input type="number" name="attr_geomancer_level" /></div>
 
                     <input class="toggle-class" type="hidden" name="attr_tactician_level" value="0" />
                     <div class="input">Tactician</div>
+                    <div><input type="number" name="attr_tactician_xp" /></div>
                     <div><input type="number" name="attr_tactician_level" /></div>
                 </div>
             </div>
@@ -705,6 +740,10 @@
             <input class="class-level" type="hidden" value="0" name="attr_marksman_level" />
             <label>Marksman</label>
             <span name="attr_marksman_level" />
+
+            <input class="class-level" type="hidden" value="0" name="attr_battle_dancer_level" />
+            <label>Battle Dancer</label>
+            <span name="attr_battle_dancer_level" />
         </div>
 
         <div class="grid col2 nogap stretch">
@@ -772,6 +811,7 @@
                     <option value="grappler">Grappler</option>
                     <option value="fencer">Fencer</option>
                     <option value="marksman">Marksman</option>
+                    <option value="battle_dancer">Battle Dancer</option>
                     <option value="crossbow">Crossbow</option>
                     <option value="gun">Gun</option>
                 </select>
@@ -882,6 +922,10 @@
                     <input class="class-level" type="hidden" value="0" name="attr_fencer_level" />
                     <label>Fencer</label>
                     <span name="attr_fencer_level" />
+
+                    <input class="class-level" type="hidden" value="0" name="attr_battle_dancer_level" />
+                    <label>Battle Dancer</label>
+                    <span name="attr_battle_dancer_level" />
                 </div>
 
                 <div class="grid col2 nogap">
@@ -2159,25 +2203,36 @@
         <option value="1">Monster</option>
         <option value="2">Fellow</option>
     </select>
+    <div class="slot1 span4 footnote">Choose between character, monster, or fellow sheets.</div>
+
+    <div class="label monster0 slot1">Class Experience</div>
+    <label class="switch monster0">
+        <input type="checkbox" name="attr_xp_calc" value="1" />
+        <span class="slider"></span>
+    </label>
+    <div class="slot1 span4 footnote monster0">Track experience spent per class. Use the experience
+        points field for remaining experience.</div>
 
     <div class="label monster0 slot1">Work Skills</div>
     <label class="switch monster0">
         <input type="checkbox" name="attr_workskills" value="1" />
         <span class="slider"></span>
     </label>
+    <div class="slot1 span4 footnote monster0">Track optional work skills.</div>
 
     <div class="label monster2 slot1">Expanded</div>
     <label class="switch monster2">
         <input type="checkbox" name="attr_fellow_expanded" value="1" />
         <span class="slider"></span>
     </label>
+    <div class="slot1 span4 footnote monster2">Use the expanded fellow sheet.</div>
 
     <div class="label monster2 slot1">Auto Calculate from Character</div>
     <label class="switch monster2">
         <input type="checkbox" name="attr_fellow_autocalc" value="1" />
         <span class="slider"></span>
     </label>
-    <div class="slot1 span2 footnote monster2">This includes level, classes, and MP.</div>
+    <div class="slot1 span4 footnote monster2">This includes level, classes, and MP.</div>
 </div>
 
 <script type="text/worker">
@@ -2213,26 +2268,27 @@
         .concat(["movement_enhancements_modifier"]);
 
     const class_data = {
-        "fighter": "Fighter",
-        "grappler": "Grappler",
-        "fencer": "Fencer",
-        "marksman": "Marksman",
-        "sorcerer": "Sorcerer",
-        "conjurer": "Conjurer",
-        "priest": "Priest",
-        "artificer": "Artificer",
-        "fairy_tamer": "Fairy Tamer",
-        "druid": "Druid",
-        "warlock": "Warlock",
-        "scout": "Scout",
-        "ranger": "Ranger",
-        "sage": "Sage",
-        "enhancer": "Enhancer",
-        "bard": "Bard",
-        "rider": "Rider",
-        "alchemist": "Alchemist",
-        "geomancer": "Geomancer",
-        "tactician": "Tactician"
+        "fighter": {"name": "Fighter", "type": "major"},
+        "grappler": {"name": "Grappler", "type": "major"},
+        "fencer": {"name": "Fencer", "type": "minor"},
+        "marksman": {"name": "Marksman", "type": "minor"},
+        "battle_dancer": {"name": "Battle Dancer", "type": "major"},
+        "sorcerer": {"name": "Sorcerer", "type": "major"},
+        "conjurer": {"name": "Conjurer", "type": "major"},
+        "priest": {"name": "Priest", "type": "major"},
+        "artificer": {"name": "Artificer", "type": "major"},
+        "fairy_tamer": {"name": "Fairy Tamer", "type": "major"},
+        "druid": {"name": "Druid", "type": "major"},
+        "warlock": {"name": "Warlock", "type": "major"},
+        "scout": {"name": "Scout", "type": "minor"},
+        "ranger": {"name": "Ranger", "type": "minor"},
+        "sage": {"name": "Sage", "type": "minor"},
+        "enhancer": {"name": "Enhancer", "type": "minor"},
+        "bard": {"name": "Bard", "type": "minor"},
+        "rider": {"name": "Rider", "type": "minor"},
+        "alchemist": {"name": "Alchemist", "type": "minor"},
+        "geomancer": {"name": "Geomancer", "type": "minor"},
+        "tactician": {"name": "Tactician", "type": "minor"}
     };
     const class_list = Object.keys(class_data);
     const magic_power_data = {
@@ -2307,22 +2363,28 @@
             "zero": false
         },
         "base_accuracy": {
-            "classes": ["fighter","grappler","fencer","marksman"],
+            "classes": ["fighter","grappler","fencer","marksman","battle_dancer"],
             "ability": "dexterity",
             "zero": false
         },
         "extra_damage": {
-            "classes": ["fighter","grappler","fencer","marksman"],
+            "classes": ["fighter","grappler","fencer","marksman","battle_dancer"],
             "ability": "strength",
             "zero": false
         },
         "base_evasion": {
-            "classes": ["fighter","grappler","fencer"],
+            "classes": ["fighter","grappler","fencer","battle_dancer"],
             "ability": "agility",
             "zero": false
         }
     };
     const package_list = Object.keys(package_data);
+    const class_levels = {
+        "major": [0,1000,2000,3500,5000,7000,9500,12500,16500,
+            21500,27500,35000,44000,54500,66500,80000],
+        "minor": [0,500,1500,2500,4000,5500,7500,10000,13000,
+            17000,22000,28000,35500,44500,55000,67000]
+    };
 
     tab_list.forEach(button => {
         on(`clicked:${button}`, function() {
@@ -2394,8 +2456,26 @@
         });
     };
 
-    ability_list.concat(class_level_list).concat(class_power_list).concat(modifier_list).forEach(trigger => {
-        on(`change:${trigger} change:race change:fellow_autocalc`, function() {
+    class_list.forEach(trigger => {
+        on(`change:${trigger}_xp`, function() {
+            getAttrs([`${trigger}_xp`], function(values) {
+                let xp = parseInt(values[`${trigger}_xp`])||0;
+                let class_type = class_data[trigger]["type"];
+                let class_level = 0;
+                let update = {};
+                for (var i=0; i < class_levels[class_type].length; i++) {
+                    if (xp >= class_levels[class_type][i]) {
+                        class_level = i;
+                    }
+                }
+                update[`${trigger}_level`] = class_level;
+                setAttrs(update, {silent:true});
+            });
+        });
+    });
+
+    ability_list.concat(class_level_list).concat(class_power_list).concat(modifier_list).concat(["race","fellow_autocalc","xp_calc"]).forEach(trigger => {
+        on(`change:${trigger}`, function() {
             getAttrs(class_level_list.concat(class_power_list).concat(ability_list).concat(ability_modifier_list).concat(modifier_list).concat(["race"]), function(values) {
                 let update = {};
                 let classes = [];
@@ -2416,8 +2496,11 @@
                 class_level_list.forEach(v => {
                     let class_level = parseInt(values[`${v}`])||0;
                     let class_name = v.replace("_level", "");
+                    let class_type = class_data[class_name]["type"]
+                    let class_xp = class_levels[class_type][class_level];
+                    update[`${class_name}_xp`] = class_xp > 0 ? class_xp : "";
                     if (class_level > 0) {
-                        classes.push(`${class_data[class_name]} ${class_level}`);
+                        classes.push(`${class_data[class_name]["name"]} ${class_level}`);
                     }
                     level = class_level > level ? class_level : level;
                     if (magic_power_data[class_name] && magic_power_data[class_name]["wizard"]) {
@@ -2441,7 +2524,7 @@
                         let class_level = parseInt(values[`${v}_level`])||0;
                         if (class_level > package_level) {
                             package_level = class_level;
-                            package_class = class_data[v];
+                            package_class = class_data[v]["name"];
                         }
                     });
                     if (package_level > 0) {
@@ -2507,8 +2590,8 @@
     on("change:repeating_weapons", function(eventInfo) {
         getAttrs(["repeating_weapons_weapon_class","repeating_weapons_weapon_accuracy",
                 "repeating_weapons_weapon_extra_damage","fighter_level","grappler_level",
-                "fencer_level","marksman_level","artificer_level","strength_modifier",
-                "dexterity_modifier","intelligence_modifier"], function(values) {
+                "fencer_level","marksman_level","battle_dancer_level","artificer_level",
+                "strength_modifier","dexterity_modifier","intelligence_modifier"], function(values) {
             let update = {};
             let dexterity = parseInt(values["dexterity_modifier"])||0;
             let strength = parseInt(values["strength_modifier"])||0;
@@ -2659,7 +2742,7 @@
             let class_level = rowid ? class_roll : "?{Class}";
             if (!rowid) {
                 class_list.forEach(c => {
-                    let c_name = class_data[c];
+                    let c_name = class_data[c]["name"];
                     let c_level = parseInt(values[`${c}_level`])||0;
                     class_roll += `|${c_name},${c_level}[${c}]`;
                 });
@@ -2677,7 +2760,7 @@
                 const level = results.results.level.result;
                 const mod = results.results.modifier.result;
                 let c_name = results.results.level.expression.slice(2, -1);
-                c_name = rowid ? c_name : class_data[c_name];
+                c_name = rowid ? c_name : class_data[c_name]["name"];
                 let a_name = results.results.modifier.expression.slice(2, -1);
                 a_name = ability_data[a_name];
                 let computed = raw;
