@@ -2556,7 +2556,7 @@
                         }
                     }
                 });
-                setAttrs(update);
+                setAttrs(update, {silent:true});
 
                 getSectionIDs("repeating_weapons", function(idarray) {
                     for (var i=0; i < idarray.length; i++) {
