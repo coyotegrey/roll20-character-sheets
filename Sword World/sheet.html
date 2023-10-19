@@ -189,26 +189,51 @@
                     <datalist id="race">
                         <option>Human</option>
                         <option>Elf</option>
+                        <option>Snow Elf</option>
+                        <option>Mist Elf</option>
                         <option>Dwarf</option>
                         <option>Tabbit</option>
+                        <option>Pico Tabbit</option>
+                        <option>Lupus Tabbit</option>
                         <option>Runefolk</option>
+                        <option>Guardian Type Runefolk</option>
+                        <option>Combat Type Runefolk</option>
                         <option>Nightmare (Human)</option>
                         <option>Nightmare (Elf)</option>
                         <option>Nightmare (Dwarf)</option>
                         <option>Nightmare (Lildraken)</option>
+                        <option>Nightmare (Soleil)</option>
+                        <option>Nightmare (Shadow)</option>
                         <option>Lykant</option>
+                        <option>Large Herbivore Lykant</option>
+                        <option>Small Herbivore Lykant</option>
                         <option>Lildraken</option>
+                        <option>Small-Winged Lildraken</option>
+                        <option>Hairy Lildraken</option>
                         <option>Grassrunner</option>
+                        <option>Alisha</option>
+                        <option>Crimenos</option>
                         <option>Meria</option>
+                        <option>Carniverous Meria</option>
+                        <option>Fungi Meria</option>
                         <option>Tiens</option>
+                        <option>Tech Tiens</option>
+                        <option>Daemonic Tiens</option>
                         <option>Leprechaun</option>
+                        <option>Leprechaun Nomad</option>
+                        <option>Leprechaun Explorer</option>
                         <option>Alv</option>
+                        <option>Shadow</option>
+                        <option>Soleil</option>
                         <option>Garuda Weakling</option>
                         <option>Tannoz Weakling</option>
                         <option>Basilisk Weakling</option>
                         <option>Minotaur Weakling</option>
-                        <option>Shadow</option>
-                        <option>Soleil</option>
+                        <option>Spriggan</option>
+                        <option>Abyssborn</option>
+                        <option>Newman</option>
+                        <option>Fluorite</option>
+                        <option>Dark Dwarf</option>
                     </datalist>
 
                     <label>Age</label>
@@ -2510,7 +2535,8 @@
                 update["classes"] = classes.join(', ');
                 update["adventurer_level"] = level;
                 update["hp_max"] = level * 3 + hp + hp_mod;
-                update["mp_max"] = race.toLowerCase() == "grassrunner" ? "None" : wizard_level * 3 + mp + mp_mod;
+                update["mp_max"] = ["grassrunner","alisha","crimenos"].includes(race.toLowerCase()) ?
+                    "None" : wizard_level * 3 + mp + mp_mod;
                 update["fortitude"] = level + fortitude + fort_mod;
                 update["willpower"] = level + willpower + wp_mod;
 
