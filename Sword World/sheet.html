@@ -22,6 +22,8 @@
         name="act_page1">Page 1</button></div>
     <div class="tab-page2"><button type="action"
         name="act_page2">Page 2</button></div>
+    <div class="tab-altform"><button type="action"
+        name="act_altform">Alternate Forms</button></div>
     <div class="tab-monster"><button type="action"
         name="act_monster">Monster</button></div>
     <div class="tab-fellow"><button type="action"
@@ -1593,6 +1595,95 @@
     </div>
 </div>
 
+<div class="grid altform">
+    <fieldset class="repeating_altforms">
+        <div class="grid profile col3">
+            <div class="grid col4-altform span3">
+                <input type="checkbox" class="standard" name="attr_altform_active" value="1" />
+                <input type="text" spellcheck="false" name="attr_altform_name" placeholder="Name" />
+                <span name="attr_altform_summary"></span>
+                <input type="checkbox" class="standard gear" name="attr_altform_details" value="1" />
+            </div>
+            <input type="hidden" class="toggle-altform" name="attr_altform_details" value="0" />
+            <div class="grid col3">
+                <span class="header slot2">Score</span>
+                <span class="header">Modifier</span>
+
+                <label>Dexterity</label>
+                <input type="number" name="attr_altform_dexterity" value="0" />
+                <input type="number" name="attr_altform_dexterity_modifier" value="0" />
+
+                <label>Agility</label>
+                <input type="number" name="attr_altform_agility" value="0" />
+                <input type="number" name="attr_altform_agility_modifier" value="0" />
+
+                <label>Strength</label>
+                <input type="number" name="attr_altform_strength" value="0" />
+                <input type="number" name="attr_altform_strength_modifier" value="0" />
+
+                <label>Vitality</label>
+                <input type="number" name="attr_altform_vitality" value="0" />
+                <input type="number" name="attr_altform_vitality_modifier" value="0" />
+
+                <label>Intelligence</label>
+                <input type="number" name="attr_altform_intelligence" value="0" />
+                <input type="number" name="attr_altform_intelligence_modifier" value="0" />
+
+                <label>Spirit</label>
+                <input type="number" name="attr_altform_spirit" value="0" />
+                <input type="number" name="attr_altform_spirit_modifier" value="0" />
+            </div>
+            <div class="grid col2">
+                <label>Technique</label>
+                <input type="number" name="attr_altform_technique" value="0" />
+
+                <label>Movement</label>
+                <input type="number" name="attr_altform_movement" value="0" />
+
+                <label>Observation</label>
+                <input type="number" name="attr_altform_observation" value="0" />
+
+                <label>Knowledge</label>
+                <input type="number" name="attr_altform_knowledge" value="0" />
+
+                <label>Monster Knowledge</label>
+                <input type="number" name="attr_altform_monster_knowledge" value="0" />
+            </div>
+            <div class="grid col2">
+                <label>Initiative</label>
+                <input type="number" name="attr_altform_initiative" value="0" />
+
+                <label>Accuracy</label>
+                <input type="number" name="attr_altform_base_accuracy" value="0" />
+
+                <label>Damage</label>
+                <input type="number" name="attr_altform_extra_damage" value="0" />
+
+                <label>Magic Power</label>
+                <input type="number" name="attr_altform_magic_power" value="0" />
+
+                <label>Evasion</label>
+                <input type="number" name="attr_altform_base_evasion" value="0" />
+
+                <label>Defense</label>
+                <input type="number" name="attr_altform_defense" value="0" />
+
+                <label>Hit Points</label>
+                <input type="number" name="attr_altform_hit_points" value="0" />
+
+                <label>Mana Points</label>
+                <input type="number" name="attr_altform_mana_points" value="0" />
+
+                <label>Fortitude</label>
+                <input type="number" name="attr_altform_fortitude" value="0" />
+
+                <label>Willpower</label>
+                <input type="number" name="attr_altform_willpower" value="0" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+
 <div class="grid monster smrowgap">
     <div class="grid col3-title nogap">
         <input class="lrg" type="number" name="attr_monster_level" value="1" />
@@ -2270,7 +2361,7 @@
         monster_fortitude: "&{template:swskill} @{roll_template_token} {{monster=1}} {{reroll=[Reroll](~monster_fortitude)}} {{name=@{character_name}}} {{skill=Fortitude}} {{result=[[[[2d6]]+@{monster_fortitude}]]}} {{raw=$[[0]]}} {{result2=[[[[12+5]]+@{monster_fortitude}]]}}",
         monster_willpower: "&{template:swskill} @{roll_template_token} {{monster=1}} {{reroll=[Reroll](~monster_willpower)}} {{name=@{character_name}}} {{skill=Willpower}} {{result=[[[[2d6]]+@{monster_willpower}]]}} {{raw=$[[0]]}} {{result2=[[[[12+5]]+@{monster_willpower}]]}}"
     };
-    const tab_list = ["page1","page2","monster","fellow","settings"];
+    const tab_list = ["page1","page2","altform","monster","fellow","settings"];
     const base_list = ["skill","body","mind"];
     const ability_data = {
         "dexterity": "Dexterity",
@@ -2280,6 +2371,31 @@
         "intelligence": "Intelligence",
         "spirit": "Spirit"
     };
+    const title_data = {
+        ...ability_data,
+        "dexterity_modifier": "Dexterity Modifier",
+        "agility_modifier": "Agility Modifier",
+        "strength_modifier": "Strength Modifier",
+        "vitality_modifier": "Vitality Modifier",
+        "intelligence_modifier": "Intelligence Modifier",
+        "spirit_modifier": "Spirit Modifier",
+        "technique": "Technique",
+        "movement": "Movement",
+        "observation": "Observation",
+        "knowledge": "Knowledge",
+        "monster_knowledge": "Monster Knowledge",
+        "initiative": "Initiative",
+        "base_accuracy": "Accuracy",
+        "extra_damage": "Damage",
+        "magic_power": "Magic Power",
+        "base_evasion": "Evasion",
+        "defense": "Defense",
+        "hit_points": "Hit Points",
+        "mana_points": "Mana Points",
+        "fortitude": "Fortitude",
+        "willpower": "Willpower"
+    };
+
     const ability_list = Object.keys(ability_data);
     const ability_modifier_list = ability_list.map(i => i + "_modifier");
     const correction_list = "abcdef".split("");
@@ -2288,6 +2404,8 @@
         .concat(["hp_mod","mp_mod","fortitude_mod","willpower_mod"]);
     const total_list = base_list
         .concat(ability_list.map(i => i + "_mod"))
+        .concat(ability_list.map(i => i + "_altmod"))
+        .concat(ability_modifier_list.map(i => i + "_altmod"))
         .concat(correction_list.map(i => "ability_" + i))
         .concat(growth_list.map(i => "growth_" + i))
         .concat(["movement_enhancements_modifier"]);
@@ -2464,9 +2582,11 @@
                     let growth_value = parseInt(values[`growth_${growth}`])||0;
                     let ability = ability_list[counter];
                     let mod = parseInt(values[`${ability}_mod`])||0;
-                    let rawscore = base_value + correction_value + growth_value;
+                    let altmod = parseInt(values[`${ability}_altmod`])||0;
+                    let modifier_altmod = parseInt(values[`${ability}_modifier_altmod`])||0;
+                    let rawscore = base_value + correction_value + growth_value + altmod;
                     let score = rawscore + mod;
-                    let modifier = Math.floor(score / 6);
+                    let modifier = Math.floor(score / 6) + modifier_altmod;
                     update[`${ability}`] = score;
                     update[`${ability}_raw`] = rawscore;
                     update[`${ability}_modifier`] = modifier;
@@ -2499,9 +2619,10 @@
         });
     });
 
-    ability_list.concat(class_level_list).concat(class_power_list).concat(modifier_list).concat(["race","fellow_autocalc","xp_calc"]).forEach(trigger => {
+    let altmod_list = Object.keys(title_data).map(i => i + "_altmod");
+    altmod_list.concat(ability_list).concat(class_level_list).concat(class_power_list).concat(modifier_list).concat(["race","fellow_autocalc","xp_calc"]).forEach(trigger => {
         on(`change:${trigger}`, function() {
-            getAttrs(class_level_list.concat(class_power_list).concat(ability_list).concat(ability_modifier_list).concat(modifier_list).concat(["race"]), function(values) {
+            getAttrs(altmod_list.concat(class_level_list).concat(class_power_list).concat(ability_list).concat(ability_modifier_list).concat(modifier_list).concat(["race"]), function(values) {
                 let update = {};
                 let classes = [];
                 let level = 0;
@@ -2546,6 +2667,7 @@
                     let ability = package_data[package]["ability"];
                     let package_ability = values[`${ability}_modifier`];
                     let zero = package_data[package]["zero"];
+                    let package_altmod = parseInt(values[`${package}_altmod`])||0;
                     package_data[package]["classes"].forEach(v => {
                         let class_level = parseInt(values[`${v}_level`])||0;
                         if (class_level > package_level) {
@@ -2556,7 +2678,7 @@
                     if (package_level > 0) {
                         update[`${package}_class`] = package_class;
                         update[`${package}_class_level`] = package_level;
-                        package_level += package_ability;
+                        package_level += package_ability + package_altmod;
                         update[`${package}`] = package_level;
                     } else {
                         if (zero) {
@@ -2582,11 +2704,11 @@
                         }
                     }
                 });
-                setAttrs(update, {silent:true});
+                setAttrs(update);//, {silent:true});
 
                 getSectionIDs("repeating_weapons", function(idarray) {
                     for (var i=0; i < idarray.length; i++) {
-                        let id = idarray[i];;
+                        let id = idarray[i];
                         getAttrs([`repeating_weapons_${id}_weapon_class`,`repeating_weapons_${id}_weapon_accuracy`,`repeating_weapons_${id}_weapon_extra_damage`], function(values2) {
                             let strength = parseInt(values["strength_modifier"])||0;
                             let intelligence = parseInt(values["intelligence_modifier"])||0;
@@ -2594,17 +2716,20 @@
                             let w_class = values2[`repeating_weapons_${id}_weapon_class`];
                             let w_acc_level = ["gun","crossbow"].includes(w_class) ? parseInt(values["marksman_level"])||0 :
                                 parseInt(values[`${w_class}_level`])||0;
+                            let acc_altmod = parseInt(values["base_accuracy_altmod"])||0;
                             let w_dmg_level = w_class == "gun" ? parseInt(values["artificer_level"])||0 :
                                 w_class == "crossbow" ? parseInt(values["marksman_level"])||0 :
                                 parseInt(values[`${w_class}_level`])||0;
+                            let dmg_altmod = parseInt(values["extra_damage_altmod"])||0;
                             let w_accuracy = parseInt(values2[`repeating_weapons_${id}_weapon_accuracy`])||0;
                             let w_damage = parseInt(values2[`repeating_weapons_${id}_weapon_extra_damage`])||0;
-                            w_accuracy += w_acc_level + dexterity;
-                            w_damage += w_class == "gun" && w_dmg_level > 0 ? intelligence + w_dmg_level :
+                            w_accuracy += w_acc_level + dexterity + acc_altmod;
+                            w_damage += (w_class == "gun" && w_dmg_level > 0 ? intelligence + w_dmg_level :
                                 w_class == "crossbow" && w_dmg_level > 0 ? w_dmg_level :
-                                w_dmg_level > 0 ? strength + w_dmg_level : 0;
+                                w_dmg_level > 0 ? strength + w_dmg_level : 0) + dmg_altmod;
                             update2[`repeating_weapons_${id}_weapon_total_accuracy`] = w_accuracy;
                             update2[`repeating_weapons_${id}_weapon_total_extra_damage`] = w_damage;
+                            console.log(update2);
                             setAttrs(update2, {silent:true});
                         });
                     }
@@ -2729,6 +2854,37 @@
             let other_defense = parseInt(values["other_defense"])||0;
             update["total_defense"] = armor_defense + shield_defense + other_defense;
             setAttrs(update);
+        });
+    });
+
+    const altform_list = Object.keys(title_data);
+    on("change:repeating_altforms", function(eventInfo) {
+        getSectionIDs("repeating_altforms", function(idarray) {
+            let update = altform_list.reduce((ac,a) => ({...ac,[`${a}_altmod`]:0}),{});
+            let fields = [];
+            for (var i=0; i < idarray.length; i++) {
+                let id = idarray[i];
+                let prefix = `repeating_altforms_${id}_altform_`;
+                fields = fields.concat(["active"].concat(altform_list).map(i => prefix + i));
+            }
+            getAttrs(fields, function(values) {
+                for (var i=0; i < idarray.length; i++) {
+                    let id = idarray[i];
+                    let prefix = `repeating_altforms_${id}_altform_`;
+                    let active = parseInt(values[`${prefix}active`])||0;
+                    let summary = [];
+                    altform_list.forEach(v => {
+                        let value = parseInt(values[`${prefix}${v}`])||0;
+                        update[`${v}_altmod`] += active ? value : 0;
+                        if (value) {
+                            let sign = value > 0 ? "+" : "";
+                            summary.push(`${title_data[v]} ${sign}${value}`);
+                        }
+                    });
+                    update[`${prefix}summary`] = summary.join(', ');
+                }
+                setAttrs(update);
+            });
         });
     });
 
@@ -2976,7 +3132,8 @@
                 let skill = values[`fellow_action${mapped}_name`];
                 let quote = values[`fellow_action${mapped}_dialogue`];
                 let effect = values[`fellow_action${mapped}_effect`];
-                let power = parseInt(values[`fellow_action${mapped}_power`])||-1;
+                let power = parseInt(values[`fellow_action${mapped}_power`]) !== false ?
+                    parseInt(values[`fellow_action${mapped}_power`]) : -1;
 
                 finishRoll(
                     results.rollId,
@@ -3193,7 +3350,13 @@
                 {{/choice}}
                 {{^choice}}
                     {{#computed::skill}}<p>{{computed::skill}}{{/computed::skill}}
-                    {{#computed::result}}<p>{{computed::result}}</p>{{/computed::result}}
+                    {{#computed::result}}
+                    {{#rollGreater() computed::result 0}}
+                        <p>
+                        {{computed::result}}
+                        </p>
+                    {{/rollGreater() computed::result 0}}
+                    {{/computed::result}}
                     {{#computed::effect}}<p>{{computed::effect}}</p>{{/computed::effect}}
                 {{/choice}}
             {{/fellow}}

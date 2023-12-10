@@ -10,7 +10,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
-input[type=number] {
+input[type='number'] {
     -moz-appearance: textfield;
     /* Firefox */
 }
@@ -54,7 +54,7 @@ body .charsheet sub {
     white-space: unset;
 }
 body .charsheet div .grid input,
-body .charsheet div .grid input[type=number],
+body .charsheet div .grid input[type='number'],
 .charsheet select,
 .input  {
     font-size: 14px;
@@ -79,7 +79,7 @@ body .charsheet div .grid input[type=number],
     cursor: default;
 }
 body .charsheet div .grid input.lrg,
-body .charsheet div .grid input[type=number].lrg,
+body .charsheet div .grid input[type='number'].lrg,
 .charsheet select.lrg,
 .input.lrg  {
     font-size: 20px;
@@ -197,6 +197,9 @@ body .charsheet .toggle-xp:not([value='1']) ~ .grid .col2-classes div:nth-child(
 }
 .col3-title {
     grid-template-columns: 1fr 8fr 3fr;
+}
+.col4-altform {
+    grid-template-columns: 10px 2fr 3fr 10px;
 }
 .repeating_monsterloot ~ .repcontainer .repitem {
     grid-template-columns: 2fr 7fr 1fr;
@@ -436,10 +439,10 @@ input:checked + .slider:before {
     line-height: 8px;
     font-size: 10px;
 }
-.charsheet .grid input[type='radio'].standard:before {
+.charsheet .grid input[type='radio'].standard:not(.gear):before {
     transform: scale(0);
 }
-.charsheet .grid input[type='radio'].standard:checked:before {
+.charsheet .grid input[type='radio'].standard:not(.gear):checked:before {
     transform: scale(1);
 }
 .charsheet .grid input[type='radio']:checked ~ input[type='radio']:before {
@@ -484,14 +487,20 @@ input:checked + .slider:before {
 .charsheet .grid input[type='checkbox']:checked:hover:before {
     content: '✖';
 }
-.charsheet .grid input[type=checkbox].standard {
+.charsheet .grid input[type='checkbox'].standard {
     background: white;
     width: 10px;
     height: 10px;
     border: solid 1px black;
 }
-.charsheet .grid input[type=checkbox].standard:hover:before,
-.charsheet .grid input[type=checkbox].standard:before {
+.charsheet .grid input[type='checkbox'].standard.gear {
+    background: white;
+    width: 10px;
+    height: 10px;
+    border: none;
+}
+.charsheet .grid input[type='checkbox'].standard:hover:before,
+.charsheet .grid input[type='checkbox'].standard:before {
     content: '';
     width: 8px;
     height: 8px;
@@ -500,10 +509,27 @@ input:checked + .slider:before {
     background: black;
     line-height: 8px;
 }
+.charsheet .grid input[type='checkbox'].standard.gear:hover:before,
+.charsheet .grid input[type='checkbox'].standard.gear:before {
+    font-family: 'Pictos';
+    content: 'y';
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+    transform: scale(1);
+    background: white;
+    line-height: 10px;
+    color: darkgray;
+}
 .charsheet .grid input[type='checkbox'].standard:checked:hover:before,
 .charsheet .grid input[type='checkbox'].standard:checked:before {
     content: '';
     transform: scale(1);
+}
+.charsheet .grid input[type='checkbox'].standard.gear:checked:hover:before,
+.charsheet .grid input[type='checkbox'].standard.gear:checked:before {
+    content: 'y';
+    color: black;
 }
 
 /* tabs */
@@ -534,6 +560,7 @@ input:checked + .slider:before {
 }
 .toggle-tabs[value='page1'] ~ .tabs div.tab-page1 button,
 .toggle-tabs[value='page2'] ~ .tabs div.tab-page2 button,
+.toggle-tabs[value='altform'] ~ .tabs div.tab-altform button,
 .toggle-tabs[value='monster'] ~ .tabs div.tab-monster button,
 .toggle-tabs[value='fellow'] ~ .tabs div.tab-fellow button,
 .toggle-tabs[value='settings'] ~ .tabs div.tab-settings button {
@@ -543,6 +570,7 @@ input:checked + .slider:before {
 
 .charactersheet .toggle-monster:not([value='0']) ~ .tabs div.tab-page1,
 .charactersheet .toggle-monster:not([value='0']) ~ .tabs div.tab-page2,
+.charactersheet .toggle-monster:not([value='0']) ~ .tabs div.tab-altform,
 .charactersheet .toggle-monster:not([value='1']) ~ .tabs div.tab-monster,
 .charactersheet .toggle-monster:not([value='2']) ~ .tabs div.tab-fellow,
 .charactersheet .toggle-monster:not([value='0']) ~ div .monster0,
@@ -554,6 +582,7 @@ input:checked + .slider:before {
 
 body .charactersheet .page1,
 body .charactersheet .page2,
+body .charactersheet .altform,
 body .charactersheet .monster,
 body .charactersheet .fellow,
 body .charactersheet .settings {
@@ -561,10 +590,11 @@ body .charactersheet .settings {
 }
 body .charactersheet .page1:after,
 body .charactersheet .page2:after,
+body .charactersheet .altform:after,
 body .charactersheet .monster:after,
 body .charactersheet .fellow:after,
 body .charactersheet .settings:after {
-    content: 'Sword World 2.5 Character Sheet Ver.0.182 | https://app.roll20.net/users/2699740/robert-b';
+    content: 'Sword World 2.5 Character Sheet Ver.0.184 | https://app.roll20.net/users/2699740/robert-b';
     text-align: right;
     font-size: 8px;
 }
@@ -576,6 +606,7 @@ body .charactersheet .settings:after {
 }
 body .toggle-tabs[value='page1'] ~ div.page1,
 body .toggle-tabs[value='page2'] ~ div.page2,
+body .toggle-tabs[value='altform'] ~ div.altform,
 body .toggle-tabs[value='monster'] ~ div.monster,
 body .toggle-tabs[value='fellow'] ~ div.fellow,
 body .toggle-tabs[value='settings'] ~ div.settings {
@@ -589,7 +620,7 @@ body .charsheet .tabs .roller {
     text-align: right;
 }
 body .charsheet .tabs .roller button,
-.page1 .repeating_workskills ~ .repcontainer .repitem button[type=action],
+.page1 .repeating_workskills ~ .repcontainer .repitem button[type='action'],
 body .charsheet .monster div:not(.repcontrol) > button,
 .fellow .col6-fellowactions button {
     background: none;
@@ -606,7 +637,7 @@ body .charsheet .tabs .roller button {
     height: 100%;
 }
 body .charsheet .tabs .roller button:before,
-.page1 .repeating_workskills ~ .repcontainer .repitem button[type=action]:before,
+.page1 .repeating_workskills ~ .repcontainer .repitem button[type='action']:before,
 body .charsheet .monster div:not(.repcontrol) > button:before,
 .fellow .col6-fellowactions button:before {
     content: 'F';
@@ -617,7 +648,7 @@ body .charsheet .monster div:not(.repcontrol) > button:before,
     color: white;
 }
 body .charsheet .tabs .roller button:hover:before,
-.page1 .repeating_workskills ~ .repcontainer .repitem button[type=action]:hover:before,
+.page1 .repeating_workskills ~ .repcontainer .repitem button[type='action']:hover:before,
 body .charsheet .monster div:not(.repcontrol) > button:hover:before,
 .fellow .col6-fellowactions button:hover:before {
     color: gold;
@@ -744,7 +775,7 @@ body .charsheet .grid.lined .repcontainer .repitem > div:not(.itemcontrol) {
     background: white;
 }
 body .charsheet div .grid.lined input,
-body .charsheet div .grid.lined input[type=number],
+body .charsheet div .grid.lined input[type='number'],
 body .charsheet div .grid.lined .input {
     border: none;
 }
@@ -760,14 +791,14 @@ body .charsheet .grid.lined .repcontainer {
 body .charsheet .grid.lined .repcontainer .repitem {
     gap: 0;
 }
-body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:before {
+body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:not(.standard):before {
     content: '─';
 }
-body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:hover:before,
-body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:checked:before {
+body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:not(.standard):hover:before,
+body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:not(.standard):checked:before {
     content: '◯';
 }
-body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:checked:hover:before {
+body .charsheet .grid.lined .repcontainer .repitem input[type='checkbox']:not(.standard):checked:hover:before {
     content: '✖';
 }
 body .charsheet .grid.lined label,
@@ -777,7 +808,7 @@ body .charsheet .grid.lined .label {
 
 body .charsheet .col3-languages *:nth-child(3n+2),
 body .charsheet .col3-languages *:nth-child(3n+3),
-.repeating_workskills ~ .repcontainer .repitem input[type=number] {
+.repeating_workskills ~ .repcontainer .repitem input[type='number'] {
     text-align: center;
 }
 .repeating_languages ~ .repcontainer .repitem {
@@ -785,6 +816,9 @@ body .charsheet .col3-languages *:nth-child(3n+3),
 }
 .repeating_workskills ~ .repcontainer .repitem {
     grid-template-columns: 2fr 2fr 1fr;
+}
+.repeating_altforms ~ .repcontainer .repitem {
+    height: unset;
 }
 body .charsheet .grid.lined .repeating_workskills ~ .repcontainer .repitem > div:not(.itemcontrol) {
     position: unset;
@@ -854,14 +888,14 @@ body .charsheet .boxstat .label {
     border: solid 2px black;
     margin-right: 10px;
 }
-body .charsheet .col5-abilities > div input[type=number],
+body .charsheet .col5-abilities > div input[type='number'],
 body .charsheet .col5-abilities > div .input {
     border: none;
     height: 35px;
     line-height: 35px;
     text-align: center;
 }
-body .charsheet .col5-abilities > div.vspan2 input[type=number] {
+body .charsheet .col5-abilities > div.vspan2 input[type='number'] {
     height: 80px;
 }
 .col5-abilities > * label {
@@ -917,19 +951,19 @@ body .charsheet .col5-abilities > div.vspan2 input[type=number] {
 body .charsheet .toggle-xp[value='1'] ~ .grid .classes {
     background: linear-gradient(90deg, white 52%, black 52%, black 52.5%, white 52.5%);
 }
-.charsheet .classes > input[type=checkbox] {
+.charsheet .classes > input[type='checkbox'] {
     position: absolute;
     left: 0;
     top: 1px;
     width: 20px;
     height: 20px;
 }
-.charsheet .classes > input[type=checkbox]:before {
+.charsheet .classes > input[type='checkbox']:before {
     font-family: 'Pictos';
     color: white;
 }
 .charsheet .classes > input[type='checkbox']:hover:before,
-.charsheet .classes > input[type=checkbox]:before {
+.charsheet .classes > input[type='checkbox']:before {
     content: '_';
 }
 .charsheet .classes > input[type='checkbox']:checked:hover:before,
@@ -943,11 +977,11 @@ body .charsheet .col2-classes div {
     box-sizing: border-box;
     height: 20px;
 }
-body .charsheet .col2-classes div input[type=number],
+body .charsheet .col2-classes div input[type='number'],
 body .charsheet .col2-classes .input {
     border: none;
 }
-body .charsheet .col2-classes div input[type=number] {
+body .charsheet .col2-classes div input[type='number'] {
     text-align: center;
 }
 body .charsheet .toggle-class[value='1'] ~ .col2-classes .toggle-class[value='0'] + div,
@@ -1185,7 +1219,7 @@ body .charsheet .boxstat .label.rotate {
     width: fit-content;
 }
 body .charsheet div.grid .boxstat input,
-body .charsheet div.grid .boxstat input[type=number] {
+body .charsheet div.grid .boxstat input[type='number'] {
     border: none;
 }
 body .charsheet .boxstat > div.col2 {
@@ -1199,7 +1233,7 @@ body .charsheet .boxstat > div.col2 div:last-child:before {
     margin: -5px;
 }
 body .charsheet .box + div > div:nth-child(even) .input,
-body .charsheet div .boxstat input[type=number],
+body .charsheet div .boxstat input[type='number'],
 body .charsheet .boxstat .input {
     border: none;
     height: 35px;
@@ -1327,7 +1361,7 @@ body .charsheet .repeating_weapons ~ .repcontainer .repitem div:nth-child(22):be
 body .charsheet .repeating_weapons ~ .repcontainer .repitem div:nth-child(22) input {
     z-index: 1;
 }
-body .charsheet .repeating_weapons ~ .repcontainer .repitem input[type=number],
+body .charsheet .repeating_weapons ~ .repcontainer .repitem input[type='number'],
 body .charsheet .repeating_weapons ~ .repcontainer .repitem .input {
     text-align: center;
 }
@@ -1337,10 +1371,10 @@ body .charsheet .repeating_weapons ~ .repcontainer .repitem .input {
 }
 body .charsheet .col2-locations div,
 body .charsheet .grid .col2-locations input,
-body .charsheet .grid .col4-armor input[type=number],
+body .charsheet .grid .col4-armor input[type='number'],
 .repeating_accessories ~ .repcontainer .repitem div,
 .repeating_accessories ~ .repcontainer .repitem input,
-.repeating_armor ~ .repcontainer .repitem input[type=number] {
+.repeating_armor ~ .repcontainer .repitem input[type='number'] {
     text-align: center;
 }
 body .charsheet .col2-locations *:nth-child(13),
@@ -1392,7 +1426,7 @@ body .charsheet .lined.black {
 }
 body .charsheet .powertable div,
 .repeating_powertable ~ .repcontainer .repitem div,
-.repeating_powertable ~ .repcontainer .repitem input[type=number] {
+.repeating_powertable ~ .repcontainer .repitem input[type='number'] {
     font-size: 10px;
     line-height: unset;
     display: grid;
@@ -1488,8 +1522,12 @@ body .charsheet .toggle-cards:not([value='0']) + div {
 .charsheet .cards .header {
     background: dimgray;
 }
-body .charsheet .profile .cards input[type=number] {
+body .charsheet .profile .cards input[type='number'] {
     text-align: center;
+}
+
+body .toggle-altform:not([value='1']) ~ div {
+    display: none;
 }
 
 /* monster */
@@ -1502,13 +1540,13 @@ body .charsheet .monster span.input {
 .monster .repitem {
     height: unset;
 }
-body .charsheet .monster input[type=text],
-body .charsheet .monster div input[type=number],
+body .charsheet .monster input[type='text'],
+body .charsheet .monster div input[type='number'],
 .monster .auto-expand textarea {
     border-bottom: solid 1px gainsboro;
 }
 body .charsheet div .col3-title input,
-body .charsheet div .col3-title input[type=number] {
+body .charsheet div .col3-title input[type='number'] {
     border: none;
 }
 .charsheet .col3-title input:not(:first-child) {
@@ -1530,8 +1568,8 @@ body .charsheet div .col3-title input[type=number] {
 body .charsheet .monster > .grid.lined:nth-child(3) .repcontainer .repitem:nth-child(odd) > div {
     background: gainsboro;
 }
-.charsheet .monster .lined input[type=text],
-.charsheet .monster .lined input[type=number],
+.charsheet .monster .lined input[type='text'],
+.charsheet .monster .lined input[type='number'],
 .charsheet .monster .lined .input {
     text-align: center;
 }
@@ -1602,7 +1640,7 @@ body .charsheet .monster .grid.nogap:nth-child(5) > div:nth-child(3) {
 body .charsheet .monster .repeating_monsterskills ~ .repcontainer .repitem {
     padding: 5px 10px;
 }
-body .charsheet .monster .repeating_monsterskills ~ .repcontainer .repitem input[type=number],
+body .charsheet .monster .repeating_monsterskills ~ .repcontainer .repitem input[type='number'],
 body .charsheet .monster .repeating_monsterskills ~ .repcontainer .repitem .input {
     text-align: center;
 }
@@ -1692,7 +1730,7 @@ body .charsheet div .grid .dropdown > input:checked ~ .dropdown-content {
 body .charsheet .grid.lined .repeating_monsterloot ~ .repcontainer .repitem div:nth-child(2) {
     background: gainsboro;
 }
-.repeating_monsterloot ~ .repcontainer .repitem div:nth-child(3) input[type=text] {
+.repeating_monsterloot ~ .repcontainer .repitem div:nth-child(3) input[type='text'] {
     text-align: left;
 }
 .repeating_monsterloot ~ .repcontainer .repitem div:nth-child(4) {
@@ -1742,12 +1780,12 @@ body .charsheet .hex:before {
     z-index: -1;
 }
 body .charsheet .hex *,
-body .charsheet div .grid.hex input[type=number],
+body .charsheet div .grid.hex input[type='number'],
 body .charsheet div .grid.hex .input {
     text-align: center;
     border: none;
 }
-body .charsheet div .grid.hex input[type=number],
+body .charsheet div .grid.hex input[type='number'],
 body .charsheet div .grid.hex .input {
     font-size: 24px;
     min-height: 80px;
@@ -1805,7 +1843,7 @@ body .charsheet .fellow .grid.lined .grid > div > * {
 .fellow .col6-fellowactions > *:first-child > *:last-child {
     place-self: start;
 }
-.fellow .col6-fellowactions .vspan2 button[type=action] {
+.fellow .col6-fellowactions .vspan2 button[type='action'] {
     display: none;
 }
 
@@ -1817,7 +1855,7 @@ body .charsheet .fellow .grid.lined .grid > div > * {
 .charsheet .grid .editable .editmode:not([value='1']) ~ .editbox {
     display: none;
 }
-.editable input[type=checkbox]:nth-child(2) {
+.editable input[type='checkbox']:nth-child(2) {
     z-index: 1001;
     position: absolute;
     width: 16px;
@@ -1825,18 +1863,18 @@ body .charsheet .fellow .grid.lined .grid > div > * {
     left: 2px;
     top: 0;
 }
-.charsheet .grid .editable .editmode:not([value='1']) + input[type=checkbox] {
+.charsheet .grid .editable .editmode:not([value='1']) + input[type='checkbox'] {
     display: none;
 }
-.charsheet .grid .editable:hover .editmode:not([value='1']) + input[type=checkbox] {
+.charsheet .grid .editable:hover .editmode:not([value='1']) + input[type='checkbox'] {
     display: grid;
     color: darkgray;
 }
-.charsheet .grid .editable input[type=checkbox]:nth-child(2):before {
+.charsheet .grid .editable input[type='checkbox']:nth-child(2):before {
     content: 'y';
     font-family: 'Pictos';
 }
-.charsheet .grid .editable input[type=checkbox]:nth-child(2):hover {
+.charsheet .grid .editable input[type='checkbox']:nth-child(2):hover {
     cursor: pointer;
     color: gold;
 }
@@ -1864,7 +1902,7 @@ body .charsheet .fellow .grid.lined .grid > div > * {
     height: 20px;
     line-height: 20px;
 }
-.charsheet .grid .editable .editbox input[type=number] {
+.charsheet .grid .editable .editbox input[type='number'] {
     border-bottom: solid 1px black;
     text-align: center;
 }
