@@ -1,5 +1,5 @@
 /* fonts */
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:wght@400;700&display=swap");
 
 body * {
     font-family: "Nanum Gothic", sans-serif;
@@ -376,6 +376,9 @@ h3,
 .rowspan3 {
     grid-row: span 3;
 }
+.rowspan4 {
+    grid-row: span 4;
+}
 .notes {
     grid-column: span 2;
 }
@@ -668,6 +671,8 @@ h1.grid-header .grid.shrink {
     white-space: nowrap;
     text-transform: uppercase;
     height: 100%;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0.5em 0;
 }
 .rpa .sticker:nth-child(2) .grid-rpa {
     grid-template-columns: repeat(7, 1fr);
@@ -941,8 +946,8 @@ footer * {
     white-space: nowrap;
     text-transform: uppercase;
     height: 100%;
-    margin-bottom: 0.5em;
-    padding-right: 0.5em;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0.5em 0;
     box-sizing: border-box;
 }
 
@@ -1080,6 +1085,7 @@ footer * {
     content: 'no range';
 }
 
+.natural-abilities[value=""] ~ .grid .statcard .natural-abilities,
 .armor-count[value="0"] ~ .grid .statcard .repeating-armor,
 .armor-count[value="0"] ~ .grid .statcard .repeating-armor + .repeating_armor + .repcontainer,
 .weapon-count[value="0"] ~ .grid .statcard .repeating-weapon,
@@ -1096,6 +1102,10 @@ footer * {
 .statcard .skill-base[value=""] ~ button,
 .statcard .skill-base:not([value=""]) ~ span {
     display: none;
+}
+
+.natural-abilities[value=""] ~ .grid .statcard h4.stats {
+    grid-row: span 3;
 }
 
 /* roll templates */

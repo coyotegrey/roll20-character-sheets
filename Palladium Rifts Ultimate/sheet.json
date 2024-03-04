@@ -3,5 +3,7 @@
 	"css": "sheet.css",
 	"authors": "Robert Burson (@rburson)",
 	"roll20userid": "2699740",
-	"preview": "sheet.png"
+	"preview": "sheet.png",
+    "instructions": "*RIFTS Ultimate Edition* from Palladium Books. Support for auto-calculations, dice rollers, and various OCC/RCC types.\n\nThis sheet is unofficial. You can reach me with feedback, requests, or suggestions @robert-b on roll20.",
+    "legacy": false
 }

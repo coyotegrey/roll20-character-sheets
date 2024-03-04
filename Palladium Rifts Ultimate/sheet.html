@@ -26,6 +26,7 @@
 <input type="hidden" class="armor-collapse" name="attr_armor_collapse" value="0" />
 <input type="hidden" class="rpa-collapse" name="attr_rpa_collapse" value="0" />
 <input type="hidden" class="ps-restrained" name="attr_ps_hth_restrained_punch_type" value="none" />
+<input type="hidden" class="natural-abilities" name="attr_natural_abilities" value="" />
 <input type="hidden" class="armor-count" name="attr_armor_count" value="0" />
 <input type="hidden" class="maneuvers-count" name="attr_maneuvers_count" value="0" />
 <input type="hidden" class="weapon-count" name="attr_weapon_count" value="0" />
@@ -61,7 +62,7 @@
     </h1>
 
     <div class="grid statcard">
-        <h4 class="rowspan3">Stats</h4>
+        <h4 class="stats rowspan4">Stats</h4>
         <div class="flex lane">
             <div class="grid">
                 <label>Level</label>
@@ -129,6 +130,10 @@
                 <button type="roll" name="roll_initiative" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~initiative)}} {{name=@{character_name}}} {{rollname=Initiative}} {{bonus=@{initiative}}} {{roll=[[[[1d20]]+@{initiative} &{tracker}]]}} {{raw=$[[0]]}}">
                     +<span name="attr_initiative"></span></button>
             </div>
+        </div>
+
+        <div class="grid natural-abilities">
+            <span name="attr_natural_abilities"></span>
         </div>
 
         <div class="grid">
@@ -287,8 +292,8 @@
         <div class="grid grid4">
             <button type="roll" name="roll_save_comadeath" value="&{template:d100} @{roll_template_token} {{reroll=[Reroll](~save_comadeath)}} {{name=@{character_name}}} {{rollname=Save vs. Coma / Death}} {{bonus=@{save_comadeath_total}}} {{savecoma=true}} {{roll=[[1d100-@{save_comadeath_total}]]}}">
                 Coma/Death <span name="attr_save_comadeath_total"></span>%</button>
-            <button type="roll" name="roll_save_curses" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_curses)}} {{name=@{character_name}}} {{rollname=Save vs. Curses}} {{bonus=@{save_curses}}} {{roll=[[[[1d20]]+@{save_curses}]]}} {{raw=$[[0]]}}">
-                Curses (vs 15) +<span name="attr_save_curses"></span></button>
+            <button type="roll" name="roll_save_curses" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_curses)}} {{name=@{character_name}}} {{rollname=Save vs. Curses}} {{bonus=@{save_curses_total}}} {{roll=[[[[1d20]]+@{save_curses_total}]]}} {{raw=$[[0]]}}">
+                Curses (vs 15) +<span name="attr_save_curses_total"></span></button>
             <button type="roll" name="roll_save_disease" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_disease)}} {{name=@{character_name}}} {{rollname=Save vs. Disease}} {{bonus=@{save_disease_total}}} {{roll=[[[[1d20]]+@{save_disease_total}]]}} {{raw=$[[0]]}}">
                 Disease (vs 14) +<span name="attr_save_disease_total"></span></button>
             <button type="roll" name="roll_save_electrocution" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_electrocution)}} {{name=@{character_name}}} {{rollname=Save vs. Electrocution}} {{bonus=@{save_electrocution_total}}} {{roll=[[[[1d20]]+@{save_electrocution_total}]]}} {{raw=$[[0]]}}">
@@ -299,8 +304,8 @@
                 Extreme Cold (vs 14) +<span name="attr_save_cold_total"></span></button>
             <button type="roll" name="roll_save_drugs" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_drugs)}} {{name=@{character_name}}} {{rollname=Save vs. Harmful Drugs}} {{bonus=@{save_drugs_total}}} {{roll=[[[[1d20]]+@{save_drugs_total}]]}} {{raw=$[[0]]}}">
                 Harmful Drugs (vs 15) +<span name="attr_save_drugs_total"></span></button>
-            <button type="roll" name="roll_save_horror" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_horror)}} {{name=@{character_name}}} {{rollname=Save vs. Horror Factor}} {{bonus=@{save_horror}}} {{roll=[[[[1d20]]+@{save_horror}]]}} {{raw=$[[0]]}}">
-                Horror Factor (vs 12+) +<span name="attr_save_horror"></span></button>
+            <button type="roll" name="roll_save_horror" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_horror)}} {{name=@{character_name}}} {{rollname=Save vs. Horror Factor}} {{bonus=@{save_horror_total}}} {{roll=[[[[1d20]]+@{save_horror_total}]]}} {{raw=$[[0]]}}">
+                Horror Factor (vs 12+) +<span name="attr_save_horror_total"></span></button>
             <button type="roll" name="roll_save_insane" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_insane)}} {{name=@{character_name}}} {{rollname=Save vs. Insanity}} {{bonus=@{save_insane_total}}} {{roll=[[[[1d20]]+@{save_insane_total}]]}} {{raw=$[[0]]}}">
                 Insanity (vs 12) +<span name="attr_save_insane_total"></span></button>
             <button type="roll" name="roll_save_magic" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_magic)}} {{name=@{character_name}}} {{rollname=Save vs. Magic}} {{bonus=@{save_magic_total}}} {{roll=[[[[1d20]]+@{save_magic_total}]]}} {{raw=$[[0]]}}">
@@ -993,7 +998,7 @@
             </label>
         </h2>
         <div class="grid grid-basic">
-            <div class="grid grid2 rowspan2">
+            <div class="grid grid2 rowspan3">
                 <label>Character Name</label>
                 <input class="unlocked" type="text" value="" name="attr_character_name"/>
                 <span class="locked" name="attr_character_name"></span>
@@ -1217,6 +1222,11 @@
                 </div>
             </div>
 
+            <div class="grid span2">
+                <textarea class="unlocked span2" wrap="soft" name="attr_natural_abilities" placeholder="Natural Abilities" ></textarea>
+                <span class="locked span2" name="attr_natural_abilities"></span>
+            </div>
+
             <div class="grid grid2 span2">
                 <input type="hidden" name="attr_lift" />
                 <input type="hidden" name="attr_carry" />
@@ -1360,6 +1370,241 @@
             </div>
         </div>
 
+        <datalist id="skillList">
+            <option>Barter</option>
+            <option>Creative Writing</option>
+            <option>Cryptography</option>
+            <option>Electronic Countermeasures</option>
+            <option>Language: Native Tongue</option>
+            <option>Language: Other</option>
+            <option>Laser Communications</option>
+            <option>Literacy: Native Language</option>
+            <option>Literacy: Other</option>
+            <option>Optic Systems</option>
+            <option>Performance</option>
+            <option>Public Speaking</option>
+            <option>Radio: Basic</option>
+            <option>Sensory Equipment</option>
+            <option>Sign Language</option>
+            <option>Sing</option>
+            <option>Surveillance</option>
+            <option>T.V./Video</option>
+
+            <option>Branding</option>
+            <option>Breaking/Taming Wild Horse</option>
+            <option>Herding Cattle</option>
+            <option>Horsemanship: Cowboy</option>
+            <option>Horsemanship: Exotic</option>
+            <option>Lore: American Indians</option>
+            <option>Lore Cattle/Animals</option>
+            <option>Roping</option>
+            <option>Trick Riding</option>
+
+            <option>Brewing</option>
+            <option>Cook</option>
+            <option>Dance</option>
+            <option>Fishing</option>
+            <option>Gardening</option>
+            <option>Housekeeping</option>
+            <option>Play Musical Instrument</option>
+            <option>Recycle</option>
+            <option>Sewing</option>
+            <option>Wardrobe & Grooming</option>
+
+            <option>Basic Electronics</option>
+            <option>Computer Repair</option>
+            <option>Electrical Engineer</option>
+            <option>Electricity Generation</option>
+            <option>Robot Electronics</option>
+
+            <option>Detect Ambush</option>
+            <option>Detect Concealment</option>
+            <option>Disguise</option>
+            <option>Escape Artist</option>
+            <option>Forgery</option>
+            <option>Impersonation</option>
+            <option>Intelligence</option>
+            <option>Interrogation</option>
+            <option>Pick Locks</option>
+            <option>Pick Pockets</option>
+            <option>Sniper</option>
+            <option>Tracking (people)</option>
+            <option>Undercover Ops</option>
+            <option>Wilderness Survival</option>
+
+            <option>Horsemanship: General</option>
+            <option>Horsemanship: Cossack</option>
+            <option>Horsemanship: Cyber-Knight</option>
+            <option>Horsemanship: Equestrian</option>
+
+            <option>Aircraft Mechanics</option>
+            <option>Automotive Mechanics</option>
+            <option>Basic Mechanics</option>
+            <option>Bioware Mechanics</option>
+            <option>Locksmith</option>
+            <option>Mechanical Engineer</option>
+            <option>Robot Mechanics</option>
+            <option>Vehicle Armorer</option>
+            <option>Weapons Engineer</option>
+
+            <option>Animal Husbandry</option>
+            <option>Brewing: Medicinal</option>
+            <option>Crime Scene Investigation</option>
+            <option>Cybernetic Medicine</option>
+            <option>Entomological Medicine</option>
+            <option>Field Surgery</option>
+            <option>First Aid</option>
+            <option>Forensics</option>
+            <option>Holistic Medicine</option>
+            <option>Pathology</option>
+            <option>Paramedic</option>
+            <option>Medical Doctor</option>
+            <option>Psychology</option>
+            <option>Veterinary Science</option>
+
+            <option>Camouflage</option>
+            <option>Demolitions</option>
+            <option>Demolitions Disposal</option>
+            <option>Demolitions: Underwater</option>
+            <option>Field Armorer & Munitions Expert</option>
+            <option>Find Contraband</option>
+            <option>Forced March Military Etiquette</option>
+            <option>Military Fortification</option>
+            <option>Naval History</option>
+            <option>Naval Tactics</option>
+            <option>NBC Warfare</option>
+            <option>Parachuting</option>
+            <option>Recognize Weapon Quality</option>
+            <option>Trap/Mine Detection</option>
+
+            <option>Acrobatics</option>
+            <option>Aerobic Athletics</option>
+            <option>Athletics (General)</option>
+            <option>Body Building & Weight Lifting</option>
+            <option>Boxing</option>
+            <option>Climbing</option>
+            <option>Fencing</option>
+            <option>Forced March</option>
+            <option>Gymnastics</option>
+            <option>Juggling</option>
+            <option>Kick Boxing</option>
+            <option>Outdoorsmanship</option>
+            <option>Physical Labor</option>
+            <option>Prowl</option>
+            <option>Running</option>
+            <option>Swimming</option>
+            <option>SCUBA</option>
+            <option>Wrestling</option>
+
+            <option>Airplane</option>
+            <option>Automobile</option>
+            <option>Bicycling</option>
+            <option>Boat: Motor, Race & Hydrofoil</option>
+            <option>Boat: Paddle Types/Canoe/Kayak</option>
+            <option>Boat: Sail Type</option>
+            <option>Boat: Ships</option>
+            <option>Combat Driving</option>
+            <option>Flight Systems Combat (Juicer)</option>
+            <option>Hover Craft (Ground)</option>
+            <option>Hovercycles, Skycycles & Rocket Bikes</option>
+            <option>Jet Aircraft</option>
+            <option>Jet Packs</option>
+            <option>Jump Bike Combat (Juicer)</option>
+            <option>Military: Combat Helicopter</option>
+            <option>Military: Jet Fighters</option>
+            <option>Military: Submersibles</option>
+            <option>Military: Tanks & APCs</option>
+            <option>Military: Warships & Patrol Boats</option>
+            <option>Motorcycles & Snowmobiles</option>
+            <option>Robots & Power Armor</option>
+            <option>Robot Combat: Basic</option>
+            <option>Robot Combat: Elite</option>
+            <option>Tracked & Construction Vehicles</option>
+            <option>Truck</option>
+            <option>Water Scooters</option>
+            <option>Water Skiing & Surfing</option>
+
+            <option>Navigation</option>
+            <option>Weapon Systems</option>
+
+            <option>Cardsharp</option>
+            <option>Computer Hacking</option>
+            <option>Concealment</option>
+            <option>Gambling (Standard)</option>
+            <option>Gambling (Dirty Tricks)</option>
+            <option>I.D. Undercover Agents</option>
+            <option>Imitate Voices & Sounds</option>
+            <option>Palming</option>
+            <option>Roadwise</option>
+            <option>Safe-Cracking</option>
+            <option>Seduction</option>
+            <option>Streetwise</option>
+            <option>Tailing</option>
+
+            <option>Anthropology</option>
+            <option>Archaeology</option>
+            <option>Artificial Intelligence</option>
+            <option>Astronomy & Navigation</option>
+            <option>Astrophysics</option>
+            <option>Biology</option>
+            <option>Botany</option>
+            <option>Chemistry</option>
+            <option>Chemistry: Analytical</option>
+            <option>Chemistry: Pharmaceutical</option>
+            <option>Mathematics: Basic</option>
+            <option>Mathematics: Advanced</option>
+            <option>Xenology</option>
+            <option>Zoology</option>
+
+            <option>Appraise Goods</option>
+            <option>Art</option>
+            <option>Begging</option>
+            <option>Breed Dogs</option>
+            <option>Calligraphy</option>
+            <option>Computer Operation</option>
+            <option>Computer Programming</option>
+            <option>Cybernetics: Basic</option>
+            <option>Excavation</option>
+            <option>Firefighting</option>
+            <option>Gemology</option>
+            <option>General Repair & Maintenance</option>
+            <option>History: Pre-Rifts</option>
+            <option>History: Post-Apocalypse</option>
+            <option>Jury Rig</option>
+            <option>Law (General)</option>
+            <option>Leather Working</option>
+            <option>Lore: Cattle & Animals</option>
+            <option>Lore: D-Bees</option>
+            <option>Lore: Demons & Monsters</option>
+            <option>Lore: Faeries & Creatures of Magic</option>
+            <option>Lore: Juicers</option>
+            <option>Lore: Magic</option>
+            <option>Lore: Psychics & Psionics</option>
+            <option>Masonry</option>
+            <option>Mining</option>
+            <option>Mythology</option>
+            <option>Philosophy</option>
+            <option>Photography</option>
+            <option>Recycling</option>
+            <option>Research</option>
+            <option>RopeWorks</option>
+            <option>Salvage</option>
+            <option>Ventriloquism</option>
+            <option>Whittling & Sculpting</option>
+
+            <option>Boat Building</option>
+            <option>Carpentry</option>
+            <option>Dowsing</option>
+            <option>Fasting</option>
+            <option>Hunting</option>
+            <option>Identify Plants & Fruit</option>
+            <option>Land Navigation</option>
+            <option>Preserve Food</option>
+            <option>Skin & Prepare Animal Hides</option>
+            <option>Spelunking</option>
+            <option>Track & Trap Animals</option>
+        </datalist>
+
         <div class="grid scroller">
             <div class="grid grid-skills">
                 <label>Name</label>
@@ -1376,7 +1621,7 @@
                 <input type="hidden" name="attr_skill_level" />
                 <input type="hidden" value="0" name="attr_skill_total" />
                 <div class="grid grid-skills">
-                    <input class="unlocked" type="text" value="" name="attr_skill_name" placeholder="Skill name" />
+                    <input class="unlocked" list="skillList" type="text" value="" name="attr_skill_name" placeholder="Skill name" />
                     <h4 class="locked"><span name="attr_skill_name"></span></h4>
                     <select class="unlocked" name="attr_skill_type">
                         <option value=""></option>
@@ -1384,6 +1629,7 @@
                         <option value="OCC Related">OCC Related</option>
                         <option value="Secondary">Secondary</option>
                         <option value="RCC">RCC</option>
+                        <option value="RCC Related">RCC Related</option>
                     </select>
                     <span class="locked" name="attr_skill_type"></span>
                     <input class="unlocked" type="number" value="" name="attr_skill_base" />
@@ -2672,7 +2918,15 @@
                 </label>
             </h3>
 
+            <div class="grid grid8">
+                <label>All Saves</label>
+                <input class="unlocked" type="number" value="0" name="attr_save_all" />
+                <span class="locked">+<span name="attr_save_all"></span></span>
+            </div>
+
             <input type="hidden" value="0" name="attr_save_comadeath_total" />
+            <input type="hidden" value="0" name="attr_save_curses_total" />
+            <input type="hidden" value="0" name="attr_save_horror_total" />
             <input type="hidden" value="0" name="attr_save_insane_total" />
             <input type="hidden" value="0" name="attr_save_magic_total" />
             <input type="hidden" value="0" name="attr_save_ritual_total" />
@@ -2694,8 +2948,8 @@
                     <h4>Curses (vs 15)</h4>
                     <input class="unlocked" type="number" value="0" name="attr_save_curses" />
                     <span class="locked" name="attr_save_curses"></span>
-                    <span>+<span name="attr_save_curses"></span></span>
-                    <button type="roll" name="roll_save_curses" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_curses)}} {{name=@{character_name}}} {{rollname=Save vs. Curses}} {{bonus=@{save_curses}}} {{roll=[[[[1d20]]+@{save_curses}]]}} {{raw=$[[0]]}}" />
+                    <span>+<span name="attr_save_curses_total"></span></span>
+                    <button type="roll" name="roll_save_curses" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_curses)}} {{name=@{character_name}}} {{rollname=Save vs. Curses}} {{bonus=@{save_curses_total}}} {{roll=[[[[1d20]]+@{save_curses_total}]]}} {{raw=$[[0]]}}" />
 
                     <h4>Disease (vs 14)</h4>
                     <input class="unlocked" type="number" value="0" name="attr_save_disease" />
@@ -2730,8 +2984,8 @@
                     <h4>Horror Factor (vs 12+)</h4>
                     <input class="unlocked" type="number" value="0" name="attr_save_horror" />
                     <span class="locked" name="attr_save_horror"></span>
-                    <span>+<span name="attr_save_horror"></span></span>
-                    <button type="roll" name="roll_save_horror" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_horror)}} {{name=@{character_name}}} {{rollname=Save vs. Horror Factor}} {{bonus=@{save_horror}}} {{roll=[[[[1d20]]+@{save_horror}]]}} {{raw=$[[0]]}}" />
+                    <span>+<span name="attr_save_horror_total"></span></span>
+                    <button type="roll" name="roll_save_horror" value="&{template:d20} @{roll_template_token} {{reroll=[Reroll](~save_horror)}} {{name=@{character_name}}} {{rollname=Save vs. Horror Factor}} {{bonus=@{save_horror_total}}} {{roll=[[[[1d20]]+@{save_horror_total}]]}} {{raw=$[[0]]}}" />
                 </div>
                 <div class="grid grid-saves">
                     <label class="slot2">Bonus</label>
@@ -4970,7 +5224,7 @@
                 </select>
 
                 <label>Current version</label>
-                <span>0.12</span>
+                <span>0.13</span>
 
                 <label>Sheet version</label>
                 <span name="attr_version"></span>
@@ -5161,7 +5415,7 @@
             }
         });
     }
-    const current_version = "0.12";
+    const current_version = "0.13";
     const repeatinglist = ["armor","maneuvers","weapon","skills","ability","consumable"];
     repeatinglist.forEach(repeating => {
         on(`change:repeating_${repeating} remove:repeating_${repeating}`, function(eventInfo) {
@@ -5199,7 +5453,7 @@
                     },
                     "ps_type": {"normal": "Normal", "augmented": "Augmented", "robot": "Robot", "supernatural": "Supernatural",},
                     "dc_type": {"sdc": "S.D.C.", "mdc": "M.D.C.", "md": "M.D."},
-                    "skill_type": {"occ": "OCC", "related": "OCC Related", "secondary": "Secondary", "rcc": "RCC",},
+                    "skill_type": {"occ": "OCC", "related": "OCC Related", "secondary": "Secondary", "rcc": "RCC", "rcc_related": "RCC Related",},
                     "psionic_strength": {"none": "Not Psychic", "minor": "Minor Psychic", "major": "Major Psychic", "master": "Master Psychic",},
                     "ability_source": {"ppe": "P.P.E.", "isp": "I.S.P.", "chi": "Chi", "bio-e": "BIO-E",},
                     "combatskill": {"non_combatant": "Non-Combatant", "basic": "Basic", "expert": "Expert", "martial": "Martial Arts", "assassin": "Assassin", "commando": "Commando", "dragon": "Dragon",},
@@ -5536,6 +5790,262 @@
         });
     });
 
+    const skilllookuplist = {
+        "Barter": [30,4],
+        "Creative Writing": [25,5],
+        "Cryptography": [25,5],
+        "Electronic Countermeasures": [30,5],
+        "Language: Native Tongue": [88,1],
+        "Language: Other": [50,3],
+        "Laser Communications": [30,5],
+        "Literacy: Native Language": [40,5],
+        "Literacy: Other": [30,5],
+        "Optic Systems": [30,5],
+        "Performance": [30,5],
+        "Public Speaking": [30,5],
+        "Radio: Basic": [45,5],
+        "Sensory Equipment": [30,5],
+        "Sign Language": [25,5],
+        "Sing": [35,5],
+        "Surveillance": [30,5],
+        "T.V./Video": [25,5],
+
+        "Branding": [50,5],
+        "Breaking/Taming Wild Horse": [20,5],
+        "Herding Cattle": [30,5],
+        "Horsemanship: Cowboy": [66,3],
+        "Horsemanship: Exotic": [30,5],
+        "Lore: American Indians": [25,5],
+        "Lore Cattle/Animals": [30,5],
+        "Roping": [20,5],
+        "Trick Riding": [],
+
+        "Brewing": [25,5],
+        "Cook": [35,5],
+        "Dance": [30,5],
+        "Fishing": [40,5],
+        "Gardening": [36,4],
+        "Housekeeping": [35,5],
+        "Play Musical Instrument": [35,5],
+        "Recycle": [30,5],
+        "Sewing": [40,5],
+        "Wardrobe & Grooming": [50,4],
+
+        "Basic Electronics": [30,5],
+        "Computer Repair": [30,5],
+        "Electrical Engineer": [35,5],
+        "Electricity Generation": [50,5],
+        "Robot Electronics": [30,5],
+
+        "Detect Ambush": [30,5],
+        "Detect Concealment": [25,5],
+        "Disguise": [25,5],
+        "Escape Artist": [30,5],
+        "Forgery": [20,5],
+        "Impersonation": [30,4],
+        "Intelligence": [32,4],
+        "Interrogation": [30,5],
+        "Pick Locks": [30,5],
+        "Pick Pockets": [25,5],
+        "Sniper": [],
+        "Tracking (people)": [25,5],
+        "Undercover Ops": [30,5],
+        "Wilderness Survival": [30,5],
+
+        "Horsemanship: General": [40,4],
+        "Horsemanship: Cossack": [55,5],
+        "Horsemanship: Cyber-Knight": [70,3],
+        "Horsemanship: Equestrian": [40,5],
+
+        "Aircraft Mechanics": [25,5],
+        "Automotive Mechanics": [25,5],
+        "Basic Mechanics": [30,5],
+        "Bioware Mechanics": [30,5],
+        "Locksmith": [25,5],
+        "Mechanical Engineer": [25,5],
+        "Robot Mechanics": [20,5],
+        "Vehicle Armorer": [30,5],
+        "Weapons Engineer": [25,5],
+
+        "Animal Husbandry": [35,5],
+        "Brewing: Medicinal": [25,5],
+        "Crime Scene Investigation": [35,5],
+        "Cybernetic Medicine": [40,5],
+        "Entomological Medicine": [40,5],
+        "Field Surgery": [16,4],
+        "First Aid": [45,5],
+        "Forensics": [35,5],
+        "Holistic Medicine": [30,5],
+        "Pathology": [40,5],
+        "Paramedic": [40,5],
+        "Medical Doctor": [60,5],
+        "Psychology": [35,5],
+        "Veterinary Science": [50,4],
+
+        "Camouflage": [20,5],
+        "Demolitions": [60,3],
+        "Demolitions Disposal": [60,3],
+        "Demolitions: Underwater": [56,4],
+        "Field Armorer & Munitions Expert": [40,5],
+        "Find Contraband": [26,4],
+        "Forced March Military Etiquette": [35,5],
+        "Military Fortification": [30,5],
+        "Naval History": [30,5],
+        "Naval Tactics": [25,5],
+        "NBC Warfare": [35,5],
+        "Parachuting": [40,5],
+        "Recognize Weapon Quality": [25,5],
+        "Trap/Mine Detection": [20,5],
+
+        "Acrobatics": [],
+        "Aerobic Athletics": [],
+        "Athletics (General)": [],
+        "Body Building & Weight Lifting": [],
+        "Boxing": [],
+        "Climbing": [40,5],
+        "Fencing": [],
+        "Forced March": [],
+        "Gymnastics": [],
+        "Juggling": [35,5],
+        "Kick Boxing": [],
+        "Outdoorsmanship": [],
+        "Physical Labor": [],
+        "Prowl": [25,5],
+        "Running": [],
+        "Swimming": [50,5],
+        "SCUBA": [50,5],
+        "Wrestling": [],
+
+        "Airplane": [50,4],
+        "Automobile": [60,2],
+        "Bicycling": [44,4],
+        "Boat: Motor, Race & Hydrofoil": [55,5],
+        "Boat: Paddle Types/Canoe/Kayak": [50,5],
+        "Boat: Sail Type": [60,5],
+        "Boat: Ships": [45,5],
+        "Combat Driving": [],
+        "Flight Systems Combat (Juicer)": [40,5],
+        "Hover Craft (Ground)": [50,5],
+        "Hovercycles, Skycycles & Rocket Bikes": [70,3],
+        "Jet Aircraft": [40,4],
+        "Jet Packs": [42,4],
+        "Jump Bike Combat (Juicer)": [45,5],
+        "Military: Combat Helicopter": [52,3],
+        "Military: Jet Fighters": [40,4],
+        "Military: Submersibles": [40,4],
+        "Military: Tanks & APCs": [36,4],
+        "Military: Warships & Patrol Boats": [40,4],
+        "Motorcycles & Snowmobiles": [60,4],
+        "Robots & Power Armor": [56,3],
+        "Robot Combat: Basic": [],
+        "Robot Combat: Elite": [],
+        "Tracked & Construction Vehicles": [40,4],
+        "Truck": [40,4],
+        "Water Scooters": [50,5],
+        "Water Skiing & Surfing": [40,4],
+
+        "Navigation": [40,5],
+        "Weapon Systems": [40,5],
+
+        "Cardsharp": [24,4],
+        "Computer Hacking": [20,5],
+        "Concealment": [20,4],
+        "Gambling (Standard)": [30,5],
+        "Gambling (Dirty Tricks)": [20,4],
+        "I.D. Undercover Agents": [30,4],
+        "Imitate Voices & Sounds": [42,4],
+        "Palming": [20,5],
+        "Roadwise": [26,4],
+        "Safe-Cracking": [20,4],
+        "Seduction": [20,3],
+        "Streetwise": [20,4],
+        "Tailing": [30,5],
+
+        "Anthropology": [30,5],
+        "Archaeology": [30,5],
+        "Artificial Intelligence": [30,3],
+        "Astronomy & Navigation": [30,5],
+        "Astrophysics": [30,5],
+        "Biology": [30,5],
+        "Botany": [25,5],
+        "Chemistry": [30,5],
+        "Chemistry: Analytical": [25,5],
+        "Chemistry: Pharmaceutical": [30,5],
+        "Mathematics: Basic": [45,5],
+        "Mathematics: Advanced": [45,5],
+        "Xenology": [30,5],
+        "Zoology": [30,5],
+
+        "Appraise Goods": [30,5],
+        "Art": [35,5],
+        "Begging": [30,3],
+        "Breed Dogs": [40,5],
+        "Calligraphy": [35,5],
+        "Computer Operation": [40,5],
+        "Computer Programming": [30,5],
+        "Cybernetics: Basic": [25,5],
+        "Excavation": [40,5],
+        "Firefighting": [30,5],
+        "Gemology": [25,5],
+        "General Repair & Maintenance": [35,5],
+        "History: Pre-Rifts": [32,4],
+        "History: Post-Apocalypse": [35,5],
+        "Jury Rig": [25,5],
+        "Law (General)": [35,5],
+        "Leather Working": [40,5],
+        "Lore: Cattle & Animals": [30,5],
+        "Lore: D-Bees": [25,5],
+        "Lore: Demons & Monsters": [25,5],
+        "Lore: Faeries & Creatures of Magic": [25,5],
+        "Lore: Juicers": [30,5],
+        "Lore: Magic": [25,5],
+        "Lore: Psychics & Psionics": [25,5],
+        "Masonry": [40,5],
+        "Mining": [35,5],
+        "Mythology": [30,5],
+        "Philosophy": [30,5],
+        "Photography": [35,5],
+        "Recycling": [30,5],
+        "Research": [40,5],
+        "RopeWorks": [30,5],
+        "Salvage": [35,5],
+        "Ventriloquism": [16,4],
+        "Whittling & Sculpting": [30,5],
+
+        "Boat Building": [25,5],
+        "Carpentry": [25,5],
+        "Dowsing": [20,5],
+        "Fasting": [40,3],
+        "Hunting": [],
+        "Identify Plants & Fruit": [25,5],
+        "Land Navigation": [36,4],
+        "Preserve Food": [30,5],
+        "Skin & Prepare Animal Hides": [30,5],
+        "Spelunking": [35,5],
+        "Track & Trap Animals": [20,5]
+    };
+    on("change:repeating_skills:skill_name", function(eventInfo) {
+        getAttrs(["repeating_skills_skill_name","level"], function(values) {
+            let name = values.repeating_skills_skill_name;
+            let level = parseInt(values.level)||0;
+
+            if (name in skilllookuplist && skilllookuplist[name].length) {
+                let base = skilllookuplist[name][0];
+                let per = skilllookuplist[name][1];
+
+                setAttrs({
+                    repeating_skills_skill_base: base,
+                    repeating_skills_skill_per: per,
+                    repeating_skills_skill_acquired: level
+                }, {silent: true});
+            } else {
+                setAttrs({
+                    repeating_skills_skill_acquired: level
+                }, {silent: true});
+            }
+        });
+    });
+
     const skillbaselist = ["repeating_skills:skill_base","repeating_skills:skill_per","repeating_skills:skill_bonus","repeating_skills:skill_acquired"];
     skillbaselist.forEach(field => {
         on(`change:${field}`, function(eventInfo) {
@@ -5614,9 +6124,10 @@
         });
     });
     // ME
-    on("change:me change:save_psi change:save_insane", function(eventInfo) {
-        getAttrs(["me","save_psi","save_insane"], function(values) {
+    on("change:me change:save_all change:save_psi change:save_insane", function(eventInfo) {
+        getAttrs(["me","save_all","save_psi","save_insane"], function(values) {
             let me = parseInt(values.me)||0;
+            let save_all = parseInt(values.save_all)||0;
             let save_psi = parseInt(values.save_psi)||0;
             let save_insane = parseInt(values.save_insane)||0;
             let me_psionic_bonus = me > 15 ? Math.ceil((me - 15)/2) : 0;
@@ -5632,8 +6143,8 @@
             setAttrs({
                 me_psionic_bonus: me_psionic_bonus,
                 me_insanity_bonus: me_insanity_bonus,
-                save_insane_total: save_insane_total,
-                save_psi_total: save_psi_total,
+                save_insane_total: save_insane_total + save_all,
+                save_psi_total: save_psi_total + save_all,
                 me_possession_bonus: me_possession_bonus
             });
         });
@@ -6121,8 +6632,9 @@
     // PE
     const comalist = {16:4, 17:5, 18:6, 19:8, 20:10, 21:12, 22:14, 23:16, 24:18, 25:20, 26:22, 27:24, 28:26, 29:28, 30:30}
     function update_pe(eventInfo) {
-        getAttrs(["pe","save_comadeath","save_magic","save_ritual","save_toxin_lethal","save_toxin_nonlethal","save_disease","save_electrocution","save_heat","save_cold","save_drugs","save_pain"], function(values) {
+        getAttrs(["pe","save_all","save_comadeath","save_magic","save_ritual","save_toxin_lethal","save_toxin_nonlethal","save_disease","save_electrocution","save_heat","save_cold","save_drugs","save_pain"], function(values) {
             let pe = parseInt(values.pe)||0;
+            let save_all = parseInt(values.save_all)||0;
             let save_comadeath = parseInt(values.save_comadeath)||0;
             let save_magic = parseInt(values.save_magic)||0;
             let save_ritual = parseInt(values.save_ritual)||0;
@@ -6142,20 +6654,20 @@
                 pe_recovery_bonus: pe_recovery_bonus,
                 pe_magic_bonus: pe_magic_bonus,
                 save_comadeath_total: pe_recovery_bonus + save_comadeath,
-                save_magic_total: pe_magic_bonus + save_magic,
-                save_ritual_total: pe_magic_bonus + save_ritual,
-                save_toxin_lethal_total: pe_magic_bonus + save_toxin_lethal,
-                save_toxin_nonlethal_total: pe_magic_bonus + save_toxin_nonlethal,
-                save_disease_total: pe_magic_bonus + save_disease,
-                save_electrocution_total: pe_magic_bonus + save_electrocution,
-                save_heat_total: pe_magic_bonus + save_heat,
-                save_cold_total: pe_magic_bonus + save_cold,
-                save_drugs_total: pe_magic_bonus + save_drugs,
-                save_pain_total: pe_magic_bonus + save_pain
+                save_magic_total: pe_magic_bonus + save_magic + save_all,
+                save_ritual_total: pe_magic_bonus + save_ritual + save_all,
+                save_toxin_lethal_total: pe_magic_bonus + save_toxin_lethal + save_all,
+                save_toxin_nonlethal_total: pe_magic_bonus + save_toxin_nonlethal + save_all,
+                save_disease_total: pe_magic_bonus + save_disease + save_all,
+                save_electrocution_total: pe_magic_bonus + save_electrocution + save_all,
+                save_heat_total: pe_magic_bonus + save_heat + save_all,
+                save_cold_total: pe_magic_bonus + save_cold + save_all,
+                save_drugs_total: pe_magic_bonus + save_drugs + save_all,
+                save_pain_total: pe_magic_bonus + save_pain + save_all
             });
         });
     }
-    on("change:pe change:save_comadeath change:save_magic change:save_ritual change:save_toxin_lethal change:save_toxin_nonlethal change:save_disease change:save_electrocution change:save_heat change:save_cold change:save_drugs change:save_pain", update_pe);
+    on("change:pe change:save_all change:save_comadeath change:save_magic change:save_ritual change:save_toxin_lethal change:save_toxin_nonlethal change:save_disease change:save_electrocution change:save_heat change:save_cold change:save_drugs change:save_pain", update_pe);
     // PB
     const charmlist = {16:30, 17:35, 18:40, 19:45, 20:50, 21:55, 22:60, 23:65, 24:70, 25:75, 26:80, 27:83, 28:86, 29:90, 30:92};
     on("change:pb", function(eventInfo) {
@@ -6204,6 +6716,18 @@
             let hth_numberattacks = parseInt(values.hth_numberattacks)||1;
             let update = speedupdate(spd, hth_numberattacks, pe);
             setAttrs(update);
+        });
+    });
+    // OTHER SAVES
+    on("change:save_all change:save_curses change:save_horror", function(eventInfo) {
+        getAttrs(["save_all","save_curses","save_horror"], function(values) {
+            let save_all = parseInt(values.save_all)||0;
+            let save_curses = parseInt(values.save_curses)||0;
+            let save_horror = parseInt(values.save_horror)||0;
+            setAttrs({
+                save_curses_total: save_curses + save_all,
+                save_horror_total: save_horror + save_all
+            });
         });
     });
 
