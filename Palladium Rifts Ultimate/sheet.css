@@ -455,6 +455,9 @@ h4.grid2 {
 .ui-dialog .charsheet h3 select {
     width: auto;
 }
+.ui-dialog .charsheet h3 input.lbl {
+    width: auto;
+}
 .grid-stats {
     grid-template-columns: 1fr 1fr 1fr 6fr;
 }
